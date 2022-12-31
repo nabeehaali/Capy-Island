@@ -4,8 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cube
-  - Light
+  - Player 1
+  - Player 2
+  - Player 3
+  - Player 4
+  - Torch
+  - P1Point
+  - P2Point
+  - P3Point
+  - P4Point
   layers:
   - Default
   - TransparentFX
