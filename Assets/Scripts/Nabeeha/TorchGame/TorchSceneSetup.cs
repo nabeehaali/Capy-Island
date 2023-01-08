@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using TMPro;
+using System.Linq;
 
 public class TorchSceneSetup : MonoBehaviour
 {
@@ -15,33 +15,32 @@ public class TorchSceneSetup : MonoBehaviour
     bool gameDone = false;
 
     public TMP_Text countdown;
+    public int countdownTime;
     void Start()
     {
-        option = UnityEngine.Random.Range(1, 3);
+        option = Random.Range(0, torchPlacements.Length);
 
-        if (option == 1)
+        for(int i = 0; i < torchPlacements.Length; i++)
         {
-            torchPlacements[0].SetActive(true);
-        }
-        else if (option == 2)
-        {
-            torchPlacements[1].SetActive(true);
-        }
-        else if (option == 3)
-        {
-            torchPlacements[2].SetActive(true);
+            if (i == option)
+            {
+                torchPlacements[i].SetActive(true);
+            }
         }
 
-        StartCoroutine(countDown(gameLength));
+        StartCoroutine(startGame());
+        //StartCoroutine(countDown(gameLength));
     }
 
     private void Update()
     {
         timePassed += Time.deltaTime;
 
-        if (timePassed >= gameLength && !gameDone)
+        //change the +1 to however long the start delay is
+        if (timePassed >= gameLength + countdownTime && !gameDone)
         {
             EndGame();
+            countdown.SetText("Game Over!");
             gameDone = true;            
         }
 
@@ -50,7 +49,7 @@ public class TorchSceneSetup : MonoBehaviour
     void EndGame()
     {
         //update text
-        countdown.SetText("Game Over!");
+        //countdown.SetText("Game Over!");
 
         //turn on all lights
         mainLight.transform.Rotate(106, 0, 0);
@@ -73,31 +72,29 @@ public class TorchSceneSetup : MonoBehaviour
         torchpoints.Sort();
         torchpoints.Reverse();
 
-        //foreach (TorchPoints torch in torchpoints)
-        //{
-        //    print(torch.playerID + " " + torch.playerPoints);
-        //}
+        List<TorchPoints> distinct = torchpoints.Distinct(new ItemEqualityComparer()).ToList();
 
         for (int i = 0; i < torchpoints.Count; i++)
         {
-            if (torchpoints[i].playerPoints == GameObject.FindGameObjectsWithTag("P1Point").Length && torchpoints[i].playerID == "P1")
+            for (int j = 0; j < distinct.Count; j++)
             {
-                //add delay, then make player jump
-                Debug.Log("P1 is in " + (i + 1) + " place");
-            }
-            else if (torchpoints[i].playerPoints == GameObject.FindGameObjectsWithTag("P2Point").Length && torchpoints[i].playerID == "P2")
-            {
-                Debug.Log("P2 is in " + (i + 1) + " place");
-            }
-            else if (torchpoints[i].playerPoints == GameObject.FindGameObjectsWithTag("P3Point").Length && torchpoints[i].playerID == "P3")
-            {
-                Debug.Log("P3 is in " + (i + 1) + " place");
-            }
-            else if (torchpoints[i].playerPoints == GameObject.FindGameObjectsWithTag("P4Point").Length && torchpoints[i].playerID == "P4")
-            {
-                Debug.Log("P4 is in " + (i + 1) + " place");
+                if (torchpoints[i].playerPoints == distinct[j].playerPoints)
+                {
+                    //if (i == 0)
+                    //{
+                    //    countdown.SetText("" + torchpoints[0].playerPoints + " is the winner!");
+                    //}
+                    Debug.Log(torchpoints[i].playerID + " is in " + (j+1) + " place!");
+                }
             }
         }
+    }
+
+    IEnumerator startGame()
+    {
+        countdown.SetText("Start!");
+        yield return new WaitForSeconds(countdownTime);
+        StartCoroutine(countDown(gameLength));
     }
 
     IEnumerator countDown(int seconds)

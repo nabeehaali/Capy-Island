@@ -13,6 +13,9 @@ TagManager:
   - P2Point
   - P3Point
   - P4Point
+  - Light
+  - Water
+  - Iceberg
   layers:
   - Default
   - TransparentFX

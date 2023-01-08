@@ -113,7 +113,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &9036684077047462479
@@ -128,5 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a51a2a682f7b141aea3447f8c982b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOptions: []
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}

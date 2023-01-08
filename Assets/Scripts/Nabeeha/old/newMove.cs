@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class newMove : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     Vector2 playermovement;
 
     public float speed;
 
-    void Awake()
+    void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if(sceneName == "TorchGame")
+        if (sceneName == "Nothing")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
