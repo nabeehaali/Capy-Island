@@ -41,8 +41,8 @@ public class IdolRotation : MonoBehaviour
         {
             Debug.Log("Hit Wall");
         }
-        Debug.Log(transform.position);
-        Debug.Log(-transform.forward);
+        //Debug.Log(transform.position);
+        //Debug.Log(-transform.forward);
 
 
 
@@ -58,10 +58,12 @@ public class IdolRotation : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+
         if (collision.gameObject.tag == "Player") {
             Destroy(collision.gameObject);
+            Debug.Log("Player in zone");
         }
     }
 }
