@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6570967013377015206}
   - component: {fileID: 7211021198522128346}
-  - component: {fileID: -3860822122725645626}
   - component: {fileID: 2412309087488039261}
-  - component: {fileID: 4729429628410082235}
-  - component: {fileID: -4303478233520413849}
+  - component: {fileID: -793117647168687137}
+  - component: {fileID: 6419911494426830731}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Player
@@ -55,19 +54,6 @@ MonoBehaviour:
   - {fileID: 4485230642286563851, guid: 7e0aeaa2a0fa7ac49846e1ee266e4813, type: 3}
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}
---- !u!114 &-3860822122725645626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ffce104330ed0419203f2c3b49369d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
 --- !u!114 &2412309087488039261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,8 +82,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -3860822122725645626}
-        m_TargetAssemblyTypeName: newMove, Assembly-CSharp
+      - m_Target: {fileID: -793117647168687137}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: move
         m_Mode: 0
         m_Arguments:
@@ -116,8 +102,8 @@ MonoBehaviour:
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/XInputControllerWindows1/rightStick,/XInputControllerWindows2/rightStick,/XInputControllerWindows3/rightStick,/Mouse/delta,/Touchscreen/delta,/Pen/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4303478233520413849}
-        m_TargetAssemblyTypeName: SledGame, Assembly-CSharp
+      - m_Target: {fileID: 6419911494426830731}
+        m_TargetAssemblyTypeName: SledControls, Assembly-CSharp
         m_MethodName: Push
         m_Mode: 0
         m_Arguments:
@@ -175,7 +161,7 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4729429628410082235
+--- !u!114 &-793117647168687137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,18 +170,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6570967013377015227}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13a16d4b6f7f4642a8eedf15932c46d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a06c6805a836bb42b99f400496d72ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePrefabs:
-  - {fileID: 7729408597546457590, guid: e6a2af1f50e472d48845ba89b2263d66, type: 3}
-  - {fileID: 1872719475361381782, guid: 50534833ef9bf0d4389ee0705884aaf0, type: 3}
-  - {fileID: 4257052705603318809, guid: 91e9542349a32b14b869cae4572f2a77, type: 3}
-  - {fileID: 7963876074997368376, guid: fabaa1709e6b6e349b79480ad387095e, type: 3}
-  fireIncrement: 0.3
-  lightIncrement: 3
-  particleIncrement: 0.1
---- !u!114 &-4303478233520413849
+  speed: 20
+--- !u!114 &6419911494426830731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,7 +183,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6570967013377015227}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
+  m_Script: {fileID: 11500000, guid: 8df9288cc513aa34fbe30828d8fdf0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   magnitude: 6

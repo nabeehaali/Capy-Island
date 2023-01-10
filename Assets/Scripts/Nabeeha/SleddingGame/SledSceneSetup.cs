@@ -40,14 +40,6 @@ public class SledSceneSetup : MonoBehaviour
         {
             Debug.Log(playerOrder[i]);
         }
-        
-        //check which players have SetActive = true
-        //for loop number of GO with playerTag = player that are active
-        //if the child of that GO has tag of 'Player X'
-        //Debug.Log "player X
-        // OR use an if statement to check the child gameObject Tag
-        //also need to check order of when players fall off the iceberg
-        // ^^ this would go in the Sled Game script -> dump GO in array and it will generate an order
     }
 
     IEnumerator startGame()

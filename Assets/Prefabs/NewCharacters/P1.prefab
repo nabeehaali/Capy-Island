@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -5247146083272906689}
   - component: {fileID: 3520128773467444770}
   - component: {fileID: -6923403477536751437}
+  - component: {fileID: -1501929798909904145}
+  - component: {fileID: 3060894374914757722}
   m_Layer: 0
   m_Name: P1
   m_TagString: Player 1
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4485230642286563851}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00023321625, y: 0.018420832, z: 0.015926113}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -224,3 +226,36 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-1501929798909904145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485230642286563851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13a16d4b6f7f4642a8eedf15932c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefabs:
+  - {fileID: 7729408597546457590, guid: e6a2af1f50e472d48845ba89b2263d66, type: 3}
+  - {fileID: 1872719475361381782, guid: 50534833ef9bf0d4389ee0705884aaf0, type: 3}
+  - {fileID: 4257052705603318809, guid: 91e9542349a32b14b869cae4572f2a77, type: 3}
+  - {fileID: 7963876074997368376, guid: fabaa1709e6b6e349b79480ad387095e, type: 3}
+  fireIncrement: 0.3
+  lightIncrement: 3
+  particleIncrement: 0.1
+--- !u!114 &3060894374914757722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485230642286563851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0

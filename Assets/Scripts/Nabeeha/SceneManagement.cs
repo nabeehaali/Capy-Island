@@ -21,7 +21,7 @@ public class SceneManagement : MonoBehaviour
     }*/
     public void firstGame()
     {
-        SceneManager.LoadScene("Nothing");
+        SceneManager.LoadScene("TorchGame");
     }
 
     public void secondGame()

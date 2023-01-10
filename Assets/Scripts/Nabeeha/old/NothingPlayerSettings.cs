@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class NothingPlayerSettings : MonoBehaviour
 {
-    public GameObject player1, player2, player3, player4;
+    //public GameObject player1, player2, player3, player4;
     //GameObject[] allPlayers;
     void Start()
     {
@@ -23,7 +23,7 @@ public class NothingPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
-        player.transform.parent.gameObject.GetComponent<newMove>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
 
     }
 }
