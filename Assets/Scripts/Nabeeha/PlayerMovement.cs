@@ -9,22 +9,31 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRigidbody;
     Vector2 playermovement;
 
-    [SerializeField] float speed;
-    
-    
-    void Awake()
+    public float speed;
+
+    void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        Vector3 movement = new Vector3(playermovement.x, 0, playermovement.y);
-        playerRigidbody.velocity = movement;
+        Vector3 movement = new Vector3(playermovement.x, -9.81f, playermovement.y);
 
-        if(GameObject.FindGameObjectsWithTag("Cube").Length == 0)
+        gameObject.transform.GetChild(0).gameObject.transform.LookAt(gameObject.transform.GetChild(0).gameObject.transform.position + new Vector3(movement.x, 0, movement.z));
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "TorchGame")
         {
-            SceneManager.LoadScene("2DMovement");
+            //Debug.Log("I am using velocity movement");
+            playerRigidbody.velocity = movement;
+        }
+        else if (sceneName == "SleddingGame")
+        {
+            //Debug.Log("I am using force movement");
+            playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
         }
     }
 
@@ -33,11 +42,4 @@ public class PlayerMovement : MonoBehaviour
         playermovement = context.ReadValue<Vector2>() * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Cube")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
 }
