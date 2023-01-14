@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/old/TestCharacterSelect.unity
     guid: 4c93fcde4bff02144bfc7b89cc597a5e
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
+    guid: 3d9fbda8e2105894b82425815cbf740d
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/old/Nothing.unity
     guid: 2fff63d36a372544692e45fc311d8c28
   m_configObjects:

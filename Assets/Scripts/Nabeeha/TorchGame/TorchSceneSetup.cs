@@ -16,6 +16,9 @@ public class TorchSceneSetup : MonoBehaviour
 
     public TMP_Text countdown;
     public int countdownTime;
+
+    public static List<TorchPoints> torchpoints = new List<TorchPoints>();
+    public static List<TorchPoints> distinct;
     void Start()
     {
         option = Random.Range(0, torchPlacements.Length);
@@ -62,7 +65,7 @@ public class TorchSceneSetup : MonoBehaviour
 
         //zoom camera in a bit
 
-        List<TorchPoints> torchpoints = new List<TorchPoints>();
+        
 
         torchpoints.Add(new TorchPoints("P1", GameObject.FindGameObjectsWithTag("P1Point").Length));
         torchpoints.Add(new TorchPoints("P2", GameObject.FindGameObjectsWithTag("P2Point").Length));
@@ -72,7 +75,7 @@ public class TorchSceneSetup : MonoBehaviour
         torchpoints.Sort();
         torchpoints.Reverse();
 
-        List<TorchPoints> distinct = torchpoints.Distinct(new ItemEqualityComparer()).ToList();
+        distinct = torchpoints.Distinct(new ItemEqualityComparer()).ToList();
 
         for (int i = 0; i < torchpoints.Count; i++)
         {
