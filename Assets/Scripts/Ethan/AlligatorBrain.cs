@@ -26,6 +26,7 @@ public class AlligatorBrain : MonoBehaviour
         animator = GetComponent<Animator>();
 
         players = GameObject.FindGameObjectsWithTag("Player");
+        Debug.Log(players);
     }
 
     // Update is called once per frame
@@ -57,6 +58,9 @@ public class AlligatorBrain : MonoBehaviour
     Vector3 randomPoint(Bounds bound)
     {
         bool targetPlayer = (Random.value > 0.5f);
+        // failsafe, just incase
+        if(players.Length >= 0) targetPlayer = false;
+        Debug.Log(targetPlayer);
 
         if(!targetPlayer)
         {
@@ -73,7 +77,25 @@ public class AlligatorBrain : MonoBehaviour
             bool targetLeader = (Random.value > 0.5f);
             if(targetLeader)
             {
+                GameObject leaderPlayer = null;
+                foreach (GameObject player in players)
+                {
+                    if(true)
+                    {
+                        leaderPlayer = player;
+                    }
+                }
 
+                // no leader, random player instead
+                if (leaderPlayer == null) 
+                {
+                    GameObject randomPlayer = players[Random.Range(0, players.Length)];
+                    return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
+
+                } else
+                {
+                    return new Vector3(leaderPlayer.transform.position.x, transform.position.y, leaderPlayer.transform.position.z);
+                }
             } else
             {
                 GameObject randomPlayer = players[Random.Range(0, players.Length)];
