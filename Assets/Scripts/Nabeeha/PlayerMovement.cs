@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
         }
-        else if (sceneName == "SleddingGame")
+        else if (sceneName == "SleddingGame" || sceneName == "AligatorTag")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);

@@ -13,6 +13,7 @@ public class AlligatorBrain : MonoBehaviour
     Vector3 targetPosition;
     private float elapsedTime;
     public float moveTime = 3f;
+    GameObject[] players; 
 
     Animator animator;
 
@@ -23,6 +24,8 @@ public class AlligatorBrain : MonoBehaviour
         b = water.GetComponent<Renderer>().bounds;
         startPosition = transform.position;
         animator = GetComponent<Animator>();
+
+        players = GameObject.FindGameObjectsWithTag("Player");
     }
 
     // Update is called once per frame
@@ -53,13 +56,30 @@ public class AlligatorBrain : MonoBehaviour
 
     Vector3 randomPoint(Bounds bound)
     {
-        Vector3 newTarget = new Vector3(
+        bool targetPlayer = (Random.value > 0.5f);
+
+        if(!targetPlayer)
+        {
+            // going to a random location
+            Vector3 newTarget = new Vector3(
             Random.Range(bound.min.x, bound.max.x),
             0,
             Random.Range(bound.min.z, bound.max.z)
             );
 
-        return new Vector3 (b.ClosestPoint(newTarget).x, transform.position.y, b.ClosestPoint(newTarget).z);
+            return new Vector3(b.ClosestPoint(newTarget).x, transform.position.y, b.ClosestPoint(newTarget).z);
+        } else
+        {
+            bool targetLeader = (Random.value > 0.5f);
+            if(targetLeader)
+            {
+
+            } else
+            {
+                GameObject randomPlayer = players[Random.Range(0, players.Length)];
+                return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
+            }
+        }
     }
 
     public IEnumerator resetMoveTarget()
