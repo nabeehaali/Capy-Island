@@ -25,8 +25,13 @@ public class AlligatorBrain : MonoBehaviour
         startPosition = transform.position;
         animator = GetComponent<Animator>();
 
-        players = GameObject.FindGameObjectsWithTag("Player");
-        Debug.Log(players);
+        
+        if(players == null)
+        {
+            players = GameObject.FindGameObjectsWithTag("Player");
+            Debug.Log("No. of players:" + players.Length);
+        }
+
     }
 
     // Update is called once per frame
@@ -59,7 +64,7 @@ public class AlligatorBrain : MonoBehaviour
     {
         bool targetPlayer = (Random.value > 0.5f);
         // failsafe, just incase
-        if(players.Length >= 0) targetPlayer = false;
+        if(players.Length <= 0) targetPlayer = false;
         Debug.Log(targetPlayer);
 
         if(!targetPlayer)
