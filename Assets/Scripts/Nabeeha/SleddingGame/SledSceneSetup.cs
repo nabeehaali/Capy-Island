@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SledSceneSetup : MonoBehaviour
 {
@@ -12,8 +13,7 @@ public class SledSceneSetup : MonoBehaviour
 
     float timePassed;
     bool gameDone = false;
-
-    public List<string> playerOrder = new List<string>();
+       
 
     void Start()
     {
@@ -34,12 +34,8 @@ public class SledSceneSetup : MonoBehaviour
 
     void EndGame()
     {
-        playerOrder.Reverse();
-
-        for(int i = 0; i <playerOrder.Count; i++)
-        {
-            Debug.Log(playerOrder[i]);
-        }
+        Debug.Log("The game is over now");
+        //SceneManager.LoadScene("HatProgressSled");
     }
 
     IEnumerator startGame()

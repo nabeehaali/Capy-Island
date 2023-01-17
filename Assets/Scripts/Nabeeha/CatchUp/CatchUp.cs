@@ -15,6 +15,7 @@ public class CatchUp : MonoBehaviour
     private void Start()
     {
         numHatsCollected = 0;
+        startingPos = GameObject.Find("StartingPosition").transform;
 
         GameObject.FindGameObjectWithTag("Player 1").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;

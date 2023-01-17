@@ -9,6 +9,8 @@ public class SledGame : MonoBehaviour
     private TrailRenderer _trailRender;
     PlayerMovement playermove;
 
+    public static List<string> playerOrder = new List<string>();
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -23,7 +25,7 @@ public class SledGame : MonoBehaviour
         {
             _trailRender.emitting = false;
             _rigidbody.drag = 4;
-            GameObject.Find("SceneSettings").GetComponent<SledSceneSetup>().playerOrder.Add(this.gameObject.tag);
+            playerOrder.Add(this.gameObject.name);
         }
     }
 }
