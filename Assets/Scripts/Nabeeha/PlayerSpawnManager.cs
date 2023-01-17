@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
+    public TMP_Text instruction;
     public Button play;
     public Transform[] spawnLocations;
     int playerCount;
@@ -22,6 +24,7 @@ public class PlayerSpawnManager : MonoBehaviour
         if (playerCount == 4)
         {
             play.interactable = true;
+            instruction.SetText("Ready to play?");
         }
     }
 

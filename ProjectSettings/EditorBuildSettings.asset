@@ -9,24 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/CharacterSelect.unity
     guid: e5e4f7825ef4bf74098a3d97bbe72f43
   - enabled: 0
-    path: Assets/Scenes/Drafts/Nabeeha/old/3DMovement.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Drafts/Nabeeha/old/2DMovement.unity
-    guid: f2ee7d37d2f733746bb7961dd1b1dbb3
-  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/TorchGame.unity
     guid: c03758b891a2a8d4193bda4d275333e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/SleddingGame.unity
     guid: fff979e5439bcca41b7c39633738cf04
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/old/TestCharacterSelect.unity
-    guid: 4c93fcde4bff02144bfc7b89cc597a5e
-  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/CatchUp.unity
+    guid: cefd3b39e47e3de47ba36c28b3296d55
+  - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
     guid: 3d9fbda8e2105894b82425815cbf740d
-  - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/old/Nothing.unity
-    guid: 2fff63d36a372544692e45fc311d8c28
+  - enabled: 0
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
+    guid: eeb2d5ecc8e5e1f418064829ff338eed
   m_configObjects: {}

@@ -11,7 +11,7 @@ public class SceneManagement : MonoBehaviour
     {
         if (Input.GetButtonDown("StartL") && Input.GetButtonDown("StartR"))
         {
-            CameraShift();
+            SceneManager.LoadScene("CharacterSelect");
         }
     }
     public void CameraShift()
@@ -27,6 +27,11 @@ public class SceneManagement : MonoBehaviour
     public void secondGame()
     {
         SceneManager.LoadScene("SleddingGame");
+    }
+
+    public void catchUp()
+    {
+        SceneManager.LoadScene("CatchUp");
     }
 
     //IEnumerator canvasSwitch()

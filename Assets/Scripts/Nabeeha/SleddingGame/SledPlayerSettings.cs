@@ -8,7 +8,7 @@ public class SledPlayerSettings : MonoBehaviour
     //public GameObject player1, player2, player3, player4;
     //GameObject[] allPlayers;
 
-    public int countdownTime;
+    //public int countdownTime;
     void Start()
     {
        // allPlayers = GameObject.FindGameObjectsWithTag("Player");
