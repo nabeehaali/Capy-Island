@@ -86,7 +86,9 @@ public class AlligatorBrain : MonoBehaviour
                 GameObject leaderPlayer = null;
                 foreach (GameObject player in players)
                 {
-                    if(player.GetComponent<AlligatorPlayerScript>().isLeader)
+                    AlligatorPlayerScript alPlayerScript = player.GetComponentInChildren(typeof(AlligatorPlayerScript)) as AlligatorPlayerScript;
+
+                    if (alPlayerScript.isLeader) 
                     {
                         leaderPlayer = player.transform.GetChild(0).gameObject;
                     }
@@ -101,6 +103,7 @@ public class AlligatorBrain : MonoBehaviour
 
                 } else
                 {
+                    Debug.Log(leaderPlayer);
                     return new Vector3(leaderPlayer.transform.position.x, transform.position.y, leaderPlayer.transform.position.z);
                 }
             } else

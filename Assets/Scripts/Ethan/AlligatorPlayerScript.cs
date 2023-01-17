@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AlligatorPlayerScript : MonoBehaviour
@@ -8,6 +9,8 @@ public class AlligatorPlayerScript : MonoBehaviour
     public int points = 0;
     public int increase = 1;
     public float interval = 10f;
+    public TextMeshPro display;
+    public GameObject crownObj;
     float lastUpdate = 0;
 
 
@@ -25,5 +28,11 @@ public class AlligatorPlayerScript : MonoBehaviour
             points += increase;
             lastUpdate = Time.time;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // uncomment this soon!
+        // display.SetText(points.ToString());
     }
 }
