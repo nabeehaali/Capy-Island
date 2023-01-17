@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2412309087488039261}
   - component: {fileID: -793117647168687137}
   - component: {fileID: 6419911494426830731}
+  - component: {fileID: 4616666122457417381}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Player
@@ -114,6 +115,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4616666122457417381}
+        m_TargetAssemblyTypeName: TorchControls, Assembly-CSharp
+        m_MethodName: LightUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 60230ac9-91e9-46fc-b23d-c8eccd6e682e
     m_ActionName: Player/Fire[/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast,/XInputControllerWindows2/buttonEast,/XInputControllerWindows3/buttonEast,/Mouse/leftButton,/Touchscreen/primaryTouch/tap]
   - m_PersistentCalls:
@@ -156,6 +169,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f8dd0f35-d8c1-404e-8305-ff56377301b0
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4616666122457417381}
+        m_TargetAssemblyTypeName: TorchControls, Assembly-CSharp
+        m_MethodName: BlowOut
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 94e59002-aadf-4720-ac83-bbcdd5fbbb50
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: UI
@@ -187,3 +216,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnitude: 6
+--- !u!114 &4616666122457417381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe50fbec98168b45b877db0a18b4463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canLight: 0
+  canBlow: 0

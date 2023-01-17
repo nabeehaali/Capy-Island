@@ -8,9 +8,12 @@ public class TorchGame : MonoBehaviour
     public float fireIncrement;
     public float lightIncrement;
     public float particleIncrement;
+
+    public TorchControls torchcontrols;
  
     void Start()
     {
+        torchcontrols = transform.parent.gameObject.GetComponent<TorchControls>();
     }
 
     void Update()
@@ -21,7 +24,7 @@ public class TorchGame : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //activate torch
-        if (collision.gameObject.tag == "Torch" && Input.GetButtonDown("Light"))
+        if (collision.gameObject.tag == "Torch" && torchcontrols.canLight == true)
         {
             if(this.gameObject.tag == "Player 1")
             {
@@ -54,11 +57,11 @@ public class TorchGame : MonoBehaviour
         }
 
         //blow out torch
-        if (collision.gameObject.tag == "Torch" && Input.GetButtonDown("Blow"))
+        if (collision.gameObject.tag == "Torch" && torchcontrols.canBlow == true)
         {
             if (this.gameObject.tag == "Player 1")
             {
-                if (collision.gameObject.transform.childCount >= 1)
+                if (collision.gameObject.transform.childCount >= 1 && collision.gameObject.transform.GetChild(0).tag != "P1Point")
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
@@ -85,7 +88,7 @@ public class TorchGame : MonoBehaviour
             }
             else if (this.gameObject.tag == "Player 2")
             {
-                if (collision.gameObject.transform.childCount >= 1)
+                if (collision.gameObject.transform.childCount >= 1 && collision.gameObject.transform.GetChild(0).tag != "P2Point")
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
@@ -111,7 +114,7 @@ public class TorchGame : MonoBehaviour
             }
             else if (this.gameObject.tag == "Player 3")
             {
-                if (collision.gameObject.transform.childCount >= 1)
+                if (collision.gameObject.transform.childCount >= 1 && collision.gameObject.transform.GetChild(0).tag != "P3Point")
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
@@ -137,7 +140,7 @@ public class TorchGame : MonoBehaviour
             }
             else if (this.gameObject.tag == "Player 4")
             {
-                if (collision.gameObject.transform.childCount >= 1)
+                if (collision.gameObject.transform.childCount >= 1 && collision.gameObject.transform.GetChild(0).tag != "P4Point")
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {

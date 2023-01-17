@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TorchSceneSetup : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class TorchSceneSetup : MonoBehaviour
 
     public TMP_Text countdown;
     public int countdownTime;
+
+    public static List<TorchPoints> torchpoints = new List<TorchPoints>();
+    public static List<TorchPoints> distinct;
     void Start()
     {
         option = Random.Range(0, torchPlacements.Length);
@@ -62,32 +66,34 @@ public class TorchSceneSetup : MonoBehaviour
 
         //zoom camera in a bit
 
-        List<TorchPoints> torchpoints = new List<TorchPoints>();
+        
 
-        torchpoints.Add(new TorchPoints("P1", GameObject.FindGameObjectsWithTag("P1Point").Length));
-        torchpoints.Add(new TorchPoints("P2", GameObject.FindGameObjectsWithTag("P2Point").Length));
-        torchpoints.Add(new TorchPoints("P3", GameObject.FindGameObjectsWithTag("P3Point").Length));
-        torchpoints.Add(new TorchPoints("P4", GameObject.FindGameObjectsWithTag("P4Point").Length));
+        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectsWithTag("P1Point").Length));
+        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectsWithTag("P2Point").Length));
+        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectsWithTag("P3Point").Length));
+        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectsWithTag("P4Point").Length));
 
         torchpoints.Sort();
         torchpoints.Reverse();
 
-        List<TorchPoints> distinct = torchpoints.Distinct(new ItemEqualityComparer()).ToList();
+        distinct = torchpoints.Distinct(new ItemEqualityComparer()).ToList();
 
-        for (int i = 0; i < torchpoints.Count; i++)
-        {
-            for (int j = 0; j < distinct.Count; j++)
-            {
-                if (torchpoints[i].playerPoints == distinct[j].playerPoints)
-                {
-                    //if (i == 0)
-                    //{
-                    //    countdown.SetText("" + torchpoints[0].playerPoints + " is the winner!");
-                    //}
-                    Debug.Log(torchpoints[i].playerID + " is in " + (j+1) + " place!");
-                }
-            }
-        }
+        SceneManager.LoadScene("HatProgressTorch");
+
+        //for (int i = 0; i < torchpoints.Count; i++)
+        //{
+        //    for (int j = 0; j < distinct.Count; j++)
+        //    {
+        //        if (torchpoints[i].playerPoints == distinct[j].playerPoints)
+        //        {
+        //            //if (i == 0)
+        //            //{
+        //            //    countdown.SetText("" + torchpoints[0].playerPoints + " is the winner!");
+        //            //}
+        //            Debug.Log(torchpoints[i].playerID + " is in " + (j + 1) + " place!");
+        //        }
+        //    }
+        //}
     }
 
     IEnumerator startGame()
