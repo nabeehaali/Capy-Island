@@ -54,7 +54,6 @@ public class AlligatorBrain : MonoBehaviour
         else if (!moving)
         {
             targetPosition = randomPoint(b);
-            Debug.Log(targetPosition);
             moving = true;
             rise = false;
         }
@@ -62,12 +61,13 @@ public class AlligatorBrain : MonoBehaviour
 
     Vector3 randomPoint(Bounds bound)
     {
+        // deciding if we should target a player or not
         bool targetPlayer = (Random.value > 0.5f);
+
         // failsafe, just incase
         if(players.Length <= 0) targetPlayer = false;
-        Debug.Log(targetPlayer);
 
-        if(!targetPlayer)
+        if(false)
         {
             // going to a random location
             Vector3 newTarget = new Vector3(
@@ -80,21 +80,23 @@ public class AlligatorBrain : MonoBehaviour
         } else
         {
             bool targetLeader = (Random.value > 0.5f);
+            
             if(targetLeader)
             {
                 GameObject leaderPlayer = null;
                 foreach (GameObject player in players)
                 {
-                    if(true)
+                    if(player.GetComponent<AlligatorPlayerScript>().isLeader)
                     {
-                        leaderPlayer = player;
+                        leaderPlayer = player.transform.GetChild(0).gameObject;
                     }
                 }
 
                 // no leader, random player instead
                 if (leaderPlayer == null) 
                 {
-                    GameObject randomPlayer = players[Random.Range(0, players.Length)];
+                    GameObject randomPlayer = players[Random.Range(0, players.Length)].transform.GetChild(0).gameObject;
+                    Debug.Log("not leader" + randomPlayer.name);
                     return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
 
                 } else
@@ -103,7 +105,8 @@ public class AlligatorBrain : MonoBehaviour
                 }
             } else
             {
-                GameObject randomPlayer = players[Random.Range(0, players.Length)];
+                GameObject randomPlayer = players[Random.Range(0, players.Length)].transform.GetChild(0).gameObject;
+                Debug.Log("random player:" + randomPlayer.name);
                 return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
             }
         }

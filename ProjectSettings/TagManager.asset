@@ -17,6 +17,7 @@ TagManager:
   - Water
   - Iceberg
   - BaseHat
+  - Alligator Crown
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Swimming Player
+  - Alligator (Temp)
   - 
   - 
   - 
