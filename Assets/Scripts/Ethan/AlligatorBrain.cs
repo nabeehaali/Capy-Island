@@ -123,6 +123,5 @@ public class AlligatorBrain : MonoBehaviour
         startPosition = transform.position;
         elapsedTime = 0;
         moving = false;
-
     }
 }

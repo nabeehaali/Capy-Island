@@ -12,6 +12,7 @@ public class AlligatorPlayerScript : MonoBehaviour
     public TextMeshPro display;
     public GameObject crownObj;
     float lastUpdate = 0;
+    bool isBit = false;
 
 
     // Start is called before the first frame update
@@ -34,5 +35,18 @@ public class AlligatorPlayerScript : MonoBehaviour
     {
         // uncomment this soon!
         // display.SetText(points.ToString());
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Alligator" && other.GetComponent<AlligatorBrain>().rise)
+        {
+            isBit = true;
+        }
+    }
+
+    private void bit()
+    {
+
     }
 }
