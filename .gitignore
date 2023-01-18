@@ -70,3 +70,12 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+ProjectSettings/ShaderGraphSettings.asset
+Assets/UserSettings/Layouts/default-2021.dwlt
+Assets/Temp/ProcessJobs.meta
+Assets/Temp.meta
+Assets/Logs/shadercompiler-UnityShaderCompiler.exe2.log.meta
+Assets/Logs/shadercompiler-UnityShaderCompiler.exe1.log.meta
+Assets/Logs/shadercompiler-UnityShaderCompiler.exe0.log.meta
+Assets/Library/Bee/fullprofile.json
+Assets/Assets.sln.meta
