@@ -66,8 +66,8 @@ public class AlligatorBrain : MonoBehaviour
 
         // failsafe, just incase
         if(players.Length <= 0) targetPlayer = false;
-
-        if(!targetPlayer)
+        //!targetPlayer
+        if (false)
         {
             // going to a random location
             Vector3 newTarget = new Vector3(
@@ -79,10 +79,14 @@ public class AlligatorBrain : MonoBehaviour
             return new Vector3(b.ClosestPoint(newTarget).x, transform.position.y, b.ClosestPoint(newTarget).z);
         } else
         {
+            // decide if we are targeting the leader or not
             bool targetLeader = (Random.value > 0.5f);
             
             if(targetLeader)
             {
+                // TODO?: Maybe redundant code, target user -> no leader -> random target vs. just target random default
+
+                //finding the leader
                 GameObject leaderPlayer = null;
                 foreach (GameObject player in players)
                 {
@@ -108,6 +112,7 @@ public class AlligatorBrain : MonoBehaviour
                 }
             } else
             {
+                // targeting a random player instead
                 GameObject randomPlayer = players[Random.Range(0, players.Length)].transform.GetChild(0).gameObject;
                 Debug.Log("random player:" + randomPlayer.name);
                 return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
