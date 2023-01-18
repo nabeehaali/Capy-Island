@@ -14,6 +14,7 @@ public class AlligatorPlayerScript : MonoBehaviour
 
     public TextMeshProUGUI display;
     public GameObject crownObj;
+    public GameObject playerObj;
 
     float lastUpdate = 0;
     public bool isBit = false;
@@ -22,14 +23,22 @@ public class AlligatorPlayerScript : MonoBehaviour
 
     bool hasStarted = false;
 
+    public bool canSteal = false;
+    public bool immune = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerID = gameObject.transform.GetChild(0).tag;
+        playerObj = gameObject.transform.GetChild(0).gameObject;
         Regex rgx = new Regex(@"([^A-Z0-9 -]|\s|)"); // remove spaces, numbers and non-capitals
         playerShortDisplay = rgx.Replace(playerID, "");
         display.text = playerShortDisplay + ":" + points;
+
+        // finding the crown (only one should be in scene)
+        // change this if that design changes in the future
+        crownObj = GameObject.FindGameObjectsWithTag("Alligator Crown")[0];
     }
 
     // Update is called once per frame
@@ -64,9 +73,10 @@ public class AlligatorPlayerScript : MonoBehaviour
         StartCoroutine(BiteReset());   
     }
 
-    private void Steal()
+    public void Steal()
     {
         Debug.Log(playerID + "has tried to steal!");
+        crownObj.transform.parent = playerObj.transform;
     }
 
     IEnumerator BiteReset()
@@ -76,6 +86,5 @@ public class AlligatorPlayerScript : MonoBehaviour
         gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         isBit = false;
-
     }
 }
