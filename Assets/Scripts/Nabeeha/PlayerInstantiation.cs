@@ -86,7 +86,7 @@ public class PlayerInstantiation : MonoBehaviour
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(torchRankings[z].playerID).transform, true);
                     currentHat.tag = "Untagged";
-                    currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.014f);
+                    currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     currentHat.transform.localScale = new Vector3(1, 1, 1);
                     inc += 0.1f;
@@ -99,7 +99,7 @@ public class PlayerInstantiation : MonoBehaviour
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(torchRankings[z].playerID).transform, true);
                     currentHat.tag = "Untagged";
-                    currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.014f);
+                    currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     currentHat.transform.localScale = new Vector3(1, 1, 1);
                     inc += 0.1f;
@@ -112,7 +112,7 @@ public class PlayerInstantiation : MonoBehaviour
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(torchRankings[z].playerID).transform, true);
                     currentHat.tag = "Untagged";
-                    currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.014f);
+                    currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     currentHat.transform.localScale = new Vector3(1, 1, 1);
                     inc += 0.1f;
@@ -129,7 +129,7 @@ public class PlayerInstantiation : MonoBehaviour
             {
                 //winner special hat
                 GameObject winningHat = Instantiate(specialHat, GameObject.Find(torchRankings[z].playerID).transform, true);
-                winningHat.transform.localPosition = new Vector3(0, 0.2f, 0.014f);
+                winningHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 winningHat.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             }
