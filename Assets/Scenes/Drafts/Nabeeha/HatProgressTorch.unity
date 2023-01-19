@@ -1754,8 +1754,8 @@ MonoBehaviour:
   - {fileID: 1794480060}
   - {fileID: 1820085567}
   - {fileID: 475489415}
-  baseHat: {fileID: 8325331699794230004, guid: ac1a12b8863dd9f448ba6b8c9396103b, type: 3}
-  specialHat: {fileID: 5865577675532149092, guid: 15680abe29dfe564eabff31efb14ea7f,
+  baseHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
+  specialHat: {fileID: 3883263500666222123, guid: 1405de182e5589e478838c4f08c8fe7d,
     type: 3}
 --- !u!4 &804467345
 Transform:
