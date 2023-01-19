@@ -8,15 +8,15 @@ public class TorchPlayerSettings : MonoBehaviour
     public GameObject player1, player2, player3, player4;
     public GameObject spotLight;
 
-    public int countdownTime;
+    //public int countdownTime;
 
     void Start()
     {
         //StartCoroutine(countdown());
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 2.2f, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-10, 2.2f, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(10, 2.2f, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(20, 2.2f, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-160, 123, -126), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-150, 123, -126), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-140, 123, -126), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-130, 123, -126), 0);
 
     }
 
@@ -27,7 +27,7 @@ public class TorchPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 30;
         player.GetComponent<TorchGame>().enabled = true;
         player.GetComponent<TrailRenderer>().enabled = false;
         Instantiate(spotLight, player.gameObject.transform);

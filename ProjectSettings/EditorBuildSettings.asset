@@ -8,19 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/CharacterSelect.unity
     guid: e5e4f7825ef4bf74098a3d97bbe72f43
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/TorchGame.unity
     guid: c03758b891a2a8d4193bda4d275333e9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/SleddingGame.unity
     guid: fff979e5439bcca41b7c39633738cf04
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/CatchUp.unity
     guid: cefd3b39e47e3de47ba36c28b3296d55
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
     guid: 3d9fbda8e2105894b82425815cbf740d
   - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
     guid: eeb2d5ecc8e5e1f418064829ff338eed
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/BlowTheTorchMinigameNab.unity
+    guid: 71f40b5510f41004898a8035e3e87431
   m_configObjects: {}
