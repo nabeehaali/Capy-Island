@@ -66,6 +66,7 @@ public class AlligatorBrain : MonoBehaviour
 
         // failsafe, just incase
         if(players.Length <= 0) targetPlayer = false;
+
         if (!targetPlayer)
         {
             // going to a random location
