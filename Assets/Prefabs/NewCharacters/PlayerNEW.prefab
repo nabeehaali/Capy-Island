@@ -49,10 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOptions:
-  - {fileID: 4485230642286563851, guid: 0b5d3167047634a4ea5f597f12f4a8b8, type: 3}
-  - {fileID: 4485230642286563851, guid: d5881ca3b7d0e284ebde9c8b332af1ec, type: 3}
-  - {fileID: 4485230642286563851, guid: 765368191e3b9294d93e397cd59f2571, type: 3}
-  - {fileID: 4485230642286563851, guid: 7e0aeaa2a0fa7ac49846e1ee266e4813, type: 3}
+  - {fileID: 965909856216797886, guid: 7a1ed9a9c60752e4f9480df49584ccb6, type: 3}
+  - {fileID: 8239014475958362521, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc, type: 3}
+  - {fileID: 3764974995125932039, guid: b246722607752d14db4efe932b9cee49, type: 3}
+  - {fileID: 2006316057326876418, guid: dd11c8090249ed14aa4c6aacc5258620, type: 3}
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2412309087488039261

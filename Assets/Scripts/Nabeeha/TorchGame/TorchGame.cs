@@ -65,23 +65,25 @@ public class TorchGame : MonoBehaviour
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
-                        //Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
-                        GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
-                        GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
-                        ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
-                        
-                        fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
-                        fireLight.GetComponent<Light>().intensity -= lightIncrement;
-                        particleIncrement -= 0.05f;
-                        ParticleSystem.MainModule psMain = fireParticles.main;
-                        psMain.startLifetime = particleIncrement;
+                        Destroy(collision.gameObject.transform.GetChild(i).gameObject);
 
-                        //if light intensity hits 0, destory the GO
-                        if (fireLight.GetComponent<Light>().intensity <= 0)
-                        {
-                            Destroy(collision.gameObject.transform.GetChild(i).gameObject);
-                        }
-                        
+                        ////Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
+                        //GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
+                        //GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
+                        //ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+
+                        //fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
+                        //fireLight.GetComponent<Light>().intensity -= lightIncrement;
+                        //particleIncrement -= 0.05f;
+                        //ParticleSystem.MainModule psMain = fireParticles.main;
+                        //psMain.startLifetime = particleIncrement;
+
+                        ////if light intensity hits 0, destory the GO
+                        //if (fireLight.GetComponent<Light>().intensity <= 0)
+                        //{
+                        //    Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        //}
+
                     }
                 }
 
@@ -92,22 +94,24 @@ public class TorchGame : MonoBehaviour
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
-                        //Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
-                        GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
-                        GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
-                        ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+                        Destroy(collision.gameObject.transform.GetChild(i).gameObject);
 
-                        fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
-                        fireLight.GetComponent<Light>().intensity -= lightIncrement;
-                        particleIncrement -= 0.05f;
-                        ParticleSystem.MainModule psMain = fireParticles.main;
-                        psMain.startLifetime = particleIncrement;
+                        ////Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
+                        //GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
+                        //GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
+                        //ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 
-                        //if light intensity hits 0, destory the GO
-                        if (fireLight.GetComponent<Light>().intensity <= 0)
-                        {
-                            Destroy(collision.gameObject.transform.GetChild(i).gameObject);
-                        }
+                        //fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
+                        //fireLight.GetComponent<Light>().intensity -= lightIncrement;
+                        //particleIncrement -= 0.05f;
+                        //ParticleSystem.MainModule psMain = fireParticles.main;
+                        //psMain.startLifetime = particleIncrement;
+
+                        ////if light intensity hits 0, destory the GO
+                        //if (fireLight.GetComponent<Light>().intensity <= 0)
+                        //{
+                        //    Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        //}
                     }
                 }
 
@@ -118,22 +122,24 @@ public class TorchGame : MonoBehaviour
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
-                        //Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
-                        GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
-                        GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
-                        ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+                        Destroy(collision.gameObject.transform.GetChild(i).gameObject);
 
-                        fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
-                        fireLight.GetComponent<Light>().intensity -= lightIncrement;
-                        particleIncrement -= 0.05f;
-                        ParticleSystem.MainModule psMain = fireParticles.main;
-                        psMain.startLifetime = particleIncrement;
+                        ////Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
+                        //GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
+                        //GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
+                        //ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 
-                        //if light intensity hits 0, destory the GO
-                        if (fireLight.GetComponent<Light>().intensity <= 0)
-                        {
-                            Destroy(collision.gameObject.transform.GetChild(i).gameObject);
-                        }
+                        //fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
+                        //fireLight.GetComponent<Light>().intensity -= lightIncrement;
+                        //particleIncrement -= 0.05f;
+                        //ParticleSystem.MainModule psMain = fireParticles.main;
+                        //psMain.startLifetime = particleIncrement;
+
+                        ////if light intensity hits 0, destory the GO
+                        //if (fireLight.GetComponent<Light>().intensity <= 0)
+                        //{
+                        //    Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        //}
                     }
                 }
 
@@ -144,22 +150,23 @@ public class TorchGame : MonoBehaviour
                 {
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
-                        //Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
-                        GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
-                        GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
-                        ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+                        Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        ////Assumption: fireLight is first child of prefab and fireparticles are second child of prefab
+                        //GameObject fire = collision.gameObject.transform.GetChild(i).gameObject;
+                        //GameObject fireLight = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject;
+                        //ParticleSystem fireParticles = collision.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 
-                        fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
-                        fireLight.GetComponent<Light>().intensity -= lightIncrement;
-                        particleIncrement -= 0.05f;
-                        ParticleSystem.MainModule psMain = fireParticles.main;
-                        psMain.startLifetime = particleIncrement;
+                        //fire.transform.localScale = new Vector3(fire.transform.localScale.x - fireIncrement, fire.transform.localScale.y - fireIncrement, fire.transform.localScale.z - fireIncrement);
+                        //fireLight.GetComponent<Light>().intensity -= lightIncrement;
+                        //particleIncrement -= 0.05f;
+                        //ParticleSystem.MainModule psMain = fireParticles.main;
+                        //psMain.startLifetime = particleIncrement;
 
-                        //if light intensity hits 0, destory the GO
-                        if (fireLight.GetComponent<Light>().intensity <= 0)
-                        {
-                            Destroy(collision.gameObject.transform.GetChild(i).gameObject);
-                        }
+                        ////if light intensity hits 0, destory the GO
+                        //if (fireLight.GetComponent<Light>().intensity <= 0)
+                        //{
+                        //    Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        //}
                     }
                 }
 

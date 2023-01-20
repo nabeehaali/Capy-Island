@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bb0397fbdc3a1c4684e61ca47a1a673, type: 2}
+  - {fileID: 2100000, guid: 8f3708c0b2ac6aa4e9ee1ebc612338b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,13 +240,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePrefabs:
-  - {fileID: 7729408597546457590, guid: e6a2af1f50e472d48845ba89b2263d66, type: 3}
-  - {fileID: 1872719475361381782, guid: 50534833ef9bf0d4389ee0705884aaf0, type: 3}
-  - {fileID: 4257052705603318809, guid: 91e9542349a32b14b869cae4572f2a77, type: 3}
-  - {fileID: 7963876074997368376, guid: fabaa1709e6b6e349b79480ad387095e, type: 3}
+  - {fileID: 3536932822089449967, guid: 88b9aee878c11bd4eb6eb90e3f507229, type: 3}
+  - {fileID: 7686966729777196584, guid: 33e06046dbb105144815ea37a0c7a830, type: 3}
+  - {fileID: 5198615058768792702, guid: 5628aae4bf2ef84498ad86f043082061, type: 3}
+  - {fileID: 1186559613338276839, guid: 2e71dfdec5884e940a58598c51e1cc7e, type: 3}
   fireIncrement: 0.3
   lightIncrement: 3
   particleIncrement: 0.1
+  torchcontrols: {fileID: 0}
 --- !u!114 &-5945682427469222993
 MonoBehaviour:
   m_ObjectHideFlags: 0
