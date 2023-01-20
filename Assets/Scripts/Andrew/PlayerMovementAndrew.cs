@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementAndrew : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     Vector2 playermovement;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash" || sceneName == "BlowTheTorchMinigameNab" || sceneName == "CatchUp")
+        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
                 playerRigidbody.velocity = new Vector3(playermovement.x * ramFactor, -9.81f, playermovement.y * ramFactor);
             }
         }
-        else if (sceneName == "SleddingGame" || sceneName == "AligatorTag")
+        else if (sceneName == "SleddingGame")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
@@ -45,15 +45,15 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public void move(InputAction.CallbackContext context)
-    {
-        playermovement = context.ReadValue<Vector2>() * speed;
-    }
+    //public void move(InputAction.CallbackContext context)
+    //{
+    //    playermovement = context.ReadValue<Vector2>() * speed;
+    //}
 
-    public void Ram(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.duration);
-        ram = context.ReadValue<float>();
-    }
+    //public void Ram(InputAction.CallbackContext context)
+    //{
+    //    Debug.Log(context.duration);
+    //    ram = context.ReadValue<float>();
+    //}
 
 }

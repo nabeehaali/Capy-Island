@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 6d74f6bda5b511e4dbc28a6398a0816b
+<<<<<<<< HEAD:Assets/Prefabs/Hats.meta
+guid: 50ba76596bae48041a32dc635a995e23
 folderAsset: yes
+========
+guid: 2fe85d7da288b4645881d84db3ef623f
+>>>>>>>> main:Assets/Scenes/Drafts/Amy/AlligatorTag.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
