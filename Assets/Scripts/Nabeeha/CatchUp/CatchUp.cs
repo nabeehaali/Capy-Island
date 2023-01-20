@@ -19,8 +19,11 @@ public class CatchUp : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("Player 1").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").GetComponent<Rigidbody>().isKinematic = true;
         GameObject.FindGameObjectWithTag("Player 3").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").GetComponent<Rigidbody>().isKinematic = true;
         GameObject.FindGameObjectWithTag("Player 4").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").GetComponent<Rigidbody>().isKinematic = true;
     }
 
     private void Update()
@@ -33,6 +36,7 @@ public class CatchUp : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                 GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player 2").GetComponent<Rigidbody>().isKinematic = false;
                 moveOnP2 = true;
             }
         }
@@ -42,6 +46,7 @@ public class CatchUp : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player 3").gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                 GameObject.FindGameObjectWithTag("Player 3").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player 3").GetComponent<Rigidbody>().isKinematic = false;
                 moveOnP3 = true;
             }
         }
@@ -51,6 +56,7 @@ public class CatchUp : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player 4").gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                 GameObject.FindGameObjectWithTag("Player 4").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player 4").GetComponent<Rigidbody>().isKinematic = false;
                 moveOnP4 = true;
             }
         }

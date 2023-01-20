@@ -29,9 +29,14 @@ public class SledPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 50;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 100;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<SledGame>().enabled = true;
+        player.GetComponent<TorchGame>().enabled = false;
+        player.GetComponent<CatchUp>().enabled = false;
+        player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         player.GetComponent<Rigidbody>().drag = 1;
