@@ -29,4 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/old/Nothing.unity
     guid: 2fff63d36a372544692e45fc311d8c28
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c7ad1d5407e777e4da0bb4b518c1605b,
+      type: 2}
