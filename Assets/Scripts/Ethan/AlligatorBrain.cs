@@ -66,8 +66,7 @@ public class AlligatorBrain : MonoBehaviour
 
         // failsafe, just incase
         if(players.Length <= 0) targetPlayer = false;
-        //!targetPlayer
-        if (false)
+        if (!targetPlayer)
         {
             // going to a random location
             Vector3 newTarget = new Vector3(
@@ -76,6 +75,7 @@ public class AlligatorBrain : MonoBehaviour
             Random.Range(bound.min.z, bound.max.z)
             );
 
+            Debug.Log("Random Position: " + newTarget);
             return new Vector3(b.ClosestPoint(newTarget).x, transform.position.y, b.ClosestPoint(newTarget).z);
         } else
         {
@@ -102,19 +102,19 @@ public class AlligatorBrain : MonoBehaviour
                 if (leaderPlayer == null) 
                 {
                     GameObject randomPlayer = players[Random.Range(0, players.Length)].transform.GetChild(0).gameObject;
-                    Debug.Log("not leader" + randomPlayer.name);
+                    Debug.Log("Not leader: " + randomPlayer.name);
                     return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
 
                 } else
                 {
-                    Debug.Log(leaderPlayer);
+                    Debug.Log("Leader: " + leaderPlayer);
                     return new Vector3(leaderPlayer.transform.position.x, transform.position.y, leaderPlayer.transform.position.z);
                 }
             } else
             {
                 // targeting a random player instead
                 GameObject randomPlayer = players[Random.Range(0, players.Length)].transform.GetChild(0).gameObject;
-                Debug.Log("random player:" + randomPlayer.name);
+                Debug.Log("Random Player: " + randomPlayer.name);
                 return new Vector3(randomPlayer.transform.position.x, transform.position.y, randomPlayer.transform.position.z);
             }
         }

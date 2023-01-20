@@ -298,6 +298,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""211e8a50-f4dc-46d8-9123-fd43fd9df068"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5aac2eea-d78e-4582-9220-ed19dc0f5dc7"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",

@@ -5365,7 +5365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563319292}
   m_Layer: 0
-  m_Name: Temp integration
+  m_Name: Temp Env integration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

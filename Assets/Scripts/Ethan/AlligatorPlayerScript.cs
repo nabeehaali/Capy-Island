@@ -24,7 +24,7 @@ public class AlligatorPlayerScript : MonoBehaviour
     bool hasStarted = false;
 
     public bool canSteal = false;
-    public bool immune = false;
+    public bool isImmune = false;
 
 
     // Start is called before the first frame update
@@ -67,6 +67,12 @@ public class AlligatorPlayerScript : MonoBehaviour
     public void Bit()
     {
         // freezing player movement
+        if (isLeader)
+        {
+            crownObj.transform.parent = null;
+            crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
+            isLeader = false;
+        }
         isBit = true;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
@@ -75,14 +81,35 @@ public class AlligatorPlayerScript : MonoBehaviour
 
     public void Steal()
     {
-        Debug.Log(playerID + "has tried to steal!");
-        crownObj.transform.parent = playerObj.transform;
+        if(canSteal && !isBit)
+        {
+            if(crownObj.transform.parent != null)
+            {
+                Debug.Log("Reached!");
+                // basically just a catch statement before actually stealing the crown
+                if (crownObj.GetComponentInParent<AlligatorPlayerScript>().isLeader 
+                    && !crownObj.GetComponentInParent<AlligatorPlayerScript>().isImmune)
+                {
+                    Debug.Log(playerID + "has tried to steal from " + crownObj.transform.parent.name);
+                    crownObj.GetComponentInParent<AlligatorPlayerScript>().isLeader = false;
+                    crownObj.transform.parent = playerObj.transform;
+                    crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
+                    isLeader = true;
+                }
+            } else
+            {
+                // Debug.Log(playerID + "has tried to steal!");
+                crownObj.transform.parent = playerObj.transform;
+                crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
+                isLeader = true;
+            }
+        }
     }
 
     IEnumerator BiteReset()
     {
         yield return new WaitForSeconds(5f);
-        Debug.Log(playerID + "has recovered");
+        // Debug.Log(playerID + "has recovered");
         gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         isBit = false;
