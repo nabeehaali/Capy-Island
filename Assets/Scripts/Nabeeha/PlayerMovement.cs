@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash")
+        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash" || sceneName == "BlowTheTorchMinigameNab" || sceneName == "CatchUp")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
                 playerRigidbody.velocity = new Vector3(playermovement.x * ramFactor, -9.81f, playermovement.y * ramFactor);
             }
         }
-        else if (sceneName == "SleddingGame")
+        else if (sceneName == "SleddingGame" || sceneName == "AligatorTag")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);

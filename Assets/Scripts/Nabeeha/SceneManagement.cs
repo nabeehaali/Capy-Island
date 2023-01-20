@@ -11,7 +11,7 @@ public class SceneManagement : MonoBehaviour
     {
         if (Input.GetButtonDown("StartL") && Input.GetButtonDown("StartR"))
         {
-            CameraShift();
+            SceneManager.LoadScene("CharacterSelect");
         }
     }
     public void CameraShift()
@@ -21,12 +21,17 @@ public class SceneManagement : MonoBehaviour
     }*/
     public void firstGame()
     {
-        SceneManager.LoadScene("TorchGame");
+        SceneManager.LoadScene("BlowTheTorchMinigameNab");
     }
 
     public void secondGame()
     {
         SceneManager.LoadScene("SleddingGame");
+    }
+
+    public void catchUp()
+    {
+        SceneManager.LoadScene("CatchUp");
     }
 
     //IEnumerator canvasSwitch()

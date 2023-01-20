@@ -32,7 +32,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""004b0c0e-94fe-48e1-8024-d94976a40358"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -41,7 +41,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""2d78a4e4-2334-43a7-973e-b692ba4cc375"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -55,9 +55,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ram"",
+                    ""name"": ""Blow"",
                     ""type"": ""Button"",
-                    ""id"": ""b815a24d-3339-4499-aa5c-8a0116fa50ae"",
+                    ""id"": ""94e59002-aadf-4720-ac83-bbcdd5fbbb50"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -298,8 +298,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2b48d0b8-16ca-47ff-b542-adc9804119ec"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""id"": ""211e8a50-f4dc-46d8-9123-fd43fd9df068"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -309,34 +309,23 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""79868033-3d79-4d8a-92bb-ab12a8469013"",
-                    ""path"": ""<Keyboard>/comma"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""312780b7-3665-43cf-a119-455b4e57283b"",
+                    ""id"": ""5aac2eea-d78e-4582-9220-ed19dc0f5dc7"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Playstation 4"",
-                    ""action"": ""Ram"",
+                    ""groups"": ""Gamepad;Joystick"",
+                    ""action"": ""Blow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cffccc9e-35c9-4fa3-953c-8d98037ed368"",
-                    ""path"": ""<Keyboard>/#(,)"",
+                    ""id"": ""c0c28930-7f68-4c3c-9559-d10c8ee3c73d"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Ram"",
+                    ""groups"": ""Gamepad;Joystick"",
+                    ""action"": ""Blow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -919,17 +908,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Playstation 4"",
-            ""bindingGroup"": ""Playstation 4"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<DualShockGamepad>"",
-                    ""isOptional"": true,
-                    ""isOR"": false
-                }
-            ]
         }
     ]
 }");
@@ -938,7 +916,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_Ram = m_Player.FindAction("Ram", throwIfNotFound: true);
+        m_Player_Blow = m_Player.FindAction("Blow", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1013,7 +991,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_Ram;
+    private readonly InputAction m_Player_Blow;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1021,7 +999,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @Ram => m_Wrapper.m_Player_Ram;
+        public InputAction @Blow => m_Wrapper.m_Player_Blow;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1040,9 +1018,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Ram.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRam;
-                @Ram.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRam;
-                @Ram.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRam;
+                @Blow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
+                @Blow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
+                @Blow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1056,9 +1034,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @Ram.started += instance.OnRam;
-                @Ram.performed += instance.OnRam;
-                @Ram.canceled += instance.OnRam;
+                @Blow.started += instance.OnBlow;
+                @Blow.performed += instance.OnBlow;
+                @Blow.canceled += instance.OnBlow;
             }
         }
     }
@@ -1213,21 +1191,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    private int m_Playstation4SchemeIndex = -1;
-    public InputControlScheme Playstation4Scheme
-    {
-        get
-        {
-            if (m_Playstation4SchemeIndex == -1) m_Playstation4SchemeIndex = asset.FindControlSchemeIndex("Playstation 4");
-            return asset.controlSchemes[m_Playstation4SchemeIndex];
-        }
-    }
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnRam(InputAction.CallbackContext context);
+        void OnBlow(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

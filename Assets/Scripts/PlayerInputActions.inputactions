@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "004b0c0e-94fe-48e1-8024-d94976a40358",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -19,7 +19,7 @@
                     "type": "Value",
                     "id": "2d78a4e4-2334-43a7-973e-b692ba4cc375",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -33,9 +33,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ram",
+                    "name": "Blow",
                     "type": "Button",
-                    "id": "b815a24d-3339-4499-aa5c-8a0116fa50ae",
+                    "id": "94e59002-aadf-4720-ac83-bbcdd5fbbb50",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -276,8 +276,8 @@
                 },
                 {
                     "name": "",
-                    "id": "2b48d0b8-16ca-47ff-b542-adc9804119ec",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "211e8a50-f4dc-46d8-9123-fd43fd9df068",
+                    "path": "<SwitchProControllerHID>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -287,34 +287,23 @@
                 },
                 {
                     "name": "",
-                    "id": "79868033-3d79-4d8a-92bb-ab12a8469013",
-                    "path": "<Keyboard>/comma",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "312780b7-3665-43cf-a119-455b4e57283b",
+                    "id": "5aac2eea-d78e-4582-9220-ed19dc0f5dc7",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad;Playstation 4",
-                    "action": "Ram",
+                    "groups": "Gamepad;Joystick",
+                    "action": "Blow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "cffccc9e-35c9-4fa3-953c-8d98037ed368",
-                    "path": "<Keyboard>/#(,)",
+                    "id": "c0c28930-7f68-4c3c-9559-d10c8ee3c73d",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Ram",
+                    "groups": "Gamepad;Joystick",
+                    "action": "Blow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -894,17 +883,6 @@
                 {
                     "devicePath": "<XRController>",
                     "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Playstation 4",
-            "bindingGroup": "Playstation 4",
-            "devices": [
-                {
-                    "devicePath": "<DualShockGamepad>",
-                    "isOptional": true,
                     "isOR": false
                 }
             ]
