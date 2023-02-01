@@ -15,10 +15,10 @@ public class SledPlayerSettings : MonoBehaviour
 
         //StartCoroutine(countdown());
 
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 12, 23), 180);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(0, 12, -20), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(20, 12, -8.5f), -90);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-20, 12, -8.5f), 90);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 162, 769), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-300, 162, 787), 90);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-267, 162, 810), 180);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-233, 162, 787), -90);
 
     }
 
@@ -29,7 +29,7 @@ public class SledPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 100;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 50;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = true;

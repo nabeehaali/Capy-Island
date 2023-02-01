@@ -10,10 +10,15 @@ public class PlayerInstantiation : MonoBehaviour
     public TMP_Text[] placements;
     GameObject[] allPlayers;
 
-    public List<TorchPoints> torchRankings;
-    public List<TorchPoints> torchRankingsDistinct;
+    public List<MinigamePoints> activeList;
 
-    List<string> sledRankings = new List<string>();
+    public List<MinigamePoints> torchRankings;
+    public List<MinigamePoints> torchRankingsDistinct;
+
+    public List<MinigamePoints> sledRankings;
+    public List<MinigamePoints> sledRankingsDistinct;
+
+    //List<string> sledRankings = new List<string>();
 
     public GameObject baseHat;
     public GameObject specialHat;
@@ -39,6 +44,7 @@ public class PlayerInstantiation : MonoBehaviour
         {
             torchRankings = TorchSceneSetup.torchpoints;
             torchRankingsDistinct = TorchSceneSetup.distinct;
+            activeList = torchRankings;
 
             for (int i = 0; i < torchRankings.Count; i++)
             {
@@ -55,15 +61,23 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
         else if (sceneName == "HatProgressSled")
-        {
-            sledRankings = SledGame.playerOrder;
-            sledRankings.Reverse();
+        {  
+            sledRankings = SledSceneSetup.sledpoints;
+            sledRankingsDistinct = SledSceneSetup.sleddistinct;
+            activeList = sledRankings;
 
             for (int i = 0; i < sledRankings.Count; i++)
             {
-                GameObject.Find(sledRankings[i]).transform.parent.gameObject.transform.position = spawnPoints[i].position;
-                placements[i].SetText("" + (i + 1));
-                Debug.Log(sledRankings[i]);
+                GameObject.Find(sledRankings[i].playerID).transform.parent.gameObject.transform.position = spawnPoints[i].position;
+
+                for (int j = 0; j < sledRankingsDistinct.Count; j++)
+                {
+                    if (sledRankings[i].playerPoints == sledRankingsDistinct[j].playerPoints)
+                    {
+                        placements[i].SetText("" + (j + 1));
+                        Debug.Log(sledRankings[i].playerID + " is in " + (j + 1) + " place!");
+                    }
+                }
             }
         }
         
@@ -84,7 +98,7 @@ public class PlayerInstantiation : MonoBehaviour
                 //first place
                 for (int i = 0; i < 3; i++)
                 {
-                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(torchRankings[z].playerID).transform, true);
+                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform, true);
                     currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -97,7 +111,7 @@ public class PlayerInstantiation : MonoBehaviour
                 //second place
                 for (int i = 0; i < 2; i++)
                 {
-                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(torchRankings[z].playerID).transform, true);
+                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform, true);
                     currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -110,7 +124,7 @@ public class PlayerInstantiation : MonoBehaviour
                 //third place
                 for (int i = 0; i < 1; i++)
                 {
-                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(torchRankings[z].playerID).transform, true);
+                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform, true);
                     currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -128,7 +142,7 @@ public class PlayerInstantiation : MonoBehaviour
             if (placements[z].text == "1")
             {
                 //winner special hat
-                GameObject winningHat = Instantiate(specialHat, GameObject.Find(torchRankings[z].playerID).transform, true);
+                GameObject winningHat = Instantiate(specialHat, GameObject.Find(activeList[z].playerID).transform, true);
                 winningHat.transform.localPosition = new Vector3(0, 0.1f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 winningHat.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);

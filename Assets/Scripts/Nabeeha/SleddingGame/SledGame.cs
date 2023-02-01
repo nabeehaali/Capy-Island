@@ -7,15 +7,17 @@ public class SledGame : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private TrailRenderer _trailRender;
-    PlayerMovement playermove;
 
-    public static List<string> playerOrder = new List<string>();
+    public bool inWater;
+
+    public static int ranking;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        playermove = transform.parent.gameObject.GetComponent<PlayerMovement>();
         _trailRender = GetComponent<TrailRenderer>();
+        ranking = 4;
+        inWater = false;
     }
 
 
@@ -23,9 +25,11 @@ public class SledGame : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
+            inWater = true;
             _trailRender.emitting = false;
             _rigidbody.drag = 4;
-            playerOrder.Add(this.gameObject.name);
+            SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
+            ranking--;
         }
     }
 }

@@ -22,8 +22,8 @@ public class TorchSceneSetup : MonoBehaviour
 
     public TMP_Text p1Score, p2Score, p3Score, p4Score;
 
-    public static List<TorchPoints> torchpoints = new List<TorchPoints>();
-    public static List<TorchPoints> distinct;
+    public static List<MinigamePoints> torchpoints = new List<MinigamePoints>();
+    public static List<MinigamePoints> distinct;
     void Start()
     {
         sceneLights.SetActive(false);
@@ -62,10 +62,10 @@ public class TorchSceneSetup : MonoBehaviour
 
     void EndGame()
     {
-        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectsWithTag("P1Point").Length));
-        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectsWithTag("P2Point").Length));
-        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectsWithTag("P3Point").Length));
-        torchpoints.Add(new TorchPoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectsWithTag("P4Point").Length));
+        torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectsWithTag("P1Point").Length));
+        torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectsWithTag("P2Point").Length));
+        torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectsWithTag("P3Point").Length));
+        torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectsWithTag("P4Point").Length));
 
         torchpoints.Sort();
         torchpoints.Reverse();

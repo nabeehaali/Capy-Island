@@ -13,6 +13,8 @@ public class SledControls : MonoBehaviour
     void Start()
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+        //REMOVE AFTER TESTNG
+        DontDestroyOnLoad(gameObject);
     }
     void FixedUpdate()
     {
@@ -33,4 +35,6 @@ public class SledControls : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         isPush = false;
     }
+
+    
 }

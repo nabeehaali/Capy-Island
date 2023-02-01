@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-
-public class TorchPoints : IComparable<TorchPoints>
+public class SledPoints : IComparable<SledPoints>
 {
     public string playerID;
     public int playerPoints;
 
-    public TorchPoints(string newplayerID, int newplayerPoints)
+    public SledPoints(string newplayerID, int newplayerPoints)
     {
         playerID = newplayerID;
         playerPoints = newplayerPoints;
     }
 
-    public int CompareTo(TorchPoints other)
+    public int CompareTo(SledPoints other)
     {
         if (other == null)
         {
@@ -25,15 +24,15 @@ public class TorchPoints : IComparable<TorchPoints>
     }
 }
 
-public class ItemEqualityComparer : IEqualityComparer<TorchPoints>
+public class ItemEqualityComparerSled : IEqualityComparer<SledPoints>
 {
-    public bool Equals(TorchPoints x, TorchPoints y)
+    public bool Equals(SledPoints x, SledPoints y)
     {
         // Two items are equal if their keys are equal.
         return x.playerPoints == y.playerPoints;
     }
 
-    public int GetHashCode(TorchPoints obj)
+    public int GetHashCode(SledPoints obj)
     {
         return obj.playerPoints.GetHashCode();
     }

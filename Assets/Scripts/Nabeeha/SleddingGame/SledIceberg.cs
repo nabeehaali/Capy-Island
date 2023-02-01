@@ -15,7 +15,7 @@ public class SledIceberg : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            Physics.IgnoreCollision(transform.GetChild(i).gameObject.GetComponent<BoxCollider>(), water.GetComponent<MeshCollider>());
+            Physics.IgnoreCollision(transform.GetChild(i).gameObject.GetComponent<MeshCollider>(), water.GetComponent<MeshCollider>());
         }
         StartCoroutine(dropPiece());
     }
@@ -30,9 +30,9 @@ public class SledIceberg : MonoBehaviour
 
     private void Move()
     {
-        //Debug.Log(transform.GetChild(randPiece).position);
-        transform.GetChild(randPiece).position = Vector3.MoveTowards(transform.GetChild(randPiece).position, target, moveSpeed * Time.deltaTime);
-        if (transform.GetChild(randPiece).position == target)
+        
+        transform.GetChild(randPiece).localPosition = Vector3.MoveTowards(transform.GetChild(randPiece).localPosition, target, moveSpeed * Time.deltaTime);
+        if (transform.GetChild(randPiece).localPosition == target)
         {
             Destroy(transform.GetChild(randPiece).gameObject);
             StartCoroutine(dropPiece());
@@ -46,7 +46,7 @@ public class SledIceberg : MonoBehaviour
         if(transform.childCount > 1)
         {
             randPiece = Random.Range(0, transform.childCount - 1);
-            target = new Vector3(transform.GetChild(randPiece).position.x, -10f, transform.GetChild(randPiece).position.z);
+            target = new Vector3(transform.GetChild(randPiece).localPosition.x, -12f, transform.GetChild(randPiece).localPosition.z);
             isWait = false;
         }
     }

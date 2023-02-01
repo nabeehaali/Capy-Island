@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class SledSceneSetup : MonoBehaviour
@@ -13,8 +14,9 @@ public class SledSceneSetup : MonoBehaviour
 
     float timePassed;
     bool gameDone = false;
-       
 
+    public static List<MinigamePoints> sledpoints = new List<MinigamePoints>();
+    public static List<MinigamePoints> sleddistinct;
     void Start()
     {
         StartCoroutine(startGame());
@@ -24,7 +26,16 @@ public class SledSceneSetup : MonoBehaviour
     {
         timePassed += Time.deltaTime;
 
+        //checking is time is up
         if (timePassed >= gameLength + countdownTime && !gameDone)
+        {
+            EndGame();
+            countdown.SetText("Game Over!");
+            gameDone = true;
+        }
+
+        //checking if there is one player standing on ice
+        if(SledGame.ranking == 1)
         {
             EndGame();
             countdown.SetText("Game Over!");
@@ -35,7 +46,19 @@ public class SledSceneSetup : MonoBehaviour
     void EndGame()
     {
         Debug.Log("The game is over now");
-        //SceneManager.LoadScene("HatProgressSled");
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            if(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.GetComponent<SledGame>().inWater == false)
+            {
+                sledpoints.Add(new MinigamePoints(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.name, SledGame.ranking));
+            }
+        }
+
+        sledpoints.Sort();
+
+        sleddistinct = sledpoints.Distinct(new ItemEqualityComparer()).ToList();
+
+        SceneManager.LoadScene("HatProgressSled");
     }
 
     IEnumerator startGame()
