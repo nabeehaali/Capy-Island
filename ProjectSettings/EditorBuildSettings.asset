@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/SleddingGame.unity
+    path: Assets/Scenes/Drafts/Nabeeha/old/SleddingGame.unity
     guid: fff979e5439bcca41b7c39633738cf04
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/old/HatProgressSled.unity
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
     guid: eeb2d5ecc8e5e1f418064829ff338eed
   m_configObjects: {}
