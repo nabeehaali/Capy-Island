@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdolRotation : MonoBehaviour
+public class StatueRotation : MonoBehaviour
 {
     // Start is called before the first frame update
     float speed, total;
