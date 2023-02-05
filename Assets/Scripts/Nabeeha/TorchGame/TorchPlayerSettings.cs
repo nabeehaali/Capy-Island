@@ -32,6 +32,15 @@ public class TorchPlayerSettings : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = false;
         Instantiate(spotLight, player.gameObject.transform);
 
+        //disable hats
+        if(player.transform.childCount > 0)
+        {
+            for (int i = 0; i > player.transform.childCount; i++)
+            {
+                player.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
     }
 
     //IEnumerator countdown()

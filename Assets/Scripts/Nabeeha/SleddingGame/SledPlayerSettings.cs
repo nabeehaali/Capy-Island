@@ -40,8 +40,16 @@ public class SledPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         player.GetComponent<Rigidbody>().drag = 1;
-        
-       
+
+        //disable hats
+        if (player.transform.childCount > 0)
+        {
+            for (int i = 0; i > player.transform.childCount; i++)
+            {
+                player.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
     }
 
     //IEnumerator countdown()

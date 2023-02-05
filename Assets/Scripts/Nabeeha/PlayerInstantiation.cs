@@ -35,7 +35,19 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
             allPlayers[j].transform.Rotate(0, 180, 0);
+
+            //enable hats
+            if (allPlayers[j].transform.childCount > 0)
+            {
+                for (int i = 0; i > allPlayers[j].transform.childCount; i++)
+                {
+                    allPlayers[j].transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+
         }
+
+
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -46,7 +58,9 @@ public class PlayerInstantiation : MonoBehaviour
             torchRankingsDistinct = TorchSceneSetup.distinct;
             activeList = torchRankings;
 
-            for (int i = 0; i < torchRankings.Count; i++)
+            displayData(torchRankings, torchRankingsDistinct);
+
+            /*for (int i = 0; i < torchRankings.Count; i++)
             {
                 GameObject.Find(torchRankings[i].playerID).transform.parent.gameObject.transform.position = spawnPoints[i].position;
 
@@ -58,7 +72,7 @@ public class PlayerInstantiation : MonoBehaviour
                         Debug.Log(torchRankings[i].playerID + " is in " + (j + 1) + " place!");
                     }
                 }
-            }
+            }*/
         }
         else if (sceneName == "HatProgressSled")
         {  
@@ -66,7 +80,9 @@ public class PlayerInstantiation : MonoBehaviour
             sledRankingsDistinct = SledSceneSetup.sleddistinct;
             activeList = sledRankings;
 
-            for (int i = 0; i < sledRankings.Count; i++)
+            displayData(sledRankings, sledRankingsDistinct);
+
+            /*for (int i = 0; i < sledRankings.Count; i++)
             {
                 GameObject.Find(sledRankings[i].playerID).transform.parent.gameObject.transform.position = spawnPoints[i].position;
 
@@ -78,12 +94,28 @@ public class PlayerInstantiation : MonoBehaviour
                         Debug.Log(sledRankings[i].playerID + " is in " + (j + 1) + " place!");
                     }
                 }
-            }
+            }*/
         }
         
 
         StartCoroutine(spawnHats());
 
+    }
+    void displayData(List<MinigamePoints> activeRankings, List<MinigamePoints> activeRankingsDistinct)
+    {
+        for (int i = 0; i < activeRankings.Count; i++)
+        {
+            GameObject.Find(activeRankings[i].playerID).transform.parent.gameObject.transform.position = spawnPoints[i].position;
+
+            for (int j = 0; j < activeRankingsDistinct.Count; j++)
+            {
+                if (activeRankings[i].playerPoints == activeRankingsDistinct[j].playerPoints)
+                {
+                    placements[i].SetText("" + (j + 1));
+                    Debug.Log(activeRankings[i].playerID + " is in " + (j + 1) + " place!");
+                }
+            }
+        }
     }
 
     IEnumerator spawnHats()

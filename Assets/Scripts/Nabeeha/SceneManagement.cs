@@ -21,12 +21,12 @@ public class SceneManagement : MonoBehaviour
     }*/
     public void firstGame()
     {
-        SceneManager.LoadScene("BlowTheTorchMinigameNab");
+        SceneManager.LoadScene("TorchGame");
     }
 
     public void secondGame()
     {
-        SceneManager.LoadScene("SleddingGame");
+        SceneManager.LoadScene("SledGame");
     }
 
     public void catchUp()
