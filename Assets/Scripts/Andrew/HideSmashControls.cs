@@ -11,6 +11,7 @@ public class HideSmashControls : MonoBehaviour
     int playerScore;
 
     float fireButton;
+    bool action;
 
     // Start is called before the first frame update
     private void Awake()
@@ -25,17 +26,19 @@ public class HideSmashControls : MonoBehaviour
     {
         float firing = fireButton;
         
-        if (firing > 0.5f)
-        {
-            smashed = true;
-        }
-        
         
     }
 
     public void fire(InputAction.CallbackContext context)
     {
-        fireButton = context.ReadValue<float>();
+        if (context.performed)
+        {
+            smashed = true;
+        }
+        else if (context.canceled)
+        {
+            smashed = false;
+        }
     }
 
 }

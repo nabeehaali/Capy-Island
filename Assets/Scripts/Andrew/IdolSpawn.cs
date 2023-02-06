@@ -29,7 +29,7 @@ public class IdolSpawn : MonoBehaviour
         timer += Time.deltaTime;
         timer2 += Time.deltaTime;
 
-        Debug.Log(timer2);
+        //Debug.Log(timer2);
         if (timer > idolRespawnTime) 
         {
             int randomVecX = Random.Range(-25, 32);

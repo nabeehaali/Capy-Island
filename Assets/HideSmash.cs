@@ -5,6 +5,7 @@ using UnityEngine;
 public class HideSmash : MonoBehaviour
 {
     private int playerScore, oldScore;
+    bool smashed;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,19 @@ public class HideSmash : MonoBehaviour
     {
         if (other.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().smashed == true) //&& firing > 0.5
         {
-            Destroy(other.gameObject, 0.5f);
-            gameObject.GetComponentInParent<HideSmashControls>().smashed = false;
+            destroyIdol(other);
             Debug.Log(playerScore);
         }
+    }
+
+    private void destroyIdol(Collider other) 
+    {
+        if (other.gameObject.activeInHierarchy) 
+        {
+            Destroy(other.gameObject);
+            playerScore++;
+        }
+        
+        
     }
 }
