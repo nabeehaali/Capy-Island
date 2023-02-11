@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 7251225852513889440}
   m_Layer: 0
   m_Name: BaseballCapColoured
-  m_TagString: BaseHat
+  m_TagString: RegularHat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,16 +5,8 @@ using UnityEngine.InputSystem;
 
 public class SledPlayerSettings : MonoBehaviour
 {
-    //public GameObject player1, player2, player3, player4;
-    //GameObject[] allPlayers;
-
-    //public int countdownTime;
     void Start()
     {
-       // allPlayers = GameObject.FindGameObjectsWithTag("Player");
-
-        //StartCoroutine(countdown());
-
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 162, 769), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-300, 162, 787), 90);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-267, 162, 810), 180);
@@ -25,6 +17,7 @@ public class SledPlayerSettings : MonoBehaviour
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)
     {
         player.transform.parent.gameObject.transform.position = startPos;
+        player.transform.parent.gameObject.transform.rotation = Quaternion.identity;
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
@@ -42,23 +35,13 @@ public class SledPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().drag = 1;
 
         //disable hats
-        if (player.transform.childCount > 0)
+        for (int i = 0; i < player.transform.childCount; i++)
         {
-            for (int i = 0; i > player.transform.childCount; i++)
+            if (player.transform.GetChild(i).name == "Hats")
             {
                 player.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
 
     }
-
-    //IEnumerator countdown()
-    //{
-    //    yield return new WaitForSeconds(countdownTime);
-
-    //    for (int i = 0; i < allPlayers.Length; i++)
-    //    {
-    //        allPlayers[i].GetComponent<PlayerMovement>().enabled = true;
-    //    }
-    //}
 }

@@ -5,14 +5,10 @@ using UnityEngine;
 
 public class TorchPlayerSettings : MonoBehaviour
 {
-    public GameObject player1, player2, player3, player4;
+    //public GameObject player1, player2, player3, player4;
     public GameObject spotLight;
-
-    //public int countdownTime;
-
     void Start()
     {
-        //StartCoroutine(countdown());
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-160, 122, -126), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-150, 122, -126), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-140, 122, -126), 0);
@@ -23,6 +19,7 @@ public class TorchPlayerSettings : MonoBehaviour
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)
     {
         player.transform.parent.gameObject.transform.position = startPos;
+        player.transform.parent.gameObject.transform.rotation = Quaternion.identity;
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
@@ -33,23 +30,13 @@ public class TorchPlayerSettings : MonoBehaviour
         Instantiate(spotLight, player.gameObject.transform);
 
         //disable hats
-        if(player.transform.childCount > 0)
+        for (int i = 0; i < player.transform.childCount; i++)
         {
-            for (int i = 0; i > player.transform.childCount; i++)
+            if(player.transform.GetChild(i).name == "Hats")
             {
                 player.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
 
     }
-
-    //IEnumerator countdown()
-    //{
-    //    yield return new WaitForSeconds(countdownTime);
-
-    //    for (int i = 0; i < allPlayers.Length; i++)
-    //    {
-    //        allPlayers[i].gameObject.transform.GetChild(0).GetComponent<PlayerInput>().enabled = true;
-    //    }
-    //}
 }

@@ -476,7 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c48e9b4275ade8c4ba5f2b8e0b6a5712, type: 2}
+  - {fileID: 2100000, guid: 2004fba6051870349ab6567489f19516, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1008,8 +1008,8 @@ GameObject:
   - component: {fileID: 4117827476019612540}
   - component: {fileID: 4117827476019612541}
   m_Layer: 0
-  m_Name: WizardHatColoured
-  m_TagString: Wizard
+  m_Name: WizardHatColoured 1
+  m_TagString: Cream
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

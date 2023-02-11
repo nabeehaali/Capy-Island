@@ -3652,10 +3652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1498c860925bc44b6f79652de63019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
-  player3: {fileID: 0}
-  player4: {fileID: 0}
   spotLight: {fileID: 8375601520838594371, guid: 538d1cc3aaf3bd243a2fc601933f71d0,
     type: 3}
 --- !u!4 &1093545983
@@ -3899,17 +3895,17 @@ PrefabInstance:
     - target: {fileID: 5851438367700992150, guid: 17e095122fb0d1545820648e0dd6c86f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9868356
+      value: 161.2
       objectReference: {fileID: 0}
     - target: {fileID: 5851438367700992150, guid: 17e095122fb0d1545820648e0dd6c86f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65059483
+      value: -24.07119
       objectReference: {fileID: 0}
     - target: {fileID: 5851438367700992150, guid: 17e095122fb0d1545820648e0dd6c86f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.21145754
+      value: -45.9
       objectReference: {fileID: 0}
     - target: {fileID: 5851438367700992150, guid: 17e095122fb0d1545820648e0dd6c86f,
         type: 3}
@@ -5468,12 +5464,14 @@ MonoBehaviour:
   - {fileID: 511940402}
   - {fileID: 289173578}
   - {fileID: 1716803241}
-  mainLight: {fileID: 1771546613}
   sceneLights: {fileID: 962600068}
+  accentLights:
+  - {fileID: 741584891}
+  - {fileID: 92468411}
+  - {fileID: 603051417}
   gameLength: 30
   gameover: {fileID: 829205965}
   countdown: {fileID: 948173228}
-  countdownTime: 1
   p1Score: {fileID: 843393223}
   p2Score: {fileID: 1127747518}
   p3Score: {fileID: 1826031125}

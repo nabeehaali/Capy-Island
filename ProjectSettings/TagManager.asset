@@ -22,6 +22,11 @@ TagManager:
   - Alligator Crown
   - Alligator
   - Score UI
+  - Wizard
+  - Chef
+  - Hockey
+  - Cream
+  - RegularHat
   layers:
   - Default
   - TransparentFX

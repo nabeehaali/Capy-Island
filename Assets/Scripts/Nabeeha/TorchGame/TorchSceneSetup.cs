@@ -8,17 +8,17 @@ using UnityEngine.SceneManagement;
 public class TorchSceneSetup : MonoBehaviour
 {
     public GameObject[] torchPlacements;
-    public GameObject mainLight;
     public GameObject sceneLights;
+    public GameObject[] accentLights = new GameObject[2];
     public int gameLength;
     int option;
+    int lightsSum;
 
     float timePassed;
     bool gameDone = false;
 
     public TMP_Text gameover;
     public TMP_Text countdown;
-    public int countdownTime = 1;
 
     public TMP_Text p1Score, p2Score, p3Score, p4Score;
 
@@ -26,7 +26,12 @@ public class TorchSceneSetup : MonoBehaviour
     public static List<MinigamePoints> distinct;
     void Start()
     {
-        sceneLights.SetActive(false);
+
+        for(int i = 0; i < sceneLights.transform.childCount; i++)
+        {
+            sceneLights.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        
         option = Random.Range(0, torchPlacements.Length);
 
         for(int i = 0; i < torchPlacements.Length; i++)
@@ -37,7 +42,6 @@ public class TorchSceneSetup : MonoBehaviour
             }
         }
 
-        //StartCoroutine(startGame());
         StartCoroutine(countDown(gameLength));
     }
 
@@ -58,6 +62,22 @@ public class TorchSceneSetup : MonoBehaviour
         p3Score.SetText("" + GameObject.FindGameObjectsWithTag("P3Point").Length + " Torches");
         p4Score.SetText("" + GameObject.FindGameObjectsWithTag("P4Point").Length + " Torches");
 
+        //checking which lights to activate depending on torches lit in scene
+        lightsSum = GameObject.FindGameObjectsWithTag("P1Point").Length + GameObject.FindGameObjectsWithTag("P2Point").Length + GameObject.FindGameObjectsWithTag("P3Point").Length + GameObject.FindGameObjectsWithTag("P4Point").Length;
+        if (lightsSum >= 1 && lightsSum < 4)
+        {
+            accentLights[0].SetActive(true);
+        }
+        else if (lightsSum >= 4 && lightsSum < 7)
+        {
+            accentLights[1].SetActive(true);
+        }
+        else if (lightsSum >= 7 && lightsSum < 9)
+        {
+            accentLights[0].SetActive(false);
+            accentLights[1].SetActive(false);
+            accentLights[2].SetActive(true);
+        }
     }
 
     void EndGame()
@@ -74,21 +94,6 @@ public class TorchSceneSetup : MonoBehaviour
 
         
         StartCoroutine(finishGame());
-
-        //for (int i = 0; i < torchpoints.Count; i++)
-        //{
-        //    for (int j = 0; j < distinct.Count; j++)
-        //    {
-        //        if (torchpoints[i].playerPoints == distinct[j].playerPoints)
-        //        {
-        //            //if (i == 0)
-        //            //{
-        //            //    countdown.SetText("" + torchpoints[0].playerPoints + " is the winner!");
-        //            //}
-        //            Debug.Log(torchpoints[i].playerID + " is in " + (j + 1) + " place!");
-        //        }
-        //    }
-        //}
     }
 
     IEnumerator finishGame()
@@ -96,8 +101,12 @@ public class TorchSceneSetup : MonoBehaviour
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
-        mainLight.SetActive(false);
-        sceneLights.SetActive(true);
+        for (int i = 0; i < sceneLights.transform.childCount; i++)
+        {
+            sceneLights.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        //mainLight.SetActive(false);
+        //sceneLights.SetActive(true);
         GameObject[] playerLights = GameObject.FindGameObjectsWithTag("Light");
         foreach (GameObject pLight in playerLights)
         {
@@ -105,13 +114,6 @@ public class TorchSceneSetup : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("HatProgressTorch");
-    }
-
-    IEnumerator startGame()
-    {
-        countdown.SetText("Start!");
-        yield return new WaitForSeconds(countdownTime);
-        StartCoroutine(countDown(gameLength));
     }
 
     IEnumerator countDown(int seconds)
