@@ -74,8 +74,6 @@ public class TorchSceneSetup : MonoBehaviour
         }
         else if (lightsSum >= 7 && lightsSum < 9)
         {
-            accentLights[0].SetActive(false);
-            accentLights[1].SetActive(false);
             accentLights[2].SetActive(true);
         }
     }

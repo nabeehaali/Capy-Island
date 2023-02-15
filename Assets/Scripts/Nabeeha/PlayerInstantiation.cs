@@ -10,8 +10,6 @@ public class PlayerInstantiation : MonoBehaviour
     public TMP_Text[] placements;
     GameObject[] allPlayers;
 
-    //public static List<PlayerTotalScore> playerTotalPoints;
-
     public List<MinigamePoints> activeList;
 
     public List<MinigamePoints> torchRankings;
@@ -19,8 +17,6 @@ public class PlayerInstantiation : MonoBehaviour
 
     public List<MinigamePoints> sledRankings;
     public List<MinigamePoints> sledRankingsDistinct;
-
-    //List<string> sledRankings = new List<string>();
 
     public GameObject baseHat;
     public List<GameObject> specialHat;
@@ -38,7 +34,7 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
             allPlayers[j].transform.Rotate(0, 180, 0);
 
-            //enable hats (NEED TO DO THIS IS HATS CHILD IS THERE
+            //enable hats
             for (int i = 0; i < allPlayers[j].transform.childCount; i++)
             {
                 if (allPlayers[j].transform.GetChild(i).GetChild(3).name == "Hats")
@@ -91,7 +87,7 @@ public class PlayerInstantiation : MonoBehaviour
         }
 
 
-
+        //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
@@ -190,7 +186,7 @@ public class PlayerInstantiation : MonoBehaviour
             {
                 //winner special hat
                 int randHat = Random.Range(0, specialHat.Count);
-                GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
+                GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 winningHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 winningHat.transform.localScale = new Vector3(65, 65, 65);
@@ -198,47 +194,6 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
-        //totalPoints();
-
     }
 
-    /*void totalPoints()
-    {
-        if(playerTotalPoints.Count == 0)
-        {
-            //create list if empty
-            playerTotalPoints.Add(new PlayerTotalScore(GameObject.FindGameObjectWithTag("Player 1").name, 0, false, false, false, false));
-            playerTotalPoints.Add(new PlayerTotalScore(GameObject.FindGameObjectWithTag("Player 2").name, 0, false, false, false, false));
-            playerTotalPoints.Add(new PlayerTotalScore(GameObject.FindGameObjectWithTag("Player 3").name, 0, false, false, false, false));
-            playerTotalPoints.Add(new PlayerTotalScore(GameObject.FindGameObjectWithTag("Player 4").name, 0, false, false, false, false));
-        }
-        else
-        {
-            for(int i = 0; i < playerTotalPoints.Count; i++)
-            {
-                if(playerTotalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 1").name)
-                {
-                    playerTotalPoints[i].totalPoints = GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount;
-                }
-                else if (playerTotalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 2").name)
-                {
-                    playerTotalPoints[i].totalPoints = GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount;
-                }
-                else if (playerTotalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 3").name)
-                {
-                    playerTotalPoints[i].totalPoints = GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount;
-                }
-                else if (playerTotalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 4").name)
-                {
-                    playerTotalPoints[i].totalPoints = GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount;
-                }
-            }
-            //update list where needed
-        }
-
-        for(int y = 0; y < playerTotalPoints.Count; y++)
-        {
-            Debug.Log(playerTotalPoints[y]);
-        }
-    }*/
 }

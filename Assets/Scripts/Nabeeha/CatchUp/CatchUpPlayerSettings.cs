@@ -7,10 +7,10 @@ public class CatchUpPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 1.1f, -25), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(0, 1.1f, -41), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(0, 1.1f, -51f), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(0, 1.1f, -61f), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 0, -60), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(0, 0, -60), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(0, 0, -60), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(0, 0, -60), 0);
     }
 
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)
@@ -31,5 +31,18 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+
+        //disable hats
+        for (int i = 0; i < player.transform.childCount; i++)
+        {
+            if (player.transform.GetChild(i).name == "Hats")
+            {
+                for (int k = 0; k < player.transform.GetChild(i).childCount; k++)
+                {
+                    player.transform.GetChild(i).GetChild(k).gameObject.SetActive(false);
+                }
+                
+            }
+        }
     }
 }
