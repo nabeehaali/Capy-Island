@@ -17,7 +17,7 @@ public class DisasterSceneSetup : MonoBehaviour
     
     void Start()
     {
-
+        //TODO: Need to add value of special hat children
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1));
@@ -29,9 +29,18 @@ public class DisasterSceneSetup : MonoBehaviour
         totalPointsDistinct = totalPoints.Distinct(new ItemEqualityComparer()).ToList();
 
         p1HatsOff = (GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) / removeFactor;
+        if ((GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) % removeFactor != 0) { p1HatsOff++; }
         p2HatsOff = (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) / removeFactor;
+        if ((GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) % removeFactor != 0) { p2HatsOff++; }
         p3HatsOff = (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) / removeFactor;
+        if ((GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) % removeFactor != 0) { p3HatsOff++; }
         p4HatsOff = (GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) / removeFactor;
+        if ((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) % removeFactor != 0) { p4HatsOff++; }
+
+        Debug.Log(p1HatsOff);
+        Debug.Log(p2HatsOff);
+        Debug.Log(p3HatsOff);
+        Debug.Log(p4HatsOff);
 
         for (int i = 0; i < totalPoints.Count; i++)
         {

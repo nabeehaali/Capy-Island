@@ -19,6 +19,7 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
@@ -29,7 +30,7 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.GetComponent<SledGame>().enabled = false;
         player.GetComponent<Rigidbody>().drag = 0;
         player.GetComponent<Rigidbody>().useGravity = false;
-        player.GetComponent<Rigidbody>().isKinematic = false;
+        player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
 
         //disable hats

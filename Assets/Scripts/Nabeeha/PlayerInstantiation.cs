@@ -20,6 +20,8 @@ public class PlayerInstantiation : MonoBehaviour
 
     public GameObject baseHat;
     public List<GameObject> specialHat;
+
+    int randHat;
     void Start()
     {
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
@@ -111,6 +113,8 @@ public class PlayerInstantiation : MonoBehaviour
 
         StartCoroutine(spawnHats());
 
+        randHat = Random.Range(0, specialHat.Count);
+
     }
     void displayData(List<MinigamePoints> activeRankings, List<MinigamePoints> activeRankingsDistinct)
     {
@@ -185,7 +189,6 @@ public class PlayerInstantiation : MonoBehaviour
             if (placements[z].text == "1")
             {
                 //winner special hat
-                int randHat = Random.Range(0, specialHat.Count);
                 GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 winningHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
