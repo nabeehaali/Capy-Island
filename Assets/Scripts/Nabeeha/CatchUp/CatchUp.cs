@@ -5,21 +5,41 @@ using System.Linq;
 
 public class CatchUp : MonoBehaviour
 {
-    public static int numHatsCollected;
-   
+    public int numHatsCollected;
+    public CatchUpControls catchupcontrols;
 
+    public GameObject sandParticles;
+    public GameObject regularHat;
 
+    float inc = 0;
+
+    void Start()
+    {
+        catchupcontrols = transform.parent.gameObject.GetComponent<CatchUpControls>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        //make a torchControls script that deals with button handling for digging and add the bool value to this if statement
-        if (collision.gameObject.tag == "BaseHat")
+        if (collision.gameObject.tag == "BaseHat" && catchupcontrols.canDig == true)
         {
-            //increase y value of collided GO by X amount
-            //if y value of collided object reaches certain amt or higher, then destory (better yet, try to add a projectile to add it to the player's head)
-            Destroy(collision.gameObject);
-            numHatsCollected += 1;
+            //move hat a little up
+            collision.gameObject.transform.position = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y + 0.2f, collision.gameObject.transform.position.z);
+            
+            //sand digging effect
+            Instantiate(sandParticles, collision.gameObject.transform.position, Quaternion.identity);
 
-            //after destroying, instantiate it under hats group in player GO
+            //hat reaches the surface, destory it and reinstantiate hat on top of player's head
+            if (collision.gameObject.transform.position.y >= 0)
+            {
+                Destroy(collision.gameObject);
+                numHatsCollected += 1;
+
+                GameObject currentHat = Instantiate(regularHat, transform.GetChild(3).transform, true);
+                currentHat.transform.localPosition = new Vector3(0, 5f + inc, 0.035f);
+                currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                inc += 1;
+            }
+
+            
         }
     }
 }

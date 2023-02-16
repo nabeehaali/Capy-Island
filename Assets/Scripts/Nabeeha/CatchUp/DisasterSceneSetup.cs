@@ -17,11 +17,10 @@ public class DisasterSceneSetup : MonoBehaviour
     
     void Start()
     {
-        //TODO: Need to add value of special hat children
-        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1));
-        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1));
-        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1));
-        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1));
+        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, (GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount));
+        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount));
+        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount));
+        totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, (GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount));
 
         totalPoints.Sort();
         totalPoints.Reverse();
@@ -51,25 +50,25 @@ public class DisasterSceneSetup : MonoBehaviour
                     if(totalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 1").name)
                     {
                         hatSetup(GameObject.Find(totalPoints[i].playerID), p1Slot, i);
-                        StartCoroutine(countDown(GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1, p1Slot, p1HatsOff));
+                        StartCoroutine(countDown((GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount, p1Slot, p1HatsOff));
                         destroyHats(GameObject.FindGameObjectWithTag("Player 1"), p1HatsOff);
                     }
                     else if (totalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 2").name)
                     {
                         hatSetup(GameObject.Find(totalPoints[i].playerID), p2Slot, i);
-                        StartCoroutine(countDown(GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1, p2Slot, p2HatsOff));
+                        StartCoroutine(countDown((GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount, p2Slot, p2HatsOff));
                         destroyHats(GameObject.FindGameObjectWithTag("Player 2"), p2HatsOff);
                     }
                     else if (totalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 3").name)
                     {
                         hatSetup(GameObject.Find(totalPoints[i].playerID), p3Slot, i);
-                        StartCoroutine(countDown(GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1, p3Slot, p3HatsOff));
+                        StartCoroutine(countDown((GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount, p3Slot, p3HatsOff));
                         destroyHats(GameObject.FindGameObjectWithTag("Player 3"), p3HatsOff);
                     }
                     else if (totalPoints[i].playerID == GameObject.FindGameObjectWithTag("Player 4").name)
                     {
                         hatSetup(GameObject.Find(totalPoints[i].playerID), p4Slot, i);
-                        StartCoroutine(countDown(GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1, p4Slot, p4HatsOff));
+                        StartCoroutine(countDown((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount, p4Slot, p4HatsOff));
                         destroyHats(GameObject.FindGameObjectWithTag("Player 4"), p4HatsOff);
                     }
                 }
@@ -80,7 +79,7 @@ public class DisasterSceneSetup : MonoBehaviour
     void hatSetup(GameObject player, GameObject slot, int childIndex)
     {
         slot.transform.SetSiblingIndex(childIndex);
-        slot.transform.GetChild(0).GetComponent<TMP_Text>().SetText("" + (player.transform.GetChild(3).childCount - 1) + " Hats");
+        slot.transform.GetChild(0).GetComponent<TMP_Text>().SetText("" + ((player.transform.GetChild(3).childCount - 1) + player.transform.GetChild(3).GetChild(0).childCount) + " Hats");
     }
 
     void destroyHats(GameObject player, int numHats)

@@ -18,6 +18,9 @@ public class PlayerInstantiation : MonoBehaviour
     public List<MinigamePoints> sledRankings;
     public List<MinigamePoints> sledRankingsDistinct;
 
+    public List<MinigamePoints> catchUpRankings;
+    public List<MinigamePoints> catchUpRankingsDistinct;
+
     public GameObject baseHat;
     public List<GameObject> specialHat;
 
@@ -100,6 +103,9 @@ public class PlayerInstantiation : MonoBehaviour
             activeList = torchRankings;
 
             displayData(torchRankings, torchRankingsDistinct);
+            StartCoroutine(spawnHats());
+
+            randHat = Random.Range(0, specialHat.Count);
         }
         else if (sceneName == "HatProgressSled")
         {  
@@ -108,12 +114,22 @@ public class PlayerInstantiation : MonoBehaviour
             activeList = sledRankings;
 
             displayData(sledRankings, sledRankingsDistinct);
+            StartCoroutine(spawnHats());
+
+            randHat = Random.Range(0, specialHat.Count);
         }
+        else if (sceneName == "HatProgressCatchUp")
+        {
+            catchUpRankings = CatchUpSceneSetup.catchuppoints;
+            catchUpRankingsDistinct = CatchUpSceneSetup.distinct;
+            activeList = catchUpRankings;
+
+            displayData(catchUpRankings, catchUpRankingsDistinct);
+            StartCoroutine(spawnHatsCatchUp());
+        }
+
+
         
-
-        StartCoroutine(spawnHats());
-
-        randHat = Random.Range(0, specialHat.Count);
 
     }
     void displayData(List<MinigamePoints> activeRankings, List<MinigamePoints> activeRankingsDistinct)
@@ -194,6 +210,65 @@ public class PlayerInstantiation : MonoBehaviour
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 winningHat.transform.localScale = new Vector3(65, 65, 65);
 
+            }
+        }
+
+    }
+
+    IEnumerator spawnHatsCatchUp()
+    {
+        yield return new WaitForSeconds(2);
+        float inc = 0;
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            if(GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
+            {
+                for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 1").GetComponent<CatchUp>().numHatsCollected; z++)
+                {
+                    GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).transform, true);
+                    //currentHat.tag = "Untagged";
+                    currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                    currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    //currentHat.transform.localScale = new Vector3(1, 1, 1);
+                    inc += 5;
+                }
+            }
+            else if (GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
+            {
+                for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 2").GetComponent<CatchUp>().numHatsCollected; z++)
+                {
+                    GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).transform, true);
+                    //currentHat.tag = "Untagged";
+                    currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                    currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    //currentHat.transform.localScale = new Vector3(1, 1, 1);
+                    inc += 5;
+                }
+            }
+            else if (GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
+            {
+                for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 3").GetComponent<CatchUp>().numHatsCollected; z++)
+                {
+                    GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).transform, true);
+                    //currentHat.tag = "Untagged";
+                    currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                    currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    //currentHat.transform.localScale = new Vector3(1, 1, 1);
+                    inc += 5;
+                }
+            }
+            else if (GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
+            {
+                for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 4").GetComponent<CatchUp>().numHatsCollected; z++)
+                {
+                    GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).transform, true);
+                    //currentHat.tag = "Untagged";
+                    currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                    currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    //currentHat.transform.localScale = new Vector3(1, 1, 1);
+                    inc += 5;
+                }
             }
         }
 

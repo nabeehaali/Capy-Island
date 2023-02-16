@@ -23,6 +23,7 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = true;
         player.transform.localPosition = Vector3.zero;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = true;

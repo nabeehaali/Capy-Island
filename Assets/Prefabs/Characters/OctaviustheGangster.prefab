@@ -820,7 +820,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46714c74093854343a98583959718844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPos: {fileID: 0}
+  numHatsCollected: 0
+  catchupcontrols: {fileID: 0}
+  sandParticles: {fileID: 4411447062729823627, guid: f54682e26d4df8345be20eebedc451c9,
+    type: 3}
+  regularHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+    type: 3}
 --- !u!96 &-8239641701750502548
 TrailRenderer:
   serializedVersion: 2

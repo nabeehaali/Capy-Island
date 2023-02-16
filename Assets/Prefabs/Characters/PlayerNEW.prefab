@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -793117647168687137}
   - component: {fileID: 6419911494426830731}
   - component: {fileID: 4616666122457417381}
+  - component: {fileID: 2809849624319396701}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Player
@@ -127,6 +128,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2809849624319396701}
+        m_TargetAssemblyTypeName: CatchUpControls, Assembly-CSharp
+        m_MethodName: Dig
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 60230ac9-91e9-46fc-b23d-c8eccd6e682e
     m_ActionName: Player/Fire[/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast,/XInputControllerWindows2/buttonEast,/XInputControllerWindows3/buttonEast,/Mouse/leftButton,/Touchscreen/primaryTouch/tap]
   - m_PersistentCalls:
@@ -203,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  ramFactor: 0
 --- !u!114 &6419911494426830731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +244,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canLight: 0
   canBlow: 0
+--- !u!114 &2809849624319396701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed3a3a80326dc649b52f0855dd0279f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDig: 0
