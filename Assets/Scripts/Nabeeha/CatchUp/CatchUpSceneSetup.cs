@@ -30,9 +30,15 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     private void Start()
     {
-        //startingPos = GameObject.Find("StartingPosition").transform;
+        //a little but of a cold assumption, keep testing to see if this always works, otherwise change it 
         rankings = DisasterSceneSetup.totalPoints;
+        
+        for (int i = 0; i < rankings.Count; i++)
+        {
+            Debug.Log(rankings[i].playerID + " has " + rankings[i].playerPoints + " points");
+        }
 
+        //KEEP THIS STUFF HERE FOR BACKUP
         //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1));
         //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1));
         //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1));
