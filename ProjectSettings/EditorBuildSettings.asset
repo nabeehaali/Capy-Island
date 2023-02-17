@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/old/SleddingGame.unity
     guid: fff979e5439bcca41b7c39633738cf04
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/old/HatProgressSled.unity
     guid: eeb2d5ecc8e5e1f418064829ff338eed
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Amy/HideSmash.unity
+    guid: cde28d02e910c254f9d1b53aacd8d75f
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Amy/HatProgressHideSmash.unity
+    guid: 356d89a3461afbd47b076e4d071c6c2d
   m_configObjects: {}

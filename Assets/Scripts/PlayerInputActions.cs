@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Push"",
+                    ""type"": ""Button"",
+                    ""id"": ""61731812-1d23-43eb-8f1e-2d78629c045b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -244,7 +253,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -309,6 +318,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6039eab1-5bab-4b79-9ffe-0aaae9cb24f4"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5aac2eea-d78e-4582-9220-ed19dc0f5dc7"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -326,6 +346,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad;Joystick"",
                     ""action"": ""Blow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14ffddf7-0fd5-4dbe-be43-3832ef52fd56"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Push"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb364865-25bb-4de0-9a1e-62230ed797b5"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Push"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -917,6 +959,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Blow = m_Player.FindAction("Blow", throwIfNotFound: true);
+        m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -992,6 +1035,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Blow;
+    private readonly InputAction m_Player_Push;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1000,6 +1044,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Blow => m_Wrapper.m_Player_Blow;
+        public InputAction @Push => m_Wrapper.m_Player_Push;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1021,6 +1066,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Blow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
                 @Blow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
                 @Blow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
+                @Push.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
+                @Push.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
+                @Push.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1037,6 +1085,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Blow.started += instance.OnBlow;
                 @Blow.performed += instance.OnBlow;
                 @Blow.canceled += instance.OnBlow;
+                @Push.started += instance.OnPush;
+                @Push.performed += instance.OnPush;
+                @Push.canceled += instance.OnPush;
             }
         }
     }
@@ -1197,6 +1248,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnBlow(InputAction.CallbackContext context);
+        void OnPush(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

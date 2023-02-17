@@ -49,7 +49,7 @@ public class TorchSceneSetup : MonoBehaviour
         if (timePassed > gameLength && !gameDone)
         {
             EndGame();
-            gameDone = true;            
+            gameDone = true;
         }
 
         //player score UI
@@ -57,7 +57,6 @@ public class TorchSceneSetup : MonoBehaviour
         p2Score.SetText("" + GameObject.FindGameObjectsWithTag("P2Point").Length + " Torches");
         p3Score.SetText("" + GameObject.FindGameObjectsWithTag("P3Point").Length + " Torches");
         p4Score.SetText("" + GameObject.FindGameObjectsWithTag("P4Point").Length + " Torches");
-        Debug.Log(GameObject.FindGameObjectsWithTag("P1Point"));
 
     }
 

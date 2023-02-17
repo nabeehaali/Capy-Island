@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class HideSmash : MonoBehaviour
 {
-    private int playerScore, oldScore;
+    public int playerScore;
     bool smashed;
     // Start is called before the first frame update
     void Start()
     {
         playerScore = 0;
-        oldScore = -1;
     }
 
     // Update is called once per frame

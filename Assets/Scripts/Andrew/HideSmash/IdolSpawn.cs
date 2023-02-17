@@ -30,7 +30,9 @@ public class IdolSpawn : MonoBehaviour
         timer2 += Time.deltaTime;
 
         //Debug.Log(timer2);
-        if (timer > idolRespawnTime) 
+        GameObject[] vases = GameObject.FindGameObjectsWithTag("Vase");
+
+        if (timer > idolRespawnTime || vases.Length < 2) 
         {
             int randomVecX = Random.Range(-25, 32);
             int randomVecZ = Random.Range(5, 39);
