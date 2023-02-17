@@ -20,7 +20,7 @@ public class HatSpawn : MonoBehaviour
         for(int i = 0; i < numHats; i++)
         {
             //change this random range to be in bounds of mesh
-            GameObject hat = Instantiate(Hat, new Vector3(Random.Range(-60, 60), Random.Range(-0.8f, 0), Random.Range(-27, 34)), Quaternion.identity);
+            GameObject hat = Instantiate(Hat, new Vector3(Random.Range(-60, 60), Random.Range(-0.8f, 0), Random.Range(-27, 22)), Quaternion.identity);
             hat.GetComponent<SphereCollider>().radius = 0.006f;
             hat.GetComponent<SphereCollider>().center = new Vector3(0, 0.005f, 0);
             Physics.IgnoreCollision(hat.GetComponent<SphereCollider>(), GameObject.Find("Sand").GetComponent<MeshCollider>());

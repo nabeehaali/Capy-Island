@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
     guid: 3d9fbda8e2105894b82425815cbf740d
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/old/MapAnimation.unity
-    guid: 8b81b2fba7751c848991889a8f2e251b
+    path: Assets/Scenes/Drafts/Nabeeha/MapAnimationTest.unity
+    guid: 5fe2278d9ebe8b84fba41cde0ac8c51b
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
     guid: 98b82b9a98eabcb44826e01f6bb449f3

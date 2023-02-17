@@ -29,6 +29,10 @@ public class PlayerInstantiation : MonoBehaviour
     {
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
+        //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
         for (int j = 0; j < allPlayers.Length; j++)
         {
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
@@ -39,12 +43,29 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
             allPlayers[j].transform.Rotate(0, 180, 0);
 
-            //enable hats
-            for (int i = 0; i < allPlayers[j].transform.childCount; i++)
+            if (sceneName == "HatProgressCatchUp")
             {
-                if (allPlayers[j].transform.GetChild(i).GetChild(3).name == "Hats")
+                for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
                 {
-                    allPlayers[j].transform.GetChild(i).GetChild(3).gameObject.SetActive(true);
+                    if (allPlayers[j].transform.GetChild(0).transform.GetChild(i).name == "Hats")
+                    {
+                        for (int k = 0; k < allPlayers[j].transform.GetChild(0).transform.GetChild(i).childCount; k++)
+                        {
+                            allPlayers[j].transform.GetChild(0).transform.GetChild(i).GetChild(k).gameObject.SetActive(true);
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                //enable hats
+                for (int i = 0; i < allPlayers[j].transform.childCount; i++)
+                {
+                    if (allPlayers[j].transform.GetChild(i).GetChild(3).name == "Hats")
+                    {
+                        allPlayers[j].transform.GetChild(i).GetChild(3).gameObject.SetActive(true);
+                    }
                 }
             }
         }
@@ -91,10 +112,6 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
-
-        //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
 
         if(sceneName == "HatProgressTorch")
         {
