@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6419911494426830731}
   - component: {fileID: 4616666122457417381}
   - component: {fileID: 2809849624319396701}
+  - component: {fileID: -7355346650665330563}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Player
@@ -198,6 +199,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 94e59002-aadf-4720-ac83-bbcdd5fbbb50
     m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7355346650665330563}
+        m_TargetAssemblyTypeName: PlayerInstructions, Assembly-CSharp
+        m_MethodName: Ready
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fd98eaa1-03f8-45ba-99a6-d1b3953b3b3b
+    m_ActionName: Player/Instructions[/XInputControllerWindows/start,/XInputControllerWindows1/start,/XInputControllerWindows2/start,/XInputControllerWindows3/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: UI
@@ -251,9 +268,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ed3a3a80326dc649b52f0855dd0279f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canDig: 0
+--- !u!114 &-7355346650665330563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3ca7416fe24f94ba8182b0f90371dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 0}
