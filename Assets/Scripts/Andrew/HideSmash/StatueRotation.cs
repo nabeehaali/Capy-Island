@@ -8,6 +8,8 @@ public class StatueRotation : MonoBehaviour
     float speed, total;
     GameObject player1, player2, player3, player4;
     public Transform idolStart;
+    public Camera mainCam;
+
     public float idolRotateInterval, minDistanceToDIE;
     private float timer;
     int rand;
@@ -16,7 +18,7 @@ public class StatueRotation : MonoBehaviour
     {
 
         idolRotateInterval = 2.5f;
-        minDistanceToDIE = 40f;
+        minDistanceToDIE = 30f;
 
         speed = 0.1f;
         total = 0f;
@@ -35,6 +37,7 @@ public class StatueRotation : MonoBehaviour
     {
         rotation();
  
+
     }
 
     void rotation() 
@@ -68,30 +71,45 @@ public class StatueRotation : MonoBehaviour
     {
 
         
-        if (collision.transform.parent.tag == "Player")
+
+        if  (collision.tag == "Player 1" || collision.tag == "Player 2" || collision.tag == "Player 3" || collision.tag == "Player 4")
         {
+            //Debug.Log(collision.tag);
             float dist = Vector3.Distance(idolStart.position, collision.transform.position);
-            Debug.Log(collision.tag);
+            //Debug.Log(collision.tag);
             if (rayCastCheck(idolStart, collision.transform) == true && dist < minDistanceToDIE)
             {
-                Debug.Log("Player Visible");
+                //Debug.Log("Player Visible");
                 collision.gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(200, 0, 0);
             }
             else if (rayCastCheck(idolStart, collision.transform) == true && dist > minDistanceToDIE)
             {
                 GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(50, 0, 0);
+                collision.transform.Find("VisionIndicator").LookAt(mainCam.transform);
+
+                collision.transform.Find("VisionIndicator").gameObject.SetActive(true);
             }
             else if (rayCastCheck(idolStart, collision.transform) == false)
             {
                 GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(20, 20, 10);
 
+                collision.transform.Find("VisionIndicator").gameObject.SetActive(false);
             }
 
             //GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(50, 50, 5);
             
         }
 
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.tag == "Player 1" || collision.tag == "Player 2" || collision.tag == "Player 3" || collision.tag == "Player 4")
+        {
+            collision.transform.Find("VisionIndicator").gameObject.SetActive(false);
+
+        }
     }
 
     bool rayCastCheck(Transform start, Transform end)
@@ -103,10 +121,11 @@ public class StatueRotation : MonoBehaviour
         { 
             return false;
         }
-        if (hit.transform.parent.tag == "Player") 
+        else if (hit.transform.tag == "Player 1" || hit.transform.tag == "Player 2" || hit.transform.tag == "Player 3" || hit.transform.tag == "Player 4") 
         {
             return true;
         }
         return false;
     }
+
 }
