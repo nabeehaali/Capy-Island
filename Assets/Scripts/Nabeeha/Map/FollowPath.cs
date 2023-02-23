@@ -11,7 +11,7 @@ public class FollowPath : MonoBehaviour
 
     private float tParam;
 
-    private Vector2 objectPosition;
+    private Vector3 objectPosition;
 
     public float speedModifier = 0.5f;
 
@@ -24,7 +24,6 @@ public class FollowPath : MonoBehaviour
         coroutineAllowed = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (coroutineAllowed)
@@ -37,10 +36,10 @@ public class FollowPath : MonoBehaviour
     {
         coroutineAllowed = false;
 
-        Vector2 p0 = routes[routeNum].GetChild(0).position;
-        Vector2 p1 = routes[routeNum].GetChild(1).position;
-        Vector2 p2 = routes[routeNum].GetChild(2).position;
-        Vector2 p3 = routes[routeNum].GetChild(3).position;
+        Vector3 p0 = routes[routeNum].GetChild(0).position;
+        Vector3 p1 = routes[routeNum].GetChild(1).position;
+        Vector3 p2 = routes[routeNum].GetChild(2).position;
+        Vector3 p3 = routes[routeNum].GetChild(3).position;
 
         while (tParam < 1)
         {
@@ -52,8 +51,7 @@ public class FollowPath : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        tParam = 0f;
-
+        tParam = 0;
         routeToGo += 1;
 
         if (routeToGo > routes.Length - 1)

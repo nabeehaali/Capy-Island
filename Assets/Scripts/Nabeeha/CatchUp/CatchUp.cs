@@ -1,73 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CatchUp : MonoBehaviour
 {
-    public static int numHatsCollected;
-    float timePassed;
+    public int numHatsCollected;
+    public CatchUpControls catchupcontrols;
 
-    bool moveOnP2 = false;
-    bool moveOnP3 = false;
-    bool moveOnP4 = false;
-    public Transform startingPos;
+    public GameObject sandParticles;
+    public GameObject regularHat;
 
-    private void Start()
+    float inc = 0;
+
+    void Start()
     {
-        numHatsCollected = 0;
-        startingPos = GameObject.Find("StartingPosition").transform;
-
-        GameObject.FindGameObjectWithTag("Player 1").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").GetComponent<Rigidbody>().isKinematic = true;
-        GameObject.FindGameObjectWithTag("Player 3").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").GetComponent<Rigidbody>().isKinematic = true;
-        GameObject.FindGameObjectWithTag("Player 4").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").GetComponent<Rigidbody>().isKinematic = true;
-    }
-
-    private void Update()
-    {
-        timePassed += Time.deltaTime;
-
-        if(timePassed > 5)
-        {
-            if (!moveOnP2)
-            {
-                GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                GameObject.FindGameObjectWithTag("Player 2").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                GameObject.FindGameObjectWithTag("Player 2").GetComponent<Rigidbody>().isKinematic = false;
-                moveOnP2 = true;
-            }
-        }
-        if(timePassed > 10)
-        {
-            if (!moveOnP3)
-            {
-                GameObject.FindGameObjectWithTag("Player 3").gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                GameObject.FindGameObjectWithTag("Player 3").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                GameObject.FindGameObjectWithTag("Player 3").GetComponent<Rigidbody>().isKinematic = false;
-                moveOnP3 = true;
-            }
-        }
-        if (timePassed > 15)
-        {
-            if (!moveOnP4)
-            {
-                GameObject.FindGameObjectWithTag("Player 4").gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                GameObject.FindGameObjectWithTag("Player 4").gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                GameObject.FindGameObjectWithTag("Player 4").GetComponent<Rigidbody>().isKinematic = false;
-                moveOnP4 = true;
-            }
-        }
-
+        catchupcontrols = transform.parent.gameObject.GetComponent<CatchUpControls>();
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "BaseHat")
+        if (collision.gameObject.tag == "BaseHat" && catchupcontrols.canDig == true)
         {
-            Destroy(collision.gameObject);
-            numHatsCollected += 1;
+            //move hat a little up
+            collision.gameObject.transform.position = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y + 0.2f, collision.gameObject.transform.position.z);
+            
+            //sand digging effect
+            Instantiate(sandParticles, collision.gameObject.transform.position, Quaternion.identity);
+
+            //hat reaches the surface, destory it and reinstantiate hat on top of player's head
+            if (collision.gameObject.transform.position.y >= 0)
+            {
+                Destroy(collision.gameObject);
+                numHatsCollected += 1;
+
+                GameObject currentHat = Instantiate(regularHat, transform.GetChild(3).transform, true);
+                currentHat.transform.localPosition = new Vector3(0, 5f + inc, 0.035f);
+                currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                inc += 1;
+            }
+
+            
         }
     }
 }

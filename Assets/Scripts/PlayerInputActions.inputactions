@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Instructions",
+                    "type": "Button",
+                    "id": "fd98eaa1-03f8-45ba-99a6-d1b3953b3b3b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -304,6 +313,17 @@
                     "processors": "",
                     "groups": "Gamepad;Joystick",
                     "action": "Blow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40e4f37a-e6ec-40e0-9c15-edd74aacd4f3",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Instructions",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

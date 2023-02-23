@@ -15,12 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
     guid: 3d9fbda8e2105894b82425815cbf740d
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/MapAnimation.unity
-    guid: 8b81b2fba7751c848991889a8f2e251b
+    path: Assets/Scenes/Drafts/Nabeeha/MapAnimationTest.unity
+    guid: 5fe2278d9ebe8b84fba41cde0ac8c51b
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
     guid: 98b82b9a98eabcb44826e01f6bb449f3
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
     guid: eeb2d5ecc8e5e1f418064829ff338eed
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/MapAnimationDisaster.unity
+    guid: 0a3b14b5e1c49dc47a5b5c759df732f4
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/CatchUp.unity
+    guid: cefd3b39e47e3de47ba36c28b3296d55
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressCatchUp.unity
+    guid: 11191ae48b27caf4a9533192e973908a
   m_configObjects: {}

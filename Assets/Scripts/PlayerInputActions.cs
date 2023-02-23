@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Instructions"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd98eaa1-03f8-45ba-99a6-d1b3953b3b3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -326,6 +335,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad;Joystick"",
                     ""action"": ""Blow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40e4f37a-e6ec-40e0-9c15-edd74aacd4f3"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Instructions"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -917,6 +937,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Blow = m_Player.FindAction("Blow", throwIfNotFound: true);
+        m_Player_Instructions = m_Player.FindAction("Instructions", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -992,6 +1013,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Blow;
+    private readonly InputAction m_Player_Instructions;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1000,6 +1022,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Blow => m_Wrapper.m_Player_Blow;
+        public InputAction @Instructions => m_Wrapper.m_Player_Instructions;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1021,6 +1044,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Blow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
                 @Blow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
                 @Blow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
+                @Instructions.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
+                @Instructions.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
+                @Instructions.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1037,6 +1063,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Blow.started += instance.OnBlow;
                 @Blow.performed += instance.OnBlow;
                 @Blow.canceled += instance.OnBlow;
+                @Instructions.started += instance.OnInstructions;
+                @Instructions.performed += instance.OnInstructions;
+                @Instructions.canceled += instance.OnInstructions;
             }
         }
     }
@@ -1197,6 +1226,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnBlow(InputAction.CallbackContext context);
+        void OnInstructions(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

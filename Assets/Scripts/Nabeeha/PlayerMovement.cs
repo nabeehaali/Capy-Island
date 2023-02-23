@@ -8,10 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     Vector2 playermovement;
-    float ram;
-    bool pressedFlag;
 
-    public float speed, ramFactor;
+    public float speed;
 
     void Start()
     {
@@ -21,21 +19,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector3 movement = new Vector3(playermovement.x, -9.81f, playermovement.y);
-        float ramming = ram;
 
         gameObject.transform.GetChild(0).transform.LookAt(gameObject.transform.GetChild(0).transform.position + new Vector3(movement.x, 0, movement.z));
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash" || sceneName == "CatchUp")
+        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash" || sceneName == "CatchUp" || sceneName == "FinalShowdown" || sceneName == "MovementTest")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
-
-            if (ram > 0 && pressedFlag == true) {
-                playerRigidbody.velocity = new Vector3(playermovement.x * ramFactor, -9.81f, playermovement.y * ramFactor);
-            }
         }
         else if (sceneName == "SledGame")
         {
@@ -52,12 +45,6 @@ public class PlayerMovement : MonoBehaviour
     public void move(InputAction.CallbackContext context)
     {
         playermovement = context.ReadValue<Vector2>() * speed;
-    }
-
-    public void Ram(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.duration);
-        ram = context.ReadValue<float>();
     }
 
 }
