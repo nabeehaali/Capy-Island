@@ -37,10 +37,14 @@ public class PlayerMovement : MonoBehaviour
                 playerRigidbody.velocity = new Vector3(playermovement.x * ramFactor, -9.81f, playermovement.y * ramFactor);
             }
         }
-        else if (sceneName == "SledGame" || sceneName == "AligatorTag")
+        else if (sceneName == "SledGame")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
+        }
+        else if (sceneName == "AligatorTag")
+        {
+            playerRigidbody.AddForce(movement * 5 * Time.deltaTime, ForceMode.Impulse);
         }
         
     }
