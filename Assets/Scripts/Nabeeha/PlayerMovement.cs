@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
         }
-        else if (sceneName == "AligatorTag")
+        else if (sceneName == "AlligatorTag")
         {
             playerRigidbody.AddForce(movement * 5 * Time.deltaTime, ForceMode.Impulse);
         }

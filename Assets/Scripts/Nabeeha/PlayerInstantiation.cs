@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.Collections;
 
 public class PlayerInstantiation : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class PlayerInstantiation : MonoBehaviour
 
     public List<MinigamePoints> sledRankings;
     public List<MinigamePoints> sledRankingsDistinct;
+
+    public List<MinigamePoints> alligatorRankings;
+    public List<MinigamePoints> alligatorRankingsDistinct;
 
     public List<MinigamePoints> catchUpRankings;
     public List<MinigamePoints> catchUpRankingsDistinct;
@@ -38,6 +42,7 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<SledGame>().enabled = false;
+            allPlayers[j].transform.GetChild(0).GetComponent<AlligatorPlayerScript>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
             allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -143,6 +148,17 @@ public class PlayerInstantiation : MonoBehaviour
 
             displayData(catchUpRankings, catchUpRankingsDistinct);
             StartCoroutine(spawnHatsCatchUp());
+        }
+        else if (sceneName == "HatProgressAlligatorTag")
+        {
+            alligatorRankings = AlligatorSceneSetup.alligatorpoints;
+            alligatorRankingsDistinct = AlligatorSceneSetup.distinct;
+            activeList = alligatorRankings;
+
+            displayData(sledRankings, sledRankingsDistinct);
+            StartCoroutine(spawnHats());
+
+            randHat = Random.Range(0, specialHat.Count);
         }
 
 
