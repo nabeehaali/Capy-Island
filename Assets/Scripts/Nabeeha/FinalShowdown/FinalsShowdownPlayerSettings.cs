@@ -12,10 +12,10 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     float inc = 0;
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-10, 0, -60), 0, hatsOrderP1);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(0, 0, -60), 0, hatsOrderP2);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-20, 0, -60), 0, hatsOrderP3);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(10, 0, -60), 0, hatsOrderP4);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-10, 0, -63), 0, hatsOrderP1);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(16, 0, -43), -90, hatsOrderP2);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-42, 0, -45), 90, hatsOrderP3);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-11, 0, -19), 180, hatsOrderP4);
     }
 
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle, List<GameObject> hatsOrder)
@@ -24,7 +24,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 30;
         
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
@@ -51,15 +51,30 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
 
                 for (int k = 0; k < player.transform.GetChild(i).childCount; k++)
                 {
-                    player.transform.GetChild(i).GetChild(k).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
-                    player.transform.GetChild(i).GetChild(k).gameObject.SetActive(true);
-                    inc += 1;
-
                     if (player.transform.GetChild(i).GetChild(k).name == "SpecialHats")
                     {
                         for (int j = 0; j < player.transform.GetChild(i).GetChild(k).childCount; j++)
                         {
+                            //enabling scripts based on which special hats the players have
+                            if(player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Wizard")
+                            {
+                                //enable wizard hat script (should be attached to parent obj where the controls are)
+                            }
+                            if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Chef")
+                            {
+                                //enable chef hat script (should be attached to parent obj where the controls are)
+                            }
+                            if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Hockey")
+                            {
+                                //enable Hockey hat script (should be attached to parent obj where the controls are)
+                            }
+                            if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Cream")
+                            {
+                                //enable Cream hat script (should be attached to parent obj where the controls are)
+                            }
+                            
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
+                            player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.SetActive(true);
                             inc += 1;
                             //adds special hats to list
                             hatsOrder.Add((player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject));
@@ -68,6 +83,9 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                     }
                     else
                     {
+                        player.transform.GetChild(i).GetChild(k).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
+                        player.transform.GetChild(i).GetChild(k).gameObject.SetActive(true);
+                        inc += 1;
                         //adds regular hats to list
                         hatsOrder.Add((player.transform.GetChild(i).GetChild(k).gameObject));
                     }

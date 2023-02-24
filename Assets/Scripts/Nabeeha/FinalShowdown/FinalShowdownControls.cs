@@ -8,7 +8,7 @@ public class FinalShowdownControls : MonoBehaviour
     //public int magnitude;
     private Rigidbody _rigidbody;
 
-    public bool canPush = false;
+    public bool canPush = false, moveHatL = false, moveHatR = false;
 
     void Start()
     {
@@ -23,8 +23,33 @@ public class FinalShowdownControls : MonoBehaviour
         //}
     }
 
-    /*public void Push(InputAction.CallbackContext context)
+    public void NextHat(InputAction.CallbackContext context)
     {
+        if (context.started)
+        {
+            moveHatL = true;
+        }
+        else if (context.canceled)
+        {
+            moveHatL = false;
+        }
+    }
+
+    public void PrevHat(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            moveHatR = true;
+        }
+        else if (context.canceled)
+        {
+            moveHatR = false;
+        }
+    }
+
+    public void Push(InputAction.CallbackContext context)
+    {
+        //StartCoroutine(pushMotion());
         if (context.started)
         {
             canPush = true;
@@ -33,11 +58,6 @@ public class FinalShowdownControls : MonoBehaviour
         {
             canPush = false;
         }
-    }*/
-
-    public void Push(InputAction.CallbackContext context)
-    {
-        StartCoroutine(pushMotion());
     }
 
     IEnumerator pushMotion()
