@@ -720,6 +720,7 @@ GameObject:
   - component: {fileID: 2554691155012687602}
   - component: {fileID: -530827135834520123}
   - component: {fileID: -3886754753752094960}
+  - component: {fileID: 2136905863071938150}
   - component: {fileID: -8239641701750502548}
   m_Layer: 0
   m_Name: OctaviustheGangster
@@ -826,6 +827,19 @@ MonoBehaviour:
     type: 3}
   regularHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
     type: 3}
+--- !u!114 &2136905863071938150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006316057326876418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41eb2060359b88143b58d45445095510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
 --- !u!96 &-8239641701750502548
 TrailRenderer:
   serializedVersion: 2

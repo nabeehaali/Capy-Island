@@ -1269,6 +1269,7 @@ GameObject:
   - component: {fileID: -5720754018193667025}
   - component: {fileID: -2911901960096046018}
   - component: {fileID: -4517127503993177864}
+  - component: {fileID: -9049053629459595307}
   - component: {fileID: 8237909350370691616}
   m_Layer: 0
   m_Name: ScooberttheNerd
@@ -1375,6 +1376,19 @@ MonoBehaviour:
     type: 3}
   regularHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
     type: 3}
+--- !u!114 &-9049053629459595307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764974995125932039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41eb2060359b88143b58d45445095510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
 --- !u!96 &8237909350370691616
 TrailRenderer:
   serializedVersion: 2

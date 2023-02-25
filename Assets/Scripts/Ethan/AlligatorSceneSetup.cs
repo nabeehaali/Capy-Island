@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class AlligatorSceneSetup : MonoBehaviour
 {
+
+    // !!! this doesn't do anything, just remnants from trying to dodge some compiler errors :(
+
     public TMP_Text countdown;
     public int countdownTime;
 

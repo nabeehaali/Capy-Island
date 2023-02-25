@@ -21,7 +21,7 @@ public class AlligatorPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false; // re-enabled after start countdown
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
@@ -36,7 +36,12 @@ public class AlligatorPlayerSettings : MonoBehaviour
         // a little strange looking but lets the capy's sit "in" the water atm
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation 
             | RigidbodyConstraints.FreezePositionY;
-        player.GetComponent<Rigidbody>().drag = 0;
+        // creating water movement feel
+        player.GetComponent<Rigidbody>().drag = 0.2f;
+
+        // just for the capy's to be sitting "in" the water
+        // nvm this doesnt work well lol
+        //player.transform.gameObject.transform.position = new Vector3(0, -1);
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)

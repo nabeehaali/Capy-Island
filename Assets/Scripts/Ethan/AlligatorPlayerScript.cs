@@ -10,7 +10,6 @@ public class AlligatorPlayerScript : MonoBehaviour
     public int points = 0;
     public int increase = 1;
     public float interval = 0.5f;
-    public float startTime = 5f;
 
     public TextMeshProUGUI display;
     public GameObject crownObj;
@@ -21,7 +20,8 @@ public class AlligatorPlayerScript : MonoBehaviour
     string playerID;
     string playerShortDisplay;
 
-    bool hasStarted = false;
+    public bool hasStarted = false;
+    public bool hasEnded = false; // accessed by game manager script to stop game for all players
 
     public bool canSteal = false;
     public bool isImmune = false;
@@ -44,14 +44,7 @@ public class AlligatorPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hasStarted && Time.time >= startTime)
-        {
-            Debug.Log("Start!");
-            gameObject.GetComponent<PlayerMovement>().enabled = true;
-            hasStarted = true;
-        }
-
-        if(hasStarted && isLeader && Time.time - lastUpdate > interval)
+        if(hasStarted && isLeader && Time.time - lastUpdate > interval && !hasEnded)
         {
             points += increase;
             lastUpdate = Time.time;
@@ -60,7 +53,6 @@ public class AlligatorPlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // uncomment this soon!
         display.text = playerShortDisplay + ":" + points;
     }
 

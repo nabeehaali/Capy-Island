@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 2976031428366081213}
   - component: {fileID: 2907859737884065161}
   - component: {fileID: -3741693410964233902}
+  - component: {fileID: 4453494652965237561}
   - component: {fileID: -5627511898586479077}
   - component: {fileID: -1027187830532437968}
   m_Layer: 0
@@ -407,6 +408,19 @@ MonoBehaviour:
     type: 3}
   regularHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
     type: 3}
+--- !u!114 &4453494652965237561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965909856216797886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41eb2060359b88143b58d45445095510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
 --- !u!96 &-5627511898586479077
 TrailRenderer:
   serializedVersion: 2
