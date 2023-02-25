@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/StartScreen.unity
+    guid: 7565d8938d7d2ec46853b9fd9f9242ec
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/CharacterSelect.unity
     guid: e5e4f7825ef4bf74098a3d97bbe72f43
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/MapAnimation1.unity
+    guid: fdfb5d2a4ede7c2438475d7750bd997b
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/InstructionsTorch.unity
+    guid: 5e2acdfd176ea244899f721f56b0d0fd
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/TorchGame.unity
     guid: 71f40b5510f41004898a8035e3e87431
@@ -15,8 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
     guid: 3d9fbda8e2105894b82425815cbf740d
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/MapAnimationTest.unity
-    guid: 5fe2278d9ebe8b84fba41cde0ac8c51b
+    path: Assets/Scenes/Drafts/Nabeeha/MapAnimation2.unity
+    guid: 68858bf33584c7a43820e4b3057b1d1b
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
     guid: 98b82b9a98eabcb44826e01f6bb449f3

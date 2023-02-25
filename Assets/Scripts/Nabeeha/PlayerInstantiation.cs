@@ -28,9 +28,13 @@ public class PlayerInstantiation : MonoBehaviour
     public GameObject baseHat;
     public List<GameObject> specialHat;
 
+    public GameObject skip, skipUI;
+
     int randHat;
     void Start()
     {
+        skip.SetActive(false);
+        skipUI.SetActive(false);
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
         //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
@@ -65,11 +69,12 @@ public class PlayerInstantiation : MonoBehaviour
             else
             {
                 //enable hats
-                for (int i = 0; i < allPlayers[j].transform.childCount; i++)
+                for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
                 {
-                    if (allPlayers[j].transform.GetChild(i).GetChild(3).name == "Hats")
+                    if (allPlayers[j].transform.GetChild(0).GetChild(i).name == "Hats")
                     {
-                        allPlayers[j].transform.GetChild(i).GetChild(3).gameObject.SetActive(true);
+                        allPlayers[j].transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+                        allPlayers[j].transform.GetChild(0).GetChild(i).GetChild(0).gameObject.SetActive(true);
                     }
                 }
             }
@@ -246,6 +251,9 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
+        yield return new WaitForSeconds(1);
+        skip.SetActive(true);
+        skipUI.SetActive(true);
     }
 
     IEnumerator spawnHatsCatchUp()
@@ -305,6 +313,9 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
+        yield return new WaitForSeconds(1);
+        skip.SetActive(true);
+        skipUI.SetActive(true);
     }
 
 }

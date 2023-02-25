@@ -9,17 +9,18 @@ public class FinalShowdown : MonoBehaviour
     float dist1, dist2, dist3;
     public float proximity;
 
-    FinalsShowdownPlayerSettings finalshowdownplayersettings;
+    //FinalsShowdownPlayerSettings finalshowdownplayersettings;
     FinalShowdownControls finalshowdowncontrols;
     public int magnitude;
 
-    public bool hatsOff;
-    public int hitCountP1 = 0, hitCountP2 = 0, hitCountP3 = 0, hitCountP4 = 0;
-    int listIndexP1 = 0, listIndexP2 = 0, listIndexP3 = 0, listIndexP4 = 0;
+    public static bool isDeadP1, isDeadP2, isDeadP3, isDeadP4;
+    //public bool hatsOff;
+    //public int hitCountP1 = 0, hitCountP2 = 0, hitCountP3 = 0, hitCountP4 = 0;
+    //int listIndexP1 = 0, listIndexP2 = 0, listIndexP3 = 0, listIndexP4 = 0;
     void Start()
     {
         finalshowdowncontrols = transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
+        //finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
 
         if (this.gameObject.tag == "Player 1")
         {
@@ -53,6 +54,7 @@ public class FinalShowdown : MonoBehaviour
         dist2 = Vector3.Distance(this.gameObject.transform.position, otherPlayers[1].transform.position);
         dist3 = Vector3.Distance(this.gameObject.transform.position, otherPlayers[2].transform.position);
 
+        //might need to put this in fixedupdate!
         if ((dist1 < proximity || dist2 < proximity || dist3 < proximity) && finalshowdowncontrols.canPush == true)
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * magnitude, ForceMode.VelocityChange);
@@ -64,81 +66,26 @@ public class FinalShowdown : MonoBehaviour
 
         if (finalshowdowncontrols.canPush == true)
         {
-            
             if (collision.gameObject.tag == "Player 1")
             {
-                hitCountP1++;
-                if (hitCountP1 > 0 && hitCountP1 % 2 == 0)
-                {
-                    
-                    if (listIndexP1 == finalshowdownplayersettings.hatsOrderP1.Count - 1)
-                    {
-                        Debug.Log("P1 is out!");
-                        finalshowdownplayersettings.hatsOrderP1[listIndexP1].transform.parent.gameObject.SetActive(false);
-                        //move player up
-                    }
-                    else
-                    {
-                        Destroy(finalshowdownplayersettings.hatsOrderP1[listIndexP1]);
-                        //projectile motion
-                        listIndexP1++;
-                    }
-                }
-                    
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
+
             }
             if (collision.gameObject.tag == "Player 2")
             {
-                hitCountP2++;
-                if (hitCountP2 > 0 && hitCountP2 % 2 == 0)
-                {
-                    
-                    if (listIndexP2 == finalshowdownplayersettings.hatsOrderP2.Count - 1)
-                    {
-                        Debug.Log("P2 is out!");
-                        finalshowdownplayersettings.hatsOrderP2[listIndexP2].transform.parent.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        Destroy(finalshowdownplayersettings.hatsOrderP2[listIndexP2]);
-                        listIndexP2++;
-                    }
-                }
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
             }
             if (collision.gameObject.tag == "Player 3")
             {
-                hitCountP3++;
-                if (hitCountP3 > 0 && hitCountP3 % 2 == 0)
-                {
-                    
-                    if (listIndexP3 == finalshowdownplayersettings.hatsOrderP3.Count - 1)
-                    {
-                        Debug.Log("P3 is out!");
-                        finalshowdownplayersettings.hatsOrderP3[listIndexP3].transform.parent.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        Destroy(finalshowdownplayersettings.hatsOrderP3[listIndexP3]);
-                        listIndexP3++;
-                    }
-                }
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
             }
             if (collision.gameObject.tag == "Player 4")
             {
-                hitCountP4++;
-                if (hitCountP4 > 0 && hitCountP4 % 2 == 0)
-                {
-                    
-                    if (listIndexP4 == finalshowdownplayersettings.hatsOrderP4.Count - 1)
-                    {
-                        Debug.Log("P4 is out!");
-                        finalshowdownplayersettings.hatsOrderP4[listIndexP4].transform.parent.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        Destroy(finalshowdownplayersettings.hatsOrderP4[listIndexP4]);
-                        listIndexP4++;
-                    }
-                }
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();
             }
             
         }

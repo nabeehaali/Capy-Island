@@ -27,6 +27,7 @@ TagManager:
   - Hockey
   - Cream
   - RegularHat
+  - VolGround
   layers:
   - Default
   - TransparentFX
