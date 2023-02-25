@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AlligatorPlayerScript : MonoBehaviour
 {
-    public bool isLeader = true;
+    public bool isLeader = false;
     public int points = 0;
     public int increase = 1;
     public float interval = 0.5f;
