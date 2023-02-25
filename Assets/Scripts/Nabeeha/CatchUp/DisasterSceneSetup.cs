@@ -14,9 +14,14 @@ public class DisasterSceneSetup : MonoBehaviour
 
     public static int p1HatsOff, p2HatsOff, p3HatsOff, p4HatsOff;
     public int removeFactor = 2;
-    
+
+    public GameObject skip, skipUI;
+
     void Start()
     {
+        skip.SetActive(false);
+        skipUI.SetActive(false);
+
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, (GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount));
@@ -101,5 +106,9 @@ public class DisasterSceneSetup : MonoBehaviour
             yield return new WaitForSeconds(2);
             count--;
         }
+
+        yield return new WaitForSeconds(1);
+        skip.SetActive(true);
+        skipUI.SetActive(true);
     }
 }

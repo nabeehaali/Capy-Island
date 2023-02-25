@@ -21,7 +21,8 @@ public class SceneManagement : MonoBehaviour
     }*/
     public void firstGame()
     {
-        SceneManager.LoadScene("TorchGame");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene("TorchGame");
     }
 
     public void secondGame()

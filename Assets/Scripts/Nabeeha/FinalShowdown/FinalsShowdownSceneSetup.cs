@@ -17,6 +17,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
     //FinalShowdownControls finalshowdowncontrolsP1, finalshowdowncontrolsP2, finalshowdowncontrolsP3, finalshowdowncontrolsP4;
     FinalsShowdownPlayerSettings finalshowdownplayersettings;
+    public Transform winnerTarget;
 
     bool gameDone = false;
     void Start()
@@ -281,28 +282,28 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         {
             if (state.transform.GetChild(2).GetChild(0).gameObject.activeSelf)
             {
-                state.transform.GetChild(2).GetChild(0).GetComponent<Image>().CrossFadeAlpha(1.0f, 1.0f, true);
+                state.transform.GetChild(2).GetChild(0).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
             }
         }
         if (hatsOrder[listIndex].tag == "Chef")
         {
             if (state.transform.GetChild(2).GetChild(1).gameObject.activeSelf)
             {
-                state.transform.GetChild(2).GetChild(1).GetComponent<Image>().CrossFadeAlpha(1.0f, 1.0f, true);
+                state.transform.GetChild(2).GetChild(1).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
             }
         }
         if (hatsOrder[listIndex].tag == "Hockey")
         {
             if (state.transform.GetChild(2).GetChild(2).gameObject.activeSelf)
             {
-                state.transform.GetChild(2).GetChild(2).GetComponent<Image>().CrossFadeAlpha(1.0f, 1.0f, true);
+                state.transform.GetChild(2).GetChild(2).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
             }
         }
         if (hatsOrder[listIndex].tag == "Cream")
         {
             if (state.transform.GetChild(2).GetChild(3).gameObject.activeSelf)
             {
-                state.transform.GetChild(2).GetChild(3).GetComponent<Image>().CrossFadeAlpha(1.0f, 1.0f, true);
+                state.transform.GetChild(2).GetChild(3).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
             }
         }
     }
@@ -362,8 +363,8 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         gameover.gameObject.SetActive(true);
         gameover.SetText("Game Over!");
         yield return new WaitForSeconds(2);
-        
-        if(activePlayers[0] == GameObject.FindGameObjectWithTag("Player 1"))
+
+        if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 1"))
         {
             Debug.Log("Play p1 anim here");
         }
@@ -382,4 +383,5 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
 
     }
+
 }
