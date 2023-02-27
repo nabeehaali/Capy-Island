@@ -10,7 +10,7 @@ public class Hats : MonoBehaviour
 
     private GameObject currentObj, oldObj;
 
-    public List<GameObject> hats;
+
     public int numHats;
     // Start is called before the first frame update
     void Start()

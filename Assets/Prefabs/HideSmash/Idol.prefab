@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5147052737850059658}
   - component: {fileID: 5147052737850059659}
   - component: {fileID: 5147052737850059656}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Idol
   m_TagString: Vase
   m_Icon: {fileID: 0}

@@ -79,12 +79,13 @@ public class StatueRotation : MonoBehaviour
             //Debug.Log(collision.tag);
             if (rayCastCheck(idolStart, collision.transform) == true && dist < minDistanceToDIE)
             {
-                //Debug.Log("Player Visible");
+                Debug.Log("Player Visible DEAD");
                 collision.gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(200, 0, 0);
             }
             else if (rayCastCheck(idolStart, collision.transform) == true && dist > minDistanceToDIE)
             {
+                Debug.Log("Player Visible NOT IN RANGE");
                 GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(50, 0, 0);
                 collision.transform.Find("VisionIndicator").LookAt(mainCam.transform);
 
@@ -92,10 +93,13 @@ public class StatueRotation : MonoBehaviour
             }
             else if (rayCastCheck(idolStart, collision.transform) == false)
             {
+                Debug.Log("Player Hidden");
                 GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(20, 20, 10);
 
                 collision.transform.Find("VisionIndicator").gameObject.SetActive(false);
             }
+
+
 
             //GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(50, 50, 5);
             

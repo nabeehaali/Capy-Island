@@ -14,6 +14,8 @@ public class HideSmashSetup : MonoBehaviour
     public TMP_Text gameover;
     public TMP_Text countdown;
     public int countdownTime = 1;
+    List<GameObject> players = new List<GameObject>();
+    List<int> playersVals = new List<int>();
 
     public TMP_Text p1Score, p2Score, p3Score, p4Score;
 
@@ -51,45 +53,50 @@ public class HideSmashSetup : MonoBehaviour
             EndGame();
         }
 
-        //p1Score.SetText("" + GameObject.FindGameObjectWithTag("Player 1").GetComponent<HideSmash>().playerScore + " Vases");
-        //p2Score.SetText("" + GameObject.FindGameObjectWithTag("Player 2").GetComponent<HideSmash>().playerScore + " Vases");
+        p1Score.SetText("" + GameObject.FindGameObjectWithTag("Player 1").GetComponent<HideSmash>().playerScore + " Vases");
+        p2Score.SetText("" + GameObject.FindGameObjectWithTag("Player 2").GetComponent<HideSmash>().playerScore + " Vases");
         p3Score.SetText("" + GameObject.FindGameObjectWithTag("Player 3").GetComponent<HideSmash>().playerScore + " Vases");
-        //p4Score.SetText("" + GameObject.FindGameObjectWithTag("Player 4").GetComponent<HideSmash>().playerScore + " Vases");
+        p4Score.SetText("" + GameObject.FindGameObjectWithTag("Player 4").GetComponent<HideSmash>().playerScore + " Vases");
     }
 
     void EndGame()
     {
-        
-        ///////////// NEED TO COUNT POINTS //////////////////////
+
+        players.Add(GameObject.FindGameObjectWithTag("Player 1"));
+        players.Add(GameObject.FindGameObjectWithTag("Player 2"));
+        players.Add(GameObject.FindGameObjectWithTag("Player 3"));
+        players.Add(GameObject.FindGameObjectWithTag("Player 4"));
+
+        for (int i = 0; i < players.Count(); i++)
+        {
+            var item = players[i];
+            var currentIndex = i;
+
+            while (currentIndex > 0 && players[currentIndex - 1].GetComponent<HideSmash>().playerScore > item.GetComponent<HideSmash>().playerScore)
+            {
+                players[currentIndex] = players[currentIndex - 1];
+                currentIndex--;
+            }
+            
+            players[currentIndex] = item;
+        }
 
         StartCoroutine(finishGame());
 
-        //for (int i = 0; i < torchpoints.Count; i++)
-        //{
-        //    for (int j = 0; j < distinct.Count; j++)
-        //    {
-        //        if (torchpoints[i].playerPoints == distinct[j].playerPoints)
-        //        {
-        //            //if (i == 0)
-        //            //{
-        //            //    countdown.SetText("" + torchpoints[0].playerPoints + " is the winner!");
-        //            //}
-        //            Debug.Log(torchpoints[i].playerID + " is in " + (j + 1) + " place!");
-        //        }
-        //    }
-        //}
     }
 
     IEnumerator finishGame()
     {
-        yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
+        gameover.SetText("Winner is: " + players.Last().tag);
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("HatProgressHideSmash");
     }
 
     IEnumerator startGame()
     {
+
+
         countdown.SetText("Start!");
         yield return new WaitForSeconds(countdownTime);
         StartCoroutine(countDown(gameLength));
