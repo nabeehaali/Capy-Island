@@ -23,8 +23,8 @@ public class AlligatorBrain : MonoBehaviour
         //Mesh mesh = water.GetComponent<Renderer>().bounds;
         b = water.GetComponent<Renderer>().bounds;
         startPosition = transform.position;
+        targetPosition = transform.position;
         animator = GetComponent<Animator>();
-
         
         if(players == null)
         {
