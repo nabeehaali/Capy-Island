@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18284668, g: 0.22854808, b: 0.3069669, a: 1}
+  m_IndirectSpecularColor: {r: 0.1828466, g: 0.22854808, b: 0.30696654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayers: []
   proximity: 10
-  magnitude: 100
+  magnitude: 80
 --- !u!4 &165585961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 444811041393182724, guid: 7a1ed9a9c60752e4f9480df49584ccb6,
@@ -2006,7 +2006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayers: []
   proximity: 10
-  magnitude: 100
+  magnitude: 80
 --- !u!4 &651032279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8727145599083543331, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
@@ -3615,7 +3615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayers: []
   proximity: 10
-  magnitude: 100
+  magnitude: 80
 --- !u!4 &875904181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1196846442678922680, guid: dd11c8090249ed14aa4c6aacc5258620,
@@ -6114,7 +6114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayers: []
   proximity: 10
-  magnitude: 100
+  magnitude: 80
 --- !u!4 &1378758006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4572332727441148605, guid: b246722607752d14db4efe932b9cee49,

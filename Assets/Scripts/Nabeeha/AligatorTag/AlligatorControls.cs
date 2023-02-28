@@ -40,6 +40,9 @@ public class AlligatorControls : MonoBehaviour
         // finding the crown (only one should be in scene)
         // change this if that design changes in the future
         crownObj = GameObject.FindGameObjectsWithTag("Alligator Crown")[0];
+
+        //DELETE AFTER TESTING
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

@@ -18,6 +18,9 @@ public class PlayerInstantiation : MonoBehaviour
     public List<MinigamePoints> sledRankings;
     public List<MinigamePoints> sledRankingsDistinct;
 
+    public List<MinigamePoints> alligatorRankings;
+    public List<MinigamePoints> alligatorRankingsDistinct;
+
     public List<MinigamePoints> catchUpRankings;
     public List<MinigamePoints> catchUpRankingsDistinct;
 
@@ -39,6 +42,7 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
+            allPlayers[j].transform.GetComponent<AlligatorControls>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<SledGame>().enabled = false;
@@ -136,6 +140,17 @@ public class PlayerInstantiation : MonoBehaviour
             activeList = sledRankings;
 
             displayData(sledRankings, sledRankingsDistinct);
+            StartCoroutine(spawnHats());
+
+            randHat = Random.Range(0, specialHat.Count);
+        }
+        else if (sceneName == "HatProgressAlligator")
+        {
+            alligatorRankings = AlligatorSceneSetup.alligatorpoints;
+            alligatorRankingsDistinct = AlligatorSceneSetup.distinct;
+            activeList = alligatorRankings;
+
+            displayData(alligatorRankings, alligatorRankingsDistinct);
             StartCoroutine(spawnHats());
 
             randHat = Random.Range(0, specialHat.Count);

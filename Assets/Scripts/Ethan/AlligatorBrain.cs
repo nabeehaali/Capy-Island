@@ -91,7 +91,7 @@ public class AlligatorBrain : MonoBehaviour
                 GameObject leaderPlayer = null;
                 foreach (GameObject player in players)
                 {
-                    AlligatorPlayerScript alPlayerScript = player.GetComponentInChildren(typeof(AlligatorPlayerScript)) as AlligatorPlayerScript;
+                    AlligatorControls alPlayerScript = player.GetComponentInChildren(typeof(AlligatorControls)) as AlligatorControls;
 
                     if (alPlayerScript.isLeader) 
                     {
@@ -130,4 +130,6 @@ public class AlligatorBrain : MonoBehaviour
         elapsedTime = 0;
         moving = false;
     }
+
+    //TODO: collider function for when they bump into player????
 }

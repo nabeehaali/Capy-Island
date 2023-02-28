@@ -5,12 +5,14 @@ using UnityEngine.InputSystem;
 
 public class CatchUpPlayerSettings : MonoBehaviour
 {
+    public Transform waitingPos;
+
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 0, -60), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(0, 0, -60), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(0, 0, -60), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(0, 0, -60), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), waitingPos.position, 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), waitingPos.position, 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), waitingPos.position, 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), waitingPos.position, 0);
     }
 
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)

@@ -9,10 +9,11 @@ public class AlligatorSceneSetup : MonoBehaviour
 {
     // !!! this doesn't do anything, just remnants from trying to dodge some compiler errors :(
 
-    //public TMP_Text countdown;
-    //public int countdownTime;
+    public TMP_Text countdown;
+    public int gameLength;
 
-    //float timePassed;
+    float timePassed;
+    bool gameDone = false;
 
     public TMP_Text p1State, p2State, p3State, p4State;
 
@@ -47,10 +48,27 @@ public class AlligatorSceneSetup : MonoBehaviour
                 }
             }
         }*/
+
+        StartCoroutine(countDown(gameLength));
+
+        //place hat somewhere random in the environment????
     }
 
     void FixedUpdate()
     {
+        timePassed += Time.deltaTime;
+
+        if (timePassed > gameLength && !gameDone)
+        {
+            foreach (GameObject player in players)
+            {
+                player.GetComponent<AlligatorControls>().enabled = false;
+                player.GetComponent<PlayerMovement>().enabled = false;
+            }
+            EndGame();
+            gameDone = true;
+        }
+
         p1State.SetText("" + GameObject.FindGameObjectWithTag("Player 1").transform.parent.GetComponent<AlligatorControls>().points + " Points");
         p2State.SetText("" + GameObject.FindGameObjectWithTag("Player 2").transform.parent.GetComponent<AlligatorControls>().points + " Points");
         p3State.SetText("" + GameObject.FindGameObjectWithTag("Player 3").transform.parent.GetComponent<AlligatorControls>().points + " Points");
@@ -74,16 +92,21 @@ public class AlligatorSceneSetup : MonoBehaviour
                 int playerScore = players[i].GetComponent<AlligatorControls>().points;
                 if (playerScore >= winScore)
                 {
-                    Debug.Log("PLAYER WIN!");
-                    // stopping the point increase + stopping players from moving
-                    foreach (GameObject player in players)
+                    if(!gameDone)
                     {
-                        player.GetComponent<AlligatorControls>().hasEnded = true;
-                        player.GetComponent<PlayerMovement>().enabled = false;
+                        Debug.Log("PLAYER WIN!");
+                        // stopping the point increase + stopping players from moving
+                        foreach (GameObject player in players)
+                        {
+                            //player.GetComponent<AlligatorControls>().hasEnded = true;
+                            player.GetComponent<AlligatorControls>().enabled = false;
+                            player.GetComponent<PlayerMovement>().enabled = false;
+                        }
+                        EndGame();
+                        gameDone = true;
                     }
                     gameRunning = false;
-                    EndGame();
-                    break;
+                    //break;
                 }
             }
         }
@@ -110,7 +133,20 @@ public class AlligatorSceneSetup : MonoBehaviour
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
-     
+
+        Destroy(GameObject.FindGameObjectWithTag("Alligator Crown"));
         SceneManager.LoadScene("HatProgressAlligator");
+    }
+
+    IEnumerator countDown(int seconds)
+    {
+        int count = seconds;
+
+        while (count > -1)
+        {
+            countdown.SetText("" + count);
+            yield return new WaitForSeconds(1);
+            count--;
+        }
     }
 }
