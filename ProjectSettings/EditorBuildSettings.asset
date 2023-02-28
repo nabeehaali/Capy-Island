@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Drafts/Ethan/AlligatorTag.unity
+    guid: 27c1e3ffb7410db41ac427c5dc301ad3
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/StartScreen.unity
     guid: 7565d8938d7d2ec46853b9fd9f9242ec
   - enabled: 1

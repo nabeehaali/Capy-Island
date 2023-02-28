@@ -10,7 +10,6 @@ public class AlligatorCapy : MonoBehaviour
     void Start()
     {
         playerScript = gameObject.GetComponentInParent<AlligatorPlayerScript>();
-        Debug.Log(playerScript);
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ public class PlayerDetails : MonoBehaviour
     public int playerID;
     public Vector3 startPos;
     
-    void Start()
+    void Awake()
     {
         transform.position = startPos;
 

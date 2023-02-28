@@ -11,7 +11,6 @@ public class AlligatorPlayerSettings : MonoBehaviour
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(50, 0, 40), 225);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-50, 0, -40), 45);
         BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(50, 0, -40), -45);
-
     }
 
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)
@@ -51,7 +50,15 @@ public class AlligatorPlayerSettings : MonoBehaviour
                 player.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
+    }
 
+    IEnumerator Setup()
+    {
+        yield return new WaitForSeconds(0.2f);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-50, 0, 40), 135);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(50, 0, 40), 225);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-50, 0, -40), 45);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(50, 0, -40), -45);
     }
 
 }

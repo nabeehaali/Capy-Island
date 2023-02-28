@@ -29,7 +29,7 @@ public class AlligatorBrain : MonoBehaviour
         if(players == null)
         {
             players = GameObject.FindGameObjectsWithTag("Player");
-            Debug.Log("No. of players:" + players.Length);
+            // Debug.Log("No. of players:" + players.Length);
         }
 
     }

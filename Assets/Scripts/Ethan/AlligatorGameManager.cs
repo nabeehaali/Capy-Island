@@ -16,6 +16,7 @@ public class AlligatorGameManager : MonoBehaviour
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+        Debug.Log(players);
 
         // displays are entered as an array in the Unity editor 
         foreach(TextMeshProUGUI display in displays)
@@ -55,7 +56,6 @@ public class AlligatorGameManager : MonoBehaviour
                 int playerScore = players[i].GetComponent<AlligatorPlayerScript>().points;
                 if (playerScore >= winScore)
                 {
-                    Debug.Log("PLAYER WIN!");
                     // stopping the point increase + stopping players from moving
                     foreach (GameObject player in players)
                     {

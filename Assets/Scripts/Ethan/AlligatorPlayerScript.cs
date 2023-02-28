@@ -105,7 +105,7 @@ public class AlligatorPlayerScript : MonoBehaviour
 
     IEnumerator playerSetup()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         playerID = gameObject.transform.GetChild(0).tag;
         playerObj = gameObject.transform.GetChild(0).gameObject;
