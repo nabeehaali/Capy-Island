@@ -2811,6 +2811,7 @@ GameObject:
   - component: {fileID: 8591117073202237498}
   - component: {fileID: -7039440061155827710}
   - component: {fileID: 995758133479383393}
+  - component: {fileID: 7997116490264853362}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -3024,6 +3025,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &7997116490264853362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014475958362521}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0e1ce1b1e3ad648b19f104e40645fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
 --- !u!1 &8305268144033198728
 GameObject:
   m_ObjectHideFlags: 0

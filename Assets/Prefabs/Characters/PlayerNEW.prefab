@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -793117647168687137}
   - component: {fileID: 6419911494426830731}
   - component: {fileID: 4616666122457417381}
+  - component: {fileID: 5764879065971483784}
   - component: {fileID: 2809849624319396701}
   - component: {fileID: -7355346650665330563}
   m_Layer: 0
@@ -215,6 +216,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fd98eaa1-03f8-45ba-99a6-d1b3953b3b3b
     m_ActionName: Player/Instructions[/XInputControllerWindows/start,/XInputControllerWindows1/start,/XInputControllerWindows2/start,/XInputControllerWindows3/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c7fd824-aa0d-4f23-9b57-ac331d6c9758
+    m_ActionName: Player/NextHat[/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder,/XInputControllerWindows2/rightShoulder,/XInputControllerWindows3/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b3bc8985-f7f3-48c1-ac4d-db1f379f99e7
+    m_ActionName: Player/PrevHat[/XInputControllerWindows/leftShoulder,/XInputControllerWindows1/leftShoulder,/XInputControllerWindows2/leftShoulder,/XInputControllerWindows3/leftShoulder]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: UI
@@ -233,7 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  ramFactor: 0
 --- !u!114 &6419911494426830731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +269,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canLight: 0
   canBlow: 0
+--- !u!114 &5764879065971483784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47f313b22f82894a8d49d92f5cada48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLeader: 0
+  points: 0
+  increase: 1
+  interval: 0.5
+  crownObj: {fileID: 0}
+  playerObj: {fileID: 0}
+  isBit: 0
+  hasStarted: 0
+  hasEnded: 0
+  canSteal: 0
+  isImmune: 0
 --- !u!114 &2809849624319396701
 MonoBehaviour:
   m_ObjectHideFlags: 0
