@@ -142,6 +142,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -334037480400203504}
+        m_TargetAssemblyTypeName: AlligatorPlayerScript, Assembly-CSharp
+        m_MethodName: Steal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 60230ac9-91e9-46fc-b23d-c8eccd6e682e
     m_ActionName: Player/Fire[/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast,/XInputControllerWindows2/buttonEast,/XInputControllerWindows3/buttonEast,/Mouse/leftButton,/Touchscreen/primaryTouch/tap]
   - m_PersistentCalls:
@@ -307,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66794faed6cddee46b1012b8576019ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeader: 1
+  isLeader: 0
   points: 0
   increase: 1
   interval: 0.5
