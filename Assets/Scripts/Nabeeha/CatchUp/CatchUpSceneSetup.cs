@@ -28,6 +28,8 @@ public class CatchUpSceneSetup : MonoBehaviour
     public TMP_Text gameover;
     bool gameDone = false;
 
+    public TMP_Text[] goPlayers;
+
     private void Start()
     {
         //a little but of a cold assumption, keep testing to see if this always works, otherwise change it 
@@ -61,24 +63,28 @@ public class CatchUpSceneSetup : MonoBehaviour
                 GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                 GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                 GameObject.Find(rankings[0].playerID).GetComponent<Rigidbody>().isKinematic = false;
-
-                if(rankings[0].playerPoints == rankings[1].playerPoints)
+                checkUI(0);
+                    
+                if (rankings[0].playerPoints == rankings[1].playerPoints)
                 {
                     GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[1].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(1);
                 }
                 if(rankings[0].playerPoints == rankings[2].playerPoints)
                 {
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(2);
                 }
                 if (rankings[0].playerPoints == rankings[3].playerPoints)
                 {
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(3);
                 }
                 moveOnP1 = true;
             }
@@ -92,18 +98,21 @@ public class CatchUpSceneSetup : MonoBehaviour
                     GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[1].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(1);
                 }
                 if (rankings[1].playerPoints == rankings[2].playerPoints)
                 {
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(2);
                 }
                 if (rankings[1].playerPoints == rankings[3].playerPoints)
                 {
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(3);
                 }
                 moveOnP2 = true;
             }
@@ -117,12 +126,14 @@ public class CatchUpSceneSetup : MonoBehaviour
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(2);
                 }
                 if (rankings[1].playerPoints == rankings[3].playerPoints)
                 {
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(3);
                 }
                 moveOnP3 = true;
             }
@@ -136,6 +147,7 @@ public class CatchUpSceneSetup : MonoBehaviour
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(3);
                 }
                 moveOnP4 = true;
             }
@@ -195,5 +207,32 @@ public class CatchUpSceneSetup : MonoBehaviour
             
         }
         SceneManager.LoadScene("HatProgressCatchUp");
+    }
+
+    void checkUI(int index)
+    {
+        if (GameObject.Find(rankings[index].playerID).gameObject.tag == "Player 1")
+        {
+            StartCoroutine(goUI(0));
+        }
+        if (GameObject.Find(rankings[index].playerID).gameObject.tag == "Player 2")
+        {
+            StartCoroutine(goUI(1));
+        }
+        if (GameObject.Find(rankings[index].playerID).gameObject.tag == "Player 3")
+        {
+            StartCoroutine(goUI(2));
+        }
+        if (GameObject.Find(rankings[index].playerID).gameObject.tag == "Player 4")
+        {
+            StartCoroutine(goUI(3));
+        }
+    }
+
+    IEnumerator goUI(int index)
+    {
+        goPlayers[index].gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        goPlayers[index].gameObject.SetActive(false);
     }
 }

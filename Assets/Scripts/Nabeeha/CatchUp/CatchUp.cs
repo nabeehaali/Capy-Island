@@ -16,6 +16,7 @@ public class CatchUp : MonoBehaviour
     void Start()
     {
         catchupcontrols = transform.parent.gameObject.GetComponent<CatchUpControls>();
+        Physics.IgnoreCollision(GetComponent<MeshCollider>(), GameObject.Find("Sand").GetComponent<MeshCollider>());
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,7 +29,7 @@ public class CatchUp : MonoBehaviour
             Instantiate(sandParticles, collision.gameObject.transform.position, Quaternion.identity);
 
             //hat reaches the surface, destory it and reinstantiate hat on top of player's head
-            if (collision.gameObject.transform.position.y >= 0)
+            if (collision.gameObject.transform.position.y >= -2.6f)
             {
                 Destroy(collision.gameObject);
                 numHatsCollected += 1;
