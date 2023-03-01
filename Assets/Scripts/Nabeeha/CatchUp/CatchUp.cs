@@ -24,9 +24,9 @@ public class CatchUp : MonoBehaviour
         {
             //move hat a little up
             collision.gameObject.transform.position = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y + 0.2f, collision.gameObject.transform.position.z);
-            
-            //sand digging effect
-            Instantiate(sandParticles, collision.gameObject.transform.position, Quaternion.identity);
+
+            //sand digging effect (collision.gameObject.transform.position)
+            Instantiate(sandParticles, new Vector3(collision.gameObject.transform.position.x, -2.6f, collision.gameObject.transform.position.z), Quaternion.identity);
 
             //hat reaches the surface, destory it and reinstantiate hat on top of player's head
             if (collision.gameObject.transform.position.y >= -2.6f)

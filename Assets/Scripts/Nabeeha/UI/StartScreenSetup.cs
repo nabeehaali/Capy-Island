@@ -7,7 +7,7 @@ public class StartScreenSetup : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetButtonDown("StartL") && Input.GetButtonDown("StartR"))
+        if (Input.GetButtonDown("Start"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

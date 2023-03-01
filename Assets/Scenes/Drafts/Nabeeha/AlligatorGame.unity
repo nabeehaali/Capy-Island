@@ -759,7 +759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &459667199
 Animator:
   serializedVersion: 4
@@ -1050,7 +1050,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: OctaviustheGangster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2253299647517331811, guid: dd11c8090249ed14aa4c6aacc5258620, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd11c8090249ed14aa4c6aacc5258620, type: 3}
 --- !u!1 &595307392 stripped
 GameObject:
@@ -1558,6 +1559,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HippotheFlower
       objectReference: {fileID: 0}
+    - target: {fileID: 8239014475958362521, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8727145599083543331, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
         type: 3}
       propertyPath: m_RootOrder
@@ -1613,7 +1619,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7997116490264853362, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc, type: 3}
 --- !u!1 &897769550 stripped
 GameObject:
@@ -2454,7 +2461,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5764879065971483784, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
 --- !u!1 &1175048164 stripped
 GameObject:
@@ -2637,7 +2645,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5764879065971483784, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
 --- !u!1 &1186376144 stripped
 GameObject:
@@ -2698,7 +2707,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.79
-  m_Height: 20
+  m_Height: 25
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1255491954
@@ -2918,7 +2927,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5764879065971483784, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
 --- !u!1 &1272748571 stripped
 GameObject:
@@ -3624,6 +3634,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScooberttheNerd
       objectReference: {fileID: 0}
+    - target: {fileID: 3764974995125932039, guid: b246722607752d14db4efe932b9cee49,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4572332727441148605, guid: b246722607752d14db4efe932b9cee49,
         type: 3}
       propertyPath: m_RootOrder
@@ -3679,7 +3694,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3174092776707042466, guid: b246722607752d14db4efe932b9cee49, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b246722607752d14db4efe932b9cee49, type: 3}
 --- !u!1 &1483577779 stripped
 GameObject:
@@ -4003,7 +4019,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5764879065971483784, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
 --- !u!1 &1572746891 stripped
 GameObject:
@@ -4606,7 +4623,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: StevetheCapy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 965909856216797886, guid: 7a1ed9a9c60752e4f9480df49584ccb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8947450633568402349, guid: 7a1ed9a9c60752e4f9480df49584ccb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7a1ed9a9c60752e4f9480df49584ccb6, type: 3}
 --- !u!1 &1914531482 stripped
 GameObject:
