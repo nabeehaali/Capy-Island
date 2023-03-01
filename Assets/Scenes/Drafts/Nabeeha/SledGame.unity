@@ -1387,6 +1387,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4578896739330713683, guid: 2b4bb30d5ff89214fb61ed0d169cc3a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c4607b056d39d284c88214b68c86449a, type: 2}
     - target: {fileID: 919132149155446097, guid: 2b4bb30d5ff89214fb61ed0d169cc3a3,
         type: 3}
       propertyPath: m_Name
@@ -6446,8 +6451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   dropInterval: 5
-  shakeSpeed: 15
-  shakeAmount: 0.15
+  shakeSpeed: 13
+  shakeAmount: 0.1
   water: {fileID: 100074746}
 --- !u!1 &1933452522493069017
 GameObject:

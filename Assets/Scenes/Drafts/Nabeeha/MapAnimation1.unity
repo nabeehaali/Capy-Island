@@ -304,6 +304,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &37624292 stripped
@@ -409,6 +419,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &59265089 stripped
@@ -428,6 +448,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -518,6 +548,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -763,6 +803,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &94132063 stripped
@@ -950,6 +1000,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &274764812 stripped
@@ -969,6 +1029,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -1059,6 +1129,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -1220,6 +1300,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &401669953 stripped
@@ -1239,6 +1329,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -1399,6 +1499,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -1583,6 +1693,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &473415775 stripped
@@ -1672,6 +1792,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -1826,6 +1956,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -2065,6 +2205,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &553874057 stripped
@@ -2169,6 +2319,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -2532,6 +2692,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &616841523 stripped
@@ -2636,6 +2806,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -2898,6 +3078,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &725275713 stripped
@@ -2932,6 +3122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -3066,6 +3266,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -3241,6 +3451,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree2@3x (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -3330,6 +3550,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -3421,6 +3651,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree2@3x (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -3510,6 +3750,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -3969,6 +4219,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &874316133 stripped
@@ -4202,6 +4462,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -4499,6 +4769,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &908590765 stripped
@@ -4717,6 +4997,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1028005441 stripped
@@ -4736,6 +5026,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -4926,6 +5226,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -5030,6 +5340,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -5237,6 +5557,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1115203073 stripped
@@ -5341,6 +5671,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -5564,6 +5904,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1170635611 stripped
@@ -5669,6 +6019,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1173768505 stripped
@@ -5758,6 +6118,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -5849,6 +6219,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1191554876 stripped
@@ -5938,6 +6318,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -6043,6 +6433,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -6212,6 +6612,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8018868
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -6372,6 +6782,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1229740307 stripped
@@ -6477,6 +6897,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1269829095 stripped
@@ -6496,6 +6926,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -6772,6 +7212,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1329020938 stripped
@@ -6791,6 +7241,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -7036,6 +7496,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1365603804 stripped
@@ -7139,6 +7609,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -7601,6 +8081,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1470308612 stripped
@@ -7854,6 +8344,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -8232,6 +8732,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1618538326 stripped
@@ -8321,6 +8831,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -8620,6 +9140,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1657684978 stripped
@@ -8710,6 +9240,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1677081718 stripped
@@ -8729,6 +9269,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -8905,6 +9455,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7924528
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1714917590 stripped
@@ -8995,6 +9555,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1722182492 stripped
@@ -9014,6 +9584,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -9104,6 +9684,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -9278,6 +9868,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -9506,6 +10106,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree2@3x (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -9666,6 +10276,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1859742255 stripped
@@ -9755,6 +10375,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -9846,6 +10476,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree1@3x (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
 --- !u!4 &1887612777 stripped
@@ -9865,6 +10505,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -9970,6 +10620,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -10197,6 +10857,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree2@3x (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -10286,6 +10956,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -10377,6 +11057,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree2@3x (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -10466,6 +11156,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
@@ -10745,6 +11445,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: jungletree2@3x (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -10935,6 +11645,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree1@3x
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793333713033635699, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
@@ -11277,6 +11997,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jungletree2@3x (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398198349954654809, guid: 5523c7ccebe196a4eb8cbef667af30e3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
         type: 3}
