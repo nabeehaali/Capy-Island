@@ -7,10 +7,10 @@ public class AlligatorPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-1.2f, -254, 622.6f), 125);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(39.8f, -254, 620.4f), -125);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(0, -254, 603.3f), 35);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(35.2f, -254, 600), -35);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-2f, -250, 599), 125);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(47, -250, 597), -125);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(1.31f, -250, 571), 35);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(42, -250, 567), -35);
 
     }
 

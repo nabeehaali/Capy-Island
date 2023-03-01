@@ -14,8 +14,9 @@ public class SledGame : MonoBehaviour
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _trailRender = GetComponent<TrailRenderer>();
+        //change to get parent
+        _rigidbody = transform.parent.GetComponent<Rigidbody>();
+        _trailRender = transform.parent.GetComponent<TrailRenderer>();
         ranking = 4;
         inWater = false;
     }

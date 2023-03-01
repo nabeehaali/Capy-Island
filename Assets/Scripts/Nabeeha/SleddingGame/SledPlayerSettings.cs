@@ -26,13 +26,18 @@ public class SledPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = true;
-        player.GetComponent<SledGame>().enabled = true;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         player.GetComponent<Rigidbody>().drag = 1;
+
+
+        //switching geometry
+        player.transform.GetChild(0).gameObject.SetActive(false);
+        player.transform.GetChild(4).gameObject.SetActive(true);
+        player.transform.GetChild(4).GetComponent<SledGame>().enabled = true;
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)
