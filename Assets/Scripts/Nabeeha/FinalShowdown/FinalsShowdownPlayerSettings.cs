@@ -30,11 +30,13 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        player.transform.parent.gameObject.GetComponent<FinalShowdownControls>().enabled = true;
         player.transform.localPosition = Vector3.zero;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<SledGame>().enabled = false;
+        player.GetComponent<FinalShowdown>().enabled = true;
         
         player.GetComponent<Rigidbody>().drag = 0;
         player.GetComponent<Rigidbody>().useGravity = true;

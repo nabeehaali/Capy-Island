@@ -2812,6 +2812,7 @@ GameObject:
   - component: {fileID: -7039440061155827710}
   - component: {fileID: 995758133479383393}
   - component: {fileID: 7997116490264853362}
+  - component: {fileID: -3273596894212725944}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -3038,6 +3039,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 0}
+--- !u!114 &-3273596894212725944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014475958362521}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8532db0409f9b46b8fc6ed3ca757e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherPlayers: []
+  redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
+  proximity: 10
+  magnitude: 50
 --- !u!1 &8305268144033198728
 GameObject:
   m_ObjectHideFlags: 0

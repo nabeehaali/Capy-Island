@@ -4584,8 +4584,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: a251faa4-e93b-4286-abdf-c2b7e88de6cb
-        m_Path: <XInputController>/buttonEast
+        m_Id: ad21bec8-9ad7-478d-8bea-89785d68264d
+        m_Path: <XInputController>/buttonSouth
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -7818,7 +7818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRESS B TO JOIN
+  m_text: PRESS A TO JOIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 653b864cf09d5ef4f9c550fca035ba20, type: 2}
   m_sharedMaterial: {fileID: -904173063888023820, guid: 653b864cf09d5ef4f9c550fca035ba20,
