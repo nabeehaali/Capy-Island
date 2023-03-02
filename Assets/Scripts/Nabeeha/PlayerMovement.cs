@@ -41,6 +41,12 @@ public class PlayerMovement : MonoBehaviour
     public void move(InputAction.CallbackContext context)
     {
         playermovement = context.ReadValue<Vector2>() * speed;
+        gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("IdleToWalk");
+
+        if(context.canceled)
+        {
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("WalkToIdle");
+        }
     }
 
 }
