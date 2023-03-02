@@ -49,6 +49,7 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
             allPlayers[j].transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+            allPlayers[j].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             allPlayers[j].transform.Rotate(0, 180, 0);
 
             if (sceneName == "HatProgressCatchUp")
@@ -62,6 +63,21 @@ public class PlayerInstantiation : MonoBehaviour
                             allPlayers[j].transform.GetChild(0).transform.GetChild(i).GetChild(k).gameObject.SetActive(true);
                         }
 
+                    }
+                }
+            }
+            else if (sceneName == "HatProgressSled")
+            {
+                Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
+                allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
+
+                //enable hats
+                for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
+                {
+                    if (allPlayers[j].transform.GetChild(0).GetChild(i).name == "Hats")
+                    {
+                        allPlayers[j].transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+                        allPlayers[j].transform.GetChild(0).GetChild(i).GetChild(0).gameObject.SetActive(true);
                     }
                 }
             }

@@ -28,11 +28,7 @@ public class SledPlayerSettings : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;
-
-        //replacing geo and automatically turning on sled game script
-        player.transform.GetChild(0).gameObject.SetActive(false);
-        player.GetComponent<MeshCollider>().enabled = false;
-        player.transform.GetChild(4).gameObject.SetActive(true);
+        player.GetComponent<SledGame>().enabled = true;
 
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().useGravity = true;
@@ -43,6 +39,10 @@ public class SledPlayerSettings : MonoBehaviour
         //switching geometry
         player.transform.GetChild(0).gameObject.SetActive(false);
         player.transform.GetChild(4).gameObject.SetActive(true);
+
+        //switching colliders
+        player.GetComponent<MeshCollider>().enabled = false;
+        player.GetComponent<BoxCollider>().enabled = true;
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)

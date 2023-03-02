@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class SledGame : MonoBehaviour
 {
-    //private Rigidbody _rigidbody;
-    //private TrailRenderer _trailRender;
+    private Rigidbody _rigidbody;
+    private TrailRenderer _trailRender;
 
     public bool inWater;
 
@@ -15,8 +15,8 @@ public class SledGame : MonoBehaviour
     void Start()
     {
         //change to get parent
-        //_rigidbody = transform.parent.GetComponent<Rigidbody>();
-        //_trailRender = transform.parent.GetComponent<TrailRenderer>();
+        _rigidbody = transform.GetComponent<Rigidbody>();
+        _trailRender = transform.GetComponent<TrailRenderer>();
         ranking = 4;
         inWater = false;
     }
@@ -28,10 +28,10 @@ public class SledGame : MonoBehaviour
         {
             Debug.Log("I have collided!");
             inWater = true;
-            //_trailRender.emitting = false;
-            //_rigidbody.drag = 4;
-            //SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.transform.parent.parent.parent.name, ranking));
-            //ranking--;
+            _trailRender.emitting = false;
+            _rigidbody.drag = 4;
+            SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
+            ranking--;
         }
     }
 }

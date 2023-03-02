@@ -2186,12 +2186,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8727145599083543331}
   - component: {fileID: 5230806876772815119}
+  - component: {fileID: 3633946855241365499}
   - component: {fileID: -2620518577334311987}
   - component: {fileID: 836688330318671041}
   - component: {fileID: -7039440061155827710}
   - component: {fileID: 995758133479383393}
   - component: {fileID: 7997116490264853362}
   - component: {fileID: -3273596894212725944}
+  - component: {fileID: 1494917867342941993}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -2233,6 +2235,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8545447256379345787, guid: d55425e2c2f05244489b5df1cc31b087, type: 3}
+--- !u!65 &3633946855241365499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014475958362521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.025, z: 0.075}
+  m_Center: {x: 0, y: -0.015, z: 0.015}
 --- !u!54 &-2620518577334311987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2422,6 +2437,19 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
+--- !u!114 &1494917867342941993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014475958362521}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWater: 0
 --- !u!1 &8305268144033198728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,39 +2981,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4bb30d5ff89214fb61ed0d169cc3a3, type: 3}
---- !u!1 &1235992926804470843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4814059324395475840, guid: 2b4bb30d5ff89214fb61ed0d169cc3a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6046601983105482683}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &5659195470262649639
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235992926804470843}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1869224632539036594, guid: 2b4bb30d5ff89214fb61ed0d169cc3a3, type: 3}
---- !u!114 &5252667087425622700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235992926804470843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inWater: 0
 --- !u!4 &6080810621141637200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b4bb30d5ff89214fb61ed0d169cc3a3,

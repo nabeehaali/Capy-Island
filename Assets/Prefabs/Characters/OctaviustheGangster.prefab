@@ -1103,6 +1103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196846442678922680}
   - component: {fileID: 6805244232193075483}
+  - component: {fileID: -6586529110690445798}
   - component: {fileID: -3457841683433238319}
   - component: {fileID: 2554691155012687602}
   - component: {fileID: -530827135834520123}
@@ -1110,6 +1111,7 @@ GameObject:
   - component: {fileID: -8239641701750502548}
   - component: {fileID: -2253299647517331811}
   - component: {fileID: 3072189386509592424}
+  - component: {fileID: 7953867770434697867}
   m_Layer: 0
   m_Name: OctaviustheGangster
   m_TagString: Player 4
@@ -1151,6 +1153,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8545447256379345787, guid: d55425e2c2f05244489b5df1cc31b087, type: 3}
+--- !u!65 &-6586529110690445798
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006316057326876418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.022, z: 0.08}
+  m_Center: {x: 0, y: -0.016, z: 0.012}
 --- !u!54 &-3457841683433238319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1353,6 +1368,19 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
+--- !u!114 &7953867770434697867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006316057326876418}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWater: 0
 --- !u!1 &2092834769865371677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,8 +2732,6 @@ GameObject:
   - component: {fileID: 3570954795704460836}
   - component: {fileID: 3447761510469100914}
   - component: {fileID: 4486578270881600644}
-  - component: {fileID: 6117399601031099160}
-  - component: {fileID: 4263844994523182827}
   m_Layer: 0
   m_Name: SLEDMODEL
   m_TagString: Untagged
@@ -2778,33 +2804,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6117399601031099160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127566842629983350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inWater: 0
---- !u!64 &4263844994523182827
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127566842629983350}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7740883198236495598, guid: cdf620bb948b77445b9eb4003f9be07e, type: 3}
 --- !u!1 &5172053073894271764
 GameObject:
   m_ObjectHideFlags: 0

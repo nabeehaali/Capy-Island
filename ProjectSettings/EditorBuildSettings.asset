@@ -29,10 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/MapAnimation2.unity
     guid: 68858bf33584c7a43820e4b3057b1d1b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
     guid: 98b82b9a98eabcb44826e01f6bb449f3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
     guid: eeb2d5ecc8e5e1f418064829ff338eed
   - enabled: 0

@@ -1062,6 +1062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4572332727441148605}
   - component: {fileID: 993375621331428008}
+  - component: {fileID: 7848707666796454231}
   - component: {fileID: 2875318461837535253}
   - component: {fileID: -5720754018193667025}
   - component: {fileID: -2911901960096046018}
@@ -1069,6 +1070,7 @@ GameObject:
   - component: {fileID: 8237909350370691616}
   - component: {fileID: -3174092776707042466}
   - component: {fileID: 7463498867260653800}
+  - component: {fileID: 6351050872284596997}
   m_Layer: 0
   m_Name: ScooberttheNerd
   m_TagString: Player 3
@@ -1110,6 +1112,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8545447256379345787, guid: d55425e2c2f05244489b5df1cc31b087, type: 3}
+--- !u!65 &7848707666796454231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764974995125932039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.04499712, y: 0.021999998, z: 0.078}
+  m_Center: {x: 0.0003397715, y: -0.015599999, z: 0.012000001}
 --- !u!54 &2875318461837535253
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1312,6 +1327,19 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
+--- !u!114 &6351050872284596997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764974995125932039}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWater: 0
 --- !u!1 &3831157640072676118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,39 +2885,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 68fe513c223a06a4481667678bacb8ea, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d5a62218a002474c9b1965583628446, type: 3}
---- !u!1 &1116483189100537416 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2073514146410450897, guid: 9d5a62218a002474c9b1965583628446,
-    type: 3}
-  m_PrefabInstance: {fileID: 1420905107926722969}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &8883218116228215492
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116483189100537416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7740883198236495598, guid: 9d5a62218a002474c9b1965583628446, type: 3}
---- !u!114 &984064614389886264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116483189100537416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inWater: 0
 --- !u!4 &1455411273771503218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d5a62218a002474c9b1965583628446,
