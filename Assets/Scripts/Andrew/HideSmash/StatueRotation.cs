@@ -5,7 +5,8 @@ using UnityEngine;
 public class StatueRotation : MonoBehaviour
 {
     // Start is called before the first frame update
-    float speed, total;
+    public float speed;
+    float total;
     GameObject player1, player2, player3, player4;
     public Transform idolStart;
     public Camera mainCam;
@@ -20,7 +21,6 @@ public class StatueRotation : MonoBehaviour
         idolRotateInterval = 2.5f;
         minDistanceToDIE = 30f;
 
-        speed = 0.1f;
         total = 0f;
         timer = 0.0f;
         rand = 0;

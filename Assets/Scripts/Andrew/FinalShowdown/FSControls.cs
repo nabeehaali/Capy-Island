@@ -60,6 +60,7 @@ public class FSControls : MonoBehaviour
         string sceneName = currentScene.name;
 
         if (sceneName == "Hats") {
+            //Debug.Log("In Scene");
             if (fireButton > 0.5 && timer > 0.5) {
                 //if (hats[index].tag == "Chef") 
                 //{
@@ -90,7 +91,7 @@ public class FSControls : MonoBehaviour
 
     public void fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Is working");
+        Debug.Log("Is working");
         fireButton = context.ReadValue<float>();
     }
 

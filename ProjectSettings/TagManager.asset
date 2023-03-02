@@ -23,6 +23,7 @@ TagManager:
   - Alligator
   - Score UI
   - IdolLight
+  - Bolt
   layers:
   - Default
   - TransparentFX
