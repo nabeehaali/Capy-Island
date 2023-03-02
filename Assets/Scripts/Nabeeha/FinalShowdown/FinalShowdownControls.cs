@@ -50,11 +50,16 @@ public class FinalShowdownControls : MonoBehaviour
     public void Push(InputAction.CallbackContext context)
     {
         //StartCoroutine(pushMotion());
-        if (context.started)
+        //if (context.started)
+        //{
+           
+           
+        //}
+        if (context.performed)
         {
             canPush = true;
         }
-        else if (context.canceled)
+        else
         {
             canPush = false;
         }
