@@ -25,10 +25,10 @@ public class HideSmashSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(12, 4f, -8), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(4, 4f, -10), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-8, 4f, -10), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-16, 4f, -10), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(12, 2.08f, -8), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(4, 2.08f, -10), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-8, 2.08f, -10), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-16, 2.08f, -10), 0);
 
         StartCoroutine(startGame());
     }

@@ -22,7 +22,9 @@ public class HideSmash : MonoBehaviour
     {
         if (other.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().smashed == true) //&& firing > 0.5
         {
-            destroyIdol(other);
+            Destroy(other.gameObject);
+            playerScore++;
+            //destroyIdol(other);
             Debug.Log(playerScore);
         }
     }

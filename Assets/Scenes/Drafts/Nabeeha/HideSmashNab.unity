@@ -149,6 +149,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -793117647168687137, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1066231221}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: HideSmashControls, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -162,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -294,6 +339,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -793117647168687137, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 404364453}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: HideSmashControls, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -307,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -399,6 +489,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -793117647168687137, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 748146739}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: HideSmashControls, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -412,7 +547,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -1533,6 +1668,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -793117647168687137, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1640674038}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: HideSmashControls, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412309087488039261, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1546,7 +1726,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -4420,12 +4600,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846367057}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1591de1ce7c767a46a5932d9990b5cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idolPrefab: {fileID: 0}
+  idolPrefabs:
+  - {fileID: 3413706431336499487, guid: 88356b767668a0344bf2c125dd6533cf, type: 3}
+  - {fileID: 4161481151718953898, guid: ed7d3427256737e4c8ad5da863f63e6e, type: 3}
+  - {fileID: 5208978514470614474, guid: efc37d8884a84d04194c1df0ca16094c, type: 3}
+  - {fileID: 2202465680098751658, guid: b873593b1aa5b3941a996c83a67729d3, type: 3}
 --- !u!114 &1846367060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4908,6 +5092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hideandsmash_idolgrp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 177ba5607d095934d85c279fecbc8f8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4192721845621705903, guid: 177ba5607d095934d85c279fecbc8f8c,
         type: 3}
