@@ -53,4 +53,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Drafts/Nabeeha/FinalShowdown.unity
     guid: a6b3cd28716c4b048a38d2a8097f68b5
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c7ad1d5407e777e4da0bb4b518c1605b,
+      type: 2}
