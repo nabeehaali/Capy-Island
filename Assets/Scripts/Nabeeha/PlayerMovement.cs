@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmash" || sceneName == "CatchUp" || sceneName == "FinalShowdown" || sceneName == "MovementTest")
+        if (sceneName == "TorchGame" || sceneName == "Hats" || sceneName == "HideSmashNab" || sceneName == "CatchUp" || sceneName == "FinalShowdown" || sceneName == "MovementTest")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
