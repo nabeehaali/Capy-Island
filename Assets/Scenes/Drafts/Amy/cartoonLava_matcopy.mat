@@ -55,6 +55,6 @@ Material:
     - _RippleSpeed: 1.71
     - _StepValue: 0.89
     m_Colors:
-    - _BaseColour: {r: 0.11676747, g: 0.9056604, b: 0.63834983, a: 0}
-    - _RippleColour: {r: 0.3529412, g: 0.8, b: 0.41099462, a: 0}
+    - _BaseColour: {r: 0, g: 0.8490566, b: 0.57901627, a: 0}
+    - _RippleColour: {r: 0.25178, g: 0.7735849, b: 0.32043853, a: 0}
   m_BuildTextureStacks: []
