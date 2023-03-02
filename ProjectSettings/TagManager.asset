@@ -24,6 +24,12 @@ TagManager:
   - Score UI
   - IdolLight
   - Bolt
+  - Wizard
+  - Chef
+  - Hockey
+  - Cream
+  - RegularHat
+  - VolGround
   layers:
   - Default
   - TransparentFX
@@ -60,4 +66,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 545783683
+    locked: 0
+  - name: Land
+    uniqueID: 1065473811
+    locked: 0
+  - name: Jungle
+    uniqueID: 2789290867
+    locked: 0
+  - name: Capys
+    uniqueID: 3868461735
     locked: 0

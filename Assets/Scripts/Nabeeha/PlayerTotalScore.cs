@@ -12,10 +12,14 @@ public class PlayerTotalScore : IComparable<PlayerTotalScore>
     public bool hockeyHat;
     public bool lastHat;
 
-    public PlayerTotalScore(string newplayerID, int newtotalPoints)
+    public PlayerTotalScore(string newplayerID, int newtotalPoints, bool wizard, bool chef, bool hockey, bool last)
     {
         playerID = newplayerID;
         totalPoints = newtotalPoints;
+        wizardHat = wizard;
+        chefHat = chef;
+        hockeyHat = hockey;
+        lastHat = last;
     }
 
     public int CompareTo(PlayerTotalScore other)
