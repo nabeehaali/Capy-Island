@@ -45,10 +45,10 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetComponent<AlligatorControls>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
-            allPlayers[j].transform.GetChild(0).GetComponent<SledGame>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
             allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
+            allPlayers[j].transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             allPlayers[j].transform.Rotate(0, 180, 0);
 
             if (sceneName == "HatProgressCatchUp")

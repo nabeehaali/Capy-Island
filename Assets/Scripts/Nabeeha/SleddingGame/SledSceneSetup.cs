@@ -49,32 +49,39 @@ public class SledSceneSetup : MonoBehaviour
         //UI updates
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
-            if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.GetComponent<SledGame>().inWater == true)
+            for (int j = 0; j < GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(4).GetChild(0).childCount; j++)
             {
-                string tag = GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.tag;
-                if(tag == "Player 1")
+                if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(4).GetChild(0).GetChild(j).name == "SLEDMODEL")
                 {
-                    p1State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
-                    p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("StevetheCapy")).playerPoints);
+                    if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(4).GetChild(0).GetChild(j).gameObject.GetComponent<SledGame>().inWater == true)
+                    {
+                        string tag = GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.tag;
+                        if (tag == "Player 1")
+                        {
+                            p1State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
+                            p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("StevetheCapy")).playerPoints);
+                        }
+                        else if (tag == "Player 2")
+                        {
+                            p2State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
+                            p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("HippotheFlower")).playerPoints);
+                        }
+                        else if (tag == "Player 3")
+                        {
+                            p3State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
+                            p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("ScooberttheNerd")).playerPoints);
+                        }
+                        else if (tag == "Player 4")
+                        {
+                            p4State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
+                            p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("OctaviustheGangster")).playerPoints);
+                        }
+                    }
                 }
-                else if (tag == "Player 2")
-                {
-                    p2State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
-                    p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("HippotheFlower")).playerPoints);
-                }
-                else if (tag == "Player 3")
-                {
-                    p3State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
-                    p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("ScooberttheNerd")).playerPoints);
-                }
-                else if (tag == "Player 4")
-                {
-                    p4State.GetComponent<Image>().CrossFadeAlpha(0.5f, 1.0f, true);
-                    p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + sledpoints.Find(x => x.playerID.Contains("OctaviustheGangster")).playerPoints);
-                }
-
             }
-        }
+                
+        }        
+        
     }
 
     void EndGame()
@@ -82,10 +89,18 @@ public class SledSceneSetup : MonoBehaviour
         //Debug.Log("The game is over now");
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
-            if(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.GetComponent<SledGame>().inWater == false)
+            for (int j = 0; j < GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(4).GetChild(0).childCount; j++)
             {
-                sledpoints.Add(new MinigamePoints(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.name, SledGame.ranking));
+                if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(4).GetChild(0).GetChild(j).name == "SLEDMODEL")
+                {
+                    if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(4).GetChild(0).GetChild(j).gameObject.GetComponent<SledGame>().inWater == false)
+                    {
+                        sledpoints.Add(new MinigamePoints(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.name, SledGame.ranking));
+                    }
+
+                }
             }
+            
         }
 
         sledpoints.Sort();
