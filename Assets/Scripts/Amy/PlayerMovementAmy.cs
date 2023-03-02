@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementAmy : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     Vector2 playermovement;
