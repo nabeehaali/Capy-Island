@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 playermovement;
 
     public float speed;
+    public Animator animator;
 
     void Start()
     {
@@ -41,11 +42,14 @@ public class PlayerMovement : MonoBehaviour
     public void move(InputAction.CallbackContext context)
     {
         playermovement = context.ReadValue<Vector2>() * speed;
-        gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("IdleToWalk");
+        animator.SetBool("isWalking", true);
+        
+        //gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("IdleToWalk");
 
         if(context.canceled)
         {
-            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("WalkToIdle");
+            animator.SetBool("isWalking", false);
+            //gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("WalkToIdle");
         }
     }
 
