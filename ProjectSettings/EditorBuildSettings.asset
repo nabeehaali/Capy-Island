@@ -18,39 +18,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/MapAnimation1.unity
     guid: fdfb5d2a4ede7c2438475d7750bd997b
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HideSmashNab.unity
+    guid: fb096fed97a2b3b4085a63a5fc4ab55e
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/InstructionsTorch.unity
     guid: 5e2acdfd176ea244899f721f56b0d0fd
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/TorchGame.unity
     guid: 71f40b5510f41004898a8035e3e87431
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
-    guid: 3d9fbda8e2105894b82425815cbf740d
-  - enabled: 0
-    path: Assets/Scenes/Drafts/Nabeeha/MapAnimation2.unity
-    guid: 68858bf33584c7a43820e4b3057b1d1b
-  - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
-    guid: 98b82b9a98eabcb44826e01f6bb449f3
-  - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
-    guid: eeb2d5ecc8e5e1f418064829ff338eed
-  - enabled: 0
-    path: Assets/Scenes/Drafts/Nabeeha/MapAnimationDisaster.unity
-    guid: 0a3b14b5e1c49dc47a5b5c759df732f4
-  - enabled: 0
-    path: Assets/Scenes/Drafts/Nabeeha/CatchUp.unity
-    guid: cefd3b39e47e3de47ba36c28b3296d55
-  - enabled: 0
-    path: Assets/Scenes/Drafts/Nabeeha/HatProgressCatchUp.unity
-    guid: 11191ae48b27caf4a9533192e973908a
-  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/AlligatorGame.unity
     guid: 06be2142b8f2cfb45bcf8ef1f156864c
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/HatProgressAlligator.unity
     guid: d9eda7916c4e49449803fe6424f76345
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/MapAnimationDisaster.unity
+    guid: 0a3b14b5e1c49dc47a5b5c759df732f4
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/CatchUp.unity
+    guid: cefd3b39e47e3de47ba36c28b3296d55
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressCatchUp.unity
+    guid: 11191ae48b27caf4a9533192e973908a
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
+    guid: 98b82b9a98eabcb44826e01f6bb449f3
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HatInfo.unity
+    guid: 3351b322e34fcbe4581f9f0db6c26278
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/FinalShowdown.unity
     guid: a6b3cd28716c4b048a38d2a8097f68b5
   m_configObjects:

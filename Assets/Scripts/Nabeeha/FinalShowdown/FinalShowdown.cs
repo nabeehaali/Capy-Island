@@ -49,10 +49,10 @@ public class FinalShowdown : MonoBehaviour
             otherPlayers.Add(GameObject.FindGameObjectWithTag("Player 3"));
         }
 
-        originalMaterialP1 = GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterials[0];
-        originalMaterialP2 = GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterials[0];
-        originalMaterialP3 = GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterials[0];
-        originalMaterialP4 = GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterials[0];
+        originalMaterialP1 = GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
+        originalMaterialP2 = GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
+        originalMaterialP3 = GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
+        originalMaterialP4 = GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
     }
 
     void Update()
@@ -123,7 +123,7 @@ public class FinalShowdown : MonoBehaviour
 
     IEnumerator playerHit(GameObject player, Material originalMat)
     {
-        var renderer = player.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
+        var renderer = player.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
         Material[] materials = renderer.sharedMaterials; 
         materials[0] = redMaterial;
         renderer.sharedMaterials = materials;

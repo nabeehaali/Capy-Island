@@ -20,15 +20,13 @@ public class HideSmashSetup : MonoBehaviour
 
     public TMP_Text p1Score, p2Score, p3Score, p4Score;
 
-    public static bool nextScene;
-
     // Start is called before the first frame update
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(12, 2.08f, -8), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(4, 2.08f, -10), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-8, 2.08f, -10), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-16, 2.08f, -10), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-16.37f, 2.08f, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-6.03f, 2.08f, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(4.9f, 2.08f, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(15.67f, 2.08f, 0), 0);
 
         StartCoroutine(startGame());
     }
@@ -37,9 +35,9 @@ public class HideSmashSetup : MonoBehaviour
     {
         player.transform.parent.gameObject.transform.position = startPos;
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
-        //player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
-        //player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
-        player.transform.parent.gameObject.GetComponent<PlayerInput>().defaultActionMap = "Player";
+        player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
+        player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
+        //player.transform.parent.gameObject.GetComponent<PlayerInput>().defaultActionMap = "Player";
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<HideSmashControls>().enabled = true;
@@ -102,7 +100,7 @@ public class HideSmashSetup : MonoBehaviour
         //FOR DEMO
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
-        nextScene = true;
+        GameObject.Find("NextScene").SetActive(true);
     }
 
     IEnumerator startGame()

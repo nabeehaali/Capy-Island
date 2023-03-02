@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 2809849624319396701}
   - component: {fileID: -7355346650665330563}
   - component: {fileID: 860575802041803969}
+  - component: {fileID: 6140412403540268416}
+  - component: {fileID: -1277481576338702917}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Player
@@ -134,6 +136,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2809849624319396701}
         m_TargetAssemblyTypeName: CatchUpControls, Assembly-CSharp
         m_MethodName: Dig
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6140412403540268416}
+        m_TargetAssemblyTypeName: HideSmashControls, Assembly-CSharp
+        m_MethodName: fire
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,3 +348,30 @@ MonoBehaviour:
   canPush: 0
   moveHatL: 0
   moveHatR: 0
+--- !u!114 &6140412403540268416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16fc4669fc1a614897838f0dedf9253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashed: 0
+  isPush: 0
+  magnitude: 0
+--- !u!114 &-1277481576338702917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a23376957369649a3eb69ec6741136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

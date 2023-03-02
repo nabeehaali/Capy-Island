@@ -22,7 +22,7 @@ public class IdolSpawn : MonoBehaviour
             int randomVecX = Random.Range(-25, 32);
             int randomVecZ = Random.Range(vecMinZ, 39);
             int randPrefab = Random.Range(0, idolPrefabs.Length - 1);
-            Instantiate(idolPrefabs[randPrefab], new Vector3(randomVecX, 3.5f, randomVecZ), Quaternion.identity);
+            Instantiate(idolPrefabs[randPrefab], new Vector3(randomVecX, idolPrefabs[randPrefab].transform.position.y, randomVecZ), Quaternion.identity);
         }
     }
 
@@ -76,7 +76,7 @@ public class IdolSpawn : MonoBehaviour
         int randomVecX = Random.Range(-25, 32);
         int randomVecZ = Random.Range(vecMinZ, 39);
         int randPrefab = Random.Range(0, idolPrefabs.Length - 1);
-        Instantiate(idolPrefabs[randPrefab], new Vector3(randomVecX, 3.5f, randomVecZ), Quaternion.identity);
+        Instantiate(idolPrefabs[randPrefab], new Vector3(randomVecX, idolPrefabs[randPrefab].transform.position.y, randomVecZ), Quaternion.identity);
         isUpdate = true;
     }
 }

@@ -20,7 +20,7 @@ public class StatueRotation : MonoBehaviour
     {
 
         idolRotateInterval = 2.5f;
-        minDistanceToDIE = 50f;
+        minDistanceToDIE = 15f;
 
         total = 0f;
         timer = 0.0f;

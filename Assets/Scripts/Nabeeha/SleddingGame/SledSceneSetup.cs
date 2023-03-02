@@ -94,7 +94,7 @@ public class SledSceneSetup : MonoBehaviour
 
         sleddistinct = sledpoints.Distinct(new ItemEqualityComparer()).ToList();
 
-        SceneManager.LoadScene("HatProgressSled");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     IEnumerator startGame()

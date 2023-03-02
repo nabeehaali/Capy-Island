@@ -14,12 +14,6 @@ public class EmergencyCases : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("StartL"))
-        {
-            Debug.Log("This is where I reload the scene");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
         if (Input.GetButtonDown("StartR"))
         {
             Debug.Log("This is where I move to the next scene");
