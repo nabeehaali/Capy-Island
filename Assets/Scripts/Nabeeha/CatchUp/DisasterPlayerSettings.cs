@@ -7,10 +7,10 @@ public class DisasterPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(5, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-5, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(10, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(100, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(100, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(100, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(100, 0, 0), 0);
 
     }
 

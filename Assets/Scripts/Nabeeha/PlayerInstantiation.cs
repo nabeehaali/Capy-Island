@@ -261,7 +261,7 @@ public class PlayerInstantiation : MonoBehaviour
                 GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 winningHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                winningHat.transform.localScale = new Vector3(65, 65, 65);
+                //winningHat.transform.localScale = new Vector3(65, 65, 65);
 
             }
         }
