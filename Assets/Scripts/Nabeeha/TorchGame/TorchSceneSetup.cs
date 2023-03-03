@@ -110,8 +110,8 @@ public class TorchSceneSetup : MonoBehaviour
         {
             Destroy(pLight.gameObject);
         }
-        yield return new WaitForSeconds(2);
-        GameObject.Find("NextScene").SetActive(true);
+        //yield return new WaitForSeconds(2);
+        //GameObject.Find("NextScene").SetActive(true);
     }
 
     IEnumerator countDown(int seconds)

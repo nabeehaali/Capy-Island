@@ -18,7 +18,7 @@ public class HideSmashControls : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+        //_rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
         playerControls = new PlayerInputActions();
         smashed = false;
         isPush = false;
@@ -26,7 +26,7 @@ public class HideSmashControls : MonoBehaviour
 
     // Update is called once per frame
 
-    public void fire(InputAction.CallbackContext context)
+    public void Hit(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -40,12 +40,12 @@ public class HideSmashControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isPush)
+        /*if (isPush)
         {
             _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange); //can also try impulse
         }
 
-        float firing = fireButton;
+        float firing = fireButton;*/
     }
 
     public void Push(InputAction.CallbackContext context)

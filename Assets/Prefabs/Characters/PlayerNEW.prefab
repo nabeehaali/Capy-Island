@@ -147,7 +147,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 6140412403540268416}
         m_TargetAssemblyTypeName: HideSmashControls, Assembly-CSharp
-        m_MethodName: fire
+        m_MethodName: Hit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
