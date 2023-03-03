@@ -693,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.89996, y: 42.000046}
+  m_AnchoredPosition: {x: 66.09997, y: 42.000046}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141593025
@@ -829,7 +829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.90001, y: 44.99997}
+  m_AnchoredPosition: {x: 66.10001, y: 44.99997}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313673120
@@ -6654,8 +6654,8 @@ MonoBehaviour:
   m_text: Bring on the lasers and leave your opponents in a daze! Use wizardry to
     temporarily stun other capys and make them lose hats.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6876,7 +6876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.8999, y: 10.000015}
+  m_AnchoredPosition: {x: 66.09991, y: 10.000015}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1048329034
@@ -6900,10 +6900,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Unleash the ultimate defence mechanism: a shield to protect yourself from
-    the other  capys!'
+    the other capys!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7895,11 +7895,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Who needs weapons when you have cake? Drop irresistable, delicious cakes
-    for the capys to eat! Players get distracted eating and can\u2019t fight back
-    :("
+    for the capys to eat! Players get distracted and can\u2019t fight back :("
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8659,6 +8658,75 @@ Transform:
   m_Father: {fileID: 740367780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1731050019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7212951333483777301, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_Name
+      value: icecreamhat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.800009
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.75299
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b91f40aaef2ee1047a477afd30b54512, type: 3}
 --- !u!1 &1736254386
 GameObject:
   m_ObjectHideFlags: 0
@@ -9606,7 +9674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.9, y: 13}
+  m_AnchoredPosition: {x: 66.1, y: 13}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145004172
@@ -9629,11 +9697,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bring on the lasers and leave your opponents in a daze! Use wizardry to
-    temporarily stun other capys and make them lose hats.
+  m_text: It's a sugar rush! Molly's treat gives you a speed boost to let you run
+    away from the other capys!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9708,72 +9776,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145004170}
   m_CullTransparentMesh: 1
---- !u!1001 &7555039974424636867
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7212951333483777301, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_Name
-      value: icecreamhat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.199999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -13.800011
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 59.75299
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b91f40aaef2ee1047a477afd30b54512, type: 3}
