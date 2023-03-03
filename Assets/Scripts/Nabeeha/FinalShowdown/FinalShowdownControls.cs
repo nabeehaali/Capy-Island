@@ -53,7 +53,7 @@ public class FinalShowdownControls : MonoBehaviour
         //StartCoroutine(pushMotion());
         //if (context.started)
         //{
-        animator.SetBool("isWalking", true);
+        animator.SetBool("isHitting", true);
 
 
         //}
@@ -64,6 +64,7 @@ public class FinalShowdownControls : MonoBehaviour
         else
         {
             canPush = false;
+            animator.SetBool("isHitting", false);
         }
     }
 
