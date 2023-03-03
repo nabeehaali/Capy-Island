@@ -9,6 +9,7 @@ public class FinalShowdownControls : MonoBehaviour
     private Rigidbody _rigidbody;
 
     public bool canPush = false, moveHatL = false, moveHatR = false;
+    public Animator animator;
 
     void Start()
     {
@@ -52,8 +53,9 @@ public class FinalShowdownControls : MonoBehaviour
         //StartCoroutine(pushMotion());
         //if (context.started)
         //{
-           
-           
+        animator.SetBool("isHitting", true);
+
+
         //}
         if (context.performed)
         {
@@ -62,6 +64,7 @@ public class FinalShowdownControls : MonoBehaviour
         else
         {
             canPush = false;
+            animator.SetBool("isHitting", false);
         }
     }
 
