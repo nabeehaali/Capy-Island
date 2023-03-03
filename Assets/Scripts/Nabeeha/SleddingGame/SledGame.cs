@@ -28,8 +28,8 @@ public class SledGame : MonoBehaviour
         {
             Debug.Log("I have collided!");
             inWater = true;
-            _trailRender.emitting = false;
-            _rigidbody.drag = 4;
+            //_trailRender.emitting = false;
+            //_rigidbody.drag = 4;
             SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
             ranking--;
         }

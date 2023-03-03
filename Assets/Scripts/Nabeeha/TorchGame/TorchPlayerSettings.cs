@@ -28,7 +28,11 @@ public class TorchPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;      
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
+        player.transform.localPosition = Vector3.zero;
+        player.transform.localRotation = Quaternion.identity;
+        player.transform.GetChild(0).transform.localPosition = Vector3.zero;
+        player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
         player.GetComponent<TorchGame>().enabled = true;
         player.GetComponent<HideSmash>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = false;
