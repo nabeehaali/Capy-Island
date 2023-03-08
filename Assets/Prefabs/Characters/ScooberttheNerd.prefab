@@ -1070,7 +1070,6 @@ GameObject:
   - component: {fileID: 8237909350370691616}
   - component: {fileID: -3174092776707042466}
   - component: {fileID: 7463498867260653800}
-  - component: {fileID: 6351050872284596997}
   - component: {fileID: 3978459672495921551}
   m_Layer: 0
   m_Name: ScooberttheNerd
@@ -1329,19 +1328,6 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
---- !u!114 &6351050872284596997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3764974995125932039}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inWater: 0
 --- !u!114 &3978459672495921551
 MonoBehaviour:
   m_ObjectHideFlags: 0

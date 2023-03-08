@@ -27,11 +27,14 @@ public class SledGame : MonoBehaviour
         if (collision.gameObject.tag == "Water")
         {
             Debug.Log("I have collided!");
+            Debug.Log("Collision: " + gameObject.name);
             inWater = true;
             //_trailRender.emitting = false;
             //_rigidbody.drag = 4;
             SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
             ranking--;
+
+            Debug.Log(ranking);
         }
     }
 }

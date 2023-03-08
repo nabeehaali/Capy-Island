@@ -7,9 +7,9 @@ public class SledPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 162, 769), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-300, 162, 787), 90);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-267, 162, 810), 180);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 165, 769), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-300, 165, 787), 90);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-267, 165, 810), 180);
         BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-233, 165, 787), -90);
 
     }
