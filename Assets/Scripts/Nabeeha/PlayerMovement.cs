@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     Vector2 playermovement;
 
     public float speed;
-    //public Animator animator;
+    [SerializeField] public Animator animator;
 
     void Start()
     {
         playerRigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
-        //animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+        animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -43,13 +43,13 @@ public class PlayerMovement : MonoBehaviour
     public void move(InputAction.CallbackContext context)
     {
         playermovement = context.ReadValue<Vector2>() * speed;
-        //animator.SetBool("isWalking", true);
+        animator.SetBool("isWalking", true);
         
         gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("IdleToWalk");
 
         if(context.canceled)
         {
-            //animator.SetBool("isWalking", false);
+            animator.SetBool("isWalking", false);
             gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetTrigger("WalkToIdle");
         }
     }
