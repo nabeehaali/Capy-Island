@@ -15,7 +15,7 @@ public class CatchUpSceneSetup : MonoBehaviour
     bool moveOnP4 = false;
     public Transform startingPos;
 
-    public static List<MinigamePoints> rankings;
+    public static List<MinigamePoints> rankings = new List<MinigamePoints>();
     public TMP_Text p1Score, p2Score, p3Score, p4Score;
 
     public TMP_Text hatsText;
@@ -30,24 +30,28 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     public TMP_Text[] goPlayers;
 
+    int newTime = 0;
+
     private void Start()
     {
         //a little but of a cold assumption, keep testing to see if this always works, otherwise change it 
-        rankings = DisasterSceneSetup.totalPoints;
+        //rankings = DisasterSceneSetup.totalPoints;
         
+        
+
+        //KEEP THIS STUFF HERE FOR BACKUP (add value of special hat)
+        rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1));
+        rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1));
+        rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1));
+        rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1));
+
+        rankings.Sort();
+        rankings.Reverse();
+
         for (int i = 0; i < rankings.Count; i++)
         {
             Debug.Log(rankings[i].playerID + " has " + rankings[i].playerPoints + " points");
         }
-
-        //KEEP THIS STUFF HERE FOR BACKUP
-        //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1));
-        //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1));
-        //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1));
-        //rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1));
-
-        //rankings.Sort();
-        //rankings.Reverse();
 
         totalHats = DisasterSceneSetup.p1HatsOff + DisasterSceneSetup.p2HatsOff + DisasterSceneSetup.p3HatsOff + DisasterSceneSetup.p4HatsOff;
     }
@@ -121,14 +125,14 @@ public class CatchUpSceneSetup : MonoBehaviour
         {
             if (!moveOnP3)
             {
-                if (rankings[2].playerPoints != rankings[1].playerPoints && rankings[2].playerPoints != rankings[0].playerPoints)
+                if ((rankings[2].playerPoints != rankings[1].playerPoints) && (rankings[2].playerPoints != rankings[0].playerPoints))
                 {
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
                     checkUI(2);
                 }
-                if (rankings[1].playerPoints == rankings[3].playerPoints)
+                if (rankings[2].playerPoints == rankings[3].playerPoints)
                 {
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
@@ -142,7 +146,7 @@ public class CatchUpSceneSetup : MonoBehaviour
         {
             if (!moveOnP4)
             {
-                if (rankings[3].playerPoints != rankings[2].playerPoints && rankings[3].playerPoints != rankings[1].playerPoints && rankings[3].playerPoints != rankings[0].playerPoints)
+                if ((rankings[3].playerPoints != rankings[2].playerPoints) && (rankings[3].playerPoints != rankings[1].playerPoints) && (rankings[3].playerPoints != rankings[0].playerPoints))
                 {
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
                     GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
@@ -152,6 +156,27 @@ public class CatchUpSceneSetup : MonoBehaviour
                 moveOnP4 = true;
             }
         }
+
+        /*for (int i = 0; i < rankings.Count; i++)
+        {
+            if (timePassed > newTime)
+            {
+                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
+                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameObject.Find(rankings[0].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                checkUI(0);
+
+                if (rankings[0].playerPoints == rankings[i].playerPoints)
+                {
+                    GameObject.Find(rankings[i].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
+                    GameObject.Find(rankings[i].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                    GameObject.Find(rankings[i].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                    checkUI(i);
+                }
+                newTime += 5;
+                
+            }
+        }*/
 
 
         //player score UI
