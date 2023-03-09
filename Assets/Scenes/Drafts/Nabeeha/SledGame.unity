@@ -230,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &30752650
 Transform:
   m_ObjectHideFlags: 0
@@ -3074,6 +3074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: icePlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 163e93c19913f5240b3992dbaecd9ad1,
+        type: 3}
+      propertyPath: m_TagString
+      value: IcebergSmall1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163e93c19913f5240b3992dbaecd9ad1, type: 3}
 --- !u!4 &942011297 stripped
@@ -3096,6 +3101,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7103779045578631826, guid: 163e93c19913f5240b3992dbaecd9ad1, type: 3}
+--- !u!95 &942011301
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252575117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 149ff61348dfefb45b5f0bc339554936, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &957697081
 GameObject:
   m_ObjectHideFlags: 0
@@ -6031,6 +6056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: icePlatform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 163e93c19913f5240b3992dbaecd9ad1,
+        type: 3}
+      propertyPath: m_TagString
+      value: IcebergSmall2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163e93c19913f5240b3992dbaecd9ad1, type: 3}
 --- !u!4 &2020984051 stripped
@@ -6053,6 +6083,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7103779045578631826, guid: 163e93c19913f5240b3992dbaecd9ad1, type: 3}
+--- !u!95 &2020984055
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721019572}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f9440ec3e118d94da10dcf7f81d5845, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2028536805
 PrefabInstance:
   m_ObjectHideFlags: 0

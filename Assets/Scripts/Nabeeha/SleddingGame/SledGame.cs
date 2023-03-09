@@ -21,6 +21,10 @@ public class SledGame : MonoBehaviour
         inWater = false;
     }
 
+    void Update()
+    {
+        
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -35,6 +39,16 @@ public class SledGame : MonoBehaviour
             ranking--;
 
             Debug.Log(ranking);
+        }
+
+        if(collision.gameObject.tag == "IcebergSmall1")
+        {
+            collision.gameObject.GetComponent<Animator>().Play("IcebergSink1");
+        }
+
+        if (collision.gameObject.tag == "IcebergSmall2")
+        {
+            collision.gameObject.GetComponent<Animator>().Play("IcebergSink2");
         }
     }
 }
