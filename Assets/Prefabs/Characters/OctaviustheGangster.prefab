@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: -8239641701750502548}
   - component: {fileID: -2253299647517331811}
   - component: {fileID: 3072189386509592424}
-  - component: {fileID: -3413689753553192018}
+  - component: {fileID: 4518288747674204650}
   m_Layer: 0
   m_Name: OctaviustheGangster
   m_TagString: Player 4
@@ -1137,6 +1137,7 @@ Transform:
   - {fileID: 1296435755232221909}
   - {fileID: 633437391241649442}
   - {fileID: 5744585548668075643}
+  - {fileID: 8490791322706006168}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1369,7 +1370,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
---- !u!114 &-3413689753553192018
+--- !u!114 &4518288747674204650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1378,7 +1379,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2006316057326876418}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d715eee547a69324b89b2ec2e1a08b2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72b6a98819bd9874cb6992e1ec8aa004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
@@ -2272,6 +2273,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8557549165252814941}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3841017385297936114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8490791322706006168}
+  m_Layer: 0
+  m_Name: ShootTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8490791322706006168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841017385297936114}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0.0525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1196846442678922680}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3887319884737495233
 GameObject:

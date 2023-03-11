@@ -13,7 +13,7 @@ public class WizardHat : MonoBehaviour
     Vector3 movement;
     public Transform shootTransform;
     float timer;
-    float fireButton;
+    float ability;
 
     // Start is called before the first frame update
     private void Awake()
@@ -30,11 +30,7 @@ public class WizardHat : MonoBehaviour
     void Update()
     {
 
-        float firing = fireButton;
-
         timer += Time.deltaTime;
-
-        
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -42,12 +38,11 @@ public class WizardHat : MonoBehaviour
         if (sceneName == "Hats")
         {
             
-            if (fireButton > 0.5 && timer > 0.5)
+            if (ability > 0.5 && timer > 0.5)
             {
                 movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
                 GameObject boltInstance = Instantiate(bolt, shootTransform.position, transform.GetChild(0).rotation); //Quaternion.identity
                 boltInstance.GetComponent<BoltBehaviour>().player = transform.GetChild(0).gameObject;
-                //
                 boltInstance.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100, ForceMode.Impulse);
                 timer = 0;
 
@@ -58,8 +53,7 @@ public class WizardHat : MonoBehaviour
 
     public void fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Is working");
-        fireButton = context.ReadValue<float>();
+        ability = context.ReadValue<float>();
 
     }
 }

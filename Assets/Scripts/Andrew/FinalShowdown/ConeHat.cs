@@ -4,54 +4,46 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class ChefHat : MonoBehaviour
+public class ConeHat : MonoBehaviour
 {
+    float timer, ability;
     private PlayerInputActions playerControls;
-    public GameObject cake;
-    public List<GameObject> hats;
-
-    int index;
-
-    float timer;
-    float ability;
-
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
     {
-        playerControls = new PlayerInputActions();
         timer = 0;
-        index = 0;
-    }
 
+    }
 
     // Update is called once per frame
     void Update()
     {
-
         timer += Time.deltaTime;
 
-      
+
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
         if (sceneName == "Hats")
         {
-            if (ability > 0.5 && timer > 0.5)
+            if (ability > 0.5f)//&& timer > 0.5
             {
-                GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
-                cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
-                
+                gameObject.GetComponent<PlayerMovement>().speed = 30;
+
                 timer = 0;
 
             }
+            else
+            {
+                gameObject.GetComponent<PlayerMovement>().speed = 20;
+            }
         }
-
     }
 
     public void fire(InputAction.CallbackContext context)
     {
         //Debug.Log("Is working");
         ability = context.ReadValue<float>();
-        
+
     }
 }
