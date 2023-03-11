@@ -43,6 +43,7 @@ public class CakeBehaviour : MonoBehaviour
 
             enemyPlayer = other.gameObject;
             triggerBool = true;
+            Debug.Log("Hit" + other.tag);
 
         }
 

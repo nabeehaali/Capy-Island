@@ -19,8 +19,9 @@ public class WizardHat : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInputActions();
-        timer = 0;
+        //timer = 0;
         index = 0;
+        
 
     }
 
@@ -33,19 +34,20 @@ public class WizardHat : MonoBehaviour
 
         timer += Time.deltaTime;
 
+        
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-
+        
         if (sceneName == "Hats")
         {
+            
             if (fireButton > 0.5 && timer > 0.5)
             {
                 movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
                 GameObject boltInstance = Instantiate(bolt, shootTransform.position, transform.GetChild(0).rotation); //Quaternion.identity
                 boltInstance.GetComponent<BoltBehaviour>().player = transform.GetChild(0).gameObject;
-
-
+                //
                 boltInstance.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100, ForceMode.Impulse);
                 timer = 0;
 

@@ -992,7 +992,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Blow = m_Player.FindAction("Blow", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
-        m_Player_Instructions = m_Player.FindAction("Instructions", throwIfNotFound: true);
         m_Player_NextHat = m_Player.FindAction("NextHat", throwIfNotFound: true);
         m_Player_PrevHat = m_Player.FindAction("PrevHat", throwIfNotFound: true);
         // UI
