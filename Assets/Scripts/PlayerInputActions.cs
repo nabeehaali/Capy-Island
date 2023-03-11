@@ -64,6 +64,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Push"",
+                    ""type"": ""Button"",
+                    ""id"": ""61731812-1d23-43eb-8f1e-2d78629c045b"",
                     ""name"": ""Instructions"",
                     ""type"": ""Button"",
                     ""id"": ""fd98eaa1-03f8-45ba-99a6-d1b3953b3b3b"",
@@ -271,7 +274,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -327,6 +330,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""211e8a50-f4dc-46d8-9123-fd43fd9df068"",
                     ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6039eab1-5bab-4b79-9ffe-0aaae9cb24f4"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -977,7 +991,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Blow = m_Player.FindAction("Blow", throwIfNotFound: true);
-        m_Player_Instructions = m_Player.FindAction("Instructions", throwIfNotFound: true);
+        m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
         m_Player_NextHat = m_Player.FindAction("NextHat", throwIfNotFound: true);
         m_Player_PrevHat = m_Player.FindAction("PrevHat", throwIfNotFound: true);
         // UI
@@ -1055,6 +1069,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Blow;
+    private readonly InputAction m_Player_Push;
     private readonly InputAction m_Player_Instructions;
     private readonly InputAction m_Player_NextHat;
     private readonly InputAction m_Player_PrevHat;
@@ -1066,6 +1081,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Blow => m_Wrapper.m_Player_Blow;
+        public InputAction @Push => m_Wrapper.m_Player_Push;
         public InputAction @Instructions => m_Wrapper.m_Player_Instructions;
         public InputAction @NextHat => m_Wrapper.m_Player_NextHat;
         public InputAction @PrevHat => m_Wrapper.m_Player_PrevHat;
@@ -1090,6 +1106,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Blow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
                 @Blow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
                 @Blow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlow;
+                @Push.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
+                @Push.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
+                @Push.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
                 @Instructions.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
                 @Instructions.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
                 @Instructions.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
@@ -1115,6 +1134,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Blow.started += instance.OnBlow;
                 @Blow.performed += instance.OnBlow;
                 @Blow.canceled += instance.OnBlow;
+                @Push.started += instance.OnPush;
+                @Push.performed += instance.OnPush;
+                @Push.canceled += instance.OnPush;
                 @Instructions.started += instance.OnInstructions;
                 @Instructions.performed += instance.OnInstructions;
                 @Instructions.canceled += instance.OnInstructions;
@@ -1284,6 +1306,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnBlow(InputAction.CallbackContext context);
+        void OnPush(InputAction.CallbackContext context);
         void OnInstructions(InputAction.CallbackContext context);
         void OnNextHat(InputAction.CallbackContext context);
         void OnPrevHat(InputAction.CallbackContext context);

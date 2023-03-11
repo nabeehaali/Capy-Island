@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
-    Vector2 playermovement;
+    public Vector2 playermovement;
+    float ram;
+    bool pressedFlag;
 
     public float speed;
     [SerializeField] public Animator animator;

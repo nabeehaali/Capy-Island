@@ -53,7 +53,7 @@ public class TorchSceneSetup : MonoBehaviour
         if (timePassed > gameLength && !gameDone)
         {
             EndGame();
-            gameDone = true;            
+            gameDone = true;
         }
 
         //player score UI
