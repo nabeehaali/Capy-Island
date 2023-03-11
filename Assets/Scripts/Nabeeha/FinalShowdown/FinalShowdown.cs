@@ -6,6 +6,8 @@ using System.Linq;
 public class FinalShowdown : MonoBehaviour
 {
     [SerializeField] List<GameObject> otherPlayers;
+    [SerializeField] Material redMaterial;
+    Material originalMaterialP1, originalMaterialP2, originalMaterialP3, originalMaterialP4;
     float dist1, dist2, dist3;
     public float proximity;
 
@@ -46,6 +48,11 @@ public class FinalShowdown : MonoBehaviour
             otherPlayers.Add(GameObject.FindGameObjectWithTag("Player 2"));
             otherPlayers.Add(GameObject.FindGameObjectWithTag("Player 3"));
         }
+
+        originalMaterialP1 = GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
+        originalMaterialP2 = GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
+        originalMaterialP3 = GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
+        originalMaterialP4 = GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0];
     }
 
     void Update()
@@ -54,40 +61,74 @@ public class FinalShowdown : MonoBehaviour
         dist2 = Vector3.Distance(this.gameObject.transform.position, otherPlayers[1].transform.position);
         dist3 = Vector3.Distance(this.gameObject.transform.position, otherPlayers[2].transform.position);
 
+       
+    }
+
+    private void FixedUpdate()
+    {
         //might need to put this in fixedupdate!
         if ((dist1 < proximity || dist2 < proximity || dist3 < proximity) && finalshowdowncontrols.canPush == true)
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * magnitude, ForceMode.VelocityChange);
+            gameObject.GetComponent<TrailRenderer>().enabled = true;
+        }
+        else
+        {
+            gameObject.GetComponent<TrailRenderer>().enabled = false;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        if (finalshowdowncontrols.canPush == true)
+        if(finalshowdowncontrols != null)
         {
-            if (collision.gameObject.tag == "Player 1")
+            if (finalshowdowncontrols.canPush == true)
             {
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
 
+                if (collision.gameObject.tag == "Player 1")
+                {
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
+                    StartCoroutine(playerHit(collision.gameObject, originalMaterialP1));
+
+                }
+                if (collision.gameObject.tag == "Player 2")
+                {
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
+                    StartCoroutine(playerHit(collision.gameObject, originalMaterialP2));
+                }
+                if (collision.gameObject.tag == "Player 3")
+                {
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
+                    StartCoroutine(playerHit(collision.gameObject, originalMaterialP3));
+                }
+                if (collision.gameObject.tag == "Player 4")
+                {
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
+                    GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();
+                    StartCoroutine(playerHit(collision.gameObject, originalMaterialP4));
+                }
+
+
+                //if (collision.gameobject.tag == "Bolt)
+                /*{
+                if this player tag == p1, p2, p3, p4, make them do the same functions as above!
+                }*/
             }
-            if (collision.gameObject.tag == "Player 2")
-            {
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
-            }
-            if (collision.gameObject.tag == "Player 3")
-            {
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
-            }
-            if (collision.gameObject.tag == "Player 4")
-            {
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
-                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();
-            }
-            
         }
+        
+    }
+
+    IEnumerator playerHit(GameObject player, Material originalMat)
+    {
+        var renderer = player.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        Material[] materials = renderer.sharedMaterials; 
+        materials[0] = redMaterial;
+        renderer.sharedMaterials = materials;
+        yield return new WaitForSeconds(0.5f);
+        materials[0] = originalMat;
+        renderer.sharedMaterials = materials;
     }
 }

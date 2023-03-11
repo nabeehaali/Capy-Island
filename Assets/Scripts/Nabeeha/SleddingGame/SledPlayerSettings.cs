@@ -7,10 +7,10 @@ public class SledPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 162, 769), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-300, 162, 787), 90);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-267, 162, 810), 180);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-233, 162, 787), -90);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 165, 769), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-300, 165, 787), 90);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-267, 165, 810), 180);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-233, 165, 787), -90);
 
     }
 
@@ -28,6 +28,8 @@ public class SledPlayerSettings : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;
+        player.GetComponent<SledGame>().enabled = true;
+
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
@@ -37,7 +39,10 @@ public class SledPlayerSettings : MonoBehaviour
         //switching geometry
         player.transform.GetChild(0).gameObject.SetActive(false);
         player.transform.GetChild(4).gameObject.SetActive(true);
-        player.transform.GetChild(4).GetComponent<SledGame>().enabled = true;
+
+        //switching colliders
+        player.GetComponent<MeshCollider>().enabled = false;
+        player.GetComponent<BoxCollider>().enabled = true;
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)

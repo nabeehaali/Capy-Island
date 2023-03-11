@@ -112,6 +112,7 @@ public class TorchSceneSetup : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("HatProgressTorch");
+        //GameObject.Find("NextScene").SetActive(true);
     }
 
     IEnumerator countDown(int seconds)

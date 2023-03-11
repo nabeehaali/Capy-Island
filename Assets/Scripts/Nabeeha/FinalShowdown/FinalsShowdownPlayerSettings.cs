@@ -21,6 +21,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle, List<GameObject> hatsOrder)
     {
         player.transform.parent.gameObject.transform.position = startPos;
+        player.transform.parent.gameObject.transform.rotation = Quaternion.identity;
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
@@ -30,11 +31,18 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        player.transform.parent.gameObject.GetComponent<FinalShowdownControls>().enabled = true;
+
         player.transform.localPosition = Vector3.zero;
+        player.transform.localRotation = Quaternion.identity;
+        player.transform.GetChild(0).transform.localPosition = Vector3.zero;
+        player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
+
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<SledGame>().enabled = false;
+        player.GetComponent<FinalShowdown>().enabled = true;
         
         player.GetComponent<Rigidbody>().drag = 0;
         player.GetComponent<Rigidbody>().useGravity = true;
@@ -48,11 +56,14 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         {
             if (player.transform.GetChild(i).name == "Hats")
             {
+                player.transform.GetChild(i).gameObject.SetActive(true);
 
                 for (int k = 0; k < player.transform.GetChild(i).childCount; k++)
                 {
                     if (player.transform.GetChild(i).GetChild(k).name == "SpecialHats")
                     {
+                        (player.transform.GetChild(i).GetChild(k).gameObject).SetActive(true);
+
                         for (int j = 0; j < player.transform.GetChild(i).GetChild(k).childCount; j++)
                         {
                             //enabling scripts based on which special hats the players have

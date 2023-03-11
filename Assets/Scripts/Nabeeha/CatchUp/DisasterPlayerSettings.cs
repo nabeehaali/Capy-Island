@@ -7,10 +7,10 @@ public class DisasterPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(5, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-5, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(10, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(100, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(100, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(100, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(100, 0, 0), 0);
 
     }
 
@@ -25,10 +25,12 @@ public class DisasterPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        Destroy(player.transform.parent.gameObject.GetComponent<AlligatorControls>());
         player.GetComponent<TrailRenderer>().enabled = false;
         player.GetComponent<SledGame>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;
+        player.GetComponent<AlligatorGame>().enabled = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().useGravity = false;
 

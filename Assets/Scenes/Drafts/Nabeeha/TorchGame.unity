@@ -1040,6 +1040,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386625110}
   m_CullTransparentMesh: 1
+--- !u!1 &412919457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412919459}
+  - component: {fileID: 412919458}
+  m_Layer: 0
+  m_Name: NextScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &412919458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412919457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a23376957369649a3eb69ec6741136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &412919459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412919457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.2206354, y: 23.35159, z: 38.40526}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511940402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,6 +3639,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CavePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62a197ed9e844e243b198b913989aa4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62a197ed9e844e243b198b913989aa4f, type: 3}
 --- !u!4 &1076773184 stripped
@@ -4117,6 +4166,7 @@ GameObject:
   - component: {fileID: 1242820383}
   - component: {fileID: 1242820382}
   - component: {fileID: 1242820385}
+  - component: {fileID: 1242820386}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4223,6 +4273,26 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!95 &1242820386
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242820381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b924d3652e6ba94fabd5ced4f599675, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1303661312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5469,7 +5539,7 @@ MonoBehaviour:
   - {fileID: 741584891}
   - {fileID: 92468411}
   - {fileID: 603051417}
-  gameLength: 45
+  gameLength: 10
   gameover: {fileID: 829205965}
   countdown: {fileID: 948173228}
   p1Score: {fileID: 843393223}

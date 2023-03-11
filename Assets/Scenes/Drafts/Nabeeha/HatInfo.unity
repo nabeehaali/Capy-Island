@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 29455553}
   - component: {fileID: 29455552}
   m_Layer: 5
-  m_Name: Rect
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.97185737, y: 0.40010047, z: 0.40010047}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1736254387}
+  - {fileID: 1423756474}
   m_Father: {fileID: 2079852401}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 443, y: -423}
+  m_AnchoredPosition: {x: 22, y: -445.99997}
   m_SizeDelta: {x: 1700, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64639413
@@ -668,7 +670,7 @@ GameObject:
   - component: {fileID: 141593026}
   - component: {fileID: 141593025}
   m_Layer: 5
-  m_Name: Hat Power Ups (3)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -691,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.89996, y: 42.000046}
+  m_AnchoredPosition: {x: 66.09997, y: 42.000046}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141593025
@@ -804,7 +806,7 @@ GameObject:
   - component: {fileID: 313673121}
   - component: {fileID: 313673120}
   m_Layer: 5
-  m_Name: Hat Power Ups (5)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.90001, y: 44.99997}
+  m_AnchoredPosition: {x: 66.10001, y: 44.99997}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313673120
@@ -850,7 +852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: arcane assault
+  m_text: MOLLY'S TREAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b136575719851f4cb516a8d00bbbd4b, type: 2}
   m_sharedMaterial: {fileID: 8672804454243428941, guid: 6b136575719851f4cb516a8d00bbbd4b,
@@ -954,50 +956,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &393148268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 393148270}
-  - component: {fileID: 393148269}
-  m_Layer: 0
-  m_Name: GameStart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &393148269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393148268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc9fa46c51e43094aa5108cc3a12e1dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &393148270
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393148268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8134973, y: -3.1953707, z: -54.781693}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &454248267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &454248269
 ParticleSystemRenderer:
@@ -1112,7 +1070,7 @@ ParticleSystem:
   m_GameObject: {fileID: 454248267}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -6033,7 +5991,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &651007280
 PrefabInstance:
@@ -6045,7 +6003,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d8bcc5b845104054b9107c7241f882f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8bcc5b845104054b9107c7241f882f5,
         type: 3}
@@ -6065,12 +6023,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d8bcc5b845104054b9107c7241f882f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -53.452633
+      value: -53.45263
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8bcc5b845104054b9107c7241f882f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.4999986
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8bcc5b845104054b9107c7241f882f5,
         type: 3}
@@ -6327,7 +6285,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &690171732
 MonoBehaviour:
@@ -6493,7 +6451,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740367776
 GameObject:
@@ -6595,7 +6553,7 @@ RectTransform:
   - {fileID: 64639412}
   - {fileID: 1504636119}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6626,7 +6584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826651154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -429.00003, z: 0}
+  m_LocalPosition: {x: 0, y: -407.00003, z: 0}
   m_LocalScale: {x: 3.8400002, y: 3.8400002, z: 3.8400002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6647,7 +6605,7 @@ GameObject:
   - component: {fileID: 850457902}
   - component: {fileID: 850457901}
   m_Layer: 5
-  m_Name: Hat Power Ups (2)
+  m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6662,15 +6620,15 @@ RectTransform:
   m_GameObject: {fileID: 850457899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23970051, y: 0.2397005, z: 0.2397005}
+  m_LocalScale: {x: 0.24664167, y: 0.59910077, z: 0.59910077}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1722989230}
-  m_RootOrder: 3
+  m_Father: {fileID: 1750169302}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.960365, y: 156.34476}
+  m_AnchoredPosition: {x: 67.40002, y: 9.9999695}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850457901
@@ -6696,8 +6654,8 @@ MonoBehaviour:
   m_text: Bring on the lasers and leave your opponents in a daze! Use wizardry to
     temporarily stun other capys and make them lose hats.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6796,7 +6754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938879261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -429.00003, z: 0}
+  m_LocalPosition: {x: 0, y: -407.00003, z: 0}
   m_LocalScale: {x: 3.8400002, y: 3.8400002, z: 3.8400002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6817,7 +6775,7 @@ GameObject:
   - component: {fileID: 957267565}
   - component: {fileID: 957267564}
   m_Layer: 5
-  m_Name: Rect (2)
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6895,7 +6853,7 @@ GameObject:
   - component: {fileID: 1048329035}
   - component: {fileID: 1048329034}
   m_Layer: 5
-  m_Name: Hat Power Ups (4)
+  m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6918,7 +6876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.8999, y: 10.000015}
+  m_AnchoredPosition: {x: 66.09991, y: 10.000015}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1048329034
@@ -6942,10 +6900,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Unleash the ultimate defence mechanism: a shield to protect yourself from
-    the other  capys!'
+    the other capys!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7563,7 +7521,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2079852401}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7619,7 +7577,7 @@ GameObject:
   - component: {fileID: 1388717457}
   - component: {fileID: 1388717456}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: BORDER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7690,7 +7648,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393475930
 GameObject:
@@ -7704,7 +7662,7 @@ GameObject:
   - component: {fileID: 1393475933}
   - component: {fileID: 1393475932}
   m_Layer: 5
-  m_Name: Square (2)
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7783,12 +7741,12 @@ PrefabInstance:
     - target: {fileID: 608481879285465694, guid: 9a7487c4566886248aa5eecdc3889e65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 608481879285465694, guid: 9a7487c4566886248aa5eecdc3889e65,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 99.318
+      value: 99.318016
       objectReference: {fileID: 0}
     - target: {fileID: 608481879285465694, guid: 9a7487c4566886248aa5eecdc3889e65,
         type: 3}
@@ -7798,12 +7756,12 @@ PrefabInstance:
     - target: {fileID: 608481879285465694, guid: 9a7487c4566886248aa5eecdc3889e65,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.318
+      value: 99.318016
       objectReference: {fileID: 0}
     - target: {fileID: 608481879285465694, guid: 9a7487c4566886248aa5eecdc3889e65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.2
+      value: 13.199999
       objectReference: {fileID: 0}
     - target: {fileID: 608481879285465694, guid: 9a7487c4566886248aa5eecdc3889e65,
         type: 3}
@@ -7890,7 +7848,7 @@ GameObject:
   - component: {fileID: 1423756476}
   - component: {fileID: 1423756475}
   m_Layer: 5
-  m_Name: Hat Power Ups (4)
+  m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7905,15 +7863,15 @@ RectTransform:
   m_GameObject: {fileID: 1423756473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23970051, y: 0.23970045, z: 0.23970045}
+  m_LocalScale: {x: 0.24664167, y: 0.59910065, z: 0.59910065}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2079852401}
-  m_RootOrder: 2
+  m_Father: {fileID: 29455551}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.960365, y: 68.49254}
+  m_AnchoredPosition: {x: 67.40002, y: 18.999996}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423756475
@@ -7937,11 +7895,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Who needs weapons when you have cake? Drop irresistable, delicious cakes
-    for the capys to eat! Players get distracted eating and can\u2019t fight back
-    :("
+    for the capys to eat! Players get distracted and can\u2019t fight back :("
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8028,7 +7985,7 @@ GameObject:
   - component: {fileID: 1449657336}
   - component: {fileID: 1449657335}
   m_Layer: 5
-  m_Name: Rect (3)
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8107,7 +8064,7 @@ GameObject:
   - component: {fileID: 1504636121}
   - component: {fileID: 1504636120}
   m_Layer: 5
-  m_Name: Hat Power Ups (2)
+  m_Name: PresstoCont
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8130,7 +8087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -498, y: -435}
+  m_AnchoredPosition: {x: 66, y: -393}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1504636120
@@ -8173,7 +8130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press B when you're ready...
+  m_text: Press start when ready...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
   m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
@@ -8208,7 +8165,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8407,7 +8364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642080477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: -2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8594,7 +8551,7 @@ GameObject:
   - component: {fileID: 1672853497}
   - component: {fileID: 1672853496}
   m_Layer: 0
-  m_Name: Square
+  m_Name: BACKGROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8666,7 +8623,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722989229
 GameObject:
@@ -8692,17 +8649,84 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722989229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -429.00003, z: 0}
+  m_LocalPosition: {x: 0, y: -407.00003, z: 0}
   m_LocalScale: {x: 3.8400002, y: 3.8400002, z: 3.8400002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1750169302}
   - {fileID: 2117121358}
-  - {fileID: 2023653977}
-  - {fileID: 850457900}
   m_Father: {fileID: 740367780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1731050019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7212951333483777301, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_Name
+      value: icecreamhat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.800009
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.75299
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b91f40aaef2ee1047a477afd30b54512, type: 3}
 --- !u!1 &1736254386
 GameObject:
   m_ObjectHideFlags: 0
@@ -8715,7 +8739,7 @@ GameObject:
   - component: {fileID: 1736254389}
   - component: {fileID: 1736254388}
   m_Layer: 5
-  m_Name: Hat Power Ups (3)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8730,15 +8754,15 @@ RectTransform:
   m_GameObject: {fileID: 1736254386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23970051, y: 0.23970045, z: 0.23970045}
+  m_LocalScale: {x: 0.24664167, y: 0.59910065, z: 0.59910065}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2079852401}
-  m_RootOrder: 1
+  m_Father: {fileID: 29455551}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.96038, y: 81.295746}
+  m_AnchoredPosition: {x: 67.4, y: 50.999996}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736254388
@@ -8851,7 +8875,7 @@ GameObject:
   - component: {fileID: 1750169304}
   - component: {fileID: 1750169303}
   m_Layer: 5
-  m_Name: WizardTextBG
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8868,7 +8892,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.97185737, y: 0.40010047, z: 0.40010047}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2023653977}
+  - {fileID: 850457900}
   m_Father: {fileID: 1722989230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8925,7 +8951,7 @@ PrefabInstance:
     - target: {fileID: 569320000657531772, guid: f1561c8a1274db140b2d06b913d796da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 569320000657531772, guid: f1561c8a1274db140b2d06b913d796da,
         type: 3}
@@ -8950,7 +8976,7 @@ PrefabInstance:
     - target: {fileID: 569320000657531772, guid: f1561c8a1274db140b2d06b913d796da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.900003
+      value: -18.900002
       objectReference: {fileID: 0}
     - target: {fileID: 569320000657531772, guid: f1561c8a1274db140b2d06b913d796da,
         type: 3}
@@ -8999,82 +9025,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1561c8a1274db140b2d06b913d796da, type: 3}
---- !u!1 &1774895805
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1774895806}
-  - component: {fileID: 1774895808}
-  - component: {fileID: 1774895807}
-  m_Layer: 5
-  m_Name: Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1774895806
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774895805}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 232}
-  m_LocalScale: {x: 2.0552604, y: 2.0552604, z: 2.0552604}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2986.3203}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1774895807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774895805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.16084053, g: 0, b: 0.5283019, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1774895808
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774895805}
-  m_CullTransparentMesh: 1
 --- !u!1 &1956015603
 GameObject:
   m_ObjectHideFlags: 0
@@ -9087,7 +9037,7 @@ GameObject:
   - component: {fileID: 1956015606}
   - component: {fileID: 1956015605}
   m_Layer: 5
-  m_Name: Square (3)
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9163,7 +9113,7 @@ GameObject:
   - component: {fileID: 2023653979}
   - component: {fileID: 2023653978}
   m_Layer: 5
-  m_Name: Hat Power Ups (1)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9178,15 +9128,15 @@ RectTransform:
   m_GameObject: {fileID: 2023653976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23970051, y: 0.2397005, z: 0.2397005}
+  m_LocalScale: {x: 0.24664167, y: 0.59910077, z: 0.59910077}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1722989230}
-  m_RootOrder: 2
+  m_Father: {fileID: 1750169302}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.960365, y: 169.14796}
+  m_AnchoredPosition: {x: 67.40002, y: 41.999954}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023653978
@@ -9313,7 +9263,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048926486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9323,7 +9273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 394}
+  m_AnchoredPosition: {x: 0, y: 433.47256}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048926488
@@ -9468,13 +9418,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079852400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -429.00003, z: 0}
+  m_LocalPosition: {x: 0, y: -407.00003, z: 0}
   m_LocalScale: {x: 3.8400002, y: 3.8400002, z: 3.8400002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 29455551}
-  - {fileID: 1736254387}
-  - {fileID: 1423756474}
   - {fileID: 1299218069}
   m_Father: {fileID: 740367780}
   m_RootOrder: 2
@@ -9627,7 +9575,7 @@ GameObject:
   - component: {fileID: 2117121360}
   - component: {fileID: 2117121359}
   m_Layer: 5
-  m_Name: Square (1)
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9703,7 +9651,7 @@ GameObject:
   - component: {fileID: 2145004173}
   - component: {fileID: 2145004172}
   m_Layer: 5
-  m_Name: Hat Power Ups (6)
+  m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9726,7 +9674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.9, y: 13}
+  m_AnchoredPosition: {x: 66.1, y: 13}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145004172
@@ -9749,11 +9697,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bring on the lasers and leave your opponents in a daze! Use wizardry to
-    temporarily stun other capys and make them lose hats.
+  m_text: It's a sugar rush! Molly's treat gives you a speed boost to let you run
+    away from the other capys!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
-  m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
+  m_fontAsset: {fileID: 11400000, guid: 9c1dbb0b7148aee40a9a94a82b558ebb, type: 2}
+  m_sharedMaterial: {fileID: 7092300241312781266, guid: 9c1dbb0b7148aee40a9a94a82b558ebb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9828,72 +9776,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145004170}
   m_CullTransparentMesh: 1
---- !u!1001 &7555039974424636867
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7212951333483777301, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_Name
-      value: icecreamhat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -13.800009
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 59.75299
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021576866811565999, guid: b91f40aaef2ee1047a477afd30b54512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b91f40aaef2ee1047a477afd30b54512, type: 3}

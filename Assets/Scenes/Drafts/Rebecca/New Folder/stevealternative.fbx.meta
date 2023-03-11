@@ -78,6 +78,7 @@ ModelImporter:
   referencedClips:
   - 0471a2f2f2c35cd4e9a413d3a6e8707a
   - 3778cf72451ef6b49b6ba595ce945143
+  - ccb07f781cbfbc7449c404b07fc1e50e
   - 310e784695e53304cb790f6c280ed353
   importAnimation: 1
   humanDescription:
@@ -92,7 +93,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: root
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -100,7 +101,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

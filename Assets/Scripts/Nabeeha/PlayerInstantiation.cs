@@ -42,13 +42,14 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
-            allPlayers[j].transform.GetComponent<AlligatorControls>().enabled = false;
+            //allPlayers[j].transform.GetComponent<AlligatorControls>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
-            allPlayers[j].transform.GetChild(0).GetComponent<SledGame>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
             allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
+            allPlayers[j].transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+            allPlayers[j].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             allPlayers[j].transform.Rotate(0, 180, 0);
 
             if (sceneName == "HatProgressCatchUp")
@@ -62,6 +63,21 @@ public class PlayerInstantiation : MonoBehaviour
                             allPlayers[j].transform.GetChild(0).transform.GetChild(i).GetChild(k).gameObject.SetActive(true);
                         }
 
+                    }
+                }
+            }
+            else if (sceneName == "HatProgressSled")
+            {
+                Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
+                allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
+
+                //enable hats
+                for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
+                {
+                    if (allPlayers[j].transform.GetChild(0).GetChild(i).name == "Hats")
+                    {
+                        allPlayers[j].transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+                        allPlayers[j].transform.GetChild(0).GetChild(i).GetChild(0).gameObject.SetActive(true);
                     }
                 }
             }
@@ -245,7 +261,7 @@ public class PlayerInstantiation : MonoBehaviour
                 GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 winningHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                winningHat.transform.localScale = new Vector3(65, 65, 65);
+                //winningHat.transform.localScale = new Vector3(65, 65, 65);
 
             }
         }

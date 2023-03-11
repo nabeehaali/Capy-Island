@@ -30,6 +30,8 @@ TagManager:
   - Cream
   - RegularHat
   - VolGround
+  - IcebergSmall1
+  - IcebergSmall2
   layers:
   - Default
   - TransparentFX

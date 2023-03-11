@@ -119,8 +119,10 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
             else
             {
-                Destroy(finalshowdownplayersettings.hatsOrderP1[listIndexP1].GetComponent<HingeJoint>());
+                StartCoroutine(stunPlayer(GameObject.FindGameObjectWithTag("Player 1"))); 
                 finalshowdownplayersettings.hatsOrderP1[listIndexP1].GetComponent<Rigidbody>().useGravity = true;
+                Destroy(finalshowdownplayersettings.hatsOrderP1[listIndexP1].GetComponent<HingeJoint>());
+                
                 HatCheck(finalshowdownplayersettings.hatsOrderP1, listIndexP1, p1State);
                 listIndexP1++;
 
@@ -152,8 +154,10 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
             else
             {
-                Destroy(finalshowdownplayersettings.hatsOrderP2[listIndexP2].GetComponent<HingeJoint>());
+                StartCoroutine(stunPlayer(GameObject.FindGameObjectWithTag("Player 2")));
                 finalshowdownplayersettings.hatsOrderP2[listIndexP2].GetComponent<Rigidbody>().useGravity = true;
+                Destroy(finalshowdownplayersettings.hatsOrderP2[listIndexP2].GetComponent<HingeJoint>());
+                
                 HatCheck(finalshowdownplayersettings.hatsOrderP2, listIndexP2, p2State);
                 listIndexP2++;
             }
@@ -183,8 +187,10 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
             else
             {
-                Destroy(finalshowdownplayersettings.hatsOrderP3[listIndexP3].GetComponent<HingeJoint>());
+                StartCoroutine(stunPlayer(GameObject.FindGameObjectWithTag("Player 3")));
                 finalshowdownplayersettings.hatsOrderP3[listIndexP3].GetComponent<Rigidbody>().useGravity = true;
+                Destroy(finalshowdownplayersettings.hatsOrderP3[listIndexP3].GetComponent<HingeJoint>());
+                
                 HatCheck(finalshowdownplayersettings.hatsOrderP3, listIndexP3, p3State);
                 listIndexP3++;
             }
@@ -214,8 +220,10 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
             else
             {
-                Destroy(finalshowdownplayersettings.hatsOrderP4[listIndexP4].GetComponent<HingeJoint>());
+                StartCoroutine(stunPlayer(GameObject.FindGameObjectWithTag("Player 4")));
                 finalshowdownplayersettings.hatsOrderP4[listIndexP4].GetComponent<Rigidbody>().useGravity = true;
+                Destroy(finalshowdownplayersettings.hatsOrderP4[listIndexP4].GetComponent<HingeJoint>());
+                
                 HatCheck(finalshowdownplayersettings.hatsOrderP4, listIndexP4, p4State);
                 listIndexP4++;
             }
@@ -326,6 +334,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             yield return null;
         }
         player.transform.position = targetPosition;
+        player.transform.parent.gameObject.SetActive(false);
     }
 
     IEnumerator redUI(GameObject state)
@@ -382,6 +391,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator stunPlayer(GameObject player)
+    {
+        player.transform.parent.GetComponent<PlayerMovement>().enabled = false;
+        yield return new WaitForSeconds(1);
+        player.transform.parent.GetComponent<PlayerMovement>().enabled = true;
     }
 
 }

@@ -7,10 +7,10 @@ public class InstructionsPlayerSettings : MonoBehaviour
 {
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(0, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(0, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(0, 0, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(0, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-200, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-200, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-200, 0, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-200, 0, 0), 0);
     }
 
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)
@@ -26,6 +26,10 @@ public class InstructionsPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = true;
         player.transform.localPosition = Vector3.zero;
+        player.transform.GetChild(4).gameObject.SetActive(false);
+        player.transform.GetChild(0).gameObject.SetActive(true);
+        player.GetComponent<BoxCollider>().enabled = false;
+        player.GetComponent<MeshCollider>().enabled = true;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
