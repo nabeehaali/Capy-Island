@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/TorchGame.unity
     guid: 71f40b5510f41004898a8035e3e87431
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressTorch.unity
+    guid: 3d9fbda8e2105894b82425815cbf740d
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/AlligatorGame.unity
     guid: 06be2142b8f2cfb45bcf8ef1f156864c
   - enabled: 1
@@ -44,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/SledGame.unity
     guid: 98b82b9a98eabcb44826e01f6bb449f3
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/HatProgressSled.unity
+    guid: eeb2d5ecc8e5e1f418064829ff338eed
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/HatInfo.unity
     guid: 3351b322e34fcbe4581f9f0db6c26278
