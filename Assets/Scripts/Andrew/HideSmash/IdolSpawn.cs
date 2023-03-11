@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdolSpawn : MonoBehaviour
+public class IdolSpawn2 : MonoBehaviour
 {
     List<Vector3> locationVectors = new List<Vector3> ();
     List<GameObject> idolInstances = new List<GameObject>();

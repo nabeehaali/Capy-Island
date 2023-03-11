@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class HideSmashSetup : MonoBehaviour
+public class HideSmashSetup2 : MonoBehaviour
 {
     float timePassed;
     public int gameLength = 45;

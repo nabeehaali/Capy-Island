@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class HideSmashControls : MonoBehaviour
+public class HideSmashControls2 : MonoBehaviour
 {
     private PlayerInputActions playerControls;
     public bool smashed,isPush;
