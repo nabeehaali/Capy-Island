@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 8237909350370691616}
   - component: {fileID: -3174092776707042466}
   - component: {fileID: 7463498867260653800}
-  - component: {fileID: 3978459672495921551}
+  - component: {fileID: 1739585943272757401}
   m_Layer: 0
   m_Name: ScooberttheNerd
   m_TagString: Player 3
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
---- !u!114 &3978459672495921551
+--- !u!114 &1739585943272757401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3764974995125932039}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d715eee547a69324b89b2ec2e1a08b2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72b6a98819bd9874cb6992e1ec8aa004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0

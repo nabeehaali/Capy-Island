@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: -8239641701750502548}
   - component: {fileID: -2253299647517331811}
   - component: {fileID: 3072189386509592424}
-  - component: {fileID: -3413689753553192018}
+  - component: {fileID: 463142461458394371}
   m_Layer: 0
   m_Name: OctaviustheGangster
   m_TagString: Player 4
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
   proximity: 10
   magnitude: 50
---- !u!114 &-3413689753553192018
+--- !u!114 &463142461458394371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2006316057326876418}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d715eee547a69324b89b2ec2e1a08b2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72b6a98819bd9874cb6992e1ec8aa004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0

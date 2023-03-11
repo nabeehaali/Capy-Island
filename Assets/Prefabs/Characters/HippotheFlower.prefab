@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 7997116490264853362}
   - component: {fileID: -3273596894212725944}
   - component: {fileID: 1494917867342941993}
-  - component: {fileID: 2623605669933878508}
+  - component: {fileID: 1467675571885825028}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -2452,7 +2452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWater: 0
---- !u!114 &2623605669933878508
+--- !u!114 &1467675571885825028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8239014475958362521}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d715eee547a69324b89b2ec2e1a08b2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72b6a98819bd9874cb6992e1ec8aa004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
