@@ -32,6 +32,10 @@ TagManager:
   - VolGround
   - IcebergSmall1
   - IcebergSmall2
+  - WizardUI
+  - ChefUI
+  - HockeyUI
+  - CreamUI
   layers:
   - Default
   - TransparentFX

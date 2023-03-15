@@ -67,7 +67,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                         for (int j = 0; j < player.transform.GetChild(i).GetChild(k).childCount; j++)
                         {
                             //enabling scripts based on which special hats the players have
-                            if(player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Wizard")
+                            /*if(player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Wizard")
                             {
                                 //enable wizard hat script (should be attached to parent obj where the controls are)
                             }
@@ -82,7 +82,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                             if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Cream")
                             {
                                 //enable Cream hat script (should be attached to parent obj where the controls are)
-                            }
+                            }*/
                             
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.SetActive(true);

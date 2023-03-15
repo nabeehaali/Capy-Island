@@ -8,12 +8,14 @@ public class FinalShowdownControls : MonoBehaviour
     //public int magnitude;
     private Rigidbody _rigidbody;
 
-    public bool canPush = false, moveHatL = false, moveHatR = false;
+    public bool canPush = false;
+    public int index;
     //public Animator animator;
 
     void Start()
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+        index = 0;
     }
     void FixedUpdate()
     {
@@ -26,25 +28,17 @@ public class FinalShowdownControls : MonoBehaviour
 
     public void NextHat(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            moveHatL = true;
-        }
-        else if (context.canceled)
-        {
-            moveHatL = false;
+            index++;
         }
     }
 
     public void PrevHat(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            moveHatR = true;
-        }
-        else if (context.canceled)
-        {
-            moveHatR = false;
+            index--;
         }
     }
 

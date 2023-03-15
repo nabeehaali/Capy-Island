@@ -8,6 +8,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 {
     public TMP_Text gameover;
     public GameObject p1State, p2State, p3State, p4State;
+    public List<GameObject> p1HatList, p2HatList, p3HatList, p4HatList;
     public List<GameObject> activePlayers;
     //public List<GameObject> p1Hats, p2Hats, p3Hats, p4Hats;
     
@@ -69,21 +70,15 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         {
             p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
         }
+
+        //special hats (selection based)
+        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 1"), p1HatList);
+        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 2"), p2HatList);
+        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 3"), p3HatList);
+        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 4"), p4HatList);
         
-
-        //special hats (if we do selection based)
-        //if (finalshowdowncontrolsP1.moveHatL == true || finalshowdowncontrolsP2.moveHatL == true || finalshowdowncontrolsP3.moveHatL == true || finalshowdowncontrolsP4.moveHatL == true)
-        //{
-        //    //increase index by 1, for loop hats, diasable all except the one with active index (increase opacity)
-        //    //this is when you enable a particular script based on hat that is selected
-        //}
-        //if (finalshowdowncontrolsP1.moveHatR == true || finalshowdowncontrolsP2.moveHatR == true || finalshowdowncontrolsP3.moveHatR == true || finalshowdowncontrolsP4.moveHatR == true)
-        //{
-        //    //increase index by 1, for loop hats, diasable all except the one with active index (increase opacity)
-        //}
-
         //if the whole game is over
-        if(activePlayers.Count == 1)
+        if (activePlayers.Count == 1)
         {
             if(!gameDone)
             {
@@ -93,6 +88,54 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
         }
         
+    }
+
+    public void SpecialHatUI(GameObject player, List<GameObject> HatUI)
+    {
+        for (int i = 0; i < HatUI.Count; i++)
+        {
+            if (player.transform.parent.GetComponent<FinalShowdownControls>().index == HatUI.Count)
+            {
+                player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+            }
+            if(player.transform.parent.GetComponent<FinalShowdownControls>().index < 0)
+            {
+                player.transform.parent.GetComponent<FinalShowdownControls>().index = HatUI.Count;
+            }
+
+            if (i == player.transform.parent.GetComponent<FinalShowdownControls>().index)
+            {
+                HatUI[i].GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+
+                if (HatUI[i].tag == "WizardUI")
+                {
+                    //enable script here
+                    //disable other scripts
+                    //ex. GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<WizardHat>().enable = true;
+                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<ChefHat>().enable = false;
+                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<HockeyHat>().enable = false;
+                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<CreamHat>().enable = false;
+
+                    //Debug.Log("enable wizard script here");
+                }
+                else if (HatUI[i].tag == "ChefUI")
+                {
+                    //Debug.Log("enable chef script here");
+                }
+                else if (HatUI[i].tag == "HockeyUI")
+                {
+                    //Debug.Log("enable hockey script here");
+                }
+                else if (HatUI[i].tag == "CreamUI")
+                {
+                    //Debug.Log("enable cream script here");
+                }
+            }
+            else
+            {
+                HatUI[i].GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+            }
+        }
     }
 
     public void hatTrackingP1()
@@ -255,6 +298,34 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Cream")
             {
                 ui.transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        //destroy hat UI that is not used, if it's being used, add that hat to a list (per player)
+        for (int i = 0; i < ui.transform.GetChild(2).childCount; i++)
+        {
+            if (ui.transform.GetChild(2).GetChild(i).gameObject.activeSelf == false)
+            {
+                Destroy(ui.transform.GetChild(2).GetChild(i).gameObject);
+            }
+            else
+            {
+                if (player.tag == "Player 1")
+                {
+                    p1HatList.Add(ui.transform.GetChild(2).GetChild(i).gameObject);
+                }
+                else if (player.tag == "Player 2")
+                {
+                    p2HatList.Add(ui.transform.GetChild(2).GetChild(i).gameObject);
+                }
+                else if (player.tag == "Player 3")
+                {
+                    p3HatList.Add(ui.transform.GetChild(2).GetChild(i).gameObject);
+                }
+                else if (player.tag == "Player 4")
+                {
+                    p4HatList.Add(ui.transform.GetChild(2).GetChild(i).gameObject);
+                }
             }
         }
 
