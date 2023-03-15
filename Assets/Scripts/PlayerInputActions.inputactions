@@ -408,6 +408,28 @@
                     "action": "SpecialHat",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5f96671-51c6-412f-9800-e75d4665c746",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialHat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a20abad7-ead1-4b92-bdf3-5cd3f877fe36",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialHat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
