@@ -8,7 +8,7 @@ public class SledControls : MonoBehaviour
     public int magnitude;
     private Rigidbody _rigidbody;
 
-    bool isPush = false;
+    public bool isPush = false;
 
     void Start()
     {
@@ -26,7 +26,14 @@ public class SledControls : MonoBehaviour
 
     public void Push(InputAction.CallbackContext context)
     {
-        StartCoroutine(pushMotion());
+        if(context.performed)
+        {
+            StartCoroutine(pushMotion());
+        }
+        else if (context.canceled)
+        {
+            StopCoroutine(pushMotion());
+        }
     }
 
     IEnumerator pushMotion()

@@ -66,7 +66,7 @@ public class PlayerInstantiation : MonoBehaviour
                     }
                 }
             }
-            else if (sceneName == "HatProgressSled")
+            else if (sceneName == "19-HatProgressSled")
             {
                 Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
                 allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
@@ -149,7 +149,7 @@ public class PlayerInstantiation : MonoBehaviour
 
             randHat = Random.Range(0, specialHat.Count);
         }
-        else if (sceneName == "HatProgressSled")
+        else if (sceneName == "19-HatProgressSled")
         {  
             sledRankings = SledSceneSetup.sledpoints;
             sledRankingsDistinct = SledSceneSetup.sleddistinct;

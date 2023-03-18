@@ -105,6 +105,10 @@ public class AlligatorControls : MonoBehaviour
                 }
             }
         }
+        else if (context.canceled)
+        {
+            canSteal = false;
+        }
     }
 
     IEnumerator BiteReset()

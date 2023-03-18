@@ -55,17 +55,17 @@ public class FinalShowdownControls : MonoBehaviour
         {
             canPush = true;
         }
-        else
+        else if (context.canceled)
         {
             canPush = false;
             //animator.SetBool("isHitting", false);
         }
     }
 
-    IEnumerator pushMotion()
+    /*IEnumerator pushMotion()
     {
         canPush = true;
         yield return new WaitForSeconds(0.05f);
         canPush = false;
-    }
+    }*/
 }
