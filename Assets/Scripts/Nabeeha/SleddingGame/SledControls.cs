@@ -28,7 +28,11 @@ public class SledControls : MonoBehaviour
     {
         if(context.performed)
         {
-            StartCoroutine(pushMotion());
+            if(isPush == false)
+            {
+                StartCoroutine(pushMotion());
+            }
+            
         }
         else if (context.canceled)
         {

@@ -42,7 +42,7 @@ public class TorchSceneSetup : MonoBehaviour
             }
         }
 
-        StartCoroutine(countDown(gameLength));
+        StartCoroutine(startGame());
     }
 
     private void Update()
@@ -80,6 +80,23 @@ public class TorchSceneSetup : MonoBehaviour
 
     void EndGame()
     {
+        
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+
+        StartCoroutine(finishGame());
+    }
+
+    IEnumerator finishGame()
+    {
         torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectsWithTag("P1Point").Length));
         torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectsWithTag("P2Point").Length));
         torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectsWithTag("P3Point").Length));
@@ -90,14 +107,9 @@ public class TorchSceneSetup : MonoBehaviour
 
         distinct = torchpoints.Distinct(new ItemEqualityComparer()).ToList();
 
-        
-        StartCoroutine(finishGame());
-    }
-
-    IEnumerator finishGame()
-    {
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
+        gameover.SetText("Game Over!");
         yield return new WaitForSeconds(2);
         for (int i = 0; i < sceneLights.transform.childCount; i++)
         {
@@ -111,10 +123,38 @@ public class TorchSceneSetup : MonoBehaviour
             Destroy(pLight.gameObject);
         }
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("HatProgressTorch");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //GameObject.Find("NextScene").SetActive(true);
     }
 
+    IEnumerator startGame()
+    {
+        yield return new WaitForSeconds(2);
+        gameover.gameObject.SetActive(true);
+        int count = 3;
+
+        while (count > 0)
+        {
+            gameover.SetText("" + count);
+            yield return new WaitForSeconds(1);
+            count--;
+        }
+        gameover.SetText("Start!");
+        yield return new WaitForSeconds(1);
+        gameover.gameObject.SetActive(false);
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<TorchControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<TorchControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<TorchControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<TorchControls>().enabled = true;
+
+        StartCoroutine(countDown(gameLength));
+    }
     IEnumerator countDown(int seconds)
     {
         int count = seconds;

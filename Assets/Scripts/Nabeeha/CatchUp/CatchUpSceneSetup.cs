@@ -30,8 +30,6 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     public TMP_Text[] goPlayers;
 
-    int newTime = 0;
-
     private void Start()
     {
         //a little but of a cold assumption, keep testing to see if this always works, otherwise change it 
@@ -46,7 +44,6 @@ public class CatchUpSceneSetup : MonoBehaviour
         rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, (GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount));
 
         rankings.Sort();
-        //rankings.Reverse();
 
         for (int i = 0; i < rankings.Count; i++)
         {
@@ -200,6 +197,21 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     void EndGame()
     {
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+
+        StartCoroutine(finishGame());
+    }
+
+    IEnumerator finishGame()
+    {
         catchuppoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").GetComponent<CatchUp>().numHatsCollected));
         catchuppoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").GetComponent<CatchUp>().numHatsCollected));
         catchuppoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").GetComponent<CatchUp>().numHatsCollected));
@@ -210,11 +222,6 @@ public class CatchUpSceneSetup : MonoBehaviour
 
         distinct = catchuppoints.Distinct(new ItemEqualityComparer()).ToList();
 
-        StartCoroutine(finishGame());
-    }
-
-    IEnumerator finishGame()
-    {
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
@@ -231,7 +238,7 @@ public class CatchUpSceneSetup : MonoBehaviour
             }
             
         }
-        SceneManager.LoadScene("HatProgressCatchUp");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void checkUI(int index)

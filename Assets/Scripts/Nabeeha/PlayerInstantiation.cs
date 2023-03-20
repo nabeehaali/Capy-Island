@@ -42,7 +42,7 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
-            //allPlayers[j].transform.GetComponent<AlligatorControls>().enabled = false;
+            allPlayers[j].transform.GetComponent<PlayerMovement>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
@@ -52,7 +52,7 @@ public class PlayerInstantiation : MonoBehaviour
             allPlayers[j].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             allPlayers[j].transform.Rotate(0, 180, 0);
 
-            if (sceneName == "HatProgressCatchUp")
+            if (sceneName == "15-HatProgressCatchUp")
             {
                 for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
                 {
@@ -138,7 +138,7 @@ public class PlayerInstantiation : MonoBehaviour
         }
 
 
-        if(sceneName == "HatProgressTorch")
+        if(sceneName == "09-HatProgressTorch")
         {
             torchRankings = TorchSceneSetup.torchpoints;
             torchRankingsDistinct = TorchSceneSetup.distinct;
@@ -160,7 +160,7 @@ public class PlayerInstantiation : MonoBehaviour
 
             randHat = Random.Range(0, specialHat.Count);
         }
-        else if (sceneName == "HatProgressAlligator")
+        else if (sceneName == "11-HatProgressAlligator")
         {
             alligatorRankings = AlligatorSceneSetup.alligatorpoints;
             alligatorRankingsDistinct = AlligatorSceneSetup.distinct;
@@ -171,7 +171,7 @@ public class PlayerInstantiation : MonoBehaviour
 
             randHat = Random.Range(0, specialHat.Count);
         }
-        else if (sceneName == "HatProgressCatchUp")
+        else if (sceneName == "15-HatProgressCatchUp")
         {
             catchUpRankings = CatchUpSceneSetup.catchuppoints;
             catchUpRankingsDistinct = CatchUpSceneSetup.distinct;
@@ -261,12 +261,11 @@ public class PlayerInstantiation : MonoBehaviour
                 GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 winningHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                //winningHat.transform.localScale = new Vector3(65, 65, 65);
-
             }
         }
 
         yield return new WaitForSeconds(1);
+
         skip.SetActive(true);
         skipUI.SetActive(true);
     }

@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class SledSceneSetup : MonoBehaviour
 {
+    public TMP_Text gameover;
     public TMP_Text countdown;
-    public int countdownTime;
 
     public int gameLength;
 
@@ -22,6 +22,7 @@ public class SledSceneSetup : MonoBehaviour
     public static List<MinigamePoints> sleddistinct;
     void Start()
     {
+
         StartCoroutine(startGame());
     }
 
@@ -30,19 +31,16 @@ public class SledSceneSetup : MonoBehaviour
         timePassed += Time.deltaTime;
 
         //checking is time is up
-        if (timePassed >= gameLength + countdownTime && !gameDone)
+        if (timePassed >= gameLength && !gameDone)
         {
             EndGame();
-            countdown.SetText("Game Over!");
             gameDone = true;
         }
 
         //checking if there is one player standing on ice
-        if(SledGame.ranking == 1)
+        if(SledGame.ranking == 1 && !gameDone)
         {
-            //TODO: add delay
             EndGame();
-            countdown.SetText("Game Over!");
             gameDone = true;
         }
 
@@ -82,6 +80,22 @@ public class SledSceneSetup : MonoBehaviour
     void EndGame()
     {
         //Debug.Log("The game is over now");
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+
+        GameObject.Find("icePlatformPieces").GetComponent<SledIceberg>().StopCoroutine("dropPiece");
+        StartCoroutine(finishGame());
+    }
+
+    IEnumerator finishGame()
+    {
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.GetComponent<SledGame>().inWater == false)
@@ -94,13 +108,47 @@ public class SledSceneSetup : MonoBehaviour
 
         sleddistinct = sledpoints.Distinct(new ItemEqualityComparer()).ToList();
 
+        yield return new WaitForSeconds(1);
+        gameover.gameObject.SetActive(true);
+        gameover.SetText("Game Over!");
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     IEnumerator startGame()
     {
-        countdown.SetText("Start!");
-        yield return new WaitForSeconds(countdownTime);
+        yield return new WaitForSeconds(2);
+        gameover.gameObject.SetActive(true);
+        int count = 3;
+
+        while (count > 0)
+        {
+            gameover.SetText("" + count);
+            yield return new WaitForSeconds(1);
+            count--;
+        }
+        gameover.SetText("Start!");
+        yield return new WaitForSeconds(1);
+        gameover.gameObject.SetActive(false);
+
+        /*for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+        }*/
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+
+        //countdown.SetText("Start!");
+        //yield return new WaitForSeconds(countdownTime);
         StartCoroutine(countDown(gameLength));
     }
 
