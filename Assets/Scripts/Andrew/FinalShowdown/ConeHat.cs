@@ -18,7 +18,7 @@ public class ConeHat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        
 
 
         Scene currentScene = SceneManager.GetActiveScene();
@@ -26,16 +26,18 @@ public class ConeHat : MonoBehaviour
 
         if (sceneName == "Hats")
         {
-            if (ability > 0.5f)//&& timer > 0.5
+            if (ability > 0.5f && timer < 1f)//
             {
+                timer += Time.deltaTime;
                 gameObject.GetComponent<PlayerMovement>().speed = 30;
 
-                timer = 0;
+                
 
             }
             else
             {
                 gameObject.GetComponent<PlayerMovement>().speed = 20;
+                timer = 0;
             }
         }
     }
