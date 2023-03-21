@@ -9,6 +9,8 @@ public class AlligatorSceneSetup : MonoBehaviour
 {
     // !!! this doesn't do anything, just remnants from trying to dodge some compiler errors :(
 
+    GameObject gatorPrefab;
+
     public TMP_Text countdown;
     public int gameLength;
 
@@ -25,6 +27,7 @@ public class AlligatorSceneSetup : MonoBehaviour
     GameObject[] players;
 
     bool gameRunning = false;
+    bool secondGator = false;
 
     public TMP_Text gameover;
 
@@ -90,6 +93,17 @@ public class AlligatorSceneSetup : MonoBehaviour
             for (int i = 0; i < players.Length; i++)
             {
                 int playerScore = players[i].GetComponent<AlligatorControls>().points;
+
+                // if 75% of the score is done
+                if (playerScore >= winScore * 0.75 && !secondGator)
+                {
+                    secondGator = true;
+                    // maybe add some kind of animation?
+                    Vector3 gatorSpawnPos = new Vector3(22.5f, -252.95f, 582.79);
+                    Debug.Log("Second gator spawned!");
+                    Instantiate(gatorPrefab, gatorSpawnPos, Quaternion.identity);
+                }
+
                 if (playerScore >= winScore)
                 {
                     if(!gameDone)
