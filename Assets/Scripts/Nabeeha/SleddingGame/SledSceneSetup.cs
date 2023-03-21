@@ -31,7 +31,7 @@ public class SledSceneSetup : MonoBehaviour
         timePassed += Time.deltaTime;
 
         //checking is time is up
-        if (timePassed >= gameLength && !gameDone)
+        if (timePassed >= gameLength + 6 && !gameDone)
         {
             EndGame();
             gameDone = true;

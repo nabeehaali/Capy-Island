@@ -49,8 +49,8 @@ public class TorchSceneSetup : MonoBehaviour
     {
         timePassed += Time.deltaTime;
 
-        //change the +1 to however long the start delay is
-        if (timePassed > gameLength && !gameDone)
+        //checking is time is up (+6 for starting time delay)
+        if (timePassed >= gameLength + 6 && !gameDone)
         {
             EndGame();
             gameDone = true;

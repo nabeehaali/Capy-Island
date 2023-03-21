@@ -18,6 +18,7 @@ public class PlayerSpawnManager : MonoBehaviour
         playerInput.gameObject.GetComponent<PlayerDetails>().startPos = spawnLocations[playerInput.playerIndex].position;
 
         //playerInput.gameObject.GetComponent<PlayerMovement>().enabled = true;
+
     }
 
     private void Update()

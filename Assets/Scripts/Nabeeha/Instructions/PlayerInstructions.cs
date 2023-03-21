@@ -43,6 +43,9 @@ public class PlayerInstructions : MonoBehaviour
                 p4Ready = 1;
                 updateUI(UI);
             }
+
+            Gamepad.current.SetMotorSpeeds(0.25f, 1f);
+            StartCoroutine(StopRumble(0.5f, Gamepad.current));
         }
     }
 
@@ -56,8 +59,19 @@ public class PlayerInstructions : MonoBehaviour
             p2Ready = 0;
             p3Ready = 0;
             p4Ready = 0;
-            //SceneManager.LoadScene("Nothing");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+
+    IEnumerator StopRumble(float duration, Gamepad pad)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        pad.SetMotorSpeeds(0f, 0f);
     }
 }
