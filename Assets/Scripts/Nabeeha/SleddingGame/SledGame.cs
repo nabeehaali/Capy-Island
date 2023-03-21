@@ -11,6 +11,7 @@ public class SledGame : MonoBehaviour
     public bool inWater;
     public bool offBerg;
     public bool piece1, piece2, piece3, piece4, piece5, piece6;
+    public int colCount = 0;
 
     public static int ranking;
 
@@ -32,7 +33,10 @@ public class SledGame : MonoBehaviour
             offBerg = true;
         }*/
 
-
+        if (offBerg)
+        {
+            gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -61,78 +65,18 @@ public class SledGame : MonoBehaviour
             _rigidbody.mass = 1000;
         }
 
-
-
-
-        if (collision.gameObject.name == "piece1")
-        {
-            //Debug.Log(gameObject.name + "Onnn this piece");
-            piece1 = false;
-        }
-        if (collision.gameObject.name == "piece2")
-        {
-            //Debug.Log(gameObject.name + "Onnn this piece");
-            piece2 = false;
-        }
-        if (collision.gameObject.name == "piece3")
-        {
-            //Debug.Log(gameObject.name + "Onnn this piece");
-            piece3 = false;
-        }
-        if (collision.gameObject.name == "piece4")
-        {
-            //Debug.Log(gameObject.name + "Onnn this piece");
-            piece4 = false;
-        }
-        if (collision.gameObject.name == "piece5")
-        {
-            //Debug.Log(gameObject.name + "Onnn this piece");
-            piece5 = false;
-        }
-        if (collision.gameObject.name == "piece6")
-        {
-            //Debug.Log(gameObject.name + "Onnn this piece");
-            piece6 = false;
-        }
+        colCount++;
 
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        
-    }
     private void OnCollisionExit(Collision collision)
     {
-        //if player is off the whole iceberg (all pieces)
-        if (collision.gameObject.name == "piece1")
+        colCount--;
+        if (colCount == 0)
         {
-            //Debug.Log(gameObject.name + "Offf this piece");
-            piece1 = true;
-        }
-        if (collision.gameObject.name == "piece2")
-        {
-            //Debug.Log(gameObject.name + "Offf this piece");
-            piece2 = true;
-        }
-        if (collision.gameObject.name == "piece3")
-        {
-            //Debug.Log(gameObject.name + "Offf this piece");
-            piece3 = true;
-        }
-        if (collision.gameObject.name == "piece4")
-        {
-            //Debug.Log(gameObject.name + "Offf this piece");
-            piece4 = true;
-        }
-        if (collision.gameObject.name == "piece5")
-        {
-            //Debug.Log(gameObject.name + "Offf this piece");
-            piece5 = true;
-        }
-        if (collision.gameObject.name == "piece6")
-        {
-            //Debug.Log(gameObject.name + "Offf this piece");
-            piece6 = true;
+            Debug.Log("not colliding with anything");
+            offBerg = true;
+            _rigidbody.mass = 1000000;
         }
     }
 }

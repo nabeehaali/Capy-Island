@@ -80,15 +80,20 @@ public class SledSceneSetup : MonoBehaviour
     void EndGame()
     {
         //Debug.Log("The game is over now");
-        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<SledControls>());
+        }
+        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
 
-        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
 
         GameObject.Find("icePlatformPieces").GetComponent<SledIceberg>().StopCoroutine("dropPiece");
         StartCoroutine(finishGame());

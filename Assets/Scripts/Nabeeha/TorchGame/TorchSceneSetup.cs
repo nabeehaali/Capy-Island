@@ -80,23 +80,18 @@ public class TorchSceneSetup : MonoBehaviour
 
     void EndGame()
     {
-        
-
-        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-
-        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
-
         StartCoroutine(finishGame());
     }
 
     IEnumerator finishGame()
     {
+        //make sure to include this in the other games
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<TorchControls>());
+        }
+
         torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectsWithTag("P1Point").Length));
         torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectsWithTag("P2Point").Length));
         torchpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectsWithTag("P3Point").Length));

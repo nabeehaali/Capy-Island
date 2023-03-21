@@ -44,8 +44,6 @@ public class PlayerInstructions : MonoBehaviour
                 updateUI(UI);
             }
 
-            Gamepad.current.SetMotorSpeeds(0.25f, 1f);
-            StartCoroutine(StopRumble(0.5f, Gamepad.current));
         }
     }
 
@@ -63,15 +61,4 @@ public class PlayerInstructions : MonoBehaviour
         }
     }
 
-    IEnumerator StopRumble(float duration, Gamepad pad)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        pad.SetMotorSpeeds(0f, 0f);
-    }
 }
