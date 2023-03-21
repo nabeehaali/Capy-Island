@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df9288cc513aa34fbe30828d8fdf0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 4
+  magnitude: 7
   isPush: 0
 --- !u!114 &4616666122457417381
 MonoBehaviour:
