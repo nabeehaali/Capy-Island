@@ -36,6 +36,9 @@ public class SledGame : MonoBehaviour
         if (offBerg)
         {
             gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
+            //change -30 to whatever looks good
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y - 30, _rigidbody.velocity.z);
+            //offBerg = false; //check if this is ok
         }
     }
 
@@ -74,9 +77,8 @@ public class SledGame : MonoBehaviour
         colCount--;
         if (colCount == 0)
         {
-            Debug.Log("not colliding with anything");
+            //Debug.Log("not colliding with anything");
             offBerg = true;
-            _rigidbody.mass = 1000000;
         }
     }
 }

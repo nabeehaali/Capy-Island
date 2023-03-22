@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
+            //playerRigidbody.velocity = movement.normalized + new Vector3(0.0f, playerRigidbody.velocity.y, 0.0f);
         }
         else if (sceneName == "18-SledGame" || sceneName == "AligatorTag" || sceneName == "11-AlligatorGame")
         {

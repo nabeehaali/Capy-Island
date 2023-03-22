@@ -21,6 +21,7 @@ public class SledControls : MonoBehaviour
         if (isPush)
         {
             _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange); //can also try impulse
+            //put sound here (maybe)
         }
     }
 

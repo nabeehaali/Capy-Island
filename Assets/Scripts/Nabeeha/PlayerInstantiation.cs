@@ -29,6 +29,8 @@ public class PlayerInstantiation : MonoBehaviour
 
     public GameObject skip, skipUI;
 
+    GameObject theSpecialHat;
+
     int randHat;
     void Start()
     {
@@ -128,6 +130,12 @@ public class PlayerInstantiation : MonoBehaviour
         }
         if (GameObject.FindGameObjectsWithTag("Cream").Length > 0)
         {
+            //change angle of cream hat
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Cream").Length; i++ )
+            {
+                GameObject.FindGameObjectsWithTag("Cream")[i].transform.localRotation = Quaternion.Euler(0, 0, -20);
+            }
+            
             for (int i = 0; i < specialHat.Count; i++)
             {
                 if (specialHat[i].tag == "Cream")
@@ -185,6 +193,17 @@ public class PlayerInstantiation : MonoBehaviour
         
 
     }
+
+    private void Update()
+    {
+        //when special hat hits player, allow them to go to the next scene
+        if (theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f)
+        {
+            skip.SetActive(true);
+            skipUI.SetActive(true);
+        }
+    }
+
     void displayData(List<MinigamePoints> activeRankings, List<MinigamePoints> activeRankingsDistinct)
     {
         for (int i = 0; i < activeRankings.Count; i++)
@@ -258,16 +277,14 @@ public class PlayerInstantiation : MonoBehaviour
             if (placements[z].text == "1")
             {
                 //winner special hat
-                GameObject winningHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
-                winningHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
-                winningHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
+                theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+                
             }
         }
-
-        yield return new WaitForSeconds(1);
-
-        skip.SetActive(true);
-        skipUI.SetActive(true);
+        
     }
 
     IEnumerator spawnHatsCatchUp()
