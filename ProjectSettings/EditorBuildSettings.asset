@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/05-HideSmashNab.unity
     guid: fb096fed97a2b3b4085a63a5fc4ab55e
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/07-InstructionsTorch.unity
+    path: Assets/Scenes/Drafts/Nabeeha/04.5-InstructionsHideSmash.unity
     guid: 5e2acdfd176ea244899f721f56b0d0fd
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/08-TorchGame.unity

@@ -20,7 +20,7 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     public TMP_Text hatsText;
     int hatsCollected;
-    int totalHats;
+    public static int totalHats;
 
     public static List<MinigamePoints> catchuppoints = new List<MinigamePoints>();
     public static List<MinigamePoints> distinct;
@@ -197,15 +197,20 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     void EndGame()
     {
-        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<CatchUpControls>());
+        }
+        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
 
-        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
 
         StartCoroutine(finishGame());
     }

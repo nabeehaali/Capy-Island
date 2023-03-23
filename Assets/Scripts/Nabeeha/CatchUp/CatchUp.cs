@@ -18,6 +18,7 @@ public class CatchUp : MonoBehaviour
         catchupcontrols = transform.parent.gameObject.GetComponent<CatchUpControls>();
         Physics.IgnoreCollision(GetComponent<MeshCollider>(), GameObject.Find("Sand").GetComponent<MeshCollider>());
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "BaseHat" && catchupcontrols.canDig == true)
@@ -38,7 +39,7 @@ public class CatchUp : MonoBehaviour
                 currentHat.transform.localPosition = new Vector3(0, 5f + inc, 0.035f);
                 currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 inc += 1;
-                StartCoroutine(hatmovement(currentHat));
+                //StartCoroutine(hatmovement(currentHat));
             }
 
             
@@ -49,6 +50,6 @@ public class CatchUp : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         hat.GetComponent<Rigidbody>().useGravity = false;
-        hat.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | ~RigidbodyConstraints.FreezeRotationY;
+        //hat.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
     }
 }

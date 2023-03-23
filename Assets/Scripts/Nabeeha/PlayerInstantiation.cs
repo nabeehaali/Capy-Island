@@ -32,6 +32,14 @@ public class PlayerInstantiation : MonoBehaviour
     GameObject theSpecialHat;
 
     int randHat;
+    bool HatsDown;
+
+    int startingHatsP1, startingHatsP2, startingHatsP3, startingHatsP4;
+
+    public List<GameObject> hatsOrderP1, hatsOrderP2, hatsOrderP3, hatsOrderP4;
+
+    Scene currentScene;
+    string sceneName;
     void Start()
     {
         skip.SetActive(false);
@@ -39,8 +47,8 @@ public class PlayerInstantiation : MonoBehaviour
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
         //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
@@ -190,7 +198,12 @@ public class PlayerInstantiation : MonoBehaviour
         }
 
 
-        
+        startingHatsP1 = GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1;
+        startingHatsP2 = GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1;
+        startingHatsP3 = GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1;
+        startingHatsP4 = GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1;
+
+        HatsDown = false;
 
     }
 
@@ -199,9 +212,82 @@ public class PlayerInstantiation : MonoBehaviour
         //when special hat hits player, allow them to go to the next scene
         if (theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f)
         {
-            skip.SetActive(true);
-            skipUI.SetActive(true);
+            if (!HatsDown)
+            {
+                skip.SetActive(true);
+                skipUI.SetActive(true);
+                
+                addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
+
+                HatsDown = true;
+            }
         }
+
+        //ui timing for catch up scene
+        if (sceneName == "15-HatProgressCatchUp")
+        {
+            if (GameObject.FindGameObjectsWithTag("RegularHat").Length == CatchUpSceneSetup.totalHats + startingHatsP1 + startingHatsP2 + startingHatsP3 + startingHatsP4)
+            {
+                for (int i = 0; i < GameObject.FindGameObjectsWithTag("RegularHat").Length; i++)
+                {
+                    if(GameObject.FindGameObjectsWithTag("RegularHat")[GameObject.FindGameObjectsWithTag("RegularHat").Length - 1].GetComponent<Rigidbody>().velocity.y == 0)
+                    {
+                        if(!HatsDown)
+                        {
+                            skip.SetActive(true);
+                            skipUI.SetActive(true);
+                            
+                            addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
+
+                            HatsDown = true;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    void addJoints(GameObject player, List<GameObject> hatsOrder)
+    {
+        hatsOrder.Add(player);
+
+        //adding base hats to list
+        for (int i = 1; i < player.transform.GetChild(3).childCount; i++)
+        {
+            hatsOrder.Add(player.transform.GetChild(3).GetChild(i).gameObject);
+        }
+
+        //add special hats to list
+        for(int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
+        {
+            hatsOrder.Add(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject);
+        }
+
+        //sorting hats based on their y position
+        hatsOrder.Sort(delegate (GameObject a, GameObject b)
+        {
+            return (a.transform.position.y).CompareTo(b.transform.position.y);
+        });
+        hatsOrder.Reverse();
+
+        //applying hinge joints
+        for (int p = 0; p < hatsOrder.Count - 1; p++)
+        {
+            hatsOrder[p].AddComponent<HingeJoint>();
+            hatsOrder[p].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            hatsOrder[p].GetComponent<Rigidbody>().useGravity = false;
+            hatsOrder[p].GetComponent<Rigidbody>().mass = 3;
+            hatsOrder[p].GetComponent<HingeJoint>().axis = new Vector3(0, -1, 0);
+
+            //connect bodies
+            hatsOrder[p].GetComponent<HingeJoint>().connectedBody = hatsOrder[p + 1].GetComponent<Rigidbody>();
+
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        }
+
+        player.transform.parent.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void displayData(List<MinigamePoints> activeRankings, List<MinigamePoints> activeRankingsDistinct)
@@ -234,7 +320,6 @@ public class PlayerInstantiation : MonoBehaviour
                 for (int i = 0; i < 3; i++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
-                    //currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
@@ -247,7 +332,6 @@ public class PlayerInstantiation : MonoBehaviour
                 for (int i = 0; i < 2; i++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
-                    //currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
@@ -260,7 +344,6 @@ public class PlayerInstantiation : MonoBehaviour
                 for (int i = 0; i < 1; i++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
-                    //currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
@@ -280,8 +363,6 @@ public class PlayerInstantiation : MonoBehaviour
                 theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-                
             }
         }
         
@@ -299,11 +380,11 @@ public class PlayerInstantiation : MonoBehaviour
                 for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 1").GetComponent<CatchUp>().numHatsCollected; z++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).transform, true);
-                    //currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
                     inc += 5;
+
                 }
             }
             else if (GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
@@ -311,7 +392,6 @@ public class PlayerInstantiation : MonoBehaviour
                 for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 2").GetComponent<CatchUp>().numHatsCollected; z++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).transform, true);
-                    //currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
@@ -323,7 +403,6 @@ public class PlayerInstantiation : MonoBehaviour
                 for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 3").GetComponent<CatchUp>().numHatsCollected; z++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).transform, true);
-                    //currentHat.tag = "Untagged";
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
@@ -344,9 +423,6 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(1);
-        skip.SetActive(true);
-        skipUI.SetActive(true);
     }
 
 }
