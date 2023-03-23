@@ -229,7 +229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: 88.29999}
+  m_AnchoredPosition: {x: 163, y: 93.1}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &49549239
@@ -778,9 +778,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Light up as many torches as you can. Players can blow out the torch and
-    take it over with their colour. Whoever has the most in their colour at the end
-    of the time wins.
+  m_text: Starting with the player in 4th place, take turns collecting as many hats
+    as you can!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
   m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
@@ -1024,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34712255, g: 0, b: 0.5566038, a: 1}
+  m_Color: {r: 0.745283, g: 0.6701769, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1522,7 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27606854, g: 0, b: 0.46226418, a: 1}
+  m_Color: {r: 0.6698113, g: 0.59930485, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2195,7 +2194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TORCH TAKEOVER INSTRUCTIONS
+  m_text: IT'S CATCH-UP TIME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b136575719851f4cb516a8d00bbbd4b, type: 2}
   m_sharedMaterial: {fileID: 8672804454243428941, guid: 6b136575719851f4cb516a8d00bbbd4b,
@@ -2402,7 +2401,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0.17160767, g: 0, b: 0.29411766, a: 1}
+  m_Color: {r: 0.06229969, g: 0.5550659, b: 0.5660378, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2809,7 +2808,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2b923e8ee6467ea489ff8b96594120b8, type: 3}
-  m_Color: {r: 0.26207855, g: 0, b: 0.29411766, a: 1}
+  m_Color: {r: 0, g: 0.3490566, b: 0.039729983, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3555,7 +3554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: 159.79999}
+  m_AnchoredPosition: {x: 163, y: 140.4}
   m_SizeDelta: {x: 738.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581405654
@@ -3795,7 +3794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760010460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4266,7 +4265,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f204de7cd836c77449133395a2ebb330, type: 2}
+  - {fileID: 2100000, guid: cd6cb13b1d8bb124d87a519fc7d07cd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9144,9 +9143,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Left joystick to move
 
-    To light up
-
-    To blow out'
+    To dig'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
   m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
