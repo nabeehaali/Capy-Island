@@ -10,6 +10,12 @@ public class AlligatorSceneSetup : MonoBehaviour
     // !!! this doesn't do anything, just remnants from trying to dodge some compiler errors :(
 
     GameObject gatorPrefab;
+    GameObject firstGator;
+    GameObject boundaryPlane;
+    GameObject crown; // possibly used to place crown at real center?
+    Vector3 gatorSpawnPos;
+
+    public TMP_Text delayDisplay;
 
     public TMP_Text countdown;
     public int gameLength;
@@ -35,26 +41,8 @@ public class AlligatorSceneSetup : MonoBehaviour
     {
         
         players = GameObject.FindGameObjectsWithTag("Player");
-        /*
-        // displays are entered as an array in the Unity editor 
-        foreach (TextMeshProUGUI display in displays)
-        {
-            // seems redundant, extra code that makes sure score matches the player bc order could not be 1:1
-            string displayName = display.name.Replace(" Score", string.Empty);
-            for (int i = 0; i < players.Length; i++)
-            {
-                if (players[i].transform.GetChild(0).tag == displayName)
-                {
-                    // adding the display to the player component
-                    players[i].GetComponent<AlligatorControls>().display = display;
-                    break;
-                }
-            }
-        }*/
-
-        StartCoroutine(countDown(gameLength));
-
-        //place hat somewhere random in the environment????
+        firstGator = GameObject.FindGameObjectWithTag("Alligator");
+        gatorSpawnPos = firstGator.transform.position;
     }
 
     void FixedUpdate()
@@ -72,19 +60,22 @@ public class AlligatorSceneSetup : MonoBehaviour
             gameDone = true;
         }
 
-        p1State.SetText("" + GameObject.FindGameObjectWithTag("Player 1").transform.parent.GetComponent<AlligatorControls>().points + " Points");
-        p2State.SetText("" + GameObject.FindGameObjectWithTag("Player 2").transform.parent.GetComponent<AlligatorControls>().points + " Points");
-        p3State.SetText("" + GameObject.FindGameObjectWithTag("Player 3").transform.parent.GetComponent<AlligatorControls>().points + " Points");
-        p4State.SetText("" + GameObject.FindGameObjectWithTag("Player 4").transform.parent.GetComponent<AlligatorControls>().points + " Points");
-
         if (Time.time >= startDelay && !gameRunning)
         {
+            StartCoroutine(countDown(gameLength));
+            delayDisplay.text = "Go!";
             gameRunning = true;
             foreach (GameObject player in players)
             {
                 player.GetComponent<AlligatorControls>().hasStarted = true;
                 player.GetComponent<PlayerMovement>().enabled = true;
             }
+            StartCoroutine(hideCountdownDisplay());
+
+        } else if (Time.time < startDelay)
+        {
+            Debug.Log(-Mathf.FloorToInt(Time.time - startDelay));
+            delayDisplay.text = (-Mathf.FloorToInt(Time.time - startDelay)).ToString();
         }
 
         if (gameRunning)
@@ -99,7 +90,6 @@ public class AlligatorSceneSetup : MonoBehaviour
                 {
                     secondGator = true;
                     // maybe add some kind of animation?
-                    Vector3 gatorSpawnPos = new Vector3(22.5f, -252.95f, 582.79);
                     Debug.Log("Second gator spawned!");
                     Instantiate(gatorPrefab, gatorSpawnPos, Quaternion.identity);
                 }
@@ -125,6 +115,10 @@ public class AlligatorSceneSetup : MonoBehaviour
             }
         }
 
+        p1State.SetText("" + GameObject.FindGameObjectWithTag("Player 1").transform.parent.GetComponent<AlligatorControls>().points + " Points");
+        p2State.SetText("" + GameObject.FindGameObjectWithTag("Player 2").transform.parent.GetComponent<AlligatorControls>().points + " Points");
+        p3State.SetText("" + GameObject.FindGameObjectWithTag("Player 3").transform.parent.GetComponent<AlligatorControls>().points + " Points");
+        p4State.SetText("" + GameObject.FindGameObjectWithTag("Player 4").transform.parent.GetComponent<AlligatorControls>().points + " Points");
     }
 
     void EndGame()
@@ -162,5 +156,11 @@ public class AlligatorSceneSetup : MonoBehaviour
             yield return new WaitForSeconds(1);
             count--;
         }
+    }
+
+    IEnumerator hideCountdownDisplay()
+    {
+        yield return new WaitForSeconds(2);
+        delayDisplay.enabled = false;
     }
 }
