@@ -74,7 +74,6 @@ public class AlligatorSceneSetup : MonoBehaviour
 
         } else if (Time.time < startDelay)
         {
-            Debug.Log(-Mathf.FloorToInt(Time.time - startDelay));
             delayDisplay.text = (-Mathf.FloorToInt(Time.time - startDelay)).ToString();
         }
 
