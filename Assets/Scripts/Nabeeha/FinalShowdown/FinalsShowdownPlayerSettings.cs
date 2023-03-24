@@ -67,30 +67,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                         (player.transform.GetChild(i).GetChild(k).gameObject).SetActive(true);
 
                         for (int j = 0; j < player.transform.GetChild(i).GetChild(k).childCount; j++)
-                        {
-                            //enabling scripts based on which special hats the players have
-                            if(player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Wizard")
-                            {
-                                player.GetComponent<WizardHat>().enabled = true;
-                                //enable wizard hat script (should be attached to parent obj where the controls are)
-                            }
-                            if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Chef")
-                            {
-                                player.GetComponent<ChefHat>().enabled = true;
-                                //enable chef hat script (should be attached to parent obj where the controls are)
-                            }
-                            if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Hockey")
-                            {
-                                player.GetComponent<HockeyHat>().enabled = true;
-                                //enable Hockey hat script (should be attached to parent obj where the controls are)
-                            }
-                            if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Cream")
-                            {
-                                player.GetComponent<ConeHat>().enabled = true;
-                                //enable Cream hat script (should be attached to parent obj where the controls are)
-                            }
-                            //Debug.Log(player.transform.GetChild(i).GetChild(k).childCount);
-
+                        {                            
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.SetActive(true);
                             inc += 1;

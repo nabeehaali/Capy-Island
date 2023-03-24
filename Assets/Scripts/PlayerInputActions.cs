@@ -32,7 +32,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""004b0c0e-94fe-48e1-8024-d94976a40358"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone,NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -91,9 +91,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SpecialHat"",
+                    ""name"": ""Instructions"",
                     ""type"": ""Button"",
-                    ""id"": ""6cece21c-ac65-4ac3-bc8f-1c6abe0fcda9"",
+                    ""id"": ""0d5ad73f-8310-4054-ad2a-eaa417c29e5f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -279,17 +279,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -346,7 +335,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6039eab1-5bab-4b79-9ffe-0aaae9cb24f4"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -422,34 +411,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1d359f22-b3d3-491a-a238-830f6c3c6a7e"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""fc70f205-cbaf-4eba-858d-62b54944937f"",
+                    ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpecialHat"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b5f96671-51c6-412f-9800-e75d4665c746"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpecialHat"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a20abad7-ead1-4b92-bdf3-5cd3f877fe36"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpecialHat"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Instructions"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1044,7 +1011,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
         m_Player_NextHat = m_Player.FindAction("NextHat", throwIfNotFound: true);
         m_Player_PrevHat = m_Player.FindAction("PrevHat", throwIfNotFound: true);
-        m_Player_SpecialHat = m_Player.FindAction("SpecialHat", throwIfNotFound: true);
+        m_Player_Instructions = m_Player.FindAction("Instructions", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1123,7 +1090,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Push;
     private readonly InputAction m_Player_NextHat;
     private readonly InputAction m_Player_PrevHat;
-    private readonly InputAction m_Player_SpecialHat;
+    private readonly InputAction m_Player_Instructions;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1135,7 +1102,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Push => m_Wrapper.m_Player_Push;
         public InputAction @NextHat => m_Wrapper.m_Player_NextHat;
         public InputAction @PrevHat => m_Wrapper.m_Player_PrevHat;
-        public InputAction @SpecialHat => m_Wrapper.m_Player_SpecialHat;
+        public InputAction @Instructions => m_Wrapper.m_Player_Instructions;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1166,9 +1133,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PrevHat.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevHat;
                 @PrevHat.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevHat;
                 @PrevHat.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevHat;
-                @SpecialHat.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialHat;
-                @SpecialHat.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialHat;
-                @SpecialHat.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialHat;
+                @Instructions.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
+                @Instructions.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
+                @Instructions.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1194,9 +1161,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PrevHat.started += instance.OnPrevHat;
                 @PrevHat.performed += instance.OnPrevHat;
                 @PrevHat.canceled += instance.OnPrevHat;
-                @SpecialHat.started += instance.OnSpecialHat;
-                @SpecialHat.performed += instance.OnSpecialHat;
-                @SpecialHat.canceled += instance.OnSpecialHat;
+                @Instructions.started += instance.OnInstructions;
+                @Instructions.performed += instance.OnInstructions;
+                @Instructions.canceled += instance.OnInstructions;
             }
         }
     }
@@ -1360,7 +1327,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnPush(InputAction.CallbackContext context);
         void OnNextHat(InputAction.CallbackContext context);
         void OnPrevHat(InputAction.CallbackContext context);
-        void OnSpecialHat(InputAction.CallbackContext context);
+        void OnInstructions(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

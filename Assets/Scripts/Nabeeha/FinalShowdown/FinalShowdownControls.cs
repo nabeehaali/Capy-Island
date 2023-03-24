@@ -11,7 +11,8 @@ public class FinalShowdownControls : MonoBehaviour
     public List<Hat> enabledHats;
     private int i;
 
-    public bool canPush = false, moveHatL = false, moveHatR = false;
+    public bool canPush = false;
+    public int index;
     //public Animator animator;
 
     void Start()
@@ -38,6 +39,7 @@ public class FinalShowdownControls : MonoBehaviour
         //Debug.Log(enabledHats.Count);
         i = 0;
         //enabledHats[i].isActive = true;
+        index = 0;
     }
     void FixedUpdate()
     {
@@ -83,25 +85,17 @@ public class FinalShowdownControls : MonoBehaviour
 
     public void NextHat(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            moveHatL = true;
-        }
-        else if (context.canceled)
-        {
-            moveHatL = false;
+            index++;
         }
     }
 
     public void PrevHat(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            moveHatR = true;
-        }
-        else if (context.canceled)
-        {
-            moveHatR = false;
+            index--;
         }
     }
 
@@ -118,22 +112,17 @@ public class FinalShowdownControls : MonoBehaviour
         {
             canPush = true;
         }
-        else
+        else if (context.canceled)
         {
             canPush = false;
             //animator.SetBool("isHitting", false);
         }
     }
 
-    public void cycleHat() 
-    {
-        
-    }
-
-    IEnumerator pushMotion()
+    /*IEnumerator pushMotion()
     {
         canPush = true;
         yield return new WaitForSeconds(0.05f);
         canPush = false;
-    }
+    }*/
 }

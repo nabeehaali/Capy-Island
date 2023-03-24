@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
+[Serializable]
 
+public class MoveInputEvent : UnityEvent<float, float> { }
 public class testmove : MonoBehaviour
 {
-    private Rigidbody playerRigidbody;
-    Vector2 _movement;
-
-    [SerializeField] float speed = 4;
-    
-    void Awake()
+    PlayerInputActions playerInput;
+    public MoveInputEvent moveInputEvent;
+    private void Awake()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        playerInput = new PlayerInputActions();
     }
 
-    void FixedUpdate()
+    private void OnEnable()
     {
-        Vector3 move = new Vector3(_movement.x, 0, _movement.y).normalized;
-        transform.LookAt(transform.position + new Vector3(move.x, 0, move.z));
-        playerRigidbody.AddForce(move * speed * Time.fixedDeltaTime, ForceMode.Impulse);
+        playerInput.Player.Enable();
+        playerInput.Player.Move.performed += OnMovePerformed;
+        playerInput.Player.Move.canceled += OnMovePerformed;
     }
 
-    public void testmovement(InputAction.CallbackContext context)
+    private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        _movement = context.ReadValue<Vector2>();
+        Vector2 moveInput = context.ReadValue<Vector2>();
+        moveInputEvent.Invoke(moveInput.x, moveInput.y);
+        //Debug.Log($"Move Input: {moveInput}");
     }
 }

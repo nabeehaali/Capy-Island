@@ -20,7 +20,7 @@ public class SledIceberg : MonoBehaviour
         {
             Physics.IgnoreCollision(GameObject.FindGameObjectsWithTag("Iceberg")[i].gameObject.GetComponent<MeshCollider>(), water.GetComponent<MeshCollider>());
         }
-        StartCoroutine(dropPiece());
+        StartCoroutine(delay());
     }
 
     private void Update()
@@ -69,13 +69,19 @@ public class SledIceberg : MonoBehaviour
             }
         }
     }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(5);
+        StartCoroutine(dropPiece());
+    }
     IEnumerator shake()
     {
         yield return new WaitForSeconds(1);
         isActivate = true;
     }
 
-    IEnumerator dropPiece()
+    public IEnumerator dropPiece()
     {
         isActivate = false;
         isWait = true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerDetails : MonoBehaviour
 {
@@ -39,7 +40,22 @@ public class PlayerDetails : MonoBehaviour
             //GameObject.Find("P4").transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText("Connected");
         }
 
+
+        Gamepad.current.SetMotorSpeeds(0.25f, 1f);
+        StartCoroutine(StopRumble(0.5f, Gamepad.current));
+
         DontDestroyOnLoad(gameObject);
     }
 
+    IEnumerator StopRumble(float duration, Gamepad pad)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        pad.SetMotorSpeeds(0f, 0f);
+    }
 }

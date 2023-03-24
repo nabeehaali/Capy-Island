@@ -9,6 +9,9 @@ public class SledGame : MonoBehaviour
     private TrailRenderer _trailRender;
 
     public bool inWater;
+    public bool offBerg;
+    public bool piece1, piece2, piece3, piece4, piece5, piece6;
+    public int colCount = 0;
 
     public static int ranking;
 
@@ -19,26 +22,35 @@ public class SledGame : MonoBehaviour
         _trailRender = transform.GetComponent<TrailRenderer>();
         ranking = 4;
         inWater = false;
+        offBerg = false;
+        piece1 = false;
     }
 
     void Update()
     {
-        
+        /*if (piece1 = true && piece2 == true && piece3 == true && piece4 == true && piece5 == true && piece6 == true)
+        {
+            offBerg = true;
+        }*/
+
+        if (offBerg)
+        {
+            gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
+            //change -30 to whatever looks good
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y - 30, _rigidbody.velocity.z);
+            //offBerg = false; //check if this is ok
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Water")
         {
-            Debug.Log("I have collided!");
-            Debug.Log("Collision: " + gameObject.name);
             inWater = true;
-            //_trailRender.emitting = false;
-            //_rigidbody.drag = 4;
+            _trailRender.emitting = false;
+            _rigidbody.drag = 4;
             SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
             ranking--;
-
-            Debug.Log(ranking);
         }
 
         if(collision.gameObject.tag == "IcebergSmall1")
@@ -49,6 +61,24 @@ public class SledGame : MonoBehaviour
         if (collision.gameObject.tag == "IcebergSmall2")
         {
             collision.gameObject.GetComponent<Animator>().Play("IcebergSink2");
+        }
+
+        if (collision.gameObject.tag == "IceBkg")
+        {
+            _rigidbody.mass = 1000;
+        }
+
+        colCount++;
+
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        colCount--;
+        if (colCount == 0)
+        {
+            //Debug.Log("not colliding with anything");
+            offBerg = true;
         }
     }
 }
