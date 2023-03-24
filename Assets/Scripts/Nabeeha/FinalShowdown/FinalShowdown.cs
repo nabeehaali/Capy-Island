@@ -85,26 +85,26 @@ public class FinalShowdown : MonoBehaviour
             if (finalshowdowncontrols.canPush == true)
             {
 
-                if (collision.gameObject.tag == "Player 1")
+                if (collision.gameObject.tag == "Player 1" || collision.gameObject.tag == "Bolt")
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
                     StartCoroutine(playerHit(collision.gameObject, originalMaterialP1));
 
                 }
-                if (collision.gameObject.tag == "Player 2")
+                if (collision.gameObject.tag == "Player 2" || collision.gameObject.tag == "Bolt")
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
                     StartCoroutine(playerHit(collision.gameObject, originalMaterialP2));
                 }
-                if (collision.gameObject.tag == "Player 3")
+                if (collision.gameObject.tag == "Player 3" || collision.gameObject.tag == "Bolt")
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
                     StartCoroutine(playerHit(collision.gameObject, originalMaterialP3));
                 }
-                if (collision.gameObject.tag == "Player 4")
+                if (collision.gameObject.tag == "Player 4" || collision.gameObject.tag == "Bolt")
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();
@@ -112,7 +112,7 @@ public class FinalShowdown : MonoBehaviour
                 }
 
 
-                //if (collision.gameobject.tag == "Bolt)
+                //if (collision.gameobject.tag == "bolt")
                 /*{
                 if this player tag == p1, p2, p3, p4, make them do the same functions as above!
                 }*/

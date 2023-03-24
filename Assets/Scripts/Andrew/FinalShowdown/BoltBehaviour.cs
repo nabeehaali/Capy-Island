@@ -31,15 +31,21 @@ public class BoltBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.transform.parent.tag == "Player" && other.tag != player.tag)
         {
             Debug.Log("Hit" + other.tag);
             enemyPlayer = other.gameObject;
-        
+
             audio.Play();
-            //timer = destroyTime;
+
+            if (!audio.isPlaying)
+            {
+                Destroy(this.gameObject);
+            }
             
+            //timer = destroyTime;
+
         }
 
     }

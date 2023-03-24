@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class ChefHat : MonoBehaviour
+public class ChefHat : Hat
 {
     private PlayerInputActions playerControls;
     public GameObject cake;
     public List<GameObject> hats;
+
 
     int index;
 
@@ -34,24 +35,32 @@ public class ChefHat : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "Hats")
+        if (sceneName == "FinalShowdown" || sceneName == "Hats")
         {
-            if (ability > 0.5 && timer > 0.5)
+            if (isActive) 
             {
-                GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
-                cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
-                
-                timer = 0;
+                if (ability > 0.5f && timer > 0.5f)
+                {
 
+                    GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
+                    cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
+
+
+
+                    timer = 0;
+
+                }
             }
+            
         }
 
     }
 
     public void fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Is working");
-        ability = context.ReadValue<float>();
         
+        ability = context.ReadValue<float>();
+
+        Debug.Log(ability);
     }
 }

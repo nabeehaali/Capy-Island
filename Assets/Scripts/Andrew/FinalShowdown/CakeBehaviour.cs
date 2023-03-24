@@ -53,7 +53,7 @@ public class CakeBehaviour : MonoBehaviour
         timer += Time.deltaTime;
         if (timer < coolDown)
         {
-            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 4;
+            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 15;
 
             audio.Play(); // Add an eating sound
             transform.Find("Eating Effect").gameObject.SetActive(true); //Add a little particle effect
@@ -61,7 +61,7 @@ public class CakeBehaviour : MonoBehaviour
         }
         else if (timer > coolDown && timer < destroyTime)
         {
-            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 15.17f;
+            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 30f;
             Destroy(gameObject);
         }
     }

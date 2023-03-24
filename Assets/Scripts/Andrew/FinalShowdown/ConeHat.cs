@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class ConeHat : MonoBehaviour
+public class ConeHat : Hat
 {
     float timer, ability;
     private PlayerInputActions playerControls;
@@ -12,7 +12,6 @@ public class ConeHat : MonoBehaviour
     void Start()
     {
         timer = 0;
-
     }
 
     // Update is called once per frame
@@ -24,21 +23,25 @@ public class ConeHat : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "Hats")
+        if (sceneName == "FinalShowdown" || sceneName == "Hats")
         {
-            if (ability > 0.5f && timer < 1f)//
+            if (isActive) 
             {
-                timer += Time.deltaTime;
-                gameObject.GetComponent<PlayerMovement>().speed = 30;
+                if (ability > 0.5f && timer < 1f)//
+                {
+                    timer += Time.deltaTime;
+                    gameObject.GetComponent<PlayerMovement>().speed = 45;
 
-                
 
+
+                }
+                else
+                {
+                    gameObject.GetComponent<PlayerMovement>().speed = 30;
+                    timer = 0;
+                }
             }
-            else
-            {
-                gameObject.GetComponent<PlayerMovement>().speed = 20;
-                timer = 0;
-            }
+            
         }
     }
 

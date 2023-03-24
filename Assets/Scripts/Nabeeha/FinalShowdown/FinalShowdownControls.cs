@@ -7,6 +7,9 @@ public class FinalShowdownControls : MonoBehaviour
 {
     //public int magnitude;
     private Rigidbody _rigidbody;
+    Hat activeHat;
+    public List<Hat> enabledHats;
+    private int i;
 
     public bool canPush = false, moveHatL = false, moveHatR = false;
     //public Animator animator;
@@ -14,6 +17,27 @@ public class FinalShowdownControls : MonoBehaviour
     void Start()
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+        activeHat = gameObject.GetComponent<WizardHat>();
+
+        if (gameObject.GetComponent<WizardHat>().enabled == true)
+        {
+            enabledHats.Add(gameObject.GetComponent<WizardHat>());
+        }
+        if (gameObject.GetComponent<ChefHat>().enabled == true)
+        {
+            enabledHats.Add(gameObject.GetComponent<ChefHat>());
+        }
+        if (gameObject.GetComponent<ConeHat>().enabled == true)
+        {
+            enabledHats.Add(gameObject.GetComponent<ConeHat>());
+        }
+        if (gameObject.GetComponent<HockeyHat>().enabled == true)
+        {
+            enabledHats.Add(gameObject.GetComponent<HockeyHat>());
+        }
+        //Debug.Log(enabledHats.Count);
+        i = 0;
+        //enabledHats[i].isActive = true;
     }
     void FixedUpdate()
     {
@@ -22,6 +46,39 @@ public class FinalShowdownControls : MonoBehaviour
         //    _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange);
         //    canPush = false;//can also try impulse
         //}
+
+        
+
+        if (moveHatR && enabledHats.Count > 1)
+        {
+            activeHat.isActive = false;
+            if (i == enabledHats.Count - 1)
+            {
+                i = 0;
+            }
+            else 
+            {
+                i++;
+            }
+            
+        } else if (moveHatL && enabledHats.Count > 1)
+        {
+            activeHat.isActive = false;
+            if (i == 0)
+            {
+                i = enabledHats.Count - 1;
+            }
+            else
+            {
+                i--;
+            }
+            
+        }
+        
+        enabledHats[i].isActive = true;
+
+
+
     }
 
     public void NextHat(InputAction.CallbackContext context)
@@ -66,6 +123,11 @@ public class FinalShowdownControls : MonoBehaviour
             canPush = false;
             //animator.SetBool("isHitting", false);
         }
+    }
+
+    public void cycleHat() 
+    {
+        
     }
 
     IEnumerator pushMotion()

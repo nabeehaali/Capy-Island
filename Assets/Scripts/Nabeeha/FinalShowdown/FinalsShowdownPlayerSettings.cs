@@ -12,6 +12,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     float inc = 0;
     void Start()
     {
+        Debug.Log("Start");
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-10, 0, -63), 0, hatsOrderP1);
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(16, 0, -43), -90, hatsOrderP2);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-42, 0, -45), 90, hatsOrderP3);
@@ -50,12 +51,13 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
         hatsOrder.Add(player);
-
+        
         //enable hats
         for (int i = 0; i < player.transform.childCount; i++)
         {
             if (player.transform.GetChild(i).name == "Hats")
             {
+                
                 player.transform.GetChild(i).gameObject.SetActive(true);
 
                 for (int k = 0; k < player.transform.GetChild(i).childCount; k++)
@@ -69,21 +71,26 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                             //enabling scripts based on which special hats the players have
                             if(player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Wizard")
                             {
+                                player.GetComponent<WizardHat>().enabled = true;
                                 //enable wizard hat script (should be attached to parent obj where the controls are)
                             }
                             if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Chef")
                             {
+                                player.GetComponent<ChefHat>().enabled = true;
                                 //enable chef hat script (should be attached to parent obj where the controls are)
                             }
                             if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Hockey")
                             {
+                                player.GetComponent<HockeyHat>().enabled = true;
                                 //enable Hockey hat script (should be attached to parent obj where the controls are)
                             }
                             if (player.transform.GetChild(i).GetChild(k).GetChild(j).tag == "Cream")
                             {
+                                player.GetComponent<ConeHat>().enabled = true;
                                 //enable Cream hat script (should be attached to parent obj where the controls are)
                             }
-                            
+                            //Debug.Log(player.transform.GetChild(i).GetChild(k).childCount);
+
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.SetActive(true);
                             inc += 1;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class HockeyHat : MonoBehaviour
+public class HockeyHat : Hat
 {
     float timer, ability;
     private PlayerInputActions playerControls;
@@ -13,7 +13,6 @@ public class HockeyHat : MonoBehaviour
     void Start()
     {
         timer = 0;
-
     }
 
     // Update is called once per frame
@@ -25,18 +24,23 @@ public class HockeyHat : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "Hats")
+        if (sceneName == "FinalShowdown" || sceneName == "Hats")
         {
-            if (ability > 0.5f)//&& timer > 0.5
+            if (isActive) 
             {
-                shield.SetActive(true);
-                timer = 0;
+                if (ability > 0.5f)//&& timer > 0.5
+                {
+                    shield.SetActive(true);
+                    timer = 0;
+
+                }
+                else
+                {
+                    shield.SetActive(false);
+                }
 
             }
-            else
-            {
-                shield.SetActive(false);
-            }
+            
         }
     }
 
