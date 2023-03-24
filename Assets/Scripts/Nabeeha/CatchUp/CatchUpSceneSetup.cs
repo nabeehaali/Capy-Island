@@ -32,12 +32,6 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     private void Start()
     {
-        //a little but of a cold assumption, keep testing to see if this always works, otherwise change it 
-        //rankings = DisasterSceneSetup.totalPoints;
-        
-        
-
-        //KEEP THIS STUFF HERE FOR BACKUP (add value of special hat)
         rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, (GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount));
         rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount));
         rankings.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount));
@@ -45,10 +39,10 @@ public class CatchUpSceneSetup : MonoBehaviour
 
         rankings.Sort();
 
-        for (int i = 0; i < rankings.Count; i++)
+        /*for (int i = 0; i < rankings.Count; i++)
         {
             Debug.Log(rankings[i].playerID + " has " + rankings[i].playerPoints + " points");
-        }
+        }*/
 
         totalHats = DisasterSceneSetup.p1HatsOff + DisasterSceneSetup.p2HatsOff + DisasterSceneSetup.p3HatsOff + DisasterSceneSetup.p4HatsOff;
     }
@@ -56,6 +50,7 @@ public class CatchUpSceneSetup : MonoBehaviour
     private void Update()
     {
         timePassed += Time.deltaTime;
+        Debug.Log(timePassed);
 
         if (timePassed > 0)
         {
@@ -270,6 +265,7 @@ public class CatchUpSceneSetup : MonoBehaviour
     {
         goPlayers[index].gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
+        //Destroy(goPlayers[index].gameObject);
         goPlayers[index].gameObject.SetActive(false);
     }
 }

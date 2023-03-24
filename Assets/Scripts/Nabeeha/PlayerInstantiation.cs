@@ -218,6 +218,9 @@ public class PlayerInstantiation : MonoBehaviour
                 skipUI.SetActive(true);
                 
                 addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
+                addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
+                addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
+                addJoints(GameObject.FindGameObjectWithTag("Player 4"), hatsOrderP4);
 
                 HatsDown = true;
             }
@@ -238,6 +241,9 @@ public class PlayerInstantiation : MonoBehaviour
                             skipUI.SetActive(true);
                             
                             addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
+                            addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
+                            addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
+                            addJoints(GameObject.FindGameObjectWithTag("Player 4"), hatsOrderP4);
 
                             HatsDown = true;
                         }
