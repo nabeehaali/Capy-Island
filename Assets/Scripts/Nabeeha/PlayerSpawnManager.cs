@@ -8,7 +8,7 @@ using TMPro;
 public class PlayerSpawnManager : MonoBehaviour
 {
     public TMP_Text instruction;
-    public Button play;
+    public Button play, back;
     public Transform[] spawnLocations;
     int playerCount;
 
@@ -26,6 +26,7 @@ public class PlayerSpawnManager : MonoBehaviour
         playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
         if (playerCount == 4)
         {
+            back.interactable = true;
             play.interactable = true;
             instruction.SetText("Ready to play?");
 

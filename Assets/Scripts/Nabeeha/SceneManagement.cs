@@ -35,6 +35,16 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("CatchUp");
     }
 
+    public void beginning()
+    {
+        SceneManager.LoadScene(0);
+        
+        for(int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("Player")[i]);
+        }
+    }
+
     //IEnumerator canvasSwitch()
     //{
     //    startCanvas.SetActive(false);
