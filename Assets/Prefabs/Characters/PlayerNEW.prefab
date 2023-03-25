@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: -7355346650665330563}
   - component: {fileID: 860575802041803969}
   - component: {fileID: 4212821680302815155}
-  - component: {fileID: 2927280471103491795}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Player
@@ -147,7 +146,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4212821680302815155}
         m_TargetAssemblyTypeName: HideSmashControls, Assembly-CSharp
-        m_MethodName: Hit
+        m_MethodName: Push
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -240,11 +239,35 @@ MonoBehaviour:
     m_ActionId: 94e59002-aadf-4720-ac83-bbcdd5fbbb50
     m_ActionName: Player/New action
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 860575802041803969}
+        m_TargetAssemblyTypeName: FinalShowdownControls, Assembly-CSharp
+        m_MethodName: NextHat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7c7fd824-aa0d-4f23-9b57-ac331d6c9758
     m_ActionName: Player/NextHat[/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder,/XInputControllerWindows2/rightShoulder,/XInputControllerWindows3/rightShoulder]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 860575802041803969}
+        m_TargetAssemblyTypeName: FinalShowdownControls, Assembly-CSharp
+        m_MethodName: PrevHat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b3bc8985-f7f3-48c1-ac4d-db1f379f99e7
     m_ActionName: Player/PrevHat[/XInputControllerWindows/leftShoulder,/XInputControllerWindows1/leftShoulder,/XInputControllerWindows2/leftShoulder,/XInputControllerWindows3/leftShoulder]
   - m_PersistentCalls:
@@ -286,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playermovement: {x: 0, y: 0}
   speed: 20
+  rotationSpeed: 700
   animator: {fileID: 0}
 --- !u!114 &6419911494426830731
 MonoBehaviour:
@@ -299,7 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df9288cc513aa34fbe30828d8fdf0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 4
+  magnitude: 7
+  isPush: 0
 --- !u!114 &4616666122457417381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,8 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPush: 0
-  moveHatL: 0
-  moveHatR: 0
+  index: 0
 --- !u!114 &4212821680302815155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,15 +417,3 @@ MonoBehaviour:
   smashed: 0
   isPush: 0
   magnitude: 0
---- !u!114 &2927280471103491795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a23376957369649a3eb69ec6741136, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

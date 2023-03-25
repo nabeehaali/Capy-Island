@@ -22,11 +22,13 @@ public class TorchControls : MonoBehaviour
     {
         if(context.performed)
         {
-            canLight = true;
+            StartCoroutine(Light());
+            //canLight = true;
         }
         else if(context.canceled)
         {
-            canLight = false;
+            StopCoroutine(Light());
+            //canLight = false;
         }
     }
 
@@ -34,11 +36,27 @@ public class TorchControls : MonoBehaviour
     {
         if (context.performed)
         {
-            canBlow = true;
+            StartCoroutine(Blow());
+            //canBlow = true;
         }
         else if (context.canceled)
         {
-            canBlow = false;
+            StopCoroutine(Blow());
+            //canBlow = false;
         }
+    }
+
+    IEnumerator Light()
+    {
+        canLight = true;
+        yield return new WaitForSeconds(0.5f);
+        canLight = false;
+    }
+
+    IEnumerator Blow()
+    {
+        canBlow = true;
+        yield return new WaitForSeconds(0.5f);
+        canBlow = false;
     }
 }

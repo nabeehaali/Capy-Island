@@ -9,6 +9,9 @@ public class NextScene : MonoBehaviour
     {
         if (Input.GetButtonDown("NextScene"))
         {
+            //destroy hinje joints on all players hats
+            //if hats have a hinjejoint component
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

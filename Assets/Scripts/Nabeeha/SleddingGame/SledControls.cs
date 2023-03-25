@@ -8,7 +8,7 @@ public class SledControls : MonoBehaviour
     public int magnitude;
     private Rigidbody _rigidbody;
 
-    bool isPush = false;
+    public bool isPush = false;
 
     void Start()
     {
@@ -21,12 +21,24 @@ public class SledControls : MonoBehaviour
         if (isPush)
         {
             _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange); //can also try impulse
+            //put sound here (maybe)
         }
     }
 
     public void Push(InputAction.CallbackContext context)
     {
-        StartCoroutine(pushMotion());
+        if(context.performed)
+        {
+            if(isPush == false)
+            {
+                StartCoroutine(pushMotion());
+            }
+            
+        }
+        else if (context.canceled)
+        {
+            StopCoroutine(pushMotion());
+        }
     }
 
     IEnumerator pushMotion()

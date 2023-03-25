@@ -43,6 +43,7 @@ public class PlayerInstructions : MonoBehaviour
                 p4Ready = 1;
                 updateUI(UI);
             }
+
         }
     }
 
@@ -56,8 +57,8 @@ public class PlayerInstructions : MonoBehaviour
             p2Ready = 0;
             p3Ready = 0;
             p4Ready = 0;
-            //SceneManager.LoadScene("Nothing");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
 }

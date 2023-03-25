@@ -142,7 +142,7 @@ public class AlligatorSceneSetup : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         Destroy(GameObject.FindGameObjectWithTag("Alligator Crown"));
-        SceneManager.LoadScene("HatProgressAlligator");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     IEnumerator countDown(int seconds)

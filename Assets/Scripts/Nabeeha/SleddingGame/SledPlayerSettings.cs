@@ -21,9 +21,9 @@ public class SledPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
-        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 50;
-        player.transform.parent.gameObject.GetComponent<SledControls>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<TorchGame>().enabled = false;

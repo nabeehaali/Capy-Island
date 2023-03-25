@@ -130,5 +130,7 @@ public class FinalShowdown : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         materials[0] = originalMat;
         renderer.sharedMaterials = materials;
+
+        finalshowdowncontrols.canPush = false;
     }
 }
