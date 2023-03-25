@@ -26,6 +26,9 @@ public class HideSmashControls : MonoBehaviour
         isPush = false;
 
         animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+
+        //REMOVE AFTER TESTNG
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()

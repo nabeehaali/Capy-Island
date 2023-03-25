@@ -12,6 +12,9 @@ public class PlayerInstantiation : MonoBehaviour
 
     public List<MinigamePoints> activeList;
 
+    public List<MinigamePoints> idolRankings;
+    public List<MinigamePoints> idolRankingsDistinct;
+
     public List<MinigamePoints> torchRankings;
     public List<MinigamePoints> torchRankingsDistinct;
 
@@ -195,6 +198,17 @@ public class PlayerInstantiation : MonoBehaviour
 
             displayData(catchUpRankings, catchUpRankingsDistinct);
             StartCoroutine(spawnHatsCatchUp());
+        }
+        else if (sceneName == "5.5-HatProgressHideSmash")
+        {
+            idolRankings = HideSmashSetup.idolPoints;
+            idolRankingsDistinct = HideSmashSetup.distinct;
+            activeList = idolRankings;
+
+            displayData(idolRankings, idolRankingsDistinct);
+            StartCoroutine(spawnHats());
+
+            randHat = Random.Range(0, specialHat.Count);
         }
 
 
