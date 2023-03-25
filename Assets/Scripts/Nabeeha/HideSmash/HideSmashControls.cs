@@ -56,6 +56,7 @@ public class HideSmashControls : MonoBehaviour
         if(GetComponent<PlayerMovement>().playermovement == Vector2.zero)
         {
             animator.SetBool("isHittingIdle", true);
+            //isPush = true;
             yield return new WaitForSeconds(1);
             animator.SetBool("isHittingIdle", false);
         }
@@ -63,6 +64,7 @@ public class HideSmashControls : MonoBehaviour
         {
             //set speed to 0 
             animator.SetBool("isHittingWalk", true);
+            //isPush = true;
             yield return new WaitForSeconds(1);
             animator.SetBool("isHittingWalk", false);
             //return speed to regular value
