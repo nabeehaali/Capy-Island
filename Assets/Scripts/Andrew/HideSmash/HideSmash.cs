@@ -20,7 +20,7 @@ public class HideSmash2 : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().smashed == true) //&& firing > 0.5
+        if (other.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true) //&& firing > 0.5
         {
             destroyIdol(other);
             Debug.Log(playerScore);
