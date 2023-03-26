@@ -48,13 +48,15 @@ public class PlayerInstantiation : MonoBehaviour
         skip.SetActive(false);
         skipUI.SetActive(false);
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
-
+        
         //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
+            Debug.Log(allPlayers[j].name);
+            Debug.Log(allPlayers[j].transform.GetChild(0).name);
             //allPlayers[j].transform.GetComponent<PlayerMovement>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
@@ -199,7 +201,7 @@ public class PlayerInstantiation : MonoBehaviour
             displayData(catchUpRankings, catchUpRankingsDistinct);
             StartCoroutine(spawnHatsCatchUp());
         }
-        else if (sceneName == "5.5-HatProgressHideSmash")
+        else if (sceneName == "05.5-HatProgressHideSmash")
         {
             idolRankings = HideSmashSetup.idolPoints;
             idolRankingsDistinct = HideSmashSetup.distinct;
@@ -306,6 +308,7 @@ public class PlayerInstantiation : MonoBehaviour
             player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         }
 
+        //change to speed value!!
         player.transform.parent.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<Rigidbody>().isKinematic = false;
     }

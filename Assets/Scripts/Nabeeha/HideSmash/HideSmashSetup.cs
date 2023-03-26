@@ -97,6 +97,17 @@ public class HideSmashSetup : MonoBehaviour
             Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<HideSmashControls>());
         }
 
+        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
+
+        //Destroy(GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<HideSmashControls>());
+        //Destroy(GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<HideSmashControls>());
+        //Destroy(GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<HideSmashControls>());
+        //Destroy(GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<HideSmashControls>());
+
+
         StartCoroutine(finishGame());
 
     }
