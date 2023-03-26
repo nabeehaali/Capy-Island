@@ -20,7 +20,7 @@ public class HideSmash : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().smashed == true) //&& firing > 0.5
+        if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true) //&& firing > 0.5
         {
             Destroy(other.gameObject);
             playerScore++;

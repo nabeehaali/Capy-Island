@@ -15,16 +15,23 @@ public class HideSmashControls : MonoBehaviour
     public int magnitude;
     private Rigidbody _rigidbody;
 
+    [SerializeField] public Animator animator;
+
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         //_rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
         playerControls = new PlayerInputActions();
         smashed = false;
         isPush = false;
+
+        animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        
+    }
 
     public void Hit(InputAction.CallbackContext context)
     {
@@ -38,16 +45,6 @@ public class HideSmashControls : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        /*if (isPush)
-        {
-            _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange); //can also try impulse
-        }
-
-        float firing = fireButton;*/
-    }
-
     public void Push(InputAction.CallbackContext context)
     {
         StartCoroutine(pushMotion());
@@ -56,7 +53,23 @@ public class HideSmashControls : MonoBehaviour
     IEnumerator pushMotion()
     {
         isPush = true;
-        yield return new WaitForSeconds(0.05f);
+        if(GetComponent<PlayerMovement>().playermovement == Vector2.zero)
+        {
+            animator.SetBool("isHittingIdle", true);
+            //isPush = true;
+            yield return new WaitForSeconds(1);
+            animator.SetBool("isHittingIdle", false);
+        }
+        else
+        {
+            //set speed to 0 
+            animator.SetBool("isHittingWalk", true);
+            //isPush = true;
+            yield return new WaitForSeconds(1);
+            animator.SetBool("isHittingWalk", false);
+            //return speed to regular value
+        }
+       //yield return new WaitForSeconds(0.05f);
         isPush = false;
     }
 

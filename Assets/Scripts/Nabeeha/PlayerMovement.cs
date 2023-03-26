@@ -27,11 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement != Vector3.zero)
         {
-            //CHECK WITH GROUP TO SEE WHICH ROTATION LOOKS BETTER
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
             gameObject.transform.GetChild(0).transform.rotation = Quaternion.RotateTowards(gameObject.transform.GetChild(0).transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-
-            //gameObject.transform.GetChild(0).transform.LookAt(gameObject.transform.GetChild(0).transform.position + new Vector3(movement.x, 0, movement.z));
 
             animator.SetBool("isWalking", true);
         }
@@ -43,17 +40,22 @@ public class PlayerMovement : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "08-TorchGame" || sceneName == "Hats" || sceneName == "05-HideSmashNab" || sceneName == "14-CatchUp" || sceneName == "22-FinalShowdown" || sceneName == "MovementTest" || sceneName == "AmyAnimtest" || sceneName == "TestUI")
+        if (sceneName == "08-TorchGame" || sceneName == "Hats" || sceneName == "05-HideSmash" || sceneName == "14-CatchUp" || sceneName == "22-FinalShowdown" || sceneName == "MovementTest" || sceneName == "AmyAnimtest" || sceneName == "TestUI")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
-            //playerRigidbody.velocity = movement.normalized + new Vector3(0.0f, playerRigidbody.velocity.y, 0.0f);
+
+            //add rotation here
         }
         else if (sceneName == "18-SledGame" || sceneName == "AligatorTag" || sceneName == "11-AlligatorGame")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
+
+            //add rotation here
         }
+        //add elseif for progress scenes, no movement, but they can only rotate
+        //add another elseif for final showdown to activate running animation
         
     }
 

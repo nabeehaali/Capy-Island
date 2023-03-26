@@ -18,7 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/04-MapAnimation1.unity
     guid: fdfb5d2a4ede7c2438475d7750bd997b
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/05-HideSmashNab.unity
+    path: Assets/Scenes/Drafts/Nabeeha/05-HideSmash.unity
+    guid: 5abd16036df87e64b97c5f2a567b8279
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/05.5-HatProgressHideSmash.unity
     guid: fb096fed97a2b3b4085a63a5fc4ab55e
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/04.5-InstructionsHideSmash.unity

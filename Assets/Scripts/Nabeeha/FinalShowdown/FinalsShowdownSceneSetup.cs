@@ -343,14 +343,14 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
         }
 
-        //organizing hat UI
+        //organizing hat UI (change this to be based on number of children TOTALLLLLLLLLLLLLLL
         int hatsActive = 0;
         for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
-            if(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject.activeSelf)
-            {
+            //if(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject.activeSelf)
+            //{
                 hatsActive++;
-            }
+            //}
         }
 
         if (hatsActive == 1 || hatsActive == 2)

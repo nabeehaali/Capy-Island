@@ -4,15 +4,13 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CatchUpSceneSetup : MonoBehaviour
 {
-    float timePassed;
+    public GameObject goP1, goP2, goP3, goP4, goTxt;
 
-    bool moveOnP1 = false;
-    bool moveOnP2 = false;
-    bool moveOnP3 = false;
-    bool moveOnP4 = false;
+    int listCount;
     public Transform startingPos;
 
     public static List<MinigamePoints> rankings = new List<MinigamePoints>();
@@ -39,138 +37,18 @@ public class CatchUpSceneSetup : MonoBehaviour
 
         rankings.Sort();
 
-        /*for (int i = 0; i < rankings.Count; i++)
+        for (int i = 0; i < rankings.Count; i++)
         {
             Debug.Log(rankings[i].playerID + " has " + rankings[i].playerPoints + " points");
-        }*/
+        }
 
         totalHats = DisasterSceneSetup.p1HatsOff + DisasterSceneSetup.p2HatsOff + DisasterSceneSetup.p3HatsOff + DisasterSceneSetup.p4HatsOff;
+
+        StartCoroutine(startPlayer());
     }
 
     private void Update()
     {
-        timePassed += Time.deltaTime;
-        Debug.Log(timePassed);
-
-        if (timePassed > 0)
-        {
-            if (!moveOnP1)
-            {
-                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                GameObject.Find(rankings[0].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                checkUI(0);
-                    
-                if (rankings[0].playerPoints == rankings[1].playerPoints)
-                {
-                    GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[1].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(1);
-                }
-                if(rankings[0].playerPoints == rankings[2].playerPoints)
-                {
-                    GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(2);
-                }
-                if (rankings[0].playerPoints == rankings[3].playerPoints)
-                {
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(3);
-                }
-                moveOnP1 = true;
-            }
-        }
-        if (timePassed > 5)
-        {
-            if (!moveOnP2)
-            {
-                if (rankings[1].playerPoints != rankings[0].playerPoints)
-                {
-                    GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[1].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[1].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(1);
-                }
-                if (rankings[1].playerPoints == rankings[2].playerPoints)
-                {
-                    GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(2);
-                }
-                if (rankings[1].playerPoints == rankings[3].playerPoints)
-                {
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(3);
-                }
-                moveOnP2 = true;
-            }
-        }
-        if (timePassed > 10)
-        {
-            if (!moveOnP3)
-            {
-                if ((rankings[2].playerPoints != rankings[1].playerPoints) && (rankings[2].playerPoints != rankings[0].playerPoints))
-                {
-                    GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[2].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[2].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(2);
-                }
-                if (rankings[2].playerPoints == rankings[3].playerPoints)
-                {
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(3);
-                }
-                moveOnP3 = true;
-            }
-        }
-        if (timePassed > 15)
-        {
-            if (!moveOnP4)
-            {
-                if ((rankings[3].playerPoints != rankings[2].playerPoints) && (rankings[3].playerPoints != rankings[1].playerPoints) && (rankings[3].playerPoints != rankings[0].playerPoints))
-                {
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[3].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[3].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(3);
-                }
-                moveOnP4 = true;
-            }
-        }
-
-        /*for (int i = 0; i < rankings.Count; i++)
-        {
-            if (timePassed > newTime)
-            {
-                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                GameObject.Find(rankings[0].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                checkUI(0);
-
-                if (rankings[0].playerPoints == rankings[i].playerPoints)
-                {
-                    GameObject.Find(rankings[i].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
-                    GameObject.Find(rankings[i].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-                    GameObject.Find(rankings[i].playerID).GetComponent<Rigidbody>().isKinematic = false;
-                    checkUI(i);
-                }
-                newTime += 5;
-                
-            }
-        }*/
-
-
         //player score UI
         p1Score.SetText("" + GameObject.FindGameObjectWithTag("Player 1").GetComponent<CatchUp>().numHatsCollected + " Hats");
         p2Score.SetText("" + GameObject.FindGameObjectWithTag("Player 2").GetComponent<CatchUp>().numHatsCollected + " Hats");
@@ -190,6 +68,95 @@ public class CatchUpSceneSetup : MonoBehaviour
 
     }
 
+    IEnumerator startPlayer()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(5);
+            if (rankings.Count != 0)
+            {
+                //show first element by deafult
+                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
+                GameObject.Find(rankings[0].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameObject.Find(rankings[0].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                listCount++;
+
+                if (rankings.Count > 1)
+                {
+                    if (rankings[0].playerPoints == rankings[1].playerPoints)
+                    {
+                        //compare if first element is the same as other elements
+                        for (int i = 0; i < rankings.Count - 1; i++)
+                        {
+                            if (rankings[i].playerPoints == rankings[i + 1].playerPoints)
+                            {
+                                GameObject.Find(rankings[i + 1].playerID).gameObject.transform.parent.gameObject.transform.position = startingPos.position;
+                                GameObject.Find(rankings[i + 1].playerID).gameObject.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                                GameObject.Find(rankings[i + 1].playerID).GetComponent<Rigidbody>().isKinematic = false;
+                                listCount++;
+
+                                
+                            }
+                        }
+                    }
+                }
+                
+                //change spacing of panel depending on how many players get put on the field
+                if (listCount == 1 || listCount == 4)
+                {
+                    GameObject.Find("GoPanelIcon").GetComponent<HorizontalLayoutGroup>().spacing = 0;
+                }
+                else if (listCount == 2)
+                {
+                    GameObject.Find("GoPanelIcon").GetComponent<HorizontalLayoutGroup>().spacing = -300;
+                }
+                else if (listCount == 3)
+                {
+                    GameObject.Find("GoPanelIcon").GetComponent<HorizontalLayoutGroup>().spacing = -150;
+                }
+
+                //changing ui based on who comes up
+                for (int j = 0; j < listCount; j++)
+                {
+                    goTxt.SetActive(true);
+
+                    if (GameObject.Find(rankings[j].playerID).gameObject.tag == "Player 1")
+                    {
+                        goP1.SetActive(true);
+                    }
+                    else if (GameObject.Find(rankings[j].playerID).gameObject.tag == "Player 2")
+                    {
+                        goP2.SetActive(true);
+                    }
+                    else if (GameObject.Find(rankings[j].playerID).gameObject.tag == "Player 3")
+                    {
+                        goP3.SetActive(true);
+                    }
+                    else if (GameObject.Find(rankings[j].playerID).gameObject.tag == "Player 4")
+                    {
+                        goP4.SetActive(true);
+                    }
+                }
+
+                yield return new WaitForSeconds(1.5f);
+                goTxt.SetActive(false);
+                goP1.SetActive(false);
+                goP2.SetActive(false);
+                goP3.SetActive(false);
+                goP4.SetActive(false);
+
+                //remove element from list once player is on screen
+                for (int i = 0; i < listCount; i++)
+                {
+                    //Debug.Log(rankings[0].playerPoints);
+                    rankings.RemoveAt(0);
+                }
+
+                listCount = 0;
+            }
+        }
+    }
+
     void EndGame()
     {
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
@@ -197,15 +164,6 @@ public class CatchUpSceneSetup : MonoBehaviour
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
             Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<CatchUpControls>());
         }
-        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-
-        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
 
         StartCoroutine(finishGame());
     }
@@ -265,7 +223,6 @@ public class CatchUpSceneSetup : MonoBehaviour
     {
         goPlayers[index].gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        //Destroy(goPlayers[index].gameObject);
         goPlayers[index].gameObject.SetActive(false);
     }
 }
