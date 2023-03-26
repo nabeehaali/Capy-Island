@@ -82,27 +82,26 @@ public class FinalShowdown : MonoBehaviour
     {
         if(finalshowdowncontrols != null)
         {
-            if (gameObject.tag == "Player 1" && collision.gameObject.tag == "Bolt")
+            if (gameObject.tag == "Player 1" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject)
             {
-                Debug.Log("HITTTTT");
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
                 StartCoroutine(playerHit(collision.gameObject, originalMaterialP1));
 
             }
-            if (gameObject.tag == "Player 2" && collision.gameObject.tag == "Bolt")
+            if (gameObject.tag == "Player 2" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject)
             {
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
                 StartCoroutine(playerHit(collision.gameObject, originalMaterialP2));
             }
-            if (gameObject.tag == "Player 3" && collision.gameObject.tag == "Bolt")
+            if (gameObject.tag == "Player 3" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject)
             {
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
                 StartCoroutine(playerHit(collision.gameObject, originalMaterialP3));
             }
-            if (gameObject.tag == "Player 4" && collision.gameObject.tag == "Bolt")
+            if (gameObject.tag == "Player 4" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject)
             {
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
                 GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();

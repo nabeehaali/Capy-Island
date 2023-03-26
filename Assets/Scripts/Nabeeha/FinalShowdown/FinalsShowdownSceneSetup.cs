@@ -21,6 +21,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
     public Transform winnerTarget;
 
     bool gameDone = false;
+    bool prevFlag = false;
     void Start()
     {
         StartCoroutine(startGame());
@@ -92,15 +93,28 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
     public void SpecialHatUI(GameObject player, List<GameObject> HatUI)
     {
+        
         for (int i = 0; i < HatUI.Count; i++)
         {
             if (player.transform.parent.GetComponent<FinalShowdownControls>().index == HatUI.Count)
             {
-                player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+                if(prevFlag == false) 
+                {
+                    player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+                }
+                else if (prevFlag == true)
+                {
+                    prevFlag = false;
+                }
+               
+                Debug.Log(player.transform.parent.GetComponent<FinalShowdownControls>().index);
             }
             if(player.transform.parent.GetComponent<FinalShowdownControls>().index < 0)
             {
+                prevFlag = true;
                 player.transform.parent.GetComponent<FinalShowdownControls>().index = HatUI.Count;
+                
+                Debug.Log(player.transform.parent.GetComponent<FinalShowdownControls>().index);
             }
 
             if (i == player.transform.parent.GetComponent<FinalShowdownControls>().index)
@@ -112,7 +126,6 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     //enable script here
                     //disable other scripts
                     player.transform.parent.GetComponent<WizardHat>().enabled = true;
-                    
                     player.transform.parent.GetComponent<ChefHat>().enabled = false;
                     player.transform.parent.GetComponent<HockeyHat>().shield.SetActive(false);
                     player.transform.parent.GetComponent<HockeyHat>().enabled = false;

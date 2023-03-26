@@ -29,14 +29,14 @@ public class ConeHat : Hat
                 if (ability > 0.5f && timer < 1f)//
                 {
                     timer += Time.deltaTime;
-                    gameObject.GetComponent<PlayerMovement>().speed = 45;
-
-
+                    gameObject.GetComponent<PlayerMovement>().speed = 55;
+                    gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = true;
 
                 }
                 else
                 {
                     gameObject.GetComponent<PlayerMovement>().speed = 30;
+                    gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = false;
                     timer = 0;
                 }
             

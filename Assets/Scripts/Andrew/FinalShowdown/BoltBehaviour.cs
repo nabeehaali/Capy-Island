@@ -31,22 +31,24 @@ public class BoltBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        if (collision.transform.parent.tag == "Player" && collision.transform.tag != player.tag)
-        {
-            Debug.Log("Hit" + collision.transform.tag);
-            enemyPlayer = collision.gameObject;
-
-            audio.Play();
-
-            if (!audio.isPlaying)
+        if (collision.transform.parent){
+            if (collision.transform.parent.tag == "Player" && collision.transform.tag != player.tag)
             {
-                Destroy(this.gameObject);
+                Debug.Log("Hit" + collision.transform.tag);
+                enemyPlayer = collision.gameObject;
+
+                audio.Play();
+
+                if (!audio.isPlaying)
+                {
+                    Destroy(this.gameObject);
+                }
+
+                //timer = destroyTime;
+
             }
-
-            //timer = destroyTime;
-
         }
+        
 
     }
 }

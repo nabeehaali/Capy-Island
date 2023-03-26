@@ -10,7 +10,7 @@ public class FinalShowdownControls : MonoBehaviour
     Hat activeHat;
     public List<Hat> enabledHats;
     private int i;
-    bool moveHatR, moveHatL;
+    public bool moveHatR, moveHatL;
 
     public bool canPush = false;
     public int index;
@@ -19,27 +19,7 @@ public class FinalShowdownControls : MonoBehaviour
     void Start()
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
-        //activeHat = gameObject.GetComponent<WizardHat>();
 
-        //if (gameObject.GetComponent<WizardHat>().enabled == true)
-        //{
-        //    enabledHats.Add(gameObject.GetComponent<WizardHat>());
-        //}
-        //if (gameObject.GetComponent<ChefHat>().enabled == true)
-        //{
-        //    enabledHats.Add(gameObject.GetComponent<ChefHat>());
-        //}
-        //if (gameObject.GetComponent<ConeHat>().enabled == true)
-        //{
-        //    enabledHats.Add(gameObject.GetComponent<ConeHat>());
-        //}
-        //if (gameObject.GetComponent<HockeyHat>().enabled == true)
-        //{
-        //    enabledHats.Add(gameObject.GetComponent<HockeyHat>());
-        //}
-        //Debug.Log(enabledHats.Count);
-        //i = 0;
-        //enabledHats[i].isActive = true;
         index = 0;
     }
     void FixedUpdate()
@@ -88,8 +68,11 @@ public class FinalShowdownControls : MonoBehaviour
     {
         if (context.performed)
         {
-            index++;
+            
             moveHatR = true;
+            index++;
+            Debug.Log(index);
+
         }
         moveHatR = false;
     }
@@ -98,8 +81,11 @@ public class FinalShowdownControls : MonoBehaviour
     {
         if (context.performed)
         {
-            index--;
+            
             moveHatL = true;
+            index--;
+            Debug.Log(index);
+
         }
         moveHatL = false;
     }
