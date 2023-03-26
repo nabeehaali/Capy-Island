@@ -24,10 +24,9 @@ public class HockeyHat : Hat
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "FinalShowdown" || sceneName == "Hats")
+        if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-            if (isActive) 
-            {
+           
                 if (ability > 0.5f)//&& timer > 0.5
                 {
                     shield.SetActive(true);
@@ -38,16 +37,20 @@ public class HockeyHat : Hat
                 {
                     shield.SetActive(false);
                 }
-
+            if (enabled != true) 
+            {
+                shield.SetActive(false);
             }
             
+           
         }
     }
 
     public void fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Is working");
+        
         ability = context.ReadValue<float>();
+        
 
     }
 }

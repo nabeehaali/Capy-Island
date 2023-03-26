@@ -98,6 +98,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpecialHat"",
+                    ""type"": ""Button"",
+                    ""id"": ""547bd0bd-7985-4a27-9694-bc0661d2037b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -417,6 +426,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Instructions"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81948740-3116-4070-99c2-038d87f49098"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialHat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1012,6 +1032,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_NextHat = m_Player.FindAction("NextHat", throwIfNotFound: true);
         m_Player_PrevHat = m_Player.FindAction("PrevHat", throwIfNotFound: true);
         m_Player_Instructions = m_Player.FindAction("Instructions", throwIfNotFound: true);
+        m_Player_SpecialHat = m_Player.FindAction("SpecialHat", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1091,6 +1112,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_NextHat;
     private readonly InputAction m_Player_PrevHat;
     private readonly InputAction m_Player_Instructions;
+    private readonly InputAction m_Player_SpecialHat;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1103,6 +1125,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @NextHat => m_Wrapper.m_Player_NextHat;
         public InputAction @PrevHat => m_Wrapper.m_Player_PrevHat;
         public InputAction @Instructions => m_Wrapper.m_Player_Instructions;
+        public InputAction @SpecialHat => m_Wrapper.m_Player_SpecialHat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1136,6 +1159,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Instructions.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
                 @Instructions.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
                 @Instructions.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInstructions;
+                @SpecialHat.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialHat;
+                @SpecialHat.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialHat;
+                @SpecialHat.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialHat;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1164,6 +1190,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Instructions.started += instance.OnInstructions;
                 @Instructions.performed += instance.OnInstructions;
                 @Instructions.canceled += instance.OnInstructions;
+                @SpecialHat.started += instance.OnSpecialHat;
+                @SpecialHat.performed += instance.OnSpecialHat;
+                @SpecialHat.canceled += instance.OnSpecialHat;
             }
         }
     }
@@ -1328,6 +1357,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnNextHat(InputAction.CallbackContext context);
         void OnPrevHat(InputAction.CallbackContext context);
         void OnInstructions(InputAction.CallbackContext context);
+        void OnSpecialHat(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

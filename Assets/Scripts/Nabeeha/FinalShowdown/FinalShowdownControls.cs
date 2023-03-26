@@ -10,6 +10,7 @@ public class FinalShowdownControls : MonoBehaviour
     Hat activeHat;
     public List<Hat> enabledHats;
     private int i;
+    bool moveHatR, moveHatL;
 
     public bool canPush = false;
     public int index;
@@ -18,26 +19,26 @@ public class FinalShowdownControls : MonoBehaviour
     void Start()
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
-        activeHat = gameObject.GetComponent<WizardHat>();
+        //activeHat = gameObject.GetComponent<WizardHat>();
 
-        if (gameObject.GetComponent<WizardHat>().enabled == true)
-        {
-            enabledHats.Add(gameObject.GetComponent<WizardHat>());
-        }
-        if (gameObject.GetComponent<ChefHat>().enabled == true)
-        {
-            enabledHats.Add(gameObject.GetComponent<ChefHat>());
-        }
-        if (gameObject.GetComponent<ConeHat>().enabled == true)
-        {
-            enabledHats.Add(gameObject.GetComponent<ConeHat>());
-        }
-        if (gameObject.GetComponent<HockeyHat>().enabled == true)
-        {
-            enabledHats.Add(gameObject.GetComponent<HockeyHat>());
-        }
+        //if (gameObject.GetComponent<WizardHat>().enabled == true)
+        //{
+        //    enabledHats.Add(gameObject.GetComponent<WizardHat>());
+        //}
+        //if (gameObject.GetComponent<ChefHat>().enabled == true)
+        //{
+        //    enabledHats.Add(gameObject.GetComponent<ChefHat>());
+        //}
+        //if (gameObject.GetComponent<ConeHat>().enabled == true)
+        //{
+        //    enabledHats.Add(gameObject.GetComponent<ConeHat>());
+        //}
+        //if (gameObject.GetComponent<HockeyHat>().enabled == true)
+        //{
+        //    enabledHats.Add(gameObject.GetComponent<HockeyHat>());
+        //}
         //Debug.Log(enabledHats.Count);
-        i = 0;
+        //i = 0;
         //enabledHats[i].isActive = true;
         index = 0;
     }
@@ -51,33 +52,33 @@ public class FinalShowdownControls : MonoBehaviour
 
         
 
-        if (moveHatR && enabledHats.Count > 1)
-        {
-            activeHat.isActive = false;
-            if (i == enabledHats.Count - 1)
-            {
-                i = 0;
-            }
-            else 
-            {
-                i++;
-            }
+        //if (moveHatR && enabledHats.Count > 1)
+        //{
+        //    activeHat.isActive = false;
+        //    if (i == enabledHats.Count - 1)
+        //    {
+        //        i = 0;
+        //    }
+        //    else 
+        //    {
+        //        i++;
+        //    }
             
-        } else if (moveHatL && enabledHats.Count > 1)
-        {
-            activeHat.isActive = false;
-            if (i == 0)
-            {
-                i = enabledHats.Count - 1;
-            }
-            else
-            {
-                i--;
-            }
+        //} else if (moveHatL && enabledHats.Count > 1)
+        //{
+        //    activeHat.isActive = false;
+        //    if (i == 0)
+        //    {
+        //        i = enabledHats.Count - 1;
+        //    }
+        //    else
+        //    {
+        //        i--;
+        //    }
             
-        }
+        //}
         
-        enabledHats[i].isActive = true;
+        //enabledHats[i].isActive = true;
 
 
 
@@ -88,7 +89,9 @@ public class FinalShowdownControls : MonoBehaviour
         if (context.performed)
         {
             index++;
+            moveHatR = true;
         }
+        moveHatR = false;
     }
 
     public void PrevHat(InputAction.CallbackContext context)
@@ -96,7 +99,9 @@ public class FinalShowdownControls : MonoBehaviour
         if (context.performed)
         {
             index--;
+            moveHatL = true;
         }
+        moveHatL = false;
     }
 
     public void Push(InputAction.CallbackContext context)

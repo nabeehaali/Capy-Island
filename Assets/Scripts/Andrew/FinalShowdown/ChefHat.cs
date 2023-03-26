@@ -35,10 +35,9 @@ public class ChefHat : Hat
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "FinalShowdown" || sceneName == "Hats")
+        if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-            if (isActive) 
-            {
+            
                 if (ability > 0.5f && timer > 0.5f)
                 {
 
@@ -50,7 +49,7 @@ public class ChefHat : Hat
                     timer = 0;
 
                 }
-            }
+            
             
         }
 
@@ -61,6 +60,6 @@ public class ChefHat : Hat
         
         ability = context.ReadValue<float>();
 
-        Debug.Log(ability);
+        
     }
 }

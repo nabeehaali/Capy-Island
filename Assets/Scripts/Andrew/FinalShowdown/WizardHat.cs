@@ -33,10 +33,8 @@ public class WizardHat : Hat
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         
-        if (sceneName == "FinalShowdown" || sceneName == "Hats")
+        if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-            if (isActive) 
-            {
                 if (ability > 0.5 && timer > 0.5)
                 {
                     movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
@@ -44,9 +42,7 @@ public class WizardHat : Hat
                     boltInstance.GetComponent<BoltBehaviour>().player = transform.GetChild(0).gameObject;
                     boltInstance.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100, ForceMode.Impulse);
                     timer = 0;
-
-                }
-            }
+                }   
             
         }
 

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 8048018798763391526}
   - component: {fileID: 860575802041803969}
   - component: {fileID: -1277481576338702917}
-  - component: {fileID: -8418941738649876114}
   - component: {fileID: 8740209424401412610}
   - component: {fileID: 1152690600456968048}
   - component: {fileID: 4212821680302815155}
@@ -151,6 +150,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4212821680302815155}
         m_TargetAssemblyTypeName: HideSmashControls, Assembly-CSharp
         m_MethodName: Hit
@@ -309,6 +319,58 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0d5ad73f-8310-4054-ad2a-eaa417c29e5f
     m_ActionName: Player/Instructions[/XInputControllerWindows/start,/XInputControllerWindows1/start,/XInputControllerWindows2/start,/XInputControllerWindows3/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1152690600456968048}
+        m_TargetAssemblyTypeName: WizardHat, Assembly-CSharp
+        m_MethodName: fire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8048018798763391526}
+        m_TargetAssemblyTypeName: HockeyHat, Assembly-CSharp
+        m_MethodName: fire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8740209424401412610}
+        m_TargetAssemblyTypeName: ConeHat, Assembly-CSharp
+        m_MethodName: fire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4212821680302815155}
+        m_TargetAssemblyTypeName: ChefHat, Assembly-CSharp
+        m_MethodName: fire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 547bd0bd-7985-4a27-9694-bc0661d2037b
+    m_ActionName: Player/SpecialHat[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: UI
@@ -434,6 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c74d3ea5fbe7947a5e72b05aa69d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
+  shield: {fileID: 0}
 --- !u!114 &860575802041803969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,9 +510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bfd512f03c4f44882f21217afdf509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledHats: []
   canPush: 0
-  moveHatL: 0
-  moveHatR: 0
+  index: 0
 --- !u!114 &-1277481576338702917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,22 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a23376957369649a3eb69ec6741136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-8418941738649876114
-  index: 0
---- !u!114 &4212821680302815155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f258ae25e9a2aa142a01c8c9255f76da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cake: {fileID: 9032391680856277216, guid: 47c6509c681c08347aa6a6a95d996d5b, type: 3}
-  hats: []
 --- !u!114 &8740209424401412610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224894a65caf7b94fba6743bb3367d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!114 &1152690600456968048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,11 +550,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26404785d18d9d74584e437f31efa67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   bolt: {fileID: 2927745582759813638, guid: 6d590eeb6e7620c499ae591d850748f9, type: 3}
   shootTransform: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 930385fa94f58f647ad188acf446688b, type: 3}
+--- !u!114 &4212821680302815155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f258ae25e9a2aa142a01c8c9255f76da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashed: 0
-  isPush: 0
-  magnitude: 0
+  isActive: 0
+  cake: {fileID: 9032391680856277216, guid: 47c6509c681c08347aa6a6a95d996d5b, type: 3}
+  hats: []

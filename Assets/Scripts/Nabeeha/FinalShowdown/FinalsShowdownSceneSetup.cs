@@ -111,24 +111,38 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 {
                     //enable script here
                     //disable other scripts
-                    //ex. GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<WizardHat>().enable = true;
-                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<ChefHat>().enable = false;
-                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<HockeyHat>().enable = false;
-                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<CreamHat>().enable = false;
+                    player.transform.parent.GetComponent<WizardHat>().enabled = true;
+                    
+                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                    player.transform.parent.GetComponent<HockeyHat>().shield.SetActive(false);
+                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
 
                     //Debug.Log("enable wizard script here");
                 }
                 else if (HatUI[i].tag == "ChefUI")
                 {
                     //Debug.Log("enable chef script here");
+                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                    player.transform.parent.GetComponent<ChefHat>().enabled = true;
+                    player.transform.parent.GetComponent<HockeyHat>().shield.SetActive(false);
+                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
                 }
                 else if (HatUI[i].tag == "HockeyUI")
                 {
-                    //Debug.Log("enable hockey script here");
+                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                    player.transform.parent.GetComponent<HockeyHat>().enabled = true;
+                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
                 }
                 else if (HatUI[i].tag == "CreamUI")
                 {
-                    //Debug.Log("enable cream script here");
+                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                    player.transform.parent.GetComponent<HockeyHat>().shield.SetActive(false);
+                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                    player.transform.parent.GetComponent<ConeHat>().enabled = true;
                 }
             }
             else

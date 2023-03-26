@@ -23,10 +23,9 @@ public class ConeHat : Hat
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "FinalShowdown" || sceneName == "Hats")
+        if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-            if (isActive) 
-            {
+            
                 if (ability > 0.5f && timer < 1f)//
                 {
                     timer += Time.deltaTime;
@@ -40,7 +39,7 @@ public class ConeHat : Hat
                     gameObject.GetComponent<PlayerMovement>().speed = 30;
                     timer = 0;
                 }
-            }
+            
             
         }
     }
