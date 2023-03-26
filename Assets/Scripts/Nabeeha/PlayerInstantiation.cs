@@ -325,13 +325,21 @@ public class PlayerInstantiation : MonoBehaviour
                 {
                     placements[i].SetText("" + (j + 1));
                     Debug.Log(activeRankings[i].playerID + " is in " + (j + 1) + " place!");
+
+                    //play animation
+                    if (j + 1 == 1)
+                    {
+                        GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+                    }
                 }
+                
             }
         }
     }
 
     IEnumerator spawnHats()
     {
+        //think about chaning this value based on timing of victory animation
         yield return new WaitForSeconds(2);
         float inc = 0;
 
