@@ -14,7 +14,7 @@ public class SledControls : MonoBehaviour
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
         //REMOVE AFTER TESTNG
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     void FixedUpdate()
     {
