@@ -1869,6 +1869,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OctaviustheGangster
       objectReference: {fileID: 0}
+    - target: {fileID: 6532185029649744136, guid: dd11c8090249ed14aa4c6aacc5258620,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd11c8090249ed14aa4c6aacc5258620, type: 3}
 --- !u!1 &621472924 stripped
@@ -2312,6 +2317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: coolDown
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -4384,6 +4394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: coolDown
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -6803,7 +6818,7 @@ PrefabInstance:
     - target: {fileID: 3883263500666222123, guid: 5f179fc329e6af3459c6cdc2bdaac874,
         type: 3}
       propertyPath: m_TagString
-      value: Chef
+      value: Hockey
       objectReference: {fileID: 0}
     - target: {fileID: 4517056794136374417, guid: 5f179fc329e6af3459c6cdc2bdaac874,
         type: 3}
@@ -8347,6 +8362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
+      propertyPath: coolDown
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
       propertyPath: shootTransform
       value: 
       objectReference: {fileID: 469071190}
@@ -9609,6 +9629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: coolDown
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1152690600456968048, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}

@@ -28,7 +28,7 @@ public class CakeBehaviour : MonoBehaviour
         }
 
 
-        if (triggerBool) 
+        if (triggerBool == true) 
         {
             triggeredSlow();
         }
@@ -43,7 +43,7 @@ public class CakeBehaviour : MonoBehaviour
 
             enemyPlayer = other.gameObject;
             triggerBool = true;
-            Debug.Log("Hit" + other.tag);
+            
 
         }
 
@@ -53,7 +53,8 @@ public class CakeBehaviour : MonoBehaviour
         timer += Time.deltaTime;
         if (timer < coolDown)
         {
-            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 15;
+            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 0.01f;
+            Debug.Log("Hit" + enemyPlayer.tag);
 
             audio.Play(); // Add an eating sound
             transform.Find("Eating Effect").gameObject.SetActive(true); //Add a little particle effect

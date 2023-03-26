@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class ConeHat : Hat
 {
-    float timer, ability;
+    float ability;
+    float timer = 0;
+    bool flag;
     private PlayerInputActions playerControls;
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
+        flag = false;
     }
 
     // Update is called once per frame
@@ -25,21 +27,17 @@ public class ConeHat : Hat
 
         if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-            
-                if (ability > 0.5f && timer < 1f)//
-                {
-                    timer += Time.deltaTime;
-                    gameObject.GetComponent<PlayerMovement>().speed = 55;
-                    gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = true;
 
-                }
-                else
-                {
-                    gameObject.GetComponent<PlayerMovement>().speed = 30;
-                    gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = false;
-                    timer = 0;
-                }
-            
+            if (ability > 0.5f)//
+            {
+                flag = true;
+                
+            }
+
+            if (flag == true)
+            {
+                StartCoroutine(speedAbility());
+            }
             
         }
     }
@@ -49,5 +47,33 @@ public class ConeHat : Hat
         //Debug.Log("Is working");
         ability = context.ReadValue<float>();
 
+    }
+    IEnumerator speedAbility() 
+    {
+        
+        timer += Time.deltaTime;
+        if (timer < 1f)//
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 55;
+            gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = true;
+
+        }
+        else if(timer > 1 && timer < 3)
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 30;
+            gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = false;
+            
+        }
+        else if (timer > 3)
+        {
+            timer = 0;
+            flag = false;
+            yield return null;
+        }
+    }
+    public void setSpeedNormal() 
+    {
+        gameObject.GetComponent<PlayerMovement>().speed = 30;
+        gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = false;
     }
 }

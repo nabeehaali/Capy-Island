@@ -12,15 +12,14 @@ public class WizardHat : Hat
     int index;
     Vector3 movement;
     public Transform shootTransform;
-    float timer;
-    float ability;
-
+    float timer, ability;
+    public float coolDown;
     // Start is called before the first frame update
     private void Awake()
     {
         playerControls = new PlayerInputActions();
         index = 0;
-
+        coolDown = 0.75f;
     }
 
 
@@ -35,9 +34,9 @@ public class WizardHat : Hat
         
         if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-                if (ability > 0.5 && timer > 0.5)
+                if (ability > 0.5 && timer > coolDown)
                 {
-                    movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
+                    //movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
                     GameObject boltInstance = Instantiate(bolt, shootTransform.position, transform.GetChild(0).rotation); //Quaternion.identity
                     boltInstance.GetComponent<BoltBehaviour>().player = transform.GetChild(0).gameObject;
                     boltInstance.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100, ForceMode.Impulse);

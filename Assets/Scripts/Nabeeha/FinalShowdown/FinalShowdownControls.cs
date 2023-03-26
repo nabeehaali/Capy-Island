@@ -24,42 +24,7 @@ public class FinalShowdownControls : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //if (canPush)
-        //{
-        //    _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange);
-        //    canPush = false;//can also try impulse
-        //}
-
-        
-
-        //if (moveHatR && enabledHats.Count > 1)
-        //{
-        //    activeHat.isActive = false;
-        //    if (i == enabledHats.Count - 1)
-        //    {
-        //        i = 0;
-        //    }
-        //    else 
-        //    {
-        //        i++;
-        //    }
-            
-        //} else if (moveHatL && enabledHats.Count > 1)
-        //{
-        //    activeHat.isActive = false;
-        //    if (i == 0)
-        //    {
-        //        i = enabledHats.Count - 1;
-        //    }
-        //    else
-        //    {
-        //        i--;
-        //    }
-            
-        //}
-        
-        //enabledHats[i].isActive = true;
-
+       
 
 
     }
@@ -68,26 +33,18 @@ public class FinalShowdownControls : MonoBehaviour
     {
         if (context.performed)
         {
-            
-            moveHatR = true;
             index++;
-            Debug.Log(index);
 
         }
-        moveHatR = false;
     }
 
     public void PrevHat(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            
-            moveHatL = true;
             index--;
-            Debug.Log(index);
 
         }
-        moveHatL = false;
     }
 
     public void Push(InputAction.CallbackContext context)
