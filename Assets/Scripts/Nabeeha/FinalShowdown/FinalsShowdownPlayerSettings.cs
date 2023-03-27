@@ -12,6 +12,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     float inc = 0;
     void Start()
     {
+        Debug.Log("Start");
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-10, 0, -63), 0, hatsOrderP1);
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(16, 0, -43), -90, hatsOrderP2);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-42, 0, -45), 90, hatsOrderP3);
@@ -50,12 +51,13 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
         hatsOrder.Add(player);
-
+        
         //enable hats
         for (int i = 0; i < player.transform.childCount; i++)
         {
             if (player.transform.GetChild(i).name == "Hats")
             {
+                
                 player.transform.GetChild(i).gameObject.SetActive(true);
 
                 for (int k = 0; k < player.transform.GetChild(i).childCount; k++)

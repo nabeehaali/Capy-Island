@@ -7,6 +7,10 @@ public class FinalShowdownControls : MonoBehaviour
 {
     //public int magnitude;
     private Rigidbody _rigidbody;
+    Hat activeHat;
+    public List<Hat> enabledHats;
+    private int i;
+    public bool moveHatR, moveHatL;
 
     public bool canPush = false;
     public int index;
@@ -15,15 +19,14 @@ public class FinalShowdownControls : MonoBehaviour
     void Start()
     {
         _rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+
         index = 0;
     }
     void FixedUpdate()
     {
-        //if (canPush)
-        //{
-        //    _rigidbody.AddForce(gameObject.transform.GetChild(0).gameObject.transform.forward * magnitude, ForceMode.VelocityChange);
-        //    canPush = false;//can also try impulse
-        //}
+       
+
+
     }
 
     public void NextHat(InputAction.CallbackContext context)
@@ -31,6 +34,7 @@ public class FinalShowdownControls : MonoBehaviour
         if (context.performed)
         {
             index++;
+            Debug.Log("Next Hat");
         }
     }
 
@@ -39,6 +43,8 @@ public class FinalShowdownControls : MonoBehaviour
         if (context.performed)
         {
             index--;
+            Debug.Log("Prev Hat");
+
         }
     }
 

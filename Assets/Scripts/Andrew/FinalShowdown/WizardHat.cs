@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class WizardHat : MonoBehaviour
+public class WizardHat : Hat
 {
     private PlayerInputActions playerControls;
     public GameObject bolt;
@@ -12,17 +12,14 @@ public class WizardHat : MonoBehaviour
     int index;
     Vector3 movement;
     public Transform shootTransform;
-    float timer;
-    float fireButton;
-
+    float timer, ability;
+    public float coolDown;
     // Start is called before the first frame update
     private void Awake()
     {
         playerControls = new PlayerInputActions();
-        //timer = 0;
         index = 0;
-        
-
+        coolDown = 0.75f;
     }
 
 
@@ -30,36 +27,29 @@ public class WizardHat : MonoBehaviour
     void Update()
     {
 
-        float firing = fireButton;
-
         timer += Time.deltaTime;
-
-        
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         
-        if (sceneName == "Hats")
+        if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
+                if (ability > 0.5 && timer > coolDown)
+                {
+                    //movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
+                    GameObject boltInstance = Instantiate(bolt, shootTransform.position, transform.GetChild(0).rotation); //Quaternion.identity
+                    boltInstance.GetComponent<BoltBehaviour>().player = transform.GetChild(0).gameObject;
+                    boltInstance.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100, ForceMode.Impulse);
+                    timer = 0;
+                }   
             
-            if (fireButton > 0.5 && timer > 0.5)
-            {
-                movement = new Vector3(gameObject.GetComponent<PlayerMovement>().playermovement.x, -9.81f, gameObject.GetComponent<PlayerMovement>().playermovement.y);
-                GameObject boltInstance = Instantiate(bolt, shootTransform.position, transform.GetChild(0).rotation); //Quaternion.identity
-                boltInstance.GetComponent<BoltBehaviour>().player = transform.GetChild(0).gameObject;
-                //
-                boltInstance.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100, ForceMode.Impulse);
-                timer = 0;
-
-            }
         }
 
     }
 
     public void fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Is working");
-        fireButton = context.ReadValue<float>();
+        ability = context.ReadValue<float>();
 
     }
 }

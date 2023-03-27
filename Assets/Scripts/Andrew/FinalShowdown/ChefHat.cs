@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class ChefHat : MonoBehaviour
+public class ChefHat : Hat
 {
     private PlayerInputActions playerControls;
     public GameObject cake;
     public List<GameObject> hats;
 
+
     int index;
 
     float timer;
-    float fireButton;
+    float ability;
 
     // Start is called before the first frame update
     private void Awake()
@@ -28,32 +29,37 @@ public class ChefHat : MonoBehaviour
     void Update()
     {
 
-        float firing = fireButton;
-
         timer += Time.deltaTime;
 
       
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "Hats")
+        if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-            if (fireButton > 0.5 && timer > 0.5)
-            {
-                GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
-                cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
-                
-                timer = 0;
+            
+                if (ability > 0.5f && timer > 0.5f)
+                {
 
-            }
+                    GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
+                    cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
+
+
+
+                    timer = 0;
+
+                }
+            
+            
         }
 
     }
 
     public void fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Is working");
-        fireButton = context.ReadValue<float>();
+        
+        ability = context.ReadValue<float>();
+
         
     }
 }
