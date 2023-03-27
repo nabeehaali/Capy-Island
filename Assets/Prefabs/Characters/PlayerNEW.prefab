@@ -161,18 +161,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4212821680302815155}
-        m_TargetAssemblyTypeName: HideSmashControls, Assembly-CSharp
-        m_MethodName: Push
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5764879065971483784}
         m_TargetAssemblyTypeName: AlligatorControls, Assembly-CSharp
         m_MethodName: Steal
@@ -468,9 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930385fa94f58f647ad188acf446688b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashed: 0
   isPush: 0
-  magnitude: 0
+  animator: {fileID: 0}
 --- !u!114 &-7355346650665330563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledHats: []
+  moveHatR: 0
+  moveHatL: 0
   canPush: 0
   index: 0
 --- !u!114 &-1277481576338702917
@@ -553,6 +542,7 @@ MonoBehaviour:
   isActive: 0
   bolt: {fileID: 2927745582759813638, guid: 6d590eeb6e7620c499ae591d850748f9, type: 3}
   shootTransform: {fileID: 0}
+  coolDown: 0
 --- !u!114 &4212821680302815155
 MonoBehaviour:
   m_ObjectHideFlags: 0
