@@ -74,11 +74,23 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         }
 
         //special hats (selection based)
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 1"), p1HatList);
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 2"), p2HatList);
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 3"), p3HatList);
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 4"), p4HatList);
-        
+        if (GameObject.FindGameObjectWithTag("Player 1") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 1"), p1HatList);
+        }
+        if (GameObject.FindGameObjectWithTag("Player 2") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 2"), p2HatList);
+        }
+        if (GameObject.FindGameObjectWithTag("Player 3") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 3"), p3HatList);
+        }
+        if (GameObject.FindGameObjectWithTag("Player 4") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 4"), p4HatList);
+        }
+
         //if the whole game is over
         if (activePlayers.Count == 1)
         {
@@ -394,30 +406,42 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
         if (hatsOrder[listIndex].tag == "Wizard")
         {
-            if (state.transform.GetChild(2).GetChild(0).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(0).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "WizardUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
         if (hatsOrder[listIndex].tag == "Chef")
         {
-            if (state.transform.GetChild(2).GetChild(1).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(1).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "ChefUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
         if (hatsOrder[listIndex].tag == "Hockey")
         {
-            if (state.transform.GetChild(2).GetChild(2).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(2).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "HockeyUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
         if (hatsOrder[listIndex].tag == "Cream")
         {
-            if (state.transform.GetChild(2).GetChild(3).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(3).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "CreamUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
     }
