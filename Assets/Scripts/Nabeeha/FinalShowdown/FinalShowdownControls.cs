@@ -34,7 +34,7 @@ public class FinalShowdownControls : MonoBehaviour
         if (context.performed)
         {
             index++;
-
+            Debug.Log("Next Hat");
         }
     }
 
@@ -43,6 +43,7 @@ public class FinalShowdownControls : MonoBehaviour
         if (context.performed)
         {
             index--;
+            Debug.Log("Prev Hat");
 
         }
     }

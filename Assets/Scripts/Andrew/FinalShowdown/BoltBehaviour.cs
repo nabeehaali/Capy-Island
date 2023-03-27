@@ -34,7 +34,7 @@ public class BoltBehaviour : MonoBehaviour
         if (collision.transform.parent){
             if (collision.transform.parent.tag == "Player" && collision.transform.tag != player.tag)
             {
-                Debug.Log("Hit" + collision.transform.tag);
+                
                 enemyPlayer = collision.gameObject;
 
                 audio.Play();

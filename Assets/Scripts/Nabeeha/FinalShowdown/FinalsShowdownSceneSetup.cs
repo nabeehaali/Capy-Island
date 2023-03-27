@@ -22,6 +22,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
     bool gameDone = false;
     bool prevFlag = false;
+    bool abilitiesEnabled = false;
     void Start()
     {
         StartCoroutine(startGame());
@@ -93,65 +94,76 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
     public void SpecialHatUI(GameObject player, List<GameObject> HatUI)
     {
-        
+        //Debug.Log(player.tag + " index: " + player.transform.parent.GetComponent<FinalShowdownControls>().index);
+        //Debug.Log(player.tag + " Num hats: " + HatUI.Count);
+
         for (int i = 0; i < HatUI.Count; i++)
         {
             if (player.transform.parent.GetComponent<FinalShowdownControls>().index < 0)
             {
                 player.transform.parent.GetComponent<FinalShowdownControls>().index = HatUI.Count - 1;
             }
-            else if (player.transform.parent.GetComponent<FinalShowdownControls>().index == HatUI.Count)
+            
+            if (player.transform.parent.GetComponent<FinalShowdownControls>().index == HatUI.Count)
             {
-                
                 player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
             }
-            
 
             if (i == player.transform.parent.GetComponent<FinalShowdownControls>().index)
             {
                 HatUI[i].GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-
                 if (HatUI[i].tag == "WizardUI")
                 {
                     //enable script here
                     //disable other scripts
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                        player.transform.parent.GetComponent<WizardHat>().enabled = true;
 
-                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
-                    player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
-                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                    player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
-                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
-                    player.transform.parent.GetComponent<WizardHat>().enabled = true;
+                    }
 
                     //Debug.Log("enable wizard script here");
                 }
                 else if (HatUI[i].tag == "ChefUI")
                 {
-                    //Debug.Log("enable chef script here");
-                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
-                    player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
-                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                    player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
-                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
-                    player.transform.parent.GetComponent<ChefHat>().enabled = true;
-
+                    if (abilitiesEnabled == true)
+                    {
+                        //Debug.Log("enable chef script here");
+                        player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                        player.transform.parent.GetComponent<ChefHat>().enabled = true;
+                    }
 
                 }
                 else if (HatUI[i].tag == "HockeyUI")
                 {
-                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
-                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
-                    player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
-                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
-                    player.transform.parent.GetComponent<HockeyHat>().enabled = true;
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                        player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = true;
+                    }
                 }
                 else if (HatUI[i].tag == "CreamUI")
                 {
-                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
-                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
-                    player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
-                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                    player.transform.parent.GetComponent<ConeHat>().enabled = true;
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                        player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().enabled = true;
+                    }
                 }
             }
             else
@@ -458,6 +470,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        abilitiesEnabled = true;
     }
 
     IEnumerator finishGame()
