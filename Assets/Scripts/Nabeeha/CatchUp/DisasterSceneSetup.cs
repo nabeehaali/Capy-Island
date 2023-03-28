@@ -101,7 +101,7 @@ public class DisasterSceneSetup : MonoBehaviour
 
         while (count >= (seconds - hatsOff))
         {
-            slot.transform.GetChild(0).GetComponent<TMP_Text>().SetText("" + count + " Hats");
+            slot.transform.GetChild(0).GetComponent<TMP_Text>().SetText("" + count);
             //change value here depending on length of animation
             yield return new WaitForSeconds(2);
             count--;
