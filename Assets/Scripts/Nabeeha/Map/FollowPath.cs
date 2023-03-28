@@ -64,13 +64,15 @@ public class FollowPath : MonoBehaviour
 
         if (routeToGo > routes.Length - 1)
         {
-            routeToGo = 0;
+            //routeToGo = 0;
+            yield break;
         }
 
         yield return new WaitForSeconds(1);
         skipUI.SetActive(true);
         skip.SetActive(true);
-        //coroutineAllowed = true;
+
+        coroutineAllowed = true;
 
     }
 }

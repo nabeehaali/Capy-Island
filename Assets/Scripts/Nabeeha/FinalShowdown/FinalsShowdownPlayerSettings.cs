@@ -9,7 +9,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     [SerializeField]
     public List<GameObject> hatsOrderP1, hatsOrderP2, hatsOrderP3, hatsOrderP4;
 
-    float inc = 0;
+    float inc = 0.6f;
     void Start()
     {
         Debug.Log("Start");
@@ -68,9 +68,9 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
 
                         for (int j = 0; j < player.transform.GetChild(i).GetChild(k).childCount; j++)
                         {                            
-                            player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
+                            player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.transform.localPosition = new Vector3(0, inc, 0.035f);
                             player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject.SetActive(true);
-                            inc += 1;
+                            inc += 1.5f;
                             //adds special hats to list
                             hatsOrder.Add((player.transform.GetChild(i).GetChild(k).GetChild(j).gameObject));
                         }
@@ -78,9 +78,9 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                     }
                     else
                     {
-                        player.transform.GetChild(i).GetChild(k).gameObject.transform.localPosition = new Vector3(0, 0.6f + inc, 0.035f);
+                        player.transform.GetChild(i).GetChild(k).gameObject.transform.localPosition = new Vector3(0, inc, 0.035f);
                         player.transform.GetChild(i).GetChild(k).gameObject.SetActive(true);
-                        inc += 1;
+                        inc += 1.5f;
                         //adds regular hats to list
                         hatsOrder.Add((player.transform.GetChild(i).GetChild(k).gameObject));
                     }
