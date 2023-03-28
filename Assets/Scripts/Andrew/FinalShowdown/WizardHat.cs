@@ -20,6 +20,7 @@ public class WizardHat : Hat
         playerControls = new PlayerInputActions();
         index = 0;
         coolDown = 0.75f;
+        shootTransform = transform.GetChild(0).GetChild(6).transform;
     }
 
 

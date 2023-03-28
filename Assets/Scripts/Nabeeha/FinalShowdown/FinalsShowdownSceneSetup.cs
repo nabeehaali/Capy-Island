@@ -29,11 +29,6 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
         finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
 
-        //finalshowdowncontrolsP1 = GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        //finalshowdowncontrolsP2 = GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        //finalshowdowncontrolsP3 = GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        //finalshowdowncontrolsP4 = GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-
         //assign special hat ui to each player
         ActivateHats(GameObject.FindGameObjectWithTag("Player 1"), p1State);
         ActivateHats(GameObject.FindGameObjectWithTag("Player 2"), p2State);
@@ -376,7 +371,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
         }
 
-        //organizing hat UI (change this to be based on number of children TOTALLLLLLLLLLLLLLL
+        //organizing hat UI
         int hatsActive = 0;
         for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {

@@ -86,6 +86,8 @@ public class PlayerInstantiation : MonoBehaviour
                 Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
                 allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
 
+                //allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("Selected", false);
+
                 //enable hats
                 for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
                 {
@@ -93,6 +95,7 @@ public class PlayerInstantiation : MonoBehaviour
                     {
                         allPlayers[j].transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
                         allPlayers[j].transform.GetChild(0).GetChild(i).GetChild(0).gameObject.SetActive(true);
+
                     }
                 }
             }
@@ -228,15 +231,15 @@ public class PlayerInstantiation : MonoBehaviour
         //when special hat hits player, allow them to go to the next scene
         if (theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f)
         {
-            if (!HatsDown && theSpecialHat.transform.position.y < 30)
+            if (!HatsDown && theSpecialHat.transform.localPosition.y < 30)
             {
                 skip.SetActive(true);
                 skipUI.SetActive(true);
-                
-                addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
-                addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
-                addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
-                addJoints(GameObject.FindGameObjectWithTag("Player 4"), hatsOrderP4);
+
+                //addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
+                //addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
+                //addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
+                //addJoints(GameObject.FindGameObjectWithTag("Player 4"), hatsOrderP4);
 
                 HatsDown = true;
             }
@@ -256,10 +259,10 @@ public class PlayerInstantiation : MonoBehaviour
                             skip.SetActive(true);
                             skipUI.SetActive(true);
                             
-                            addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
-                            addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
-                            addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
-                            addJoints(GameObject.FindGameObjectWithTag("Player 4"), hatsOrderP4);
+                            //addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
+                            //addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
+                            //addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
+                            //addJoints(GameObject.FindGameObjectWithTag("Player 4"), hatsOrderP4);
 
                             HatsDown = true;
                         }
@@ -278,12 +281,24 @@ public class PlayerInstantiation : MonoBehaviour
         for (int i = 1; i < player.transform.GetChild(3).childCount; i++)
         {
             hatsOrder.Add(player.transform.GetChild(3).GetChild(i).gameObject);
+
+            //remove hinge joints if they exist (remove this later)
+            if(player.transform.GetChild(3).GetChild(i).GetComponent<HingeJoint>())
+            {
+                Destroy(player.transform.GetChild(3).GetChild(i).GetComponent<HingeJoint>());
+            }
         }
 
         //add special hats to list
         for(int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
             hatsOrder.Add(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject);
+
+            //remove hinge joints if they exist (remove this later)
+            if (player.transform.GetChild(3).GetChild(0).GetChild(i).GetComponent<HingeJoint>())
+            {
+                Destroy(player.transform.GetChild(3).GetChild(0).GetChild(i).GetComponent<HingeJoint>());
+            }
         }
 
         //sorting hats based on their y position
@@ -309,8 +324,8 @@ public class PlayerInstantiation : MonoBehaviour
         }
 
         //change to speed value!!
-        player.transform.parent.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<Rigidbody>().isKinematic = false;
+        //player.transform.parent.GetComponent<PlayerMovement>().enabled = true;
+        //player.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void displayData(List<MinigamePoints> activeRankings, List<MinigamePoints> activeRankingsDistinct)
@@ -329,7 +344,24 @@ public class PlayerInstantiation : MonoBehaviour
                     //play animation
                     if (j + 1 == 1)
                     {
-                        GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+                        if (sceneName == "19-HatProgressSled")
+                        {
+                            GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetBool("Selected", false);
+                            GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetTrigger("VictorySled");
+                        }
+                        else
+                        {
+                            GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+                        }
+                            
+                    }
+                    else
+                    {
+                        if (sceneName == "19-HatProgressSled")
+                        {
+                            GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetBool("Selected", false);
+                            GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetBool("SledIdle", true);
+                        }
                     }
                 }
                 

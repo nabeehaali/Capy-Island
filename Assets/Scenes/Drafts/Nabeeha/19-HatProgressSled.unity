@@ -2119,7 +2119,7 @@ MonoBehaviour:
   - {fileID: 3883263500666222123, guid: cb1cde28caf538e4e84d40d05bb61400, type: 3}
   - {fileID: 2988067154157530007, guid: c4be30581fb0d32438175c11b541b701, type: 3}
   skip: {fileID: 861779572}
-  skipUI: {fileID: 0}
+  skipUI: {fileID: 1018667514}
   hatsOrderP1: []
   hatsOrderP2: []
   hatsOrderP3: []

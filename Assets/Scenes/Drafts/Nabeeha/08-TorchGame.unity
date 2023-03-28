@@ -4279,26 +4279,24 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!95 &1242820386
-Animator:
-  serializedVersion: 4
+--- !u!114 &1242820386
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242820381}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b924d3652e6ba94fabd5ced4f599675, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7998d955939c7854aa3583fb7b8e5d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  offset: {x: 0, y: 50, z: -10}
+  smoothTime: 0.5
+  minZoom: 60
+  maxZoom: 55
+  zoomLimiter: 105
 --- !u!1001 &1303661312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5545,7 +5543,7 @@ MonoBehaviour:
   - {fileID: 741584891}
   - {fileID: 92468411}
   - {fileID: 603051417}
-  gameLength: 10
+  gameLength: 45
   gameover: {fileID: 829205965}
   countdown: {fileID: 948173228}
   p1Score: {fileID: 843393223}
