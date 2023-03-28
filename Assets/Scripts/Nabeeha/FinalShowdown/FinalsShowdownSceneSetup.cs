@@ -504,20 +504,35 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         gameover.SetText("Game Over!");
         yield return new WaitForSeconds(2);
 
+        //disable movement
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+        }
+
+        //play victory aniamtion
         if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 1"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
             Debug.Log("Play p1 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 2"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
             Debug.Log("Play p2 anim here");
         }
         else if(activePlayers[0] == GameObject.FindGameObjectWithTag("Player 3"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
             Debug.Log("Play p3 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 4"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
             Debug.Log("Play p4 anim here");
         }
 

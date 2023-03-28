@@ -10,10 +10,11 @@ public class SledGame : MonoBehaviour
 
     public bool inWater;
     public bool offBerg;
-    public bool piece1, piece2, piece3, piece4, piece5, piece6;
+    //public bool piece1, piece2, piece3, piece4, piece5, piece6;
     public int colCount = 0;
 
     public static int ranking;
+    private Vector3 direction;
 
     void Start()
     {
@@ -23,7 +24,9 @@ public class SledGame : MonoBehaviour
         ranking = 4;
         inWater = false;
         offBerg = false;
-        piece1 = false;
+        //piece1 = false;
+
+        
     }
 
     void Update()
@@ -36,8 +39,10 @@ public class SledGame : MonoBehaviour
         if (offBerg)
         {
             gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
-            //change -30 to whatever looks good
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y - 30, _rigidbody.velocity.z);
+            _rigidbody.drag = 0f;
+            //change the -0.2 to something else for feel
+            direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            _rigidbody.velocity = direction.normalized * 30 + new Vector3(0.0f, _rigidbody.velocity.y - 0.2f, 0.0f);
             //offBerg = false; //check if this is ok
         }
     }
@@ -49,6 +54,7 @@ public class SledGame : MonoBehaviour
             inWater = true;
             _trailRender.emitting = false;
             _rigidbody.drag = 4;
+            _rigidbody.velocity = Vector3.zero;
             SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
             ranking--;
         }

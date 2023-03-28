@@ -55,8 +55,8 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
-            Debug.Log(allPlayers[j].name);
-            Debug.Log(allPlayers[j].transform.GetChild(0).name);
+            allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isRunning", false);
+            allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isWalking", false);
             //allPlayers[j].transform.GetComponent<PlayerMovement>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
@@ -228,7 +228,7 @@ public class PlayerInstantiation : MonoBehaviour
         //when special hat hits player, allow them to go to the next scene
         if (theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f)
         {
-            if (!HatsDown)
+            if (!HatsDown && theSpecialHat.transform.position.y < 30)
             {
                 skip.SetActive(true);
                 skipUI.SetActive(true);
