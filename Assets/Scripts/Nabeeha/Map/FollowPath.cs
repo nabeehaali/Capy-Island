@@ -15,6 +15,7 @@ public class FollowPath : MonoBehaviour
     private Vector3 objectPosition;
 
     public float speedModifier = 0.5f;
+    public float delayTime = 0;
 
     private bool coroutineAllowed;
 
@@ -45,6 +46,8 @@ public class FollowPath : MonoBehaviour
         Vector3 p1 = routes[routeNum].GetChild(1).position;
         Vector3 p2 = routes[routeNum].GetChild(2).position;
         Vector3 p3 = routes[routeNum].GetChild(3).position;
+
+        yield return new WaitForSeconds(delayTime);
 
         while (tParam < 1)
         {
