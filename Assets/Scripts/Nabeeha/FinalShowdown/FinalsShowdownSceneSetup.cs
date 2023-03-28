@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FinalsShowdownSceneSetup : MonoBehaviour
 {
@@ -10,19 +11,17 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
     public GameObject p1State, p2State, p3State, p4State;
     public List<GameObject> p1HatList, p2HatList, p3HatList, p4HatList;
     public List<GameObject> activePlayers;
-    //public List<GameObject> p1Hats, p2Hats, p3Hats, p4Hats;
     
     bool isDeadP1 = false, isDeadP2 = false, isDeadP3 = false, isDeadP4 = false;
     public int hitCountP1 = 0, hitCountP2 = 0, hitCountP3 = 0, hitCountP4 = 0;
     int listIndexP1 = 0, listIndexP2 = 0, listIndexP3 = 0, listIndexP4 = 0;
 
-    //FinalShowdownControls finalshowdowncontrolsP1, finalshowdowncontrolsP2, finalshowdowncontrolsP3, finalshowdowncontrolsP4;
     FinalsShowdownPlayerSettings finalshowdownplayersettings;
-    public Transform winnerTarget;
 
     bool gameDone = false;
-    bool prevFlag = false;
     bool abilitiesEnabled = false;
+
+    public static List<GameObject> allPlayers = new List<GameObject>();
     void Start()
     {
         StartCoroutine(startGame());
@@ -46,6 +45,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 2"));
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 3"));
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 4"));
+
+        //list of players to destroy in the end of the game
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject);
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject);
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject);
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject);
     }
 
     void Update()
@@ -134,13 +139,11 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
                     }
 
-                    //Debug.Log("enable wizard script here");
                 }
                 else if (HatUI[i].tag == "ChefUI")
                 {
                     if (abilitiesEnabled == true)
                     {
-                        //Debug.Log("enable chef script here");
                         player.transform.parent.GetComponent<WizardHat>().enabled = false;
                         player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
                         player.transform.parent.GetComponent<HockeyHat>().enabled = false;
@@ -197,9 +200,8 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 }
 
                 Debug.Log("P1 is out!");
-                //finalshowdownplayersettings.hatsOrderP1[listIndexP1].transform.parent.transform.position = new Vector3(0, -60, 0);
                 EndGame(p1State);
-                //move player up
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 1").transform);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(GameObject.FindGameObjectWithTag("Player 1").transform.position.x, GameObject.FindGameObjectWithTag("Player 1").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 1").transform.position.z), 5));
             }
             else
@@ -233,8 +235,8 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 }
 
                 Debug.Log("P2 is out!");
-                //finalshowdownplayersettings.hatsOrderP2[listIndexP2].transform.parent.transform.position = new Vector3(0, -60, 0);
                 EndGame(p2State);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 2").transform);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(GameObject.FindGameObjectWithTag("Player 2").transform.position.x, GameObject.FindGameObjectWithTag("Player 2").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 2").transform.position.z), 5));
             }
             else
@@ -266,8 +268,8 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 }
 
                 Debug.Log("P3 is out!");
-                //finalshowdownplayersettings.hatsOrderP3[listIndexP3].transform.parent.transform.position = new Vector3(0, -60, 0);
                 EndGame(p3State);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 3").transform);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(GameObject.FindGameObjectWithTag("Player 3").transform.position.x, GameObject.FindGameObjectWithTag("Player 3").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 3").transform.position.z), 5));
             }
             else
@@ -299,8 +301,8 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 }
 
                 Debug.Log("P4 is out!");
-                //finalshowdownplayersettings.hatsOrderP4[listIndexP4].transform.parent.transform.position = new Vector3(0, -60, 0);
                 EndGame(p4State);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 4").transform);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(GameObject.FindGameObjectWithTag("Player 4").transform.position.x, GameObject.FindGameObjectWithTag("Player 4").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 4").transform.position.z), 5));
             }
             else
@@ -375,10 +377,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         int hatsActive = 0;
         for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
-            //if(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject.activeSelf)
-            //{
-                hatsActive++;
-            //}
+           hatsActive++;
         }
 
         if (hatsActive == 1 || hatsActive == 2)
@@ -503,6 +502,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().enabled = false;
         }
 
         //play victory aniamtion
@@ -510,24 +510,28 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("22.1-P1End");
             Debug.Log("Play p1 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 2"))
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("22.1-P2End");
             Debug.Log("Play p2 anim here");
         }
         else if(activePlayers[0] == GameObject.FindGameObjectWithTag("Player 3"))
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("22.1-P3End");
             Debug.Log("Play p3 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 4"))
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("22.1-P4End");
             Debug.Log("Play p4 anim here");
         }
 
