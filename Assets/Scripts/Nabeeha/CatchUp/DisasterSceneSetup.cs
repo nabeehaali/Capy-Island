@@ -17,10 +17,15 @@ public class DisasterSceneSetup : MonoBehaviour
 
     public GameObject skip, skipUI;
 
+    int timeCheck = 0;
+
     void Start()
     {
+
         skip.SetActive(false);
         skipUI.SetActive(false);
+
+        //StartCoroutine(next());
 
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, (GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount));
@@ -102,12 +107,16 @@ public class DisasterSceneSetup : MonoBehaviour
         while (count >= (seconds - hatsOff))
         {
             slot.transform.GetChild(0).GetComponent<TMP_Text>().SetText("" + count);
-            //change value here depending on length of animation
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             count--;
         }
+    }
 
-        yield return new WaitForSeconds(1);
+    IEnumerator next()
+    {
+        skip.SetActive(false);
+        skipUI.SetActive(false);
+        yield return new WaitForSeconds(13);
         skip.SetActive(true);
         skipUI.SetActive(true);
     }

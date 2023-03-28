@@ -767,7 +767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138194855}
-  - component: {fileID: 138194854}
+  - component: {fileID: 138194856}
   m_Layer: 0
   m_Name: Capybaras
   m_TagString: Untagged
@@ -775,24 +775,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &138194854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138194853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f24a4ca7914ffea42b2c22b009db9aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  routes:
-  - {fileID: 1526490591}
-  speedModifier: 0.25
-  delayTime: 5
-  skip: {fileID: 167620546}
-  skipUI: {fileID: 1177192570}
 --- !u!4 &138194855
 Transform:
   m_ObjectHideFlags: 0
@@ -809,6 +791,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &138194856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138194853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a05710e30fe6d468b507790d76a15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  routes:
+  - {fileID: 1526490591}
+  speedModifier: 0.25
+  delayTime: 4.05
 --- !u!1001 &154921843
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FollowPath : MonoBehaviour
+public class FollowPathCapy : MonoBehaviour
 {
     [SerializeField]
     private Transform[] routes;
@@ -19,12 +19,9 @@ public class FollowPath : MonoBehaviour
 
     private bool coroutineAllowed;
 
-    public GameObject skip, skipUI;
 
     void Start()
     {
-        skip.SetActive(false);
-        skipUI.SetActive(false);
         routeToGo = 0;
         tParam = 0f;
         coroutineAllowed = true;
@@ -65,14 +62,8 @@ public class FollowPath : MonoBehaviour
         if (routeToGo > routes.Length - 1)
         {
             //routeToGo = 0;
-            //yield break;
-            yield return new WaitForSeconds(1);
-            skipUI.SetActive(true);
-            skip.SetActive(true);
             yield break;
         }
-
-
 
         coroutineAllowed = true;
 
