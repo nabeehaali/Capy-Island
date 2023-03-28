@@ -101,7 +101,7 @@ public class AlligatorPlayerScript : MonoBehaviour
                     Debug.Log(playerID + "has tried to steal from " + crownObj.transform.parent.name);
                     crownObj.GetComponentInParent<AlligatorPlayerScript>().hasCrown = false;
                     crownObj.transform.parent = playerObj.transform;
-                    crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
+                    //crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                     hasCrown = true;
                 }
             } else

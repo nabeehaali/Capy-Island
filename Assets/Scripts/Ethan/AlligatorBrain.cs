@@ -22,7 +22,8 @@ public class AlligatorBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        riseAnimLength = riseAnim.length;
+        // 3 is there bc the animation is up by 3
+        riseAnimLength = riseAnim.length / 3;
 
         b = water.GetComponent<Renderer>().bounds;
         startPosition = transform.position;
@@ -58,7 +59,7 @@ public class AlligatorBrain : MonoBehaviour
         {
             targetPosition = randomPoint(b);
             moving = true;
-            rise = false;
+            //rise = false;
         }
     }
 
@@ -126,6 +127,7 @@ public class AlligatorBrain : MonoBehaviour
     {
         // TODO: Change to scale w/ animation length
         yield return new WaitForSeconds(riseAnimLength);
+        rise = false;
         animator.ResetTrigger("Rise");
         startPosition = transform.position;
         elapsedTime = 0;

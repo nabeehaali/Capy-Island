@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6002151570872318702}
   - component: {fileID: 6002151570872318737}
   m_Layer: 0
-  m_Name: Alligator
+  m_Name: Alligator_Placeholder
   m_TagString: Alligator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

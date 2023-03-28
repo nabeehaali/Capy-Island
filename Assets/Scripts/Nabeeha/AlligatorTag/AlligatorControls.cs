@@ -27,6 +27,9 @@ public class AlligatorControls : MonoBehaviour
     public bool canSteal = false;
     public bool isImmune = false;
 
+    public float immuneTimeDuration = 2f;
+
+    public ParticleSystem stealParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -71,8 +74,8 @@ public class AlligatorControls : MonoBehaviour
         }
         isBit = true;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
-        gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
-        gameObject.transform.GetChild(0).transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y + 1.96f, gameObject.transform.GetChild(0).transform.position.z);
+        playerObj.transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
+        playerObj.transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y + 1.96f, gameObject.transform.GetChild(0).transform.position.z);
         StartCoroutine(BiteReset());
     }
 
@@ -94,6 +97,8 @@ public class AlligatorControls : MonoBehaviour
                         crownObj.transform.parent = playerObj.transform;
                         crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                         isLeader = true;
+                        isImmune = true;
+                        StealParticles();
                     }
                 }
                 else
@@ -102,6 +107,7 @@ public class AlligatorControls : MonoBehaviour
                     crownObj.transform.parent = playerObj.transform;
                     crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                     isLeader = true;
+                    StealParticles();
                 }
             }
         }
@@ -111,13 +117,25 @@ public class AlligatorControls : MonoBehaviour
         }
     }
 
+    void StealParticles() {
+        Debug.Log("Stolen!");
+        Vector3 spawnPos = new Vector3(playerObj.transform.position.x, 3, playerObj.transform.position.z);
+        Instantiate(stealParticles, spawnPos, Quaternion.identity);
+    }
+
+
     IEnumerator BiteReset()
     {
         yield return new WaitForSeconds(5f);
         // Debug.Log(playerID + "has recovered");
-        gameObject.transform.GetChild(0).transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y - 1.96f, gameObject.transform.GetChild(0).transform.position.z);
-        gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
+        playerObj.transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y - 1.96f, gameObject.transform.GetChild(0).transform.position.z);
+        playerObj.transform.rotation = Quaternion.Euler(0, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         isBit = false;
+    }
+
+    IEnumerator ImmuneTimeout()
+    {
+        yield return new WaitForSeconds(immuneTimeDuration);
     }
 }
