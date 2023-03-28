@@ -15,7 +15,7 @@ public class CakeBehaviour : MonoBehaviour
         triggerBool = false;
         audio = GetComponent<AudioSource>();
         destroyTime = 5;
-        coolDown = 1.2f;
+        coolDown = 2.2f;
     }
 
     // Update is called once per frame
@@ -53,17 +53,31 @@ public class CakeBehaviour : MonoBehaviour
         timer += Time.deltaTime;
         if (timer < coolDown)
         {
-            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 0.01f;
-            Debug.Log("Hit" + enemyPlayer.tag);
-
+            //enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 0.01f;
+            //Debug.Log("Hit" + enemyPlayer.tag);
+            enemyPlayer.GetComponent<Rigidbody>().isKinematic = true;
             audio.Play(); // Add an eating sound
             //transform.Find("Eating Effect").gameObject.SetActive(true); //Add a little particle effect
+            if(enemyPlayer.transform.parent.GetComponent<PlayerMovement>().playermovement == Vector2.zero)
+            {
+                enemyPlayer.transform.GetChild(0).GetComponent<Animator>().SetTrigger("isEatingIdle");
+            }
+            else
+            {
+                enemyPlayer.transform.GetChild(0).GetComponent<Animator>().SetTrigger("isEatingRun");
+            }
+            
 
         }
         else if (timer > coolDown && timer < destroyTime)
         {
-            enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 30f;
+            //enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 30f;
+            enemyPlayer.GetComponent<Rigidbody>().isKinematic = false;
             Destroy(gameObject);
+
+            //eating animation
+            enemyPlayer.transform.GetChild(0).GetComponent<Animator>().ResetTrigger("isEatingIdle");
+            enemyPlayer.transform.GetChild(0).GetComponent<Animator>().ResetTrigger("isEatingRun");
         }
     }
 
