@@ -60,7 +60,7 @@ public class AlligatorControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //display.text = playerShortDisplay + ":" + points;
+        // empty :)
     }
 
     public void Bit()
@@ -118,7 +118,6 @@ public class AlligatorControls : MonoBehaviour
     }
 
     void StealParticles() {
-        Debug.Log("Stolen!");
         Vector3 spawnPos = new Vector3(playerObj.transform.position.x, 3, playerObj.transform.position.z);
         Instantiate(stealParticles, spawnPos, Quaternion.identity);
     }
