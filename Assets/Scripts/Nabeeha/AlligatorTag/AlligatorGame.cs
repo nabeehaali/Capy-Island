@@ -5,6 +5,7 @@ using UnityEngine;
 public class AlligatorGame : MonoBehaviour
 {
     public AlligatorControls playerScript;
+    public MeshCollider playerCollider;
 
     void Start()
     {
@@ -14,12 +15,11 @@ public class AlligatorGame : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        // making sure the alligator is biting, play is not already bit
+        // making sure the alligator is biting & player is not already bit
         if (other.tag == "Alligator"
             && other.GetComponent<AlligatorBrain>().rise
             && !playerScript.isBit)
         {
-            Debug.Log("BIT!");
             playerScript.Bit();
         }
     }

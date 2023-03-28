@@ -84,6 +84,7 @@ public class AlligatorPlayerScript : MonoBehaviour
         isBit = true;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
+        gameObject.transform.GetChild(0).GetComponent<CapySoundTrigger>().PlayHit();
         StartCoroutine(BiteReset());   
     }
 
@@ -93,7 +94,6 @@ public class AlligatorPlayerScript : MonoBehaviour
         {
             if(crownObj.transform.parent != null)
             {
-                Debug.Log("Reached!");
                 // basically just a catch statement before actually stealing the crown
                 if (crownObj.GetComponentInParent<AlligatorPlayerScript>().hasCrown 
                     && !crownObj.GetComponentInParent<AlligatorPlayerScript>().isImmune)

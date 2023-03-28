@@ -25,7 +25,6 @@ public class AlligatorCapy : MonoBehaviour
             && other.GetComponent<AlligatorBrain>().rise
             && !playerScript.isBit)
         {
-            Debug.Log("BIT!");
             playerScript.Bit();
         }
     }
@@ -33,6 +32,7 @@ public class AlligatorCapy : MonoBehaviour
     // both used to check if the player object is in contact w/ the crown hitbox, data stored in player script
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Entered:" + other);
         if (other.tag == "Alligator Crown") playerScript.canSteal = true;
     }
 

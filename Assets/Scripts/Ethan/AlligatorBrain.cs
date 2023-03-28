@@ -16,11 +16,14 @@ public class AlligatorBrain : MonoBehaviour
     GameObject[] players; 
 
     Animator animator;
+    public AnimationClip riseAnim;
+    float riseAnimLength;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Mesh mesh = water.GetComponent<Renderer>().bounds;
+        riseAnimLength = riseAnim.length;
+
         b = water.GetComponent<Renderer>().bounds;
         startPosition = transform.position;
         targetPosition = transform.position;
@@ -41,7 +44,7 @@ public class AlligatorBrain : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float percentageComplete = elapsedTime / moveTime;
-            Vector3 mVector = Vector3.Slerp(startPosition, targetPosition, percentageComplete);
+            Vector3 mVector = Vector3.Lerp(startPosition, targetPosition, percentageComplete);
             transform.position = new Vector3(mVector.x, transform.position.y, mVector.z);
 
             if (percentageComplete >= 1 && !rise)
@@ -85,8 +88,6 @@ public class AlligatorBrain : MonoBehaviour
             
             if(targetLeader)
             {
-                // TODO?: Maybe redundant code, target user -> no leader -> random target vs. just target random default
-
                 //finding the leader
                 GameObject leaderPlayer = null;
                 foreach (GameObject player in players)
@@ -124,12 +125,10 @@ public class AlligatorBrain : MonoBehaviour
     public IEnumerator resetMoveTarget()
     {
         // TODO: Change to scale w/ animation length
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(riseAnimLength);
         animator.ResetTrigger("Rise");
         startPosition = transform.position;
         elapsedTime = 0;
         moving = false;
     }
-
-    //TODO: collider function for when they bump into player????
 }
