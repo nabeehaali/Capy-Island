@@ -8,6 +8,7 @@ public class VideoCheck : MonoBehaviour
 {
     [SerializeField] VideoPlayer video;
     List<GameObject> players;
+    public Animator transition;
     void Start()
     {
         players = FinalsShowdownSceneSetup.allPlayers;
@@ -19,12 +20,20 @@ public class VideoCheck : MonoBehaviour
                 Destroy(players[i].gameObject);
             }
         }
- 
+        transition.SetTrigger("FadeOut");
         video.loopPointReached += onVideoFinish;
     }
 
     void onVideoFinish(VideoPlayer vp)
     {
-        SceneManager.LoadScene("23-Credits");
+        StartCoroutine(nextScene("23-Credits"));
+        
+    }
+
+    IEnumerator nextScene(string name)
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(name);
     }
 }

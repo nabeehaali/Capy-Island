@@ -22,11 +22,14 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
     bool abilitiesEnabled = false;
 
     public static List<GameObject> allPlayers = new List<GameObject>();
+
+    public Animator transition;
     void Start()
     {
         StartCoroutine(startGame());
 
         finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
+        transition.SetTrigger("FadeOut"); 
 
         //assign special hat ui to each player
         ActivateHats(GameObject.FindGameObjectWithTag("Player 1"), p1State);
@@ -196,12 +199,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if(activePlayers[i] == GameObject.FindGameObjectWithTag("Player 1"))
                     {
                         activePlayers.RemoveAt(i);
+                        
                     }
                 }
 
                 Debug.Log("P1 is out!");
-                EndGame(p1State);
                 GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 1").transform);
+                EndGame(p1State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(GameObject.FindGameObjectWithTag("Player 1").transform.position.x, GameObject.FindGameObjectWithTag("Player 1").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 1").transform.position.z), 5));
             }
             else
@@ -231,12 +235,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (activePlayers[i] == GameObject.FindGameObjectWithTag("Player 2"))
                     {
                         activePlayers.RemoveAt(i);
+                       
                     }
                 }
 
                 Debug.Log("P2 is out!");
-                EndGame(p2State);
                 GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 2").transform);
+                EndGame(p2State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(GameObject.FindGameObjectWithTag("Player 2").transform.position.x, GameObject.FindGameObjectWithTag("Player 2").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 2").transform.position.z), 5));
             }
             else
@@ -264,12 +269,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (activePlayers[i] == GameObject.FindGameObjectWithTag("Player 3"))
                     {
                         activePlayers.RemoveAt(i);
+                        
                     }
                 }
 
                 Debug.Log("P3 is out!");
-                EndGame(p3State);
                 GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 3").transform);
+                EndGame(p3State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(GameObject.FindGameObjectWithTag("Player 3").transform.position.x, GameObject.FindGameObjectWithTag("Player 3").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 3").transform.position.z), 5));
             }
             else
@@ -297,12 +303,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (activePlayers[i] == GameObject.FindGameObjectWithTag("Player 4"))
                     {
                         activePlayers.RemoveAt(i);
+                        
                     }
                 }
 
                 Debug.Log("P4 is out!");
-                EndGame(p4State);
                 GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 4").transform);
+                EndGame(p4State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(GameObject.FindGameObjectWithTag("Player 4").transform.position.x, GameObject.FindGameObjectWithTag("Player 4").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 4").transform.position.z), 5));
             }
             else
@@ -503,6 +510,8 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         {
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isRunning", false);
         }
 
         //play victory aniamtion
@@ -510,34 +519,44 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
-            SceneManager.LoadScene("22.1-P1End");
+            StartCoroutine(sceneTransition("22.1-P1End"));
+            //SceneManager.LoadScene("22.1-P1End");
             Debug.Log("Play p1 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 2"))
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
-            SceneManager.LoadScene("22.1-P2End");
+            StartCoroutine(sceneTransition("22.1-P2End"));
+            //SceneManager.LoadScene("22.1-P2End");
             Debug.Log("Play p2 anim here");
         }
         else if(activePlayers[0] == GameObject.FindGameObjectWithTag("Player 3"))
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
-            SceneManager.LoadScene("22.1-P3End");
+            StartCoroutine(sceneTransition("22.1-P3End"));
+            //SceneManager.LoadScene("22.1-P3End");
             Debug.Log("Play p3 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 4"))
         {
             activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
             yield return new WaitForSeconds(3);
-            SceneManager.LoadScene("22.1-P4End");
+            StartCoroutine(sceneTransition("22.1-P4End"));
+            //SceneManager.LoadScene("22.1-P4End");
             Debug.Log("Play p4 anim here");
         }
 
 
     }
 
+    IEnumerator sceneTransition(string name)
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(name);
+    }
     IEnumerator stunPlayer(GameObject player)
     {
         player.transform.parent.GetComponent<PlayerMovement>().enabled = false;
