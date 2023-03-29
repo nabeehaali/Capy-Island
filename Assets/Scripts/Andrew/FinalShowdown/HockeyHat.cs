@@ -12,8 +12,14 @@ public class HockeyHat : Hat
     private PlayerInputActions playerControls;
     public GameObject shield;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
+        shield = gameObject.transform.GetChild(0).GetChild(7).gameObject;
         flag = false;
     }
 

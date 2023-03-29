@@ -33,9 +33,11 @@ public class HideSmashControls : MonoBehaviour
         
         if(GetComponent<PlayerMovement>().playermovement == Vector2.zero)
         {
+            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
             animator.SetTrigger("isHittingIdle");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.2f);
             animator.ResetTrigger("isHittingIdle");
+            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
         }
         else
         {

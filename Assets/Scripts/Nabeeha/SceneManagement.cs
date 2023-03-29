@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
+    public Animator transition;
+    private void Start()
+    {
+        transition.SetTrigger("FadeOut");
+    }
     /*public Animator camAnim;
     public GameObject startCanvas, characterSelectCanvas, PlayerManager;
     private void Update()

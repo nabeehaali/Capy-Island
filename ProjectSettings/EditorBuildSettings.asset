@@ -18,20 +18,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/04-MapAnimation1.unity
     guid: fdfb5d2a4ede7c2438475d7750bd997b
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/04.5-InstructionsHideSmash.unity
+    guid: 5e2acdfd176ea244899f721f56b0d0fd
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/05-HideSmash.unity
     guid: 5abd16036df87e64b97c5f2a567b8279
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/05.5-HatProgressHideSmash.unity
     guid: fb096fed97a2b3b4085a63a5fc4ab55e
   - enabled: 1
-    path: Assets/Scenes/Drafts/Nabeeha/04.5-InstructionsHideSmash.unity
-    guid: 5e2acdfd176ea244899f721f56b0d0fd
+    path: Assets/Scenes/Drafts/Nabeeha/06-MapAnimation2.unity
+    guid: 68858bf33584c7a43820e4b3057b1d1b
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/07-InstructionsTorch 1.unity
+    guid: d07cfe3a8a79d23429d7561734ab8e9e
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/08-TorchGame.unity
     guid: 71f40b5510f41004898a8035e3e87431
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/09-HatProgressTorch.unity
     guid: 3d9fbda8e2105894b82425815cbf740d
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/09.5-MapAnimation.unity
+    guid: faf1e478ed6a8cb439b029a7557a9c3d
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/10-InstructionsAlligator 1.unity
+    guid: 306c2131615a9164eab2349dad5cc25e
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/11-AlligatorGame.unity
     guid: 06be2142b8f2cfb45bcf8ef1f156864c
@@ -42,11 +54,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/13-MapAnimationDisaster.unity
     guid: 0a3b14b5e1c49dc47a5b5c759df732f4
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/13.5-InstructionsCatchUp.unity
+    guid: 721d1212dee4f6843b58d182d3d580ed
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/14-CatchUp.unity
     guid: cefd3b39e47e3de47ba36c28b3296d55
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/15-HatProgressCatchUp.unity
     guid: 11191ae48b27caf4a9533192e973908a
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/16-MapAnimation.unity
+    guid: 879751a33b300f442b5fdc2026ceb93d
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/17-InstructionsSled.unity
+    guid: a830708d1178fb240b0f1e8d90e40b99
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/18-SledGame.unity
     guid: 98b82b9a98eabcb44826e01f6bb449f3
@@ -54,11 +75,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/19-HatProgressSled.unity
     guid: eeb2d5ecc8e5e1f418064829ff338eed
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/20-MapAnimation.unity
+    guid: a3c8c177413e68c439db37081a471cf6
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/21-HatInfo.unity
     guid: 3351b322e34fcbe4581f9f0db6c26278
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/21.5-InstructionsShowdown.unity
+    guid: f9fd62a70ab9ca5438f04c0e56a42da8
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/22-FinalShowdown.unity
     guid: a6b3cd28716c4b048a38d2a8097f68b5
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/22.1-P1End.unity
+    guid: 0534159ee07e32b47bdd8191aa15700a
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/22.1-P2End.unity
+    guid: 6db0b05344efe7f4882fbdc24cbcd064
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/22.1-P3End.unity
+    guid: b500d54d8e0a2ad48bbbcbb4c99cc0f7
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/22.1-P4End.unity
+    guid: f4cb36f987413e74fb0dcc206272f00d
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/23-Credits.unity
+    guid: 78b16c7f772f3654eb00fbc56f9c03ea
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c7ad1d5407e777e4da0bb4b518c1605b,
       type: 2}
