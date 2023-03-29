@@ -41,21 +41,22 @@ public class PlayerDetails : MonoBehaviour
         }
 
 
-        Gamepad.current.SetMotorSpeeds(0.25f, 1f);
-        StartCoroutine(StopRumble(0.5f, Gamepad.current));
+        //Gamepad.current.SetMotorSpeeds(0.25f, 1f);
+        //StartCoroutine(StopRumble(0.5f, Gamepad.current));
+        RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
 
         DontDestroyOnLoad(gameObject);
     }
 
-    IEnumerator StopRumble(float duration, Gamepad pad)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+    //IEnumerator StopRumble(float duration, Gamepad pad)
+    //{
+    //    float elapsedTime = 0f;
+    //    while (elapsedTime < duration)
+    //    {
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //    }
 
-        pad.SetMotorSpeeds(0f, 0f);
-    }
+    //    pad.SetMotorSpeeds(0f, 0f);
+    //}
 }

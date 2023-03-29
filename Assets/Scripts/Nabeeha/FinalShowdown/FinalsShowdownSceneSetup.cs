@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FinalsShowdownSceneSetup : MonoBehaviour
 {
@@ -10,27 +11,25 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
     public GameObject p1State, p2State, p3State, p4State;
     public List<GameObject> p1HatList, p2HatList, p3HatList, p4HatList;
     public List<GameObject> activePlayers;
-    //public List<GameObject> p1Hats, p2Hats, p3Hats, p4Hats;
     
     bool isDeadP1 = false, isDeadP2 = false, isDeadP3 = false, isDeadP4 = false;
     public int hitCountP1 = 0, hitCountP2 = 0, hitCountP3 = 0, hitCountP4 = 0;
     int listIndexP1 = 0, listIndexP2 = 0, listIndexP3 = 0, listIndexP4 = 0;
 
-    //FinalShowdownControls finalshowdowncontrolsP1, finalshowdowncontrolsP2, finalshowdowncontrolsP3, finalshowdowncontrolsP4;
     FinalsShowdownPlayerSettings finalshowdownplayersettings;
-    public Transform winnerTarget;
 
     bool gameDone = false;
+    bool abilitiesEnabled = false;
+
+    public static List<GameObject> allPlayers = new List<GameObject>();
+
+    public Animator transition;
     void Start()
     {
         StartCoroutine(startGame());
 
         finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
-
-        //finalshowdowncontrolsP1 = GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        //finalshowdowncontrolsP2 = GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        //finalshowdowncontrolsP3 = GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
-        //finalshowdowncontrolsP4 = GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<FinalShowdownControls>();
+        transition.SetTrigger("FadeOut"); 
 
         //assign special hat ui to each player
         ActivateHats(GameObject.FindGameObjectWithTag("Player 1"), p1State);
@@ -49,6 +48,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 2"));
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 3"));
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 4"));
+
+        //list of players to destroy in the end of the game
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject);
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject);
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject);
+        allPlayers.Add(GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject);
     }
 
     void Update()
@@ -72,11 +77,23 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         }
 
         //special hats (selection based)
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 1"), p1HatList);
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 2"), p2HatList);
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 3"), p3HatList);
-        SpecialHatUI(GameObject.FindGameObjectWithTag("Player 4"), p4HatList);
-        
+        if (GameObject.FindGameObjectWithTag("Player 1") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 1"), p1HatList);
+        }
+        if (GameObject.FindGameObjectWithTag("Player 2") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 2"), p2HatList);
+        }
+        if (GameObject.FindGameObjectWithTag("Player 3") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 3"), p3HatList);
+        }
+        if (GameObject.FindGameObjectWithTag("Player 4") != null)
+        {
+            SpecialHatUI(GameObject.FindGameObjectWithTag("Player 4"), p4HatList);
+        }
+
         //if the whole game is over
         if (activePlayers.Count == 1)
         {
@@ -92,43 +109,74 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
     public void SpecialHatUI(GameObject player, List<GameObject> HatUI)
     {
+        //Debug.Log(player.tag + " index: " + player.transform.parent.GetComponent<FinalShowdownControls>().index);
+        //Debug.Log(player.tag + " Num hats: " + HatUI.Count);
+
         for (int i = 0; i < HatUI.Count; i++)
         {
+            if (player.transform.parent.GetComponent<FinalShowdownControls>().index < 0)
+            {
+                player.transform.parent.GetComponent<FinalShowdownControls>().index = HatUI.Count - 1;
+            }
+            
             if (player.transform.parent.GetComponent<FinalShowdownControls>().index == HatUI.Count)
             {
                 player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
-            }
-            if(player.transform.parent.GetComponent<FinalShowdownControls>().index < 0)
-            {
-                player.transform.parent.GetComponent<FinalShowdownControls>().index = HatUI.Count;
             }
 
             if (i == player.transform.parent.GetComponent<FinalShowdownControls>().index)
             {
                 HatUI[i].GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-
                 if (HatUI[i].tag == "WizardUI")
                 {
                     //enable script here
                     //disable other scripts
-                    //ex. GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<WizardHat>().enable = true;
-                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<ChefHat>().enable = false;
-                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<HockeyHat>().enable = false;
-                    // GameObject.FindGameObjectWithTag("Player 4").tranform.parent.GetComponent<CreamHat>().enable = false;
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                        player.transform.parent.GetComponent<WizardHat>().enabled = true;
 
-                    //Debug.Log("enable wizard script here");
+                    }
+
                 }
                 else if (HatUI[i].tag == "ChefUI")
                 {
-                    //Debug.Log("enable chef script here");
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                        player.transform.parent.GetComponent<ChefHat>().enabled = true;
+                    }
+
                 }
                 else if (HatUI[i].tag == "HockeyUI")
                 {
-                    //Debug.Log("enable hockey script here");
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                        player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = true;
+                    }
                 }
                 else if (HatUI[i].tag == "CreamUI")
                 {
-                    //Debug.Log("enable cream script here");
+                    if (abilitiesEnabled == true)
+                    {
+                        player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                        player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                        player.transform.parent.GetComponent<ConeHat>().enabled = true;
+                    }
                 }
             }
             else
@@ -151,13 +199,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if(activePlayers[i] == GameObject.FindGameObjectWithTag("Player 1"))
                     {
                         activePlayers.RemoveAt(i);
+                        
                     }
                 }
 
                 Debug.Log("P1 is out!");
-                //finalshowdownplayersettings.hatsOrderP1[listIndexP1].transform.parent.transform.position = new Vector3(0, -60, 0);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 1").transform);
                 EndGame(p1State);
-                //move player up
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(GameObject.FindGameObjectWithTag("Player 1").transform.position.x, GameObject.FindGameObjectWithTag("Player 1").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 1").transform.position.z), 5));
             }
             else
@@ -187,11 +235,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (activePlayers[i] == GameObject.FindGameObjectWithTag("Player 2"))
                     {
                         activePlayers.RemoveAt(i);
+                       
                     }
                 }
 
                 Debug.Log("P2 is out!");
-                //finalshowdownplayersettings.hatsOrderP2[listIndexP2].transform.parent.transform.position = new Vector3(0, -60, 0);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 2").transform);
                 EndGame(p2State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(GameObject.FindGameObjectWithTag("Player 2").transform.position.x, GameObject.FindGameObjectWithTag("Player 2").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 2").transform.position.z), 5));
             }
@@ -220,11 +269,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (activePlayers[i] == GameObject.FindGameObjectWithTag("Player 3"))
                     {
                         activePlayers.RemoveAt(i);
+                        
                     }
                 }
 
                 Debug.Log("P3 is out!");
-                //finalshowdownplayersettings.hatsOrderP3[listIndexP3].transform.parent.transform.position = new Vector3(0, -60, 0);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 3").transform);
                 EndGame(p3State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(GameObject.FindGameObjectWithTag("Player 3").transform.position.x, GameObject.FindGameObjectWithTag("Player 3").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 3").transform.position.z), 5));
             }
@@ -253,11 +303,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (activePlayers[i] == GameObject.FindGameObjectWithTag("Player 4"))
                     {
                         activePlayers.RemoveAt(i);
+                        
                     }
                 }
 
                 Debug.Log("P4 is out!");
-                //finalshowdownplayersettings.hatsOrderP4[listIndexP4].transform.parent.transform.position = new Vector3(0, -60, 0);
+                GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(GameObject.FindGameObjectWithTag("Player 4").transform);
                 EndGame(p4State);
                 StartCoroutine(movePlayerUp(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(GameObject.FindGameObjectWithTag("Player 4").transform.position.x, GameObject.FindGameObjectWithTag("Player 4").transform.position.y + 50, GameObject.FindGameObjectWithTag("Player 4").transform.position.z), 5));
             }
@@ -329,14 +380,11 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
         }
 
-        //organizing hat UI (change this to be based on number of children TOTALLLLLLLLLLLLLLL
+        //organizing hat UI
         int hatsActive = 0;
         for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
-            //if(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject.activeSelf)
-            //{
-                hatsActive++;
-            //}
+           hatsActive++;
         }
 
         if (hatsActive == 1 || hatsActive == 2)
@@ -359,30 +407,42 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
 
         if (hatsOrder[listIndex].tag == "Wizard")
         {
-            if (state.transform.GetChild(2).GetChild(0).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(0).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "WizardUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
         if (hatsOrder[listIndex].tag == "Chef")
         {
-            if (state.transform.GetChild(2).GetChild(1).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(1).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "ChefUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
         if (hatsOrder[listIndex].tag == "Hockey")
         {
-            if (state.transform.GetChild(2).GetChild(2).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(2).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "HockeyUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
         if (hatsOrder[listIndex].tag == "Cream")
         {
-            if (state.transform.GetChild(2).GetChild(3).gameObject.activeSelf)
+            for (int i = 0; i < state.transform.GetChild(2).childCount; i++)
             {
-                state.transform.GetChild(2).GetChild(3).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                if (state.transform.GetChild(2).GetChild(i).tag == "CreamUI")
+                {
+                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                }
             }
         }
     }
@@ -435,6 +495,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        abilitiesEnabled = true;
     }
 
     IEnumerator finishGame()
@@ -444,26 +505,58 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         gameover.SetText("Game Over!");
         yield return new WaitForSeconds(2);
 
+        //disable movement
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isRunning", false);
+        }
+
+        //play victory aniamtion
         if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 1"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
+            StartCoroutine(sceneTransition("22.1-P1End"));
+            //SceneManager.LoadScene("22.1-P1End");
             Debug.Log("Play p1 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 2"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
+            StartCoroutine(sceneTransition("22.1-P2End"));
+            //SceneManager.LoadScene("22.1-P2End");
             Debug.Log("Play p2 anim here");
         }
         else if(activePlayers[0] == GameObject.FindGameObjectWithTag("Player 3"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
+            StartCoroutine(sceneTransition("22.1-P3End"));
+            //SceneManager.LoadScene("22.1-P3End");
             Debug.Log("Play p3 anim here");
         }
         else if (activePlayers[0] == GameObject.FindGameObjectWithTag("Player 4"))
         {
+            activePlayers[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
+            yield return new WaitForSeconds(3);
+            StartCoroutine(sceneTransition("22.1-P4End"));
+            //SceneManager.LoadScene("22.1-P4End");
             Debug.Log("Play p4 anim here");
         }
 
 
     }
 
+    IEnumerator sceneTransition(string name)
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(name);
+    }
     IEnumerator stunPlayer(GameObject player)
     {
         player.transform.parent.GetComponent<PlayerMovement>().enabled = false;

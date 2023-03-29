@@ -35,7 +35,6 @@ public class SledPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         player.GetComponent<Rigidbody>().drag = 1;
 
-
         //switching geometry
         player.transform.GetChild(0).gameObject.SetActive(false);
         player.transform.GetChild(4).gameObject.SetActive(true);
@@ -43,6 +42,8 @@ public class SledPlayerSettings : MonoBehaviour
         //switching colliders
         player.GetComponent<MeshCollider>().enabled = false;
         player.GetComponent<BoxCollider>().enabled = true;
+
+        
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)

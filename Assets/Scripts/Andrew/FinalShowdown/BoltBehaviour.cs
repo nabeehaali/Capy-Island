@@ -19,7 +19,7 @@ public class BoltBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         timer += Time.deltaTime;
         if (timer > destroyTime)
@@ -29,18 +29,26 @@ public class BoltBehaviour : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        
-        if (other.transform.parent.tag == "Player" && other.tag != player.tag)
-        {
-            Debug.Log("Hit" + other.tag);
-            enemyPlayer = other.gameObject;
-        
-            audio.Play();
-            //timer = destroyTime;
-            
+        if (collision.transform.parent){
+            if (collision.transform.parent.tag == "Player" && collision.transform.tag != player.tag)
+            {
+                
+                enemyPlayer = collision.gameObject;
+
+                audio.Play();
+
+                if (!audio.isPlaying)
+                {
+                    Destroy(this.gameObject);
+                }
+
+                //timer = destroyTime;
+
+            }
         }
+        
 
     }
 }

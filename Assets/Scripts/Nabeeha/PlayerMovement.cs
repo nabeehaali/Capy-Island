@@ -25,17 +25,17 @@ public class PlayerMovement : MonoBehaviour
         movement.Normalize();
         movement *= speed;
 
-        if (movement != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            gameObject.transform.GetChild(0).transform.rotation = Quaternion.RotateTowards(gameObject.transform.GetChild(0).transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        //if (movement != Vector3.zero)
+        //{
+        //    Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+        //    gameObject.transform.GetChild(0).transform.rotation = Quaternion.RotateTowards(gameObject.transform.GetChild(0).transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
+        //    animator.SetBool("isWalking", true);
+        //}
+        //else
+        //{
+        //    animator.SetBool("isWalking", false);
+        //}
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -45,18 +45,38 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
 
-            //add rotation here
+            if (movement != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+                gameObject.transform.GetChild(0).transform.rotation = Quaternion.RotateTowards(gameObject.transform.GetChild(0).transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+                animator.SetBool("isRunning", true);
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+            }
         }
         else if (sceneName == "18-SledGame" || sceneName == "AligatorTag" || sceneName == "11-AlligatorGame")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
 
-            //add rotation here
+            if (movement != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+                gameObject.transform.GetChild(0).transform.rotation = Quaternion.RotateTowards(gameObject.transform.GetChild(0).transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
         }
-        //add elseif for progress scenes, no movement, but they can only rotate
-        //add another elseif for final showdown to activate running animation
         
+        //add elseif for progress scenes, no movement, but they can only rotate
+
     }
 
     public void move(InputAction.CallbackContext context)

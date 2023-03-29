@@ -40,6 +40,13 @@ public class SledSceneSetup : MonoBehaviour
         //checking if there is one player standing on ice
         if(SledGame.ranking == 1 && !gameDone)
         {
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+            {
+                if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.GetComponent<SledGame>().inWater == false)
+                {
+                    sledpoints.Add(new MinigamePoints(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.name, SledGame.ranking));
+                }
+            }
             EndGame();
             gameDone = true;
         }
@@ -85,15 +92,7 @@ public class SledSceneSetup : MonoBehaviour
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
             Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<SledControls>());
         }
-        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
 
-        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
 
         GameObject.Find("icePlatformPieces").GetComponent<SledIceberg>().StopCoroutine("dropPiece");
         StartCoroutine(finishGame());
@@ -101,14 +100,6 @@ public class SledSceneSetup : MonoBehaviour
 
     IEnumerator finishGame()
     {
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
-        {
-            if (GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.GetComponent<SledGame>().inWater == false)
-            {
-                sledpoints.Add(new MinigamePoints(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).gameObject.name, SledGame.ranking));
-            }
-        }
-
         sledpoints.Sort();
 
         sleddistinct = sledpoints.Distinct(new ItemEqualityComparer()).ToList();

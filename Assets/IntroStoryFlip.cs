@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class IntroStoryFlip : MonoBehaviour
 {
     public GameObject[] panels;
+    public Animator transition;
     int index;
+    bool endStory = false;
     void Start()
     {
+        transition.SetTrigger("FadeOut");
         index = 0;        
     }
 
@@ -17,9 +20,10 @@ public class IntroStoryFlip : MonoBehaviour
     {
         if (Input.GetButtonDown("StartR"))
         {
-            if (index == panels.Length-1)
+            if (index == panels.Length-1 && !endStory)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                StartCoroutine(sceneTransition());
+                endStory = true;
             }
             else
             {
@@ -41,5 +45,12 @@ public class IntroStoryFlip : MonoBehaviour
         }
 
         
+    }
+
+    IEnumerator sceneTransition()
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -6,43 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class HideSmashControls : MonoBehaviour
 {
-    private PlayerInputActions playerControls;
-    public bool smashed,isPush;
-    int playerScore;
 
-    float fireButton;
-    bool action;
-    public int magnitude;
-    private Rigidbody _rigidbody;
+    public bool isPush;
 
     [SerializeField] public Animator animator;
 
     // Start is called before the first frame update
     private void Start()
     {
-        //_rigidbody = gameObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
-        playerControls = new PlayerInputActions();
-        smashed = false;
         isPush = false;
-
         animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
     }
 
     private void Update()
     {
         
-    }
-
-    public void Hit(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            smashed = true;
-        }
-        else if (context.canceled)
-        {
-            smashed = false;
-        }
     }
 
     public void Push(InputAction.CallbackContext context)
@@ -52,24 +30,25 @@ public class HideSmashControls : MonoBehaviour
 
     IEnumerator pushMotion()
     {
-        isPush = true;
+        
         if(GetComponent<PlayerMovement>().playermovement == Vector2.zero)
         {
-            animator.SetBool("isHittingIdle", true);
-            //isPush = true;
-            yield return new WaitForSeconds(1);
-            animator.SetBool("isHittingIdle", false);
+            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            animator.SetTrigger("isHittingIdle");
+            yield return new WaitForSeconds(1.2f);
+            animator.ResetTrigger("isHittingIdle");
+            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
         }
         else
         {
-            //set speed to 0 
-            animator.SetBool("isHittingWalk", true);
-            //isPush = true;
-            yield return new WaitForSeconds(1);
-            animator.SetBool("isHittingWalk", false);
-            //return speed to regular value
+            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            animator.SetTrigger("isHittingWalk");
+            yield return new WaitForSeconds(0.9f);
+            animator.ResetTrigger("isHittingWalk");
+            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
         }
-       //yield return new WaitForSeconds(0.05f);
+        isPush = true;
+        yield return new WaitForSeconds(0.05f);
         isPush = false;
     }
 

@@ -18,25 +18,12 @@ public class HideSmash : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true) //&& firing > 0.5
-        {
-            Destroy(other.gameObject);
-            playerScore++;
-            //destroyIdol(other);
-            Debug.Log(playerScore);
-        }
-    }
-
-    private void destroyIdol(Collider other) 
-    {
-        if (other.gameObject.activeInHierarchy) 
+        if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true) 
         {
             Destroy(other.gameObject);
             playerScore++;
         }
-        
-        
     }
 }

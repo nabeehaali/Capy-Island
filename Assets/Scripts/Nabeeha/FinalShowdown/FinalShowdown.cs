@@ -7,7 +7,7 @@ public class FinalShowdown : MonoBehaviour
 {
     [SerializeField] List<GameObject> otherPlayers;
     [SerializeField] Material redMaterial;
-    Material originalMaterialP1, originalMaterialP2, originalMaterialP3, originalMaterialP4;
+    public Material originalMaterialP1, originalMaterialP2, originalMaterialP3, originalMaterialP4;
     float dist1, dist2, dist3;
     public float proximity;
 
@@ -82,29 +82,56 @@ public class FinalShowdown : MonoBehaviour
     {
         if(finalshowdowncontrols != null)
         {
+            if (gameObject.tag == "Player 1" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject && gameObject.transform.Find("Shield").gameObject.activeSelf == false)
+            {
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
+                StartCoroutine(playerHit(gameObject, originalMaterialP1));
+
+            }
+            if (gameObject.tag == "Player 2" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject && gameObject.transform.Find("Shield").gameObject.activeSelf == false)
+            {
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
+                StartCoroutine(playerHit(gameObject, originalMaterialP2));
+            }
+            if (gameObject.tag == "Player 3" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject && gameObject.transform.Find("Shield").gameObject.activeSelf == false)
+            {
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
+                StartCoroutine(playerHit(gameObject, originalMaterialP3));
+            }
+            if (gameObject.tag == "Player 4" && collision.gameObject.tag == "Bolt" && collision.gameObject.GetComponent<BoltBehaviour>().player != gameObject && gameObject.transform.Find("Shield").gameObject.activeSelf == false)
+            {
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
+                GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();
+                StartCoroutine(playerHit(gameObject, originalMaterialP4));
+            }
+
             if (finalshowdowncontrols.canPush == true)
             {
-
-                if (collision.gameObject.tag == "Player 1")
+                
+                
+                if (collision.gameObject.tag == "Player 1" && collision.gameObject.transform.Find("Shield").gameObject.activeSelf == false) //!&& 
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP1++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP1();
                     StartCoroutine(playerHit(collision.gameObject, originalMaterialP1));
 
                 }
-                if (collision.gameObject.tag == "Player 2")
+                if (collision.gameObject.tag == "Player 2" && collision.gameObject.transform.Find("Shield").gameObject.activeSelf == false)
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP2++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP2();
                     StartCoroutine(playerHit(collision.gameObject, originalMaterialP2));
                 }
-                if (collision.gameObject.tag == "Player 3")
+                if (collision.gameObject.tag == "Player 3" && collision.gameObject.transform.Find("Shield").gameObject.activeSelf == false)
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP3++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP3();
                     StartCoroutine(playerHit(collision.gameObject, originalMaterialP3));
                 }
-                if (collision.gameObject.tag == "Player 4")
+                if (collision.gameObject.tag == "Player 4" && collision.gameObject.transform.Find("Shield").gameObject.activeSelf == false)
                 {
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hitCountP4++;
                     GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().hatTrackingP4();
@@ -112,7 +139,7 @@ public class FinalShowdown : MonoBehaviour
                 }
 
 
-                //if (collision.gameobject.tag == "Bolt)
+                //if (collision.gameobject.tag == "bolt")
                 /*{
                 if this player tag == p1, p2, p3, p4, make them do the same functions as above!
                 }*/
@@ -121,9 +148,11 @@ public class FinalShowdown : MonoBehaviour
         
     }
 
-    IEnumerator playerHit(GameObject player, Material originalMat)
+    public IEnumerator playerHit(GameObject player, Material originalMat)
     {
+        Debug.Log(player.transform.GetChild(0));
         var renderer = player.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        
         Material[] materials = renderer.sharedMaterials; 
         materials[0] = redMaterial;
         renderer.sharedMaterials = materials;

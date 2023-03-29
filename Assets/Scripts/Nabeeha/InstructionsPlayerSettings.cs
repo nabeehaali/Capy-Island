@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 public class InstructionsPlayerSettings : MonoBehaviour
 {
+    public Animator transition;
     void Start()
     {
+        transition.SetTrigger("FadeOut");
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-200, 0, 0), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-200, 0, 0), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-200, 0, 0), 0);
@@ -21,14 +23,14 @@ public class InstructionsPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
-        player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
-        player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = true;
         player.transform.localPosition = Vector3.zero;
         player.transform.GetChild(4).gameObject.SetActive(false);
         player.transform.GetChild(0).gameObject.SetActive(true);
-        player.GetComponent<BoxCollider>().enabled = false;
+        //player.GetComponent<BoxCollider>().enabled = false;
         player.GetComponent<MeshCollider>().enabled = true;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;

@@ -4,15 +4,28 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 public class MapSceneSetup : MonoBehaviour
 {
     public List<MinigamePoints> totalPoints = new List<MinigamePoints>();
     public List<MinigamePoints> totalPointsDistinct;
 
     public GameObject p1Slot, p2Slot, p3Slot, p4Slot;
+    public Animator transition;
+
+    Scene currentScene;
+    string sceneName;
 
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
+        if(sceneName != "04-MapAnimation1")
+        {
+            transition.SetTrigger("FadeOut");
+        }
+
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, (GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount));
         totalPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount));

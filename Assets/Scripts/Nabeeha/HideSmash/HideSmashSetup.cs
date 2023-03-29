@@ -14,15 +14,12 @@ public class HideSmashSetup : MonoBehaviour
 
     public TMP_Text gameover;
     public TMP_Text countdown;
-    //List<GameObject> players = new List<GameObject>();
-    //List<int> playersVals = new List<int>();
 
     public static List<MinigamePoints> idolPoints = new List<MinigamePoints>();
     public static List<MinigamePoints> distinct;
 
     public TMP_Text p1Score, p2Score, p3Score, p4Score;
 
-    // Start is called before the first frame update
     void Start()
     {
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-16.37f, 2.08f, 0), 0);
@@ -38,8 +35,6 @@ public class HideSmashSetup : MonoBehaviour
         player.transform.parent.gameObject.transform.position = startPos;
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().defaultActionMap = "Player";
-        
-        //player.transform.parent.gameObject.GetComponent<PlayerInput>().defaultActionMap = "Player";
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<HideSmashControls>().enabled = false;
@@ -50,7 +45,6 @@ public class HideSmashSetup : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         timePassed += Time.deltaTime;
@@ -71,41 +65,13 @@ public class HideSmashSetup : MonoBehaviour
     void EndGame()
     {
 
-        /*players.Add(GameObject.FindGameObjectWithTag("Player 1"));
-        players.Add(GameObject.FindGameObjectWithTag("Player 2"));
-        players.Add(GameObject.FindGameObjectWithTag("Player 3"));
-        players.Add(GameObject.FindGameObjectWithTag("Player 4"));
-
-        for (int i = 0; i < players.Count(); i++)
-        {
-            var item = players[i];
-            var currentIndex = i;
-
-            while (currentIndex > 0 && players[currentIndex - 1].GetComponent<HideSmash>().playerScore > item.GetComponent<HideSmash>().playerScore)
-            {
-                players[currentIndex] = players[currentIndex - 1];
-                currentIndex--;
-            }
-            
-            players[currentIndex] = item;
-        }*/
-
         //make sure to include this in the other games
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
             Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<HideSmashControls>());
+            //set animation bool to false?????
         }
-
-        //GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        //GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        //GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        //GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-
-        //Destroy(GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<HideSmashControls>());
-        //Destroy(GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<HideSmashControls>());
-        //Destroy(GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<HideSmashControls>());
-        //Destroy(GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<HideSmashControls>());
 
 
         StartCoroutine(finishGame());

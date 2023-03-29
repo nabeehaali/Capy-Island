@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SpecialHat",
+                    "type": "Button",
+                    "id": "547bd0bd-7985-4a27-9694-bc0661d2037b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -395,6 +404,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Instructions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81948740-3116-4070-99c2-038d87f49098",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialHat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
