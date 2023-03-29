@@ -38,7 +38,6 @@ public class AlligatorControls : MonoBehaviour
         playerObj = gameObject.transform.GetChild(0).gameObject;
         Regex rgx = new Regex(@"([^A-Z0-9 -]|\s|)"); // remove spaces, numbers and non-capitals
         playerShortDisplay = rgx.Replace(playerID, "");
-        //display.text = playerShortDisplay + ":" + points;
 
         // finding the crown (only one should be in scene)
         // change this if that design changes in the future
@@ -60,7 +59,15 @@ public class AlligatorControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // empty :)
+        // probably a better way to do this LOL
+        if (isLeader)
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 30;
+        }
+        else
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 20;
+        }
     }
 
     public void Bit()
@@ -75,7 +82,7 @@ public class AlligatorControls : MonoBehaviour
         isBit = true;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         playerObj.transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
-        playerObj.transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y + 1.96f, gameObject.transform.GetChild(0).transform.position.z);
+        playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1.96f, playerObj.transform.position.z);
         StartCoroutine(BiteReset());
     }
 
@@ -99,6 +106,7 @@ public class AlligatorControls : MonoBehaviour
                         isLeader = true;
                         isImmune = true;
                         StealParticles();
+                        StartCoroutine(ImmuneTimeout());
                     }
                 }
                 else
@@ -135,6 +143,8 @@ public class AlligatorControls : MonoBehaviour
 
     IEnumerator ImmuneTimeout()
     {
+        // resetting immunity after set duration
         yield return new WaitForSeconds(immuneTimeDuration);
+        isImmune = false;
     }
 }
