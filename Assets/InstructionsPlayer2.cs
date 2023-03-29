@@ -43,11 +43,7 @@ public class InstructionsPlayer2 : MonoBehaviour
         {
             if (player.transform.GetChild(i).name == "Hats")
             {
-                for (int k = 0; k < player.transform.GetChild(i).childCount; k++)
-                {
-                    player.transform.GetChild(i).GetChild(k).gameObject.SetActive(false);
-                }
-
+                player.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
     }

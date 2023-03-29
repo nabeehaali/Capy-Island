@@ -5524,10 +5524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f91ba8a2c4192f4bb6f8a1744ae35cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1Slot: {fileID: 0}
-  p2Slot: {fileID: 0}
-  p3Slot: {fileID: 0}
-  p4Slot: {fileID: 0}
+  p1Slot: {fileID: 1759094646}
+  p2Slot: {fileID: 208454545}
+  p3Slot: {fileID: 387170468}
+  p4Slot: {fileID: 1428485918}
   transition: {fileID: 338683223}
 --- !u!1001 &1170635610
 PrefabInstance:

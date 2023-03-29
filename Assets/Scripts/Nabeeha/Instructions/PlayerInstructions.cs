@@ -13,7 +13,7 @@ public class PlayerInstructions : MonoBehaviour
     bool isReady = false;
     void Start()
     {
-        transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
+        //transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
     }
     public void Ready(InputAction.CallbackContext context)
     {
@@ -59,6 +59,7 @@ public class PlayerInstructions : MonoBehaviour
             p3Ready = 0;
             p4Ready = 0;
 
+            transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
             StartCoroutine(sceneTransition());
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
