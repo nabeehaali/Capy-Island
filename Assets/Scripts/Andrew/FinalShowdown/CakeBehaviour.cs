@@ -57,7 +57,7 @@ public class CakeBehaviour : MonoBehaviour
             Debug.Log("Hit" + enemyPlayer.tag);
 
             audio.Play(); // Add an eating sound
-            //transform.Find("Eating Effect").gameObject.SetActive(true); //Add a little particle effect
+            transform.Find("Eating Effect").gameObject.SetActive(true); //Add a little particle effect
 
         }
         else if (timer > coolDown && timer < destroyTime)
