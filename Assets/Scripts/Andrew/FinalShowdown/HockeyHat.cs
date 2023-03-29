@@ -15,11 +15,11 @@ public class HockeyHat : Hat
 
     private void Awake()
     {
-        shield = gameObject.transform.GetChild(0).GetChild(7).gameObject;
+        
     }
     void Start()
     {
-        
+        shield = gameObject.transform.GetChild(0).GetChild(7).gameObject;
         flag = false;
     }
 

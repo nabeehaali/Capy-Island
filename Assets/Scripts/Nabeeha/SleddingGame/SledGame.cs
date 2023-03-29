@@ -10,6 +10,7 @@ public class SledGame : MonoBehaviour
 
     public bool inWater;
     public bool offBerg;
+    bool removeCam;
     public int colCount = 0;
 
     public static int ranking;
@@ -37,6 +38,12 @@ public class SledGame : MonoBehaviour
             //direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
             //_rigidbody.velocity = direction.normalized * 30 + new Vector3(0.0f, _rigidbody.velocity.y - 0.2f, 0.0f);
             //offBerg = false; //check if this is ok
+        }
+
+        if(removeCam)
+        {
+            GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(this.gameObject.transform);
+            removeCam = false;
         }
     }
 
@@ -77,8 +84,9 @@ public class SledGame : MonoBehaviour
         if (colCount == 0)
         {
             //Debug.Log("not colliding with anything");
-            GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(this.gameObject.transform);
+            //GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(this.gameObject.transform);
             offBerg = true;
+            removeCam = true;
         }
     }
 }

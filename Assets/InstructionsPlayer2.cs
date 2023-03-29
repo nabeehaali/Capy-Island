@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 
 public class InstructionsPlayer2 : MonoBehaviour
 {
+    public Animator transition;
     void Start()
     {
+        transition.SetTrigger("FadeOut");
+
         BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-796, 0, 0), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-796, 0, 0), 0);
         BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-796, 0, 0), 0);

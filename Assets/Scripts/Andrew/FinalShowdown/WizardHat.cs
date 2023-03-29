@@ -20,9 +20,13 @@ public class WizardHat : Hat
         playerControls = new PlayerInputActions();
         index = 0;
         coolDown = 0.75f;
-        shootTransform = transform.GetChild(0).GetChild(6).transform;
+        
     }
 
+    private void Start()
+    {
+        shootTransform = transform.GetChild(0).GetChild(6).transform;
+    }
 
     // Update is called once per frame
     void Update()

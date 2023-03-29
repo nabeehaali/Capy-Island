@@ -16,14 +16,15 @@ public class DisasterSceneSetup : MonoBehaviour
     public int removeFactor = 2;
 
     public GameObject skip, skipUI;
+    public Animator transition;
 
-    int timeCheck = 0;
+    //int timeCheck = 0;
 
     void Start()
     {
-
-        skip.SetActive(false);
-        skipUI.SetActive(false);
+        transition.SetTrigger("FadeOut");
+        //skip.SetActive(false);
+        //skipUI.SetActive(false);
 
         //StartCoroutine(next());
 
@@ -110,14 +111,5 @@ public class DisasterSceneSetup : MonoBehaviour
             yield return new WaitForSeconds(1);
             count--;
         }
-    }
-
-    IEnumerator next()
-    {
-        skip.SetActive(false);
-        skipUI.SetActive(false);
-        yield return new WaitForSeconds(13);
-        skip.SetActive(true);
-        skipUI.SetActive(true);
     }
 }
