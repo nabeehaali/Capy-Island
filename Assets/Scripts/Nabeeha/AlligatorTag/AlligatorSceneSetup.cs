@@ -9,11 +9,13 @@ public class AlligatorSceneSetup : MonoBehaviour
 {
     // !!! this doesn't do anything, just remnants from trying to dodge some compiler errors :(
 
-    GameObject gatorPrefab;
+    public GameObject gatorPrefab;
+    public GameObject waterBoundPlane;
     GameObject firstGator;
     GameObject boundaryPlane;
     GameObject crown; // possibly used to place crown at real center?
     Vector3 gatorSpawnPos;
+    Quaternion gatorSpawnRot;
 
     public TMP_Text delayDisplay;
 
@@ -33,7 +35,7 @@ public class AlligatorSceneSetup : MonoBehaviour
     GameObject[] players;
 
     bool gameRunning = false;
-    bool secondGator = false;
+    bool secondGatorSpawned = false;
 
     public TMP_Text gameover;
 
@@ -43,6 +45,7 @@ public class AlligatorSceneSetup : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         firstGator = GameObject.FindGameObjectWithTag("Alligator");
         gatorSpawnPos = firstGator.transform.position;
+        gatorSpawnRot = firstGator.transform.rotation;
     }
 
     void FixedUpdate()
@@ -62,7 +65,7 @@ public class AlligatorSceneSetup : MonoBehaviour
 
         if (Time.time >= startDelay && !gameRunning)
         {
-            StartCoroutine(countDown(gameLength));
+            StartCoroutine(CountDown(gameLength));
             delayDisplay.text = "Go!";
             gameRunning = true;
             foreach (GameObject player in players)
@@ -70,7 +73,7 @@ public class AlligatorSceneSetup : MonoBehaviour
                 player.GetComponent<AlligatorControls>().hasStarted = true;
                 player.GetComponent<PlayerMovement>().enabled = true;
             }
-            StartCoroutine(hideCountdownDisplay());
+            StartCoroutine(HideCountdownDisplay());
 
         } else if (Time.time < startDelay)
         {
@@ -85,19 +88,15 @@ public class AlligatorSceneSetup : MonoBehaviour
                 int playerScore = players[i].GetComponent<AlligatorControls>().points;
 
                 // if 75% of the score is done
-                if (playerScore >= winScore * 0.75 && !secondGator)
+                if (playerScore >= winScore * 0.75 && !secondGatorSpawned)
                 {
-                    secondGator = true;
-                    // maybe add some kind of animation?
-                    Debug.Log("Second gator spawned!");
-                    Instantiate(gatorPrefab, gatorSpawnPos, Quaternion.identity);
+                    SpawnSecondGator();
                 }
 
                 if (playerScore >= winScore)
                 {
                     if(!gameDone)
                     {
-                        Debug.Log("PLAYER WIN!");
                         // stopping the point increase + stopping players from moving
                         foreach (GameObject player in players)
                         {
@@ -132,10 +131,19 @@ public class AlligatorSceneSetup : MonoBehaviour
 
         distinct = alligatorpoints.Distinct(new ItemEqualityComparer()).ToList();
 
-        StartCoroutine(finishGame());
+        StartCoroutine(FinishGame());
     }
 
-    IEnumerator finishGame()
+    void SpawnSecondGator()
+    {
+        secondGatorSpawned = true;
+        // maybe add some kind of animation?
+        Debug.Log("Second gator spawned!");
+        GameObject secondGator = Instantiate(gatorPrefab, gatorSpawnPos, gatorSpawnRot);
+        secondGator.GetComponent<AlligatorBrain>().water = waterBoundPlane;
+    }
+
+    IEnumerator FinishGame()
     {
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
@@ -145,7 +153,7 @@ public class AlligatorSceneSetup : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    IEnumerator countDown(int seconds)
+    IEnumerator CountDown(int seconds)
     {
         int count = seconds;
 
@@ -154,10 +162,20 @@ public class AlligatorSceneSetup : MonoBehaviour
             countdown.SetText("" + count);
             yield return new WaitForSeconds(1);
             count--;
+
+            if(count == 50)
+            {
+                SpawnSecondGator();
+            }
+        }
+
+        if(count <= 0)
+        {
+            EndGame();
         }
     }
 
-    IEnumerator hideCountdownDisplay()
+    IEnumerator HideCountdownDisplay()
     {
         yield return new WaitForSeconds(2);
         delayDisplay.enabled = false;

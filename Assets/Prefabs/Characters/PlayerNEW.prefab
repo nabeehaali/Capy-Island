@@ -362,6 +362,8 @@ MonoBehaviour:
   hasEnded: 0
   canSteal: 0
   isImmune: 0
+  immuneTimeDuration: 2
+  stealParticles: {fileID: 0}
 --- !u!114 &2809849624319396701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,3 +419,4 @@ MonoBehaviour:
   smashed: 0
   isPush: 0
   magnitude: 0
+  animator: {fileID: 0}
