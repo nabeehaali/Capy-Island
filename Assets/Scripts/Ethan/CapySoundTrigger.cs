@@ -8,9 +8,9 @@ public class CapySoundTrigger : MonoBehaviour
     public AudioClip[] hits = new AudioClip[3];
     public AudioSource AudioSource;
 
-    // call this whenever you want a chirp sound, ideally for interactions
     public void PlayChirp()
     {
+        // call this whenever you want a chirp sound, ideally for interactions
         if (!AudioSource.isPlaying)
         {
             int chirp = Random.Range(0, chirps.Length - 1);
@@ -21,7 +21,7 @@ public class CapySoundTrigger : MonoBehaviour
 
     public void PlayHit()
     {
-        Debug.Log("play hit!");
+        // call this for damage noises / when a capybara gets hit
         int hit = Random.Range(0, hits.Length - 1);
         AudioSource.clip = hits[hit];
         AudioSource.Play();

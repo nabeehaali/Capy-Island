@@ -2979,6 +2979,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2.1210964
       objectReference: {fileID: 0}
+    - target: {fileID: 8775378352984148136, guid: bc80b8d835cbcc74e88bb6a15e2b83e2,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b8d835cbcc74e88bb6a15e2b83e2, type: 3}
 --- !u!1 &1289649510
@@ -4654,7 +4659,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905474672}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4705,8 +4710,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905474672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3390503, y: -18.146412, z: 43.98216}
-  m_LocalScale: {x: 0.2885535, y: 0.17461729, z: 0.19011723}
+  m_LocalPosition: {x: 1.3390504, y: -18.146412, z: 43.982162}
+  m_LocalScale: {x: 0.26000002, y: 0.15733823, z: 0.17130439}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1846696701}

@@ -83,6 +83,7 @@ public class AlligatorControls : MonoBehaviour
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         playerObj.transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1.96f, playerObj.transform.position.z);
+        playerObj.GetComponent<CapySoundTrigger>().PlayHit();
         StartCoroutine(BiteReset());
     }
 
@@ -105,6 +106,7 @@ public class AlligatorControls : MonoBehaviour
                         crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                         isLeader = true;
                         isImmune = true;
+                        playerObj.GetComponent<CapySoundTrigger>().PlayChirp();
                         StealParticles();
                         StartCoroutine(ImmuneTimeout());
                     }
@@ -115,6 +117,7 @@ public class AlligatorControls : MonoBehaviour
                     crownObj.transform.parent = playerObj.transform;
                     crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                     isLeader = true;
+                    playerObj.GetComponent<CapySoundTrigger>().PlayChirp();
                     StealParticles();
                 }
             }
