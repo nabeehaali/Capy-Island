@@ -67,6 +67,9 @@ public class AlligatorBrain : MonoBehaviour
         else if (!moving)
         {
             targetPosition = randomPoint(b);
+
+            // ugly but a way to correct for the model offset for now - meaning forever
+            targetPosition = new Vector3(targetPosition.x - 4, targetPosition.y, targetPosition.z);
             moving = true;
         }
     }
