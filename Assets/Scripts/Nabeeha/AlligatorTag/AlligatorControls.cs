@@ -27,6 +27,9 @@ public class AlligatorControls : MonoBehaviour
     public bool canSteal = false;
     public bool isImmune = false;
 
+    public float immuneTimeDuration = 2f;
+
+    public ParticleSystem stealParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +38,6 @@ public class AlligatorControls : MonoBehaviour
         playerObj = gameObject.transform.GetChild(0).gameObject;
         Regex rgx = new Regex(@"([^A-Z0-9 -]|\s|)"); // remove spaces, numbers and non-capitals
         playerShortDisplay = rgx.Replace(playerID, "");
-        //display.text = playerShortDisplay + ":" + points;
 
         // finding the crown (only one should be in scene)
         // change this if that design changes in the future
@@ -57,7 +59,15 @@ public class AlligatorControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //display.text = playerShortDisplay + ":" + points;
+        // probably a better way to do this LOL
+        if (isLeader)
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 30;
+        }
+        else
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 20;
+        }
     }
 
     public void Bit()
@@ -71,8 +81,9 @@ public class AlligatorControls : MonoBehaviour
         }
         isBit = true;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
-        gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
-        gameObject.transform.GetChild(0).transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y + 1.96f, gameObject.transform.GetChild(0).transform.position.z);
+        playerObj.transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
+        playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1.96f, playerObj.transform.position.z);
+        playerObj.GetComponent<CapySoundTrigger>().PlayHit();
         StartCoroutine(BiteReset());
     }
 
@@ -94,6 +105,10 @@ public class AlligatorControls : MonoBehaviour
                         crownObj.transform.parent = playerObj.transform;
                         crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                         isLeader = true;
+                        isImmune = true;
+                        playerObj.GetComponent<CapySoundTrigger>().PlayChirp();
+                        StealParticles();
+                        StartCoroutine(ImmuneTimeout());
                     }
                 }
                 else
@@ -102,6 +117,8 @@ public class AlligatorControls : MonoBehaviour
                     crownObj.transform.parent = playerObj.transform;
                     crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                     isLeader = true;
+                    playerObj.GetComponent<CapySoundTrigger>().PlayChirp();
+                    StealParticles();
                 }
             }
         }
@@ -111,13 +128,26 @@ public class AlligatorControls : MonoBehaviour
         }
     }
 
+    void StealParticles() {
+        Vector3 spawnPos = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
+        Instantiate(stealParticles, spawnPos, Quaternion.identity);
+    }
+
+
     IEnumerator BiteReset()
     {
         yield return new WaitForSeconds(5f);
         // Debug.Log(playerID + "has recovered");
-        gameObject.transform.GetChild(0).transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y - 1.96f, gameObject.transform.GetChild(0).transform.position.z);
-        gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
+        playerObj.transform.position = new Vector3(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y - 1.96f, gameObject.transform.GetChild(0).transform.position.z);
+        playerObj.transform.rotation = Quaternion.Euler(0, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         isBit = false;
+    }
+
+    IEnumerator ImmuneTimeout()
+    {
+        // resetting immunity after set duration
+        yield return new WaitForSeconds(immuneTimeDuration);
+        isImmune = false;
     }
 }

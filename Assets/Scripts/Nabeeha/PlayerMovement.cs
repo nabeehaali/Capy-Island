@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("isRunning", false);
             }
         }
-        else if (sceneName == "18-SledGame" || sceneName == "AligatorTag" || sceneName == "11-AlligatorGame")
+        else if (sceneName == "18-SledGame" || sceneName == "11-AlligatorGame" || sceneName == "AlligatorGameDev")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);

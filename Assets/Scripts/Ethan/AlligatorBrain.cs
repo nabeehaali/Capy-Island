@@ -16,11 +16,19 @@ public class AlligatorBrain : MonoBehaviour
     GameObject[] players; 
 
     Animator animator;
+    public AnimationClip riseAnim;
+    float riseAnimLength;
+
+    public ParticleSystem splashParticles;
+    public AudioClip[] chomps = new AudioClip[3];
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Mesh mesh = water.GetComponent<Renderer>().bounds;
+        // 3 is there bc the animation is up by 3
+        riseAnimLength = riseAnim.length / 3;
+
         b = water.GetComponent<Renderer>().bounds;
         startPosition = transform.position;
         targetPosition = transform.position;
@@ -41,21 +49,28 @@ public class AlligatorBrain : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float percentageComplete = elapsedTime / moveTime;
-            Vector3 mVector = Vector3.Slerp(startPosition, targetPosition, percentageComplete);
+            Vector3 mVector = Vector3.Lerp(startPosition, targetPosition, percentageComplete);
             transform.position = new Vector3(mVector.x, transform.position.y, mVector.z);
 
             if (percentageComplete >= 1 && !rise)
             {
                 rise = true;
                 animator.SetTrigger("Rise");
+                PlayChomp();
+
+                // accounting for the weird offset
+                Vector3 particlePos = new Vector3(transform.position.x - 4, -249, transform.position.z);
+                Instantiate(splashParticles, particlePos, Quaternion.identity);
                 StartCoroutine(resetMoveTarget());
             }
         }
         else if (!moving)
         {
             targetPosition = randomPoint(b);
+
+            // ugly but a way to correct for the model offset for now - meaning forever
+            targetPosition = new Vector3(targetPosition.x - 4, targetPosition.y, targetPosition.z);
             moving = true;
-            rise = false;
         }
     }
 
@@ -75,8 +90,6 @@ public class AlligatorBrain : MonoBehaviour
             0,
             Random.Range(bound.min.z, bound.max.z)
             );
-
-            Debug.Log("Random Position: " + newTarget);
             return new Vector3(b.ClosestPoint(newTarget).x, transform.position.y, b.ClosestPoint(newTarget).z);
         } else
         {
@@ -85,8 +98,6 @@ public class AlligatorBrain : MonoBehaviour
             
             if(targetLeader)
             {
-                // TODO?: Maybe redundant code, target user -> no leader -> random target vs. just target random default
-
                 //finding the leader
                 GameObject leaderPlayer = null;
                 foreach (GameObject player in players)
@@ -124,12 +135,18 @@ public class AlligatorBrain : MonoBehaviour
     public IEnumerator resetMoveTarget()
     {
         // TODO: Change to scale w/ animation length
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(riseAnimLength);
+        rise = false;
         animator.ResetTrigger("Rise");
         startPosition = transform.position;
         elapsedTime = 0;
         moving = false;
     }
 
-    //TODO: collider function for when they bump into player????
+    public void PlayChomp()
+    {
+        int chomp = Random.Range(0, chomps.Length - 1);
+        audioSource.clip = chomps[chomp];
+        audioSource.Play();
+    }
 }

@@ -148,7 +148,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8925972191879833537}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HideSmashControls, Assembly-CSharp
         m_MethodName: Push
         m_Mode: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f47f313b22f82894a8d49d92f5cada48, type: 3}
   m_Name: 
@@ -436,7 +436,7 @@ MonoBehaviour:
   isLeader: 0
   points: 0
   increase: 1
-  interval: 0.5
+  interval: 1
   crownObj: {fileID: 0}
   playerObj: {fileID: 0}
   isBit: 0
@@ -444,6 +444,9 @@ MonoBehaviour:
   hasEnded: 0
   canSteal: 0
   isImmune: 0
+  immuneTimeDuration: 2
+  stealParticles: {fileID: 4680024039261010178, guid: d4443ddfc5f36f74993608afac149981,
+    type: 3}
 --- !u!114 &2809849624319396701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!114 &8048018798763391526
 MonoBehaviour:
   m_ObjectHideFlags: 0

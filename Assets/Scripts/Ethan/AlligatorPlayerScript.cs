@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AlligatorPlayerScript : MonoBehaviour
 {
-    public bool isLeader = true;
+    public bool hasCrown = true;
     public int points = 0;
     public int increase = 1;
     public float interval = 0.5f;
@@ -46,12 +46,11 @@ public class AlligatorPlayerScript : MonoBehaviour
     {
         if(!hasStarted && Time.time >= startTime)
         {
-            Debug.Log("Start!");
             gameObject.GetComponent<PlayerMovement>().enabled = true;
             hasStarted = true;
         }
 
-        if(hasStarted && isLeader && Time.time - lastUpdate > interval)
+        if(hasStarted && hasCrown && Time.time - lastUpdate > interval)
         {
             points += increase;
             lastUpdate = Time.time;
@@ -62,20 +61,30 @@ public class AlligatorPlayerScript : MonoBehaviour
     {
         // uncomment this soon!
         display.text = playerShortDisplay + ":" + points;
+
+        // probably a better way to do this LOL
+        if(hasCrown)
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 30;
+        } else
+        {
+            gameObject.GetComponent<PlayerMovement>().speed = 20;
+        }
     }
 
     public void Bit()
     {
         // freezing player movement
-        if (isLeader)
+        if (hasCrown)
         {
             crownObj.transform.parent = null;
             crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
-            isLeader = false;
+            hasCrown = false;
         }
         isBit = true;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
+        gameObject.transform.GetChild(0).GetComponent<CapySoundTrigger>().PlayHit();
         StartCoroutine(BiteReset());   
     }
 
@@ -85,23 +94,22 @@ public class AlligatorPlayerScript : MonoBehaviour
         {
             if(crownObj.transform.parent != null)
             {
-                Debug.Log("Reached!");
                 // basically just a catch statement before actually stealing the crown
-                if (crownObj.GetComponentInParent<AlligatorPlayerScript>().isLeader 
+                if (crownObj.GetComponentInParent<AlligatorPlayerScript>().hasCrown 
                     && !crownObj.GetComponentInParent<AlligatorPlayerScript>().isImmune)
                 {
                     Debug.Log(playerID + "has tried to steal from " + crownObj.transform.parent.name);
-                    crownObj.GetComponentInParent<AlligatorPlayerScript>().isLeader = false;
+                    crownObj.GetComponentInParent<AlligatorPlayerScript>().hasCrown = false;
                     crownObj.transform.parent = playerObj.transform;
-                    crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
-                    isLeader = true;
+                    //crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
+                    hasCrown = true;
                 }
             } else
             {
                 // Debug.Log(playerID + "has tried to steal!");
                 crownObj.transform.parent = playerObj.transform;
                 crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
-                isLeader = true;
+                hasCrown = true;
             }
         }
     }
