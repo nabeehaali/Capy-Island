@@ -8,14 +8,14 @@ public class IdolSpawn : MonoBehaviour
     List<GameObject> idolInstances = new List<GameObject>();
     public GameObject[] idolPrefabs;
     int vecMinZ;
-    float timer, timer2, idolRespawnTime;
+    //float timer, idolRespawnTime;
     bool isUpdate = true;
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
+        //timer = 0;
         vecMinZ = 5;
-        idolRespawnTime = 4;
+        //idolRespawnTime = 4;
 
         for(int i = 0; i < 8; i++)
         {
