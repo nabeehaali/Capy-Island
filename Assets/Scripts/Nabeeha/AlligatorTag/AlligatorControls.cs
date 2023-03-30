@@ -126,7 +126,7 @@ public class AlligatorControls : MonoBehaviour
     }
 
     void StealParticles() {
-        Vector3 spawnPos = new Vector3(playerObj.transform.position.x, 3, playerObj.transform.position.z);
+        Vector3 spawnPos = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
         Instantiate(stealParticles, spawnPos, Quaternion.identity);
     }
 

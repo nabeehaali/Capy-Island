@@ -162,11 +162,6 @@ public class AlligatorSceneSetup : MonoBehaviour
             countdown.SetText("" + count);
             yield return new WaitForSeconds(1);
             count--;
-
-            if(count == 50)
-            {
-                SpawnSecondGator();
-            }
         }
 
         if(count <= 0)

@@ -19,6 +19,10 @@ public class AlligatorBrain : MonoBehaviour
     public AnimationClip riseAnim;
     float riseAnimLength;
 
+    public ParticleSystem splashParticles;
+    public AudioClip[] chomps = new AudioClip[3];
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +56,11 @@ public class AlligatorBrain : MonoBehaviour
             {
                 rise = true;
                 animator.SetTrigger("Rise");
+                PlayChomp();
+
+                // accounting for the weird offset
+                Vector3 particlePos = new Vector3(transform.position.x - 4, -249, transform.position.z);
+                Instantiate(splashParticles, particlePos, Quaternion.identity);
                 StartCoroutine(resetMoveTarget());
             }
         }
@@ -59,7 +68,6 @@ public class AlligatorBrain : MonoBehaviour
         {
             targetPosition = randomPoint(b);
             moving = true;
-            //rise = false;
         }
     }
 
@@ -79,8 +87,6 @@ public class AlligatorBrain : MonoBehaviour
             0,
             Random.Range(bound.min.z, bound.max.z)
             );
-
-            Debug.Log("Random Position: " + newTarget);
             return new Vector3(b.ClosestPoint(newTarget).x, transform.position.y, b.ClosestPoint(newTarget).z);
         } else
         {
@@ -132,5 +138,12 @@ public class AlligatorBrain : MonoBehaviour
         startPosition = transform.position;
         elapsedTime = 0;
         moving = false;
+    }
+
+    public void PlayChomp()
+    {
+        int chomp = Random.Range(0, chomps.Length - 1);
+        audioSource.clip = chomps[chomp];
+        audioSource.Play();
     }
 }
