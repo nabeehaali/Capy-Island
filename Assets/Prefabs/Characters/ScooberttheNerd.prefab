@@ -1071,6 +1071,8 @@ GameObject:
   - component: {fileID: -3174092776707042466}
   - component: {fileID: 7463498867260653800}
   - component: {fileID: 1739585943272757401}
+  - component: {fileID: -1644441258967117322}
+  - component: {fileID: -3347012120198413878}
   m_Layer: 0
   m_Name: ScooberttheNerd
   m_TagString: Player 3
@@ -1176,12 +1178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWater: 0
   offBerg: 0
-  piece1: 0
-  piece2: 0
-  piece3: 0
-  piece4: 0
-  piece5: 0
-  piece6: 0
   colCount: 0
 --- !u!114 &-4517127503993177864
 MonoBehaviour:
@@ -1201,6 +1197,7 @@ MonoBehaviour:
     type: 3}
   regularHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
     type: 3}
+  order: []
 --- !u!96 &8237909350370691616
 TrailRenderer:
   serializedVersion: 2
@@ -1322,6 +1319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 0}
+  playerCollider: {fileID: 0}
 --- !u!114 &7463498867260653800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,6 +1334,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayers: []
   redMaterial: {fileID: 2100000, guid: 578052caa9f9be749a7b0e5b84df00ca, type: 2}
+  originalMaterialP1: {fileID: 0}
+  originalMaterialP2: {fileID: 0}
+  originalMaterialP3: {fileID: 0}
+  originalMaterialP4: {fileID: 0}
   proximity: 10
   magnitude: 50
 --- !u!114 &1739585943272757401
@@ -1351,6 +1353,131 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+--- !u!82 &-1644441258967117322
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764974995125932039}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-3347012120198413878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764974995125932039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75058e818b6924943bff4a2f8f762331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chirps:
+  - {fileID: 8300000, guid: f2246596651eb2c49a3e43b5205b0a65, type: 3}
+  - {fileID: 8300000, guid: 99bbc27e79a74894cbd135416dfca785, type: 3}
+  - {fileID: 8300000, guid: 2479d2464420aa544a55a78a56313a4f, type: 3}
+  - {fileID: 8300000, guid: e3fdc47485952644c98afce03b952540, type: 3}
+  - {fileID: 8300000, guid: 2b7b65c39e300ee43be205e60f084b3d, type: 3}
+  - {fileID: 8300000, guid: 74970aa3b1fb7164fae46dedf34133c9, type: 3}
+  - {fileID: 8300000, guid: 48ea4933ab1aa8044bd18e45e13f423f, type: 3}
+  - {fileID: 8300000, guid: c81e1d2671086464797b1b37207dc80d, type: 3}
+  - {fileID: 8300000, guid: 95509e64c011c68468cb154064588827, type: 3}
+  - {fileID: 8300000, guid: c425afba7714bc1478dd48c0890fc3c0, type: 3}
+  - {fileID: 8300000, guid: 0ac0329d18e0f664bbbb71cbe31f2a97, type: 3}
+  hits:
+  - {fileID: 8300000, guid: c83bdf3ccac03f14e867ec2722c2a607, type: 3}
+  - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
+  - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
+  AudioSource: {fileID: -1644441258967117322}
 --- !u!1 &3831157640072676118
 GameObject:
   m_ObjectHideFlags: 0

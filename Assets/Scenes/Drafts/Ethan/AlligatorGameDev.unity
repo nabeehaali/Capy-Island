@@ -313,17 +313,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5764879065971483784, guid: ac89f794ed75e0846a84df9a4961aa3e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5764879065971483784, guid: ac89f794ed75e0846a84df9a4961aa3e,
-        type: 3}
-      propertyPath: stealParticles
-      value: 
-      objectReference: {fileID: 4680024039261010178, guid: d4443ddfc5f36f74993608afac149981,
-        type: 3}
     - target: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2978,11 +2967,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2.1210964
-      objectReference: {fileID: 0}
-    - target: {fileID: 8775378352984148136, guid: bc80b8d835cbcc74e88bb6a15e2b83e2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b8d835cbcc74e88bb6a15e2b83e2, type: 3}
