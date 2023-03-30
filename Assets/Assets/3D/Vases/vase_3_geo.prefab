@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8407667886177837269}
   - component: {fileID: 6001888920420619295}
   - component: {fileID: -3739418511438459799}
+  - component: {fileID: -1498508915070480096}
   m_Layer: 0
   m_Name: vase_3_geo
   m_TagString: Vase
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4407371393261485787, guid: 9e109c984777f02438f9ff1547e2c42c, type: 3}
+--- !u!135 &-1498508915070480096
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208978514470614474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.08327041
+  m_Center: {x: 0, y: 0.07, z: 0}

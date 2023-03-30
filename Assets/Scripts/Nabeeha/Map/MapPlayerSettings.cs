@@ -26,7 +26,7 @@ public class MapPlayerSettings : MonoBehaviour
         //player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = false;
-        player.GetComponent<SledGame>().enabled = false;
+        //player.GetComponent<SledGame>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<Rigidbody>().isKinematic = true;

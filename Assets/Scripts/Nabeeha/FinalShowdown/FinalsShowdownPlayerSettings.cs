@@ -42,7 +42,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
-        player.GetComponent<SledGame>().enabled = false;
+        //player.GetComponent<SledGame>().enabled = false;
         player.GetComponent<FinalShowdown>().enabled = true;
         
         player.GetComponent<Rigidbody>().drag = 0;

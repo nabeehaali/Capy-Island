@@ -11,6 +11,7 @@ public class SledGame : MonoBehaviour
     public bool inWater;
     public bool offBerg;
     bool removeCam;
+    bool addCam;
     public int colCount = 0;
 
     public static int ranking;
@@ -24,26 +25,52 @@ public class SledGame : MonoBehaviour
         ranking = 4;
         inWater = false;
         offBerg = false;
+        addCam = false;
         
     }
 
     void Update()
     {
-
-        if (offBerg)
+        if(GetComponent<BoxCollider>() == null)
         {
-            gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
+            removeCam = true;
+        }
+
+        if (_rigidbody.velocity.magnitude > 30)
+        {
+            _rigidbody.velocity = _rigidbody.velocity.normalized * 30;
+        }
+
+        if (offBerg )
+        {
+            
+            //Destroy(gameObject.transform.parent.GetComponent<SledControls>()); //.enabled = false;
+            //gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
+            gameObject.GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePosition;
             _rigidbody.drag = 0f;
             //change the -0.2 to something else for feel
             //direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
             //_rigidbody.velocity = direction.normalized * 30 + new Vector3(0.0f, _rigidbody.velocity.y - 0.2f, 0.0f);
-            //offBerg = false; //check if this is ok
+            offBerg = false; //check if this is ok
+            
         }
 
         if(removeCam)
         {
             GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(this.gameObject.transform);
             removeCam = false;
+        }
+
+        if(addCam)
+        {
+            for (int i = 0; i < GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Count; i++)
+            {
+                if (!GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Contains(this.gameObject.transform))
+                {
+                    GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Add(this.gameObject.transform);
+                }
+            }
+            addCam = false;
         }
     }
 
@@ -76,6 +103,11 @@ public class SledGame : MonoBehaviour
 
         colCount++;
 
+        if(collision.gameObject.tag == "Iceberg")
+        {
+            addCam = true;
+        }
+        
     }
 
     private void OnCollisionExit(Collision collision)

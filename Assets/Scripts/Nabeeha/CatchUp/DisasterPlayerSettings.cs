@@ -23,8 +23,8 @@ public class DisasterPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 0;
-        player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         Destroy(player.transform.parent.gameObject.GetComponent<AlligatorControls>());
         player.GetComponent<TrailRenderer>().enabled = false;
         player.GetComponent<SledGame>().enabled = false;

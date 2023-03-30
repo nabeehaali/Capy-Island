@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -83,7 +84,13 @@ public class PlayerInstantiation : MonoBehaviour
             }
             else if (sceneName == "19-HatProgressSled")
             {
-                Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
+                Destroy(allPlayers[j].transform.GetChild(0).GetComponent<SledGame>());
+
+                if (allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>())
+                {
+                    Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
+                    
+                }
                 allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
 
                 //allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("Selected", false);
@@ -175,16 +182,23 @@ public class PlayerInstantiation : MonoBehaviour
         }
         else if (sceneName == "19-HatProgressSled")
         {  
-            sledRankings = SledSceneSetup.sledpoints;
+            sledRankings = SledSceneSetup.sledpoints.Distinct(new ItemEqualityComparer()).ToList();
             sledRankingsDistinct = SledSceneSetup.sleddistinct;
             activeList = sledRankings;
+
+            //track only first 4 in the list
+            for(int i = 0; i < sledRankings.Count; i++)
+            {
+                Debug.Log(sledRankings[i].playerID);
+                Debug.Log(sledRankings[i].playerPoints);
+            }
 
             displayData(sledRankings, sledRankingsDistinct);
             StartCoroutine(spawnHats());
 
             randHat = Random.Range(0, specialHat.Count);
         }
-        else if (sceneName == "11-HatProgressAlligator")
+        else if (sceneName == "12-HatProgressAlligator")
         {
             alligatorRankings = AlligatorSceneSetup.alligatorpoints;
             alligatorRankingsDistinct = AlligatorSceneSetup.distinct;
