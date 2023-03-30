@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6570967013377015206}
   - component: {fileID: 7211021198522128346}
   - component: {fileID: 2412309087488039261}
+  - component: {fileID: 7954965923131499816}
   - component: {fileID: -793117647168687137}
   - component: {fileID: 6419911494426830731}
   - component: {fileID: 4616666122457417381}
   - component: {fileID: 5764879065971483784}
   - component: {fileID: 2809849624319396701}
-  - component: {fileID: 8925972191879833537}
   - component: {fileID: -7355346650665330563}
   - component: {fileID: 8048018798763391526}
   - component: {fileID: 860575802041803969}
@@ -363,6 +363,20 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7954965923131499816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570967013377015227}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930385fa94f58f647ad188acf446688b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPush: 0
+  animator: {fileID: 0}
 --- !u!114 &-793117647168687137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,20 +457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDig: 0
---- !u!114 &8925972191879833537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 930385fa94f58f647ad188acf446688b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPush: 0
-  animator: {fileID: 0}
 --- !u!114 &-7355346650665330563
 MonoBehaviour:
   m_ObjectHideFlags: 0
