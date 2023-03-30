@@ -24,7 +24,7 @@ public class SledPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 50;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;

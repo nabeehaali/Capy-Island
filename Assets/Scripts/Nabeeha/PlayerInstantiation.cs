@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -48,7 +49,7 @@ public class PlayerInstantiation : MonoBehaviour
         skip.SetActive(false);
         skipUI.SetActive(false);
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
-        
+
         //displaying data based on which hat progress scene is active (this lets us use the same script for each progress scene)
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
@@ -83,7 +84,13 @@ public class PlayerInstantiation : MonoBehaviour
             }
             else if (sceneName == "19-HatProgressSled")
             {
-                Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
+                Destroy(allPlayers[j].transform.GetChild(0).GetComponent<SledGame>());
+
+                if (allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>())
+                {
+                    Destroy(allPlayers[j].transform.GetChild(0).GetComponent<BoxCollider>());
+
+                }
                 allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
 
                 //allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("Selected", false);
@@ -114,11 +121,11 @@ public class PlayerInstantiation : MonoBehaviour
         }
 
         //check what special hats are already visible and remove them from the special hat list
-        if(GameObject.FindGameObjectsWithTag("Wizard").Length > 0)
+        if (GameObject.FindGameObjectsWithTag("Wizard").Length > 0)
         {
-            for(int i = 0; i < specialHat.Count; i++)
+            for (int i = 0; i < specialHat.Count; i++)
             {
-                if(specialHat[i].tag == "Wizard")
+                if (specialHat[i].tag == "Wizard")
                 {
                     specialHat.RemoveAt(i);
                 }
@@ -147,11 +154,11 @@ public class PlayerInstantiation : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Cream").Length > 0)
         {
             //change angle of cream hat
-            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Cream").Length; i++ )
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Cream").Length; i++)
             {
                 GameObject.FindGameObjectsWithTag("Cream")[i].transform.localRotation = Quaternion.Euler(0, 0, -20);
             }
-            
+
             for (int i = 0; i < specialHat.Count; i++)
             {
                 if (specialHat[i].tag == "Cream")
@@ -162,7 +169,7 @@ public class PlayerInstantiation : MonoBehaviour
         }
 
 
-        if(sceneName == "09-HatProgressTorch")
+        if (sceneName == "09-HatProgressTorch")
         {
             torchRankings = TorchSceneSetup.torchpoints;
             torchRankingsDistinct = TorchSceneSetup.distinct;
@@ -174,17 +181,32 @@ public class PlayerInstantiation : MonoBehaviour
             randHat = Random.Range(0, specialHat.Count);
         }
         else if (sceneName == "19-HatProgressSled")
-        {  
-            sledRankings = SledSceneSetup.sledpoints;
+        {
+            if(SledSceneSetup.wonByTime == true)
+            {
+                sledRankings = SledSceneSetup.sledpoints;
+            }
+            else if(SledSceneSetup.wonbyLastMan == true)
+            {
+                sledRankings = SledSceneSetup.sledpoints.Distinct(new ItemEqualityComparer()).ToList();
+            }
+            
             sledRankingsDistinct = SledSceneSetup.sleddistinct;
             activeList = sledRankings;
+
+            //track only first 4 in the list
+            for (int i = 0; i < sledRankings.Count; i++)
+            {
+                Debug.Log(sledRankings[i].playerID);
+                Debug.Log(sledRankings[i].playerPoints);
+            }
 
             displayData(sledRankings, sledRankingsDistinct);
             StartCoroutine(spawnHats());
 
             randHat = Random.Range(0, specialHat.Count);
         }
-        else if (sceneName == "11-HatProgressAlligator")
+        else if (sceneName == "12-HatProgressAlligator")
         {
             alligatorRankings = AlligatorSceneSetup.alligatorpoints;
             alligatorRankingsDistinct = AlligatorSceneSetup.distinct;
@@ -252,13 +274,13 @@ public class PlayerInstantiation : MonoBehaviour
             {
                 for (int i = 0; i < GameObject.FindGameObjectsWithTag("RegularHat").Length; i++)
                 {
-                    if(GameObject.FindGameObjectsWithTag("RegularHat")[GameObject.FindGameObjectsWithTag("RegularHat").Length - 1].GetComponent<Rigidbody>().velocity.y == 0)
+                    if (GameObject.FindGameObjectsWithTag("RegularHat")[GameObject.FindGameObjectsWithTag("RegularHat").Length - 1].GetComponent<Rigidbody>().velocity.y == 0)
                     {
-                        if(!HatsDown)
+                        if (!HatsDown)
                         {
                             skip.SetActive(true);
                             skipUI.SetActive(true);
-                            
+
                             //addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
                             //addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
                             //addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
@@ -283,14 +305,14 @@ public class PlayerInstantiation : MonoBehaviour
             hatsOrder.Add(player.transform.GetChild(3).GetChild(i).gameObject);
 
             //remove hinge joints if they exist (remove this later)
-            if(player.transform.GetChild(3).GetChild(i).GetComponent<HingeJoint>())
+            if (player.transform.GetChild(3).GetChild(i).GetComponent<HingeJoint>())
             {
                 Destroy(player.transform.GetChild(3).GetChild(i).GetComponent<HingeJoint>());
             }
         }
 
         //add special hats to list
-        for(int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
+        for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
             hatsOrder.Add(player.transform.GetChild(3).GetChild(0).GetChild(i).gameObject);
 
@@ -353,7 +375,7 @@ public class PlayerInstantiation : MonoBehaviour
                         {
                             GameObject.Find(activeRankings[i].playerID).transform.GetChild(0).GetComponent<Animator>().SetTrigger("Victory");
                         }
-                            
+
                     }
                     else
                     {
@@ -364,7 +386,7 @@ public class PlayerInstantiation : MonoBehaviour
                         }
                     }
                 }
-                
+
             }
         }
     }
@@ -375,9 +397,9 @@ public class PlayerInstantiation : MonoBehaviour
         yield return new WaitForSeconds(2);
         float inc = 0;
 
-        for(int z = 0; z < placements.Length; z++)
+        for (int z = 0; z < placements.Length; z++)
         {
-            if(placements[z].text == "1")
+            if (placements[z].text == "1")
             {
                 //first place
                 for (int i = 0; i < 3; i++)
@@ -428,7 +450,7 @@ public class PlayerInstantiation : MonoBehaviour
                 theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
-        
+
     }
 
     IEnumerator spawnHatsCatchUp()
@@ -438,7 +460,7 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            if(GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
+            if (GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.transform.position == spawnPoints[i].transform.position)
             {
                 for (int z = 0; z < GameObject.FindGameObjectWithTag("Player 1").GetComponent<CatchUp>().numHatsCollected; z++)
                 {
