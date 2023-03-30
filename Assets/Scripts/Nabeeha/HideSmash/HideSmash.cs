@@ -20,11 +20,6 @@ public class HideSmash : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag == "Vase")
-        {
-
-            Debug.Log("In Vase space");
-        }
 
         if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true) 
         {

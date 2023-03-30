@@ -22,10 +22,10 @@ public class HideSmashSetup : MonoBehaviour
 
     void Start()
     {
-        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-16.37f, 2.08f, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-6.03f, 2.08f, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(4.9f, 2.08f, 0), 0);
-        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(15.67f, 2.08f, 0), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-16.37f, 2.08f, -4), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(-6.03f, 2.08f, -4), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(4.9f, 2.08f, -4), 0);
+        BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(15.67f, 2.08f, -4), 0);
 
         StartCoroutine(startGame());
     }
