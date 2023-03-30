@@ -7,6 +7,7 @@ public class StatueRotation : MonoBehaviour
     // Start is called before the first frame update
     public float speed;
     float total;
+    bool stunCheck;
     GameObject player1, player2, player3, player4;
     public Material redMat, originalMat;
     public Transform idolStart;
@@ -80,50 +81,24 @@ public class StatueRotation : MonoBehaviour
             Renderer mat = visionIndicator.GetChild(0).gameObject.GetComponent<MeshRenderer>();
 
             float dist = Vector3.Distance(idolStart.position, collision.transform.position);
-           
 
-            if (dist <= minDistanceToDIE)
+
+            if (rayCastCheck(idolStart, collision.transform) == true)
             {
                 //Debug.Log("Player Visible DEAD");
-                StartCoroutine(stunPlayer(collision.gameObject, collision.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterials[0]));
-                visionIndicator.LookAt(mainCam.transform);
+                if (stunCheck == false) {
+                    StartCoroutine(stunPlayer(collision.gameObject));
+                }
+                
                 visionIndicator.gameObject.SetActive(true);
-                mat.material = redMat;
-            }
-            else if (dist > minDistanceToDIE)
-            {
-                //Debug.Log("Player Visible NOT IN RANGE");
-
-                //GameObject.FindGameObjectWithTag("IdolLight").GetComponent<Light>().color = new Color(50, 0, 0);
-                //collision.transform.Find("VisionIndicator").LookAt(mainCam.transform);
-
-                //collision.transform.Find("VisionIndicator").gameObject.SetActive(true);
+                visionIndicator.LookAt(mainCam.transform);
                 mat.material = originalMat;
-                if (rayCastCheck(idolStart, collision.transform) == true)
-                {
-                    
 
-                    visionIndicator.gameObject.SetActive(true);
-                    collision.transform.Find("VisionIndicator").LookAt(mainCam.transform);
-                }
-                else
-                {
-                    
-                    collision.transform.Find("VisionIndicator").gameObject.SetActive(false);
-                }
-
-                
             }
-            //else 
-            //{
-                //Debug.Log("Player Hidden");
-                
-
-                //collision.transform.Find("VisionIndicator").gameObject.SetActive(false);
-            //}
-
-
-            
+            else 
+            {
+                visionIndicator.gameObject.SetActive(false);
+            }
         }
 
     }
@@ -151,22 +126,24 @@ public class StatueRotation : MonoBehaviour
             }
             else if (hit.transform.tag == "Player 1" || hit.transform.tag == "Player 2" || hit.transform.tag == "Player 3" || hit.transform.tag == "Player 4")
             {
-                Debug.Log(hit.collider.name);
                 return true;
             }
 
-        
-       
         return false;
     }
 
-    IEnumerator stunPlayer(GameObject player, Material originalMat)
+    IEnumerator stunPlayer(GameObject player)
     {
         player.gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
 
-        yield return new WaitForSeconds(2f);
-        
+        yield return new WaitForSeconds(3f);
         player.gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 20;
+        stunCheck = true;
+        yield return new WaitForSeconds(4f);
+        stunCheck = false;
+
+
+
     }
 
 }
