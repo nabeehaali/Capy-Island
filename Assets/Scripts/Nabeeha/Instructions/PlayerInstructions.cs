@@ -19,7 +19,8 @@ public class PlayerInstructions : MonoBehaviour
     {
         if (context.performed)
         {
-            if(this.gameObject.transform.GetChild(0).gameObject.tag == "Player 1")
+            RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
+            if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 1")
             {
                 UI = GameObject.Find("P1");
                 p1Ready = 1;

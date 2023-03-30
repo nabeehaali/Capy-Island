@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class SledGame : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class SledGame : MonoBehaviour
     public static int ranking;
     private Vector3 direction;
 
+    Scene currentScene;
+    string sceneName;
+
     void Start()
     {
         //change to get parent
@@ -26,6 +30,9 @@ public class SledGame : MonoBehaviour
         inWater = false;
         offBerg = false;
         addCam = false;
+
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
 
     }
 
@@ -76,49 +83,56 @@ public class SledGame : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Water")
+        if(sceneName == "18-SledGame")
         {
-            inWater = true;
-            _trailRender.emitting = false;
-            _rigidbody.drag = 4;
-            _rigidbody.velocity = Vector3.zero;
-            SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
-            ranking--;
-        }
+            if (collision.gameObject.tag == "Water")
+            {
+                inWater = true;
+                _trailRender.emitting = false;
+                _rigidbody.drag = 4;
+                _rigidbody.velocity = Vector3.zero;
+                SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
+                ranking--;
+            }
 
-        if (collision.gameObject.tag == "IcebergSmall1")
-        {
-            collision.gameObject.GetComponent<Animator>().Play("IcebergSink1");
-        }
+            if (collision.gameObject.tag == "IcebergSmall1")
+            {
+                collision.gameObject.GetComponent<Animator>().Play("IcebergSink1");
+            }
 
-        if (collision.gameObject.tag == "IcebergSmall2")
-        {
-            collision.gameObject.GetComponent<Animator>().Play("IcebergSink2");
-        }
+            if (collision.gameObject.tag == "IcebergSmall2")
+            {
+                collision.gameObject.GetComponent<Animator>().Play("IcebergSink2");
+            }
 
-        if (collision.gameObject.tag == "IceBkg")
-        {
-            _rigidbody.mass = 1000;
-        }
+            if (collision.gameObject.tag == "IceBkg")
+            {
+                _rigidbody.mass = 1000;
+            }
 
-        colCount++;
+            colCount++;
 
-        if (collision.gameObject.tag == "Iceberg")
-        {
-            addCam = true;
+            if (collision.gameObject.tag == "Iceberg")
+            {
+                addCam = true;
+            }
         }
+        
 
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        colCount--;
-        if (colCount == 0)
+        if (sceneName == "18-SledGame")
         {
-            //Debug.Log("not colliding with anything");
-            //GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(this.gameObject.transform);
-            offBerg = true;
-            removeCam = true;
+            colCount--;
+            if (colCount == 0)
+            {
+                //Debug.Log("not colliding with anything");
+                //GameObject.Find("Main Camera").GetComponent<MultipleTargetCam>().targets.Remove(this.gameObject.transform);
+                offBerg = true;
+                removeCam = true;
+            }
         }
     }
 }

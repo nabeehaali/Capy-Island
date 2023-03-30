@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 3710517364655619009}
   - component: {fileID: 5824526868470549350}
   - component: {fileID: 3324281386309296666}
+  - component: {fileID: 8434275741665533219}
   m_Layer: 0
   m_Name: StevetheCapy
   m_TagString: Player 1
@@ -712,6 +713,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
   - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
   AudioSource: {fileID: 5824526868470549350}
+--- !u!95 &8434275741665533219
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965909856216797886}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1201347951913953891
 GameObject:
   m_ObjectHideFlags: 0

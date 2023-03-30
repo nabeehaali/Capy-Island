@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class AlligatorSceneSetup : MonoBehaviour
 {
     // !!! this doesn't do anything, just remnants from trying to dodge some compiler errors :(
+    public static bool wonByTimeGator;
 
     public GameObject gatorPrefab;
     public GameObject waterBoundPlane;
@@ -17,7 +18,7 @@ public class AlligatorSceneSetup : MonoBehaviour
     Vector3 gatorSpawnPos;
     Quaternion gatorSpawnRot;
 
-    public TMP_Text delayDisplay;
+    //public TMP_Text delayDisplay;
 
     public TMP_Text countdown;
     public int gameLength;
@@ -46,26 +47,29 @@ public class AlligatorSceneSetup : MonoBehaviour
         firstGator = GameObject.FindGameObjectWithTag("Alligator");
         gatorSpawnPos = firstGator.transform.position;
         gatorSpawnRot = firstGator.transform.rotation;
+
+        StartCoroutine(startGame());
     }
 
     void FixedUpdate()
     {
         timePassed += Time.deltaTime;
 
-        if (timePassed > gameLength && !gameDone)
+        if (timePassed >= gameLength + 6 && !gameDone)
         {
             foreach (GameObject player in players)
             {
                 player.GetComponent<AlligatorControls>().enabled = false;
                 player.GetComponent<PlayerMovement>().enabled = false;
             }
+            wonByTimeGator = true;
             EndGame();
             gameDone = true;
         }
 
-        if (Time.time >= startDelay && !gameRunning)
+        /*if (Time.time >= startDelay && !gameRunning)
         {
-            StartCoroutine(CountDown(gameLength));
+            //StartCoroutine(CountDown(gameLength));
             delayDisplay.text = "Go!";
             gameRunning = true;
             foreach (GameObject player in players)
@@ -78,7 +82,7 @@ public class AlligatorSceneSetup : MonoBehaviour
         } else if (Time.time < startDelay)
         {
             delayDisplay.text = (-Mathf.FloorToInt(Time.time - startDelay)).ToString();
-        }
+        }*/
 
         if (gameRunning)
         {
@@ -121,15 +125,7 @@ public class AlligatorSceneSetup : MonoBehaviour
 
     void EndGame()
     {
-        alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.parent.GetComponent<AlligatorControls>().points));
-        alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.parent.GetComponent<AlligatorControls>().points));
-        alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.parent.GetComponent<AlligatorControls>().points));
-        alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectWithTag("Player 4").transform.parent.GetComponent<AlligatorControls>().points));
-
-        alligatorpoints.Sort();
-        alligatorpoints.Reverse();
-
-        distinct = alligatorpoints.Distinct(new ItemEqualityComparer()).ToList();
+        
 
         StartCoroutine(FinishGame());
     }
@@ -143,10 +139,73 @@ public class AlligatorSceneSetup : MonoBehaviour
         secondGator.GetComponent<AlligatorBrain>().water = waterBoundPlane;
     }
 
+    IEnumerator startGame()
+    {
+        yield return new WaitForSeconds(2);
+        gameover.gameObject.SetActive(true);
+        int count = 3;
+
+        while (count > 0)
+        {
+            gameover.SetText("" + count);
+            yield return new WaitForSeconds(1);
+            count--;
+        }
+        gameover.SetText("Start!");
+        yield return new WaitForSeconds(1);
+        gameover.gameObject.SetActive(false);
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<AlligatorControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<AlligatorControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<AlligatorControls>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<AlligatorControls>().enabled = true;
+
+        GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<AlligatorControls>().hasStarted = true;
+        GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<AlligatorControls>().hasStarted = true;
+        GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<AlligatorControls>().hasStarted = true;
+        GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<AlligatorControls>().hasStarted = true;
+
+        gameRunning = true;
+        StartCoroutine(CountDown(gameLength));
+    }
+
     IEnumerator FinishGame()
     {
+        if(alligatorpoints.Count != 4)
+        {
+            alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 1").name, GameObject.FindGameObjectWithTag("Player 1").transform.parent.GetComponent<AlligatorControls>().points));
+            alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 2").name, GameObject.FindGameObjectWithTag("Player 2").transform.parent.GetComponent<AlligatorControls>().points));
+            alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").transform.parent.GetComponent<AlligatorControls>().points));
+            alligatorpoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectWithTag("Player 4").transform.parent.GetComponent<AlligatorControls>().points));
+        }
+        
+
+        alligatorpoints.Sort();
+        alligatorpoints.Reverse();
+
+        distinct = alligatorpoints.Distinct(new ItemEqualityComparer()).ToList();
+        
+        for (int i = 0; i < alligatorpoints.Count; i++)
+        {
+            Debug.Log("Before hat screen: " + alligatorpoints[i].playerID);
+            Debug.Log("Before hat screen: " + alligatorpoints[i].playerPoints);
+        }
+
+        distinct = alligatorpoints.Distinct(new ItemEqualityComparer()).ToList();
+        for (int i = 0; i < distinct.Count; i++)
+        {
+            Debug.Log("Before hat screen DISTINCT: " + distinct[i].playerID);
+            Debug.Log("Before hat screen DISTINCT: " + distinct[i].playerPoints);
+        }
+
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
+        gameover.SetText("Game Over!");
         yield return new WaitForSeconds(2);
 
         Destroy(GameObject.FindGameObjectWithTag("Alligator Crown"));
@@ -170,9 +229,9 @@ public class AlligatorSceneSetup : MonoBehaviour
         }
     }
 
-    IEnumerator HideCountdownDisplay()
+    /*IEnumerator HideCountdownDisplay()
     {
         yield return new WaitForSeconds(2);
         delayDisplay.enabled = false;
-    }
+    }*/
 }

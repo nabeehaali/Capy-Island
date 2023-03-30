@@ -2485,7 +2485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1331480014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4199,14 +4199,13 @@ MonoBehaviour:
   gatorPrefab: {fileID: 4879713888674843407, guid: bc80b8d835cbcc74e88bb6a15e2b83e2,
     type: 3}
   waterBoundPlane: {fileID: 1905474672}
-  delayDisplay: {fileID: 1331480015}
   countdown: {fileID: 2023857284}
   gameLength: 60
   p1State: {fileID: 288232553}
   p2State: {fileID: 769736870}
   p3State: {fileID: 1516399336}
   p4State: {fileID: 1454329665}
-  startDelay: 3
+  startDelay: 0
   winScore: 30
   gameover: {fileID: 1711103519}
 --- !u!4 &2002950961

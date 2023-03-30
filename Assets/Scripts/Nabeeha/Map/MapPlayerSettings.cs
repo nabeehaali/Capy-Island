@@ -32,6 +32,8 @@ public class MapPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().useGravity = false;
 
+        player.GetComponent<Animator>().enabled = false;
+
         ////disable hats
         //for (int i = 0; i < player.transform.childCount; i++)
         //{

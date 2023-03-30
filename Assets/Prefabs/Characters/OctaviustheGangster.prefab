@@ -1114,6 +1114,7 @@ GameObject:
   - component: {fileID: 463142461458394371}
   - component: {fileID: 1049829192762707325}
   - component: {fileID: 7451553804658484977}
+  - component: {fileID: -2800769701222549982}
   m_Layer: 0
   m_Name: OctaviustheGangster
   m_TagString: Player 4
@@ -1519,6 +1520,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
   - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
   AudioSource: {fileID: 1049829192762707325}
+--- !u!95 &-2800769701222549982
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006316057326876418}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2092834769865371677
 GameObject:
   m_ObjectHideFlags: 0

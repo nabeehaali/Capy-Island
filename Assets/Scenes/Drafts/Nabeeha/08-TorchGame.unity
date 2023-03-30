@@ -5543,7 +5543,7 @@ MonoBehaviour:
   - {fileID: 741584891}
   - {fileID: 92468411}
   - {fileID: 603051417}
-  gameLength: 600
+  gameLength: 45
   gameover: {fileID: 829205965}
   countdown: {fileID: 948173228}
   p1Score: {fileID: 843393223}

@@ -2228,6 +2228,7 @@ GameObject:
   - component: {fileID: 1467675571885825028}
   - component: {fileID: -8208240873639778228}
   - component: {fileID: -3349581438292677772}
+  - component: {fileID: 8308638142742898081}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -2243,7 +2244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8239014475958362521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15293145, z: -0.24518943}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2633,6 +2634,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
   - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
   AudioSource: {fileID: -8208240873639778228}
+--- !u!95 &8308638142742898081
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014475958362521}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8305268144033198728
 GameObject:
   m_ObjectHideFlags: 0
