@@ -272,7 +272,7 @@ public class PlayerInstantiation : MonoBehaviour
         timePassed += Time.deltaTime;
 
         //when special hat hits player, allow them to go to the next scene
-        if ((theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f) || timePassed >= 5)
+        if ((theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f))
         {
             if (!HatsDown && theSpecialHat.transform.localPosition.y < 30)
             {
@@ -295,7 +295,7 @@ public class PlayerInstantiation : MonoBehaviour
             {
                 for (int i = 0; i < GameObject.FindGameObjectsWithTag("RegularHat").Length; i++)
                 {
-                    if (GameObject.FindGameObjectsWithTag("RegularHat")[GameObject.FindGameObjectsWithTag("RegularHat").Length - 1].GetComponent<Rigidbody>().velocity.y == 0 || timePassed >= 5)
+                    if (GameObject.FindGameObjectsWithTag("RegularHat")[GameObject.FindGameObjectsWithTag("RegularHat").Length - 1].GetComponent<Rigidbody>().velocity.y == 0)
                     {
                         if (!HatsDown)
                         {
@@ -430,19 +430,23 @@ public class PlayerInstantiation : MonoBehaviour
             if (placements[z].text == "1")
             {
                 //first place
-                for (int i = 0; i < 3; i++)
+                //winner special hat
+                theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
+                theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                /*for (int i = 0; i < 3; i++)
                 {
-                    /*GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
+                    GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
-                    inc += 5;*/
+                    inc += 5;
 
                     //winner special hat
                     theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                     theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                }
+                }*/
             }
             else if (placements[z].text == "2")
             {
