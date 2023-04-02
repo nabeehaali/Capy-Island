@@ -4000,6 +4000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!1001 &526584330657511088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4279,6 +4280,7 @@ MonoBehaviour:
     type: 3}
   regularHat: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
     type: 3}
+  order: []
 --- !u!114 &2472793794067446850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4571,6 +4573,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0d5ad73f-8310-4054-ad2a-eaa417c29e5f
     m_ActionName: Player/Instructions[/XInputControllerWindows/start,/XInputControllerWindows1/start,/XInputControllerWindows2/start,/XInputControllerWindows3/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 547bd0bd-7985-4a27-9694-bc0661d2037b
+    m_ActionName: Player/SpecialHat[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth,/XInputControllerWindows2/buttonSouth,/XInputControllerWindows3/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -4668,6 +4674,8 @@ MonoBehaviour:
   hasEnded: 0
   canSteal: 0
   isImmune: 0
+  immuneTimeDuration: 2
+  stealParticles: {fileID: 0}
 --- !u!64 &5230806876294074156
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4974,6 +4982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 0}
+  playerCollider: {fileID: 0}
 --- !u!1 &8239014476554682298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,6 +5002,7 @@ GameObject:
   - component: {fileID: 5949775143105199467}
   - component: {fileID: 1494917867953934602}
   - component: {fileID: 1467675572483047975}
+  - component: {fileID: 8727145599694529793}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -5019,6 +5029,26 @@ Transform:
   m_Father: {fileID: 4834352013595129431}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8727145599694529793
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014476554682298}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8753359063971212230
 GameObject:
   m_ObjectHideFlags: 0

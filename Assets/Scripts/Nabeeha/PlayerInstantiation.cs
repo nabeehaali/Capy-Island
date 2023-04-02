@@ -37,6 +37,7 @@ public class PlayerInstantiation : MonoBehaviour
 
     int randHat;
     bool HatsDown;
+    float timePassed;
 
     int startingHatsP1, startingHatsP2, startingHatsP3, startingHatsP4;
 
@@ -56,12 +57,15 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
+            //allPlayers[j].transform.GetChild(0).GetComponent<Animator>().enabled = true;
             allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isRunning", false);
             allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isWalking", false);
             //allPlayers[j].transform.GetComponent<PlayerMovement>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<CatchUp>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<TorchGame>().enabled = false;
             allPlayers[j].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            allPlayers[j].transform.position = Vector3.zero;
+            allPlayers[j].transform.GetChild(0).transform.position = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
             allPlayers[j].transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
             allPlayers[j].transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
@@ -94,6 +98,21 @@ public class PlayerInstantiation : MonoBehaviour
                 allPlayers[j].transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
 
                 //allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("Selected", false);
+
+                //enable hats
+                for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
+                {
+                    if (allPlayers[j].transform.GetChild(0).GetChild(i).name == "Hats")
+                    {
+                        allPlayers[j].transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+                        allPlayers[j].transform.GetChild(0).GetChild(i).GetChild(0).gameObject.SetActive(true);
+
+                    }
+                }
+            }
+            else if (sceneName == "05.5-HatProgressHideSmash")
+            {
+                Destroy(allPlayers[j].transform.GetChild(0).GetChild(5).GetChild(0).gameObject);
 
                 //enable hats
                 for (int i = 0; i < allPlayers[j].transform.GetChild(0).transform.childCount; i++)
@@ -250,8 +269,10 @@ public class PlayerInstantiation : MonoBehaviour
 
     private void Update()
     {
+        timePassed += Time.deltaTime;
+
         //when special hat hits player, allow them to go to the next scene
-        if (theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f)
+        if ((theSpecialHat != null && theSpecialHat.GetComponent<Rigidbody>().velocity.y >= -0.001f))
         {
             if (!HatsDown && theSpecialHat.transform.localPosition.y < 30)
             {
@@ -293,6 +314,13 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
+        if(sceneName == "12-HatProgressAlligator")
+        {
+            for (int j = 0; j < allPlayers.Length; j++)
+            {
+                allPlayers[j].transform.GetChild(0).transform.localPosition = Vector3.zero;
+            }
+        }
     }
 
     void addJoints(GameObject player, List<GameObject> hatsOrder)
@@ -402,14 +430,23 @@ public class PlayerInstantiation : MonoBehaviour
             if (placements[z].text == "1")
             {
                 //first place
-                for (int i = 0; i < 3; i++)
+                //winner special hat
+                theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
+                theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                /*for (int i = 0; i < 3; i++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
                     inc += 5;
-                }
+
+                    //winner special hat
+                    theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
+                    theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
+                    theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }*/
             }
             else if (placements[z].text == "2")
             {
@@ -438,7 +475,7 @@ public class PlayerInstantiation : MonoBehaviour
             //fourth place (gets none)
         }
 
-        yield return new WaitForSeconds(5);
+        /*yield return new WaitForSeconds(5);
 
         for (int z = 0; z < placements.Length; z++)
         {
@@ -449,7 +486,7 @@ public class PlayerInstantiation : MonoBehaviour
                 theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-        }
+        }*/
 
     }
 

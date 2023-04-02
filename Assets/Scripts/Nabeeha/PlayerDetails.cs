@@ -43,7 +43,7 @@ public class PlayerDetails : MonoBehaviour
 
         //Gamepad.current.SetMotorSpeeds(0.25f, 1f);
         //StartCoroutine(StopRumble(0.5f, Gamepad.current));
-        //RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
+        RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
 
         DontDestroyOnLoad(gameObject);
     }

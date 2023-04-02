@@ -1073,6 +1073,7 @@ GameObject:
   - component: {fileID: 1739585943272757401}
   - component: {fileID: -1644441258967117322}
   - component: {fileID: -3347012120198413878}
+  - component: {fileID: 1053253673634873855}
   m_Layer: 0
   m_Name: ScooberttheNerd
   m_TagString: Player 3
@@ -1478,6 +1479,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
   - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
   AudioSource: {fileID: -1644441258967117322}
+--- !u!95 &1053253673634873855
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764974995125932039}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3831157640072676118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3352,11 @@ PrefabInstance:
     - target: {fileID: 5263167092397703552, guid: a83568deeb1f8454ca3bd07ed3c0e5f4,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263167092397703554, guid: a83568deeb1f8454ca3bd07ed3c0e5f4,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5263167092397703567, guid: a83568deeb1f8454ca3bd07ed3c0e5f4,

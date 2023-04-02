@@ -23,7 +23,8 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
-        player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
+        player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         //player.transform.parent.gameObject.GetComponent<HideSmashControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = true;
@@ -31,7 +32,7 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.transform.localRotation = Quaternion.identity;
         player.transform.GetChild(0).transform.localPosition = Vector3.zero;
         player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
-        player.transform.GetChild(0).GetComponent<Animator>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Animator>().enabled = true;
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = true;
         player.GetComponent<TorchGame>().enabled = false;
@@ -55,5 +56,7 @@ public class CatchUpPlayerSettings : MonoBehaviour
                 
             }
         }
+
+        player.transform.GetChild(3).gameObject.SetActive(true);
     }
 }

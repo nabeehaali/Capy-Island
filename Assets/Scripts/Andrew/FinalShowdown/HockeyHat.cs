@@ -15,11 +15,10 @@ public class HockeyHat : Hat
 
     private void Awake()
     {
-        
     }
     void Start()
     {
-        shield = gameObject.transform.GetChild(0).GetChild(7).gameObject;
+        
         flag = false;
     }
 
@@ -34,7 +33,7 @@ public class HockeyHat : Hat
 
         if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-           
+            shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
             if (ability > 0.5f)
             {
                 flag = true;

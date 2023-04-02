@@ -38,6 +38,7 @@ public class HideSmashSetup : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<HideSmashControls>().enabled = false;
+        player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = false;
         player.GetComponent<TrailRenderer>().enabled = false;
         player.GetComponent<HideSmash>().enabled = true;
 
@@ -69,6 +70,7 @@ public class HideSmashSetup : MonoBehaviour
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            //Destroy(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(5).GetChild(0).gameObject);
             Destroy(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<HideSmashControls>());
             //set animation bool to false?????
         }

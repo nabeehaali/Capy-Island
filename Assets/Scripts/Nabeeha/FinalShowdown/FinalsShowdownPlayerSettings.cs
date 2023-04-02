@@ -28,11 +28,13 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 30;
-        
+
+        player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = false;
         //player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
-        player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
-        player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
+        //player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<FinalShowdownControls>().enabled = true;
+        player.transform.parent.gameObject.GetComponent<WizardHat>().enabled = true;
 
         player.transform.localPosition = Vector3.zero;
         player.transform.localRotation = Quaternion.identity;
