@@ -1,53 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class IntroStoryFlip : MonoBehaviour
 {
-    public GameObject[] panels;
+    public GameObject[] video;
+    public GameObject NextScene;
     public Animator transition;
-    int index;
+    public int index;
     bool endStory = false;
+    public bool next = false;
     void Start()
     {
         transition.SetTrigger("FadeOut");
-        index = 0;        
+        index = 0;
     }
 
     
     void Update()
     {
-        if (Input.GetButtonDown("StartR"))
+        if (index > video.Length - 1 && !endStory)
         {
-            if (index == panels.Length-1 && !endStory)
-            {
-                StartCoroutine(sceneTransition());
-                endStory = true;
-            }
-            else
-            {
-                index++;
-            }
-            
+            StartCoroutine(sceneTransition());
+            endStory = true;
         }
 
-        for (int i = 0; i < panels.Length; i++)
+        for (int i = 0; i < video.Length; i++)
         {
             if(i == index)
             {
-                panels[i].SetActive(true);
+                video[i].SetActive(true);
             }
             else
             {
-                panels[i].SetActive(false);
+                video[i].SetActive(false);
             }
-        }
 
+            if(video[i].GetComponent<VideoPlayer>().time >= 7)
+            {
+                NextScene.SetActive(true);
+                next = false;
+            }
+            video[i].GetComponent<VideoPlayer>().loopPointReached += videoDone;
+        }
         
     }
 
-    IEnumerator sceneTransition()
+    void videoDone(VideoPlayer vp)
+    {
+        if (!next)
+        {
+            index++;
+            NextScene.SetActive(false);
+            next = true;
+        }        
+    }
+
+    public IEnumerator sceneTransition()
     {
         transition.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1);

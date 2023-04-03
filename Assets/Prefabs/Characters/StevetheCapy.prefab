@@ -307,7 +307,6 @@ GameObject:
   - component: {fileID: 3710517364655619009}
   - component: {fileID: 5824526868470549350}
   - component: {fileID: 3324281386309296666}
-  - component: {fileID: 8434275741665533219}
   m_Layer: 0
   m_Name: StevetheCapy
   m_TagString: Player 1
@@ -712,27 +711,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c83bdf3ccac03f14e867ec2722c2a607, type: 3}
   - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
   - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
-  AudioSource: {fileID: 5824526868470549350}
---- !u!95 &8434275741665533219
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965909856216797886}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  groundSteps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  waterMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  iceMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  capyAudio: {fileID: 0}
+  movementAudio: {fileID: 0}
+  moveType: 
 --- !u!1 &1201347951913953891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3058,25 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f64b9ef02c1e28c498b9fa37b3d8b20a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd964789a192f35469f55ab29f8e0755, type: 3}
+--- !u!1 &1898280550933738990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4819223349682164798, guid: dd964789a192f35469f55ab29f8e0755,
+    type: 3}
+  m_PrefabInstance: {fileID: 2830127532817063468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &9171409376207147045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898280550933738990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.020599991, y: 0.028573116, z: 0.030464124}
+  m_Center: {x: 0.00016950487, y: 0.031447385, z: 0.035567097}
 --- !u!4 &2363290852834441671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd964789a192f35469f55ab29f8e0755,

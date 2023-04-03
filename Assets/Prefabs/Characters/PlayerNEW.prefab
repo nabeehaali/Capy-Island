@@ -481,7 +481,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570967013377015227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27c74d3ea5fbe7947a5e72b05aa69d03, type: 3}
   m_Name: 
@@ -547,5 +547,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  cake: {fileID: 9032391680856277216, guid: 47c6509c681c08347aa6a6a95d996d5b, type: 3}
+  cake: {fileID: 2086314084963142222, guid: cf65e81392c315c408fae15ad81ae02e, type: 3}
   hats: []

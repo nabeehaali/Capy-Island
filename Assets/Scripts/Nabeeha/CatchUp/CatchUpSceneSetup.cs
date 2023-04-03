@@ -43,7 +43,9 @@ public class CatchUpSceneSetup : MonoBehaviour
         }
 
         totalHats = DisasterSceneSetup.p1HatsOff + DisasterSceneSetup.p2HatsOff + DisasterSceneSetup.p3HatsOff + DisasterSceneSetup.p4HatsOff;
+        totalHats /= 2;
 
+        StartCoroutine(startGame());
         StartCoroutine(startPlayer());
     }
 
@@ -181,6 +183,7 @@ public class CatchUpSceneSetup : MonoBehaviour
         distinct = catchuppoints.Distinct(new ItemEqualityComparer()).ToList();
 
         yield return new WaitForSeconds(1);
+        gameover.SetText("Game Over!");
         gameover.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
 
@@ -225,4 +228,19 @@ public class CatchUpSceneSetup : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         goPlayers[index].gameObject.SetActive(false);
     }
-}
+
+    IEnumerator startGame()
+    {
+        gameover.gameObject.SetActive(true);
+        int count = 5;
+
+        while (count > 0)
+        {
+            gameover.SetText("" + count);
+            yield return new WaitForSeconds(1);
+            count--;
+        }
+        gameover.gameObject.SetActive(false);
+    }
+
+ }

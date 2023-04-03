@@ -57,7 +57,7 @@ public class PlayerInstantiation : MonoBehaviour
 
         for (int j = 0; j < allPlayers.Length; j++)
         {
-            //allPlayers[j].transform.GetChild(0).GetComponent<Animator>().enabled = true;
+            allPlayers[j].transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<BoxCollider>().enabled = true;
             allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isRunning", false);
             allPlayers[j].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isWalking", false);
             //allPlayers[j].transform.GetComponent<PlayerMovement>().enabled = false;
@@ -212,13 +212,6 @@ public class PlayerInstantiation : MonoBehaviour
 
             sledRankingsDistinct = SledSceneSetup.sleddistinct;
             activeList = sledRankings;
-
-            //track only first 4 in the list
-            for (int i = 0; i < sledRankings.Count; i++)
-            {
-                Debug.Log(sledRankings[i].playerID);
-                Debug.Log(sledRankings[i].playerPoints);
-            }
 
             displayData(sledRankings, sledRankingsDistinct);
             StartCoroutine(spawnHats());
@@ -430,23 +423,14 @@ public class PlayerInstantiation : MonoBehaviour
             if (placements[z].text == "1")
             {
                 //first place
-                //winner special hat
-                theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
-                theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
-                theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                /*for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     GameObject currentHat = Instantiate(baseHat, GameObject.Find(activeList[z].playerID).transform.GetChild(3).transform, true);
                     currentHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                     currentHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     //currentHat.transform.localScale = new Vector3(1, 1, 1);
                     inc += 5;
-
-                    //winner special hat
-                    theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
-                    theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
-                    theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                }*/
+                }
             }
             else if (placements[z].text == "2")
             {
@@ -475,7 +459,7 @@ public class PlayerInstantiation : MonoBehaviour
             //fourth place (gets none)
         }
 
-        /*yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5);
 
         for (int z = 0; z < placements.Length; z++)
         {
@@ -486,7 +470,7 @@ public class PlayerInstantiation : MonoBehaviour
                 theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
                 theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-        }*/
+        }
 
     }
 

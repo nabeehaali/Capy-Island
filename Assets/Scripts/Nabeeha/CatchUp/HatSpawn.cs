@@ -19,6 +19,7 @@ public class HatSpawn : MonoBehaviour
     {
         b = bounds.GetComponent<Renderer>().bounds; 
         numHats = DisasterSceneSetup.p1HatsOff + DisasterSceneSetup.p2HatsOff + DisasterSceneSetup.p3HatsOff + DisasterSceneSetup.p4HatsOff;
+        numHats /= 2;
         //Debug.Log(numHats);
 
         for(int i = 0; i < numHats; i++)

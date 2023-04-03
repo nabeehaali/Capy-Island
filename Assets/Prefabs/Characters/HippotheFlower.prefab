@@ -2228,7 +2228,6 @@ GameObject:
   - component: {fileID: 1467675571885825028}
   - component: {fileID: -8208240873639778228}
   - component: {fileID: -3349581438292677772}
-  - component: {fileID: 8308638142742898081}
   m_Layer: 0
   m_Name: HippotheFlower
   m_TagString: Player 2
@@ -2633,27 +2632,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c83bdf3ccac03f14e867ec2722c2a607, type: 3}
   - {fileID: 8300000, guid: 4de24f826edd9234787ba62c0d4988b7, type: 3}
   - {fileID: 8300000, guid: cd0cf7025d9c2d14b95e9d7d4823e40a, type: 3}
-  AudioSource: {fileID: -8208240873639778228}
---- !u!95 &8308638142742898081
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8239014475958362521}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2914154c12795146bcd2282cde81903, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  groundSteps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  waterMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  iceMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  capyAudio: {fileID: 0}
+  movementAudio: {fileID: 0}
+  moveType: 
 --- !u!1 &8305268144033198728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,6 +3373,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5235368996566199617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8482927614951343747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4819223349682164798, guid: 35cf75cdbf8892949895887ab4fc6bcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5235368996566199617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6235181597457304863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482927614951343747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.020599991, y: 0.028573116, z: 0.030464124}
+  m_Center: {x: 0.00016950487, y: 0.031447385, z: 0.035567097}
 --- !u!1001 &6046601983105482683
 PrefabInstance:
   m_ObjectHideFlags: 0

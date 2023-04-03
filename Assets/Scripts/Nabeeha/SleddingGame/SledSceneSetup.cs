@@ -19,7 +19,7 @@ public class SledSceneSetup : MonoBehaviour
     float timePassed;
     bool gameDone = false;
 
-    bool test;
+    //bool test;
 
     public GameObject p1State, p2State, p3State, p4State;
 
@@ -27,7 +27,7 @@ public class SledSceneSetup : MonoBehaviour
     public static List<MinigamePoints> sleddistinct;
     void Start()
     {
-        test = true;
+        //test = true;
         StartCoroutine(startGame());
     }
 
