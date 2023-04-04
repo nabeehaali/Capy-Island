@@ -13,10 +13,13 @@ public class CatchUp : MonoBehaviour
 
     public List<GameObject> order;
 
+    private GameObject playerParent;
+
     float inc = 0.35f;
 
     void Start()
     {
+        playerParent = transform.parent.gameObject;
         catchupcontrols = transform.parent.gameObject.GetComponent<CatchUpControls>();
         Physics.IgnoreCollision(GetComponent<MeshCollider>(), GameObject.Find("Sand").GetComponent<MeshCollider>());
 
@@ -38,6 +41,8 @@ public class CatchUp : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 numHatsCollected += 1;
+
+                playerParent.GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
 
                 GameObject currentHat = Instantiate(regularHat, transform.GetChild(3).transform, true);
                 currentHat.transform.localPosition = new Vector3(0, inc, 0.035f);

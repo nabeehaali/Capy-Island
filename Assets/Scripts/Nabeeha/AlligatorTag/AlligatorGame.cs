@@ -21,7 +21,7 @@ public class AlligatorGame : MonoBehaviour
             && !playerScript.isBit)
         {
             playerScript.Bit();
-            //gameObject.GetComponentInParent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
+            gameObject.GetComponentInParent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
         }
     }
 

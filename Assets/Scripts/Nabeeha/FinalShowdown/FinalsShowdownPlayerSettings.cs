@@ -110,15 +110,43 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         //hinge joints
         for (int p = 0; p < hatsOrder.Count - 1; p++)
         {
-            hatsOrder[p].AddComponent<HingeJoint>();
+            /*hatsOrder[p].AddComponent<HingeJoint>();
             hatsOrder[p].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             hatsOrder[p].GetComponent<Rigidbody>().useGravity = false;
             hatsOrder[p].GetComponent<Rigidbody>().mass = 3;
             hatsOrder[p].GetComponent<HingeJoint>().axis = new Vector3(0, -1, 0);
-            hatsOrder[p].GetComponent<HingeJoint>().breakForce = 1000;
+            hatsOrder[p].GetComponent<HingeJoint>().breakForce = 100000;
 
             //connect bodies
-            hatsOrder[p].GetComponent<HingeJoint>().connectedBody = hatsOrder[p+1].GetComponent<Rigidbody>();
+            hatsOrder[p].GetComponent<HingeJoint>().connectedBody = hatsOrder[p+1].GetComponent<Rigidbody>();*/
+
+            ConfigurableJoint CJ = hatsOrder[p].AddComponent<ConfigurableJoint>();
+            hatsOrder[p].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            hatsOrder[p].GetComponent<Rigidbody>().useGravity = false;
+            hatsOrder[p].GetComponent<Rigidbody>().mass = 3;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().axis = new Vector3(0, -1, 0);
+
+            hatsOrder[p].GetComponent<ConfigurableJoint>().xMotion = ConfigurableJointMotion.Locked;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().yMotion = ConfigurableJointMotion.Locked;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().zMotion = ConfigurableJointMotion.Locked;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Locked;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Locked;
+
+            JointDrive JDx = CJ.xDrive;
+            JDx.positionSpring = 1000;
+            JointDrive JDy = CJ.yDrive;
+            JDy.positionSpring = 1000;
+            JointDrive JDz = CJ.zDrive;
+            JDz.positionSpring = 1000;
+
+            JointDrive JDAx = CJ.angularXDrive;
+            JDAx.positionSpring = 1000;
+            JointDrive JDAyz = CJ.angularYZDrive;
+            JDAyz.positionSpring = 1000;
+            
+            //connect bodies
+            hatsOrder[p].GetComponent<ConfigurableJoint>().connectedBody = hatsOrder[p+1].GetComponent<Rigidbody>();
 
             player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         }
