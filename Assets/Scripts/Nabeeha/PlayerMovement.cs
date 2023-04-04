@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem.Users;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -82,6 +83,14 @@ public class PlayerMovement : MonoBehaviour
     public void move(InputAction.CallbackContext context)
     {
         playermovement = context.ReadValue<Vector2>();
+    }
+
+    public void rumbleFunction(float lowFreq, float highFreq, float duration)
+    {
+        Debug.Log(InputSystem.GetDevice<Gamepad>().deviceId);
+        PlayerInput input = this.GetComponent<PlayerInput>();
+        RumbleManager.instance.RumblePulse(lowFreq, highFreq, duration, input.GetDevice<Gamepad>());
+
     }
 
 }

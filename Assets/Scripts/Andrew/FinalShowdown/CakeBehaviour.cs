@@ -7,6 +7,7 @@ public class CakeBehaviour : MonoBehaviour
     float timer, timer2 = 0;
     public float coolDown, destroyTime = 0;
     bool triggerBool;
+    public bool destroy;
     public GameObject enemyPlayer, player;
     AudioSource audio;
     // Start is called before the first frame update
@@ -14,15 +15,14 @@ public class CakeBehaviour : MonoBehaviour
     {
         triggerBool = false;
         audio = GetComponent<AudioSource>();
-        destroyTime = 5;
-        coolDown = 2.2f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         timer2 += Time.deltaTime;
-        if (timer2 > destroyTime)
+        if (timer2 > destroyTime && triggerBool == false)
         {
             Destroy(this.gameObject);
         }
@@ -38,16 +38,23 @@ public class CakeBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.tag == "Player" && other.tag != player.tag)
-        {
+        if (other.transform.parent) {
+            if (other.transform.parent.tag == "Player" && other.tag != player.tag)
+            {
 
-            enemyPlayer = other.gameObject;
-            triggerBool = true;
-            
+                enemyPlayer = other.gameObject;
+                triggerBool = true;
+
+                gameObject.transform.parent = enemyPlayer.transform;
+
+
+            }
 
         }
+        
 
     }
+
     void triggeredSlow()
     {
         timer += Time.deltaTime;
@@ -74,11 +81,17 @@ public class CakeBehaviour : MonoBehaviour
         {
             //enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 30f;
             enemyPlayer.GetComponent<Rigidbody>().isKinematic = false;
-            Destroy(gameObject);
 
             //eating animation
             enemyPlayer.transform.GetChild(0).GetComponent<Animator>().ResetTrigger("isEatingIdle");
             enemyPlayer.transform.GetChild(0).GetComponent<Animator>().ResetTrigger("isEatingRun");
+
+
+            triggerBool = false;
+            // Destroys THIS gameObject
+            Destroy(gameObject);
+
+            
         }
     }
 

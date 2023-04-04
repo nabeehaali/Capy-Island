@@ -2219,13 +2219,13 @@ GameObject:
   - component: {fileID: 5230806876772815119}
   - component: {fileID: 3633946855241365499}
   - component: {fileID: -2620518577334311987}
+  - component: {fileID: 6441161566242104072}
   - component: {fileID: 836688330318671041}
   - component: {fileID: -7039440061155827710}
   - component: {fileID: 995758133479383393}
   - component: {fileID: 7997116490264853362}
   - component: {fileID: -3273596894212725944}
   - component: {fileID: 1494917867342941993}
-  - component: {fileID: 1467675571885825028}
   - component: {fileID: -8208240873639778228}
   - component: {fileID: -3349581438292677772}
   - component: {fileID: 8308638142742898081}
@@ -2302,6 +2302,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &6441161566242104072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239014475958362521}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73cf9f6cb9f774b4db598a8ac52c5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
 --- !u!114 &836688330318671041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2496,19 +2509,6 @@ MonoBehaviour:
   inWater: 0
   offBerg: 0
   colCount: 0
---- !u!114 &1467675571885825028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8239014475958362521}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b6a98819bd9874cb6992e1ec8aa004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerScore: 0
 --- !u!82 &-8208240873639778228
 AudioSource:
   m_ObjectHideFlags: 0

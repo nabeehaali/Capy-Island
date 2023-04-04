@@ -150,9 +150,11 @@ public class FinalShowdown : MonoBehaviour
 
     public IEnumerator playerHit(GameObject player, Material originalMat)
     {
-        Debug.Log(player.transform.GetChild(0));
+        //Debug.Log(player.transform.GetChild(0));
         var renderer = player.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
-        
+
+        Debug.Log(player.transform.parent.tag);
+        player.transform.parent.GetComponent<PlayerMovement>().rumbleFunction(0.5f,0.5f,0.5f);
         Material[] materials = renderer.sharedMaterials; 
         materials[0] = redMaterial;
         renderer.sharedMaterials = materials;
