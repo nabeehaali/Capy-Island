@@ -1489,7 +1489,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  capyAudio: {fileID: 0}
+  capyAudio: {fileID: -1644441258967117322}
   movementAudio: {fileID: 0}
   moveType: 
 --- !u!1 &3831157640072676118
