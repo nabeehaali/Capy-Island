@@ -18,8 +18,13 @@ public class HockeyHat : Hat
     }
     void Start()
     {
-        
+        setShieldNormal();
         flag = false;
+    }
+
+    private void OnEnable()
+    {
+        shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
     }
 
     // Update is called once per frame

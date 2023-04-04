@@ -13,6 +13,7 @@ public class ConeHat : Hat
     // Start is called before the first frame update
     void Start()
     {
+        setSpeedNormal();
         flag = false;
     }
 

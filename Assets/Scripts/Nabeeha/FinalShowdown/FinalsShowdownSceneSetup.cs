@@ -134,9 +134,9 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (abilitiesEnabled == true)
                     {
                         player.transform.parent.GetComponent<ChefHat>().enabled = false;
-                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        //player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
                         player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        //player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
                         player.transform.parent.GetComponent<ConeHat>().enabled = false;
                         player.transform.parent.GetComponent<WizardHat>().enabled = true;
 
@@ -148,9 +148,9 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     if (abilitiesEnabled == true)
                     {
                         player.transform.parent.GetComponent<WizardHat>().enabled = false;
-                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        //player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
                         player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        //player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
                         player.transform.parent.GetComponent<ConeHat>().enabled = false;
                         player.transform.parent.GetComponent<ChefHat>().enabled = true;
                     }
@@ -162,7 +162,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                     {
                         player.transform.parent.GetComponent<WizardHat>().enabled = false;
                         player.transform.parent.GetComponent<ChefHat>().enabled = false;
-                        player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
+                        //player.transform.parent.GetComponent<ConeHat>().setSpeedNormal();
                         player.transform.parent.GetComponent<ConeHat>().enabled = false;
                         player.transform.parent.GetComponent<HockeyHat>().enabled = true;
                     }
@@ -174,7 +174,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                         player.transform.parent.GetComponent<WizardHat>().enabled = false;
                         player.transform.parent.GetComponent<ChefHat>().enabled = false;
                         player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                        player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                        //player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
                         player.transform.parent.GetComponent<ConeHat>().enabled = true;
                     }
                 }
