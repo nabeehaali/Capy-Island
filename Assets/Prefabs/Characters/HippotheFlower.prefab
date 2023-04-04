@@ -2505,6 +2505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashParticles: {fileID: 2920308176588117530, guid: 0cc4a6394ccf81347ad64fbb18880d37,
+    type: 3}
   inWater: 0
   offBerg: 0
   colCount: 0

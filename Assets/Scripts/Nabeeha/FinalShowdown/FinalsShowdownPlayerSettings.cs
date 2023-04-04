@@ -115,6 +115,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
             hatsOrder[p].GetComponent<Rigidbody>().useGravity = false;
             hatsOrder[p].GetComponent<Rigidbody>().mass = 3;
             hatsOrder[p].GetComponent<HingeJoint>().axis = new Vector3(0, -1, 0);
+            hatsOrder[p].GetComponent<HingeJoint>().breakForce = 1000;
 
             //connect bodies
             hatsOrder[p].GetComponent<HingeJoint>().connectedBody = hatsOrder[p+1].GetComponent<Rigidbody>();

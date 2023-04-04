@@ -18,7 +18,7 @@ public class CatchUpBreak : MonoBehaviour
 
     IEnumerator textChange()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         sceneText.SetText(newText1);
         sceneText.gameObject.SetActive(true);
         yield return new WaitForSeconds(3);

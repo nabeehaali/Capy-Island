@@ -3194,7 +3194,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -5030,7 +5030,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -5791,6 +5791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerNEW (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -6622,7 +6627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31938038074ca7048aa5a47c1b3c4a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLength: 90
+  gameLength: 20
   gameover: {fileID: 1293470832}
   countdown: {fileID: 457551116}
   p1Score: {fileID: 1893744092}
@@ -8519,6 +8524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerNEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
