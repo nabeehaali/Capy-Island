@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc95548a9d015d428fff55a4f71ce6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 1.2
+  coolDown: 1.5
   destroyTime: 5
   enemyPlayer: {fileID: 0}
   player: {fileID: 0}

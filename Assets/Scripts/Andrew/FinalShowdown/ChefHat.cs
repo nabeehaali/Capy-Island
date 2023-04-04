@@ -8,13 +8,14 @@ public class ChefHat : Hat
 {
     private PlayerInputActions playerControls;
     public GameObject cake;
-    public List<GameObject> hats;
+
+    public List<GameObject> cakeList;
 
 
     int index;
 
-    float timer;
-    float ability;
+    float timer, ability;
+    public float cakeCooldown;
 
     // Start is called before the first frame update
     private void Awake()
@@ -22,6 +23,7 @@ public class ChefHat : Hat
         playerControls = new PlayerInputActions();
         timer = 0;
         index = 0;
+        List<GameObject> cakeList = new List<GameObject>();
     }
 
 
@@ -37,20 +39,21 @@ public class ChefHat : Hat
 
         if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
+            if (ability > 0.5f && timer > cakeCooldown)
+            {
+                GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
+                
+                cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
+
+                timer = 0;
+
+            }
+
             
-                if (ability > 0.5f && timer > 0.5f)
-                {
-
-                    GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
-                    cakeInstance.GetComponent<CakeBehaviour>().player = transform.GetChild(0).gameObject;
 
 
 
-                    timer = 0;
 
-                }
-            
-            
         }
 
     }
