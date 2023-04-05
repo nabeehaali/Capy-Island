@@ -1530,7 +1530,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  iceMove: {fileID: 8300000, guid: c292f8f908b86574389bc568d7029ab6, type: 3}
+  iceMove: {fileID: 8300000, guid: d4995ee835296e642b871802cf127c40, type: 3}
   iceStops:
   - {fileID: 8300000, guid: d4986728e2ca3fd45883eb04536a532c, type: 3}
   - {fileID: 8300000, guid: 246a812caf34c344b93d6eecf6a728b7, type: 3}

@@ -21,6 +21,7 @@ public class CapySoundTrigger : MonoBehaviour
     public string moveType;
 
     public PlayerMovement playerMove;
+    bool playerStopped = true;
 
     public void Start()
     {
@@ -31,6 +32,49 @@ public class CapySoundTrigger : MonoBehaviour
     {
         float mag = playerMove.playermovement.magnitude;
 
+        if (moveType == "water")
+        {
+            if (mag > 0 && playerStopped)
+            {
+                movementAudio.loop = true;
+                movementAudio.clip = waterMove;
+                movementAudio.Play();
+                playerStopped = false;
+            }
+            else if (mag == 0 && !playerStopped)
+            {
+                // playing the stopping sound effect
+                playerStopped = true;
+                movementAudio.loop = false;
+                movementAudio.Stop();
+
+                int waterStop = Random.Range(0, waterStops.Length - 1);
+                movementAudio.clip = waterStops[waterStop];
+                movementAudio.Play();
+            }
+        }
+        else if (moveType == "ice")
+        {
+            // ice SFX
+            if (mag > 0 && playerStopped)
+            {
+                movementAudio.loop = true;
+                movementAudio.clip = iceMove;
+                movementAudio.Play();
+                playerStopped = false;
+            }
+            else if (mag == 0 && !playerStopped)
+            {
+                // playing the stopping sound effect
+                playerStopped = true;
+                movementAudio.loop = false;
+                movementAudio.Stop();
+
+                int iceStop = Random.Range(0, iceStops.Length - 1);
+                movementAudio.clip = iceStops[iceStop];
+                movementAudio.Play();
+            }
+        }
     }
 
     public void PlayChirp()
@@ -52,32 +96,17 @@ public class CapySoundTrigger : MonoBehaviour
         capyAudio.Play();
     }
 
-    public void PlayMove()
-    {
-        if(!movementAudio.isPlaying)
-        {
-            
-            if (moveType == "water")
-            {
-                //int water = Random.Range(0, waterMoves.Length - 1);
-
-
-            }
-            else if (moveType == "ice")
-            {
-                //int ice = Random.Range(0, iceMoves.Length - 1);
-            }
-        } 
-    }
-
     public void PlayStep()
     {
-        float mag = playerMove.playermovement.magnitude;
-        float randomPitch = Random.Range(0.90f, 1.10f);
-        int ground = Random.Range(0, groundSteps.Length - 1);
-        movementAudio.clip = groundSteps[ground];
-        movementAudio.pitch = randomPitch;
-        movementAudio.Play();
+        if (moveType != "ice" && moveType != "water")
+        {
+            float mag = playerMove.playermovement.magnitude;
+            float randomPitch = Random.Range(0.90f, 1.10f);
+            int ground = Random.Range(0, groundSteps.Length - 1);
+            movementAudio.clip = groundSteps[ground];
+            movementAudio.pitch = randomPitch;
+            movementAudio.Play();
+        }
     }
 
 
