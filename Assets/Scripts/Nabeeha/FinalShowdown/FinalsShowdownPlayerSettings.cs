@@ -10,6 +10,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     public List<GameObject> hatsOrderP1, hatsOrderP2, hatsOrderP3, hatsOrderP4;
 
     float inc = 0.6f;
+    bool hatsConnected = false;
     void Start()
     {
         Debug.Log("Start");
@@ -106,6 +107,57 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         
     }
 
+    //private void Update()
+    //{
+    //    connectAllHats(hatsOrderP1, GameObject.FindGameObjectWithTag("Player 1"));
+    //    connectAllHats(hatsOrderP2, GameObject.FindGameObjectWithTag("Player 2"));
+    //    connectAllHats(hatsOrderP3, GameObject.FindGameObjectWithTag("Player 3"));
+    //    connectAllHats(hatsOrderP4, GameObject.FindGameObjectWithTag("Player 4"));
+    //}
+
+    void connectAllHats(List<GameObject> hatsOrder, GameObject player)
+    {
+        if(hatsOrder[0].GetComponent<Rigidbody>().velocity.y >= -0.001f && !hatsConnected)
+        {
+            for (int p = 0; p < hatsOrder.Count - 1; p++)
+            {
+                ConfigurableJoint CJ = hatsOrder[p].AddComponent<ConfigurableJoint>();
+                hatsOrder[p].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                hatsOrder[p].GetComponent<Rigidbody>().useGravity = false;
+                hatsOrder[p].GetComponent<Rigidbody>().mass = 3;
+                hatsOrder[p].GetComponent<ConfigurableJoint>().axis = new Vector3(0, -1, 0);
+
+                hatsOrder[p].GetComponent<ConfigurableJoint>().xMotion = ConfigurableJointMotion.Locked;
+                hatsOrder[p].GetComponent<ConfigurableJoint>().yMotion = ConfigurableJointMotion.Locked;
+                hatsOrder[p].GetComponent<ConfigurableJoint>().zMotion = ConfigurableJointMotion.Locked;
+                hatsOrder[p].GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
+                hatsOrder[p].GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Locked;
+                hatsOrder[p].GetComponent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Locked;
+
+                JointDrive JDx = CJ.xDrive;
+                JDx.positionSpring = 1000;
+                JointDrive JDy = CJ.yDrive;
+                JDy.positionSpring = 1000;
+                JointDrive JDz = CJ.zDrive;
+                JDz.positionSpring = 1000;
+
+                JointDrive JDAx = CJ.angularXDrive;
+                JDAx.positionSpring = 1000;
+                JointDrive JDAyz = CJ.angularYZDrive;
+                JDAyz.positionSpring = 1000;
+
+                //connect bodies
+                hatsOrder[p].GetComponent<ConfigurableJoint>().connectedBody = hatsOrder[p + 1].GetComponent<Rigidbody>();
+
+                player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+            }
+            //call countdown
+            StartCoroutine(GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().startGame());
+            hatsConnected = true;
+        }
+    }
+    
+    
     IEnumerator connectHats(List<GameObject> hatsOrder, GameObject player)
     {
         yield return new WaitForSeconds(5);

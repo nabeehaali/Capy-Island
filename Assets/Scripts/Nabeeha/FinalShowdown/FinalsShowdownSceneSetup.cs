@@ -483,7 +483,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         yield return new WaitForSeconds(1);
         state.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = tempCol;
     }
-    IEnumerator startGame()
+    public IEnumerator startGame()
     {
         yield return new WaitForSeconds(3);
         gameover.gameObject.SetActive(true);

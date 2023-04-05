@@ -8,6 +8,8 @@ public class CatchUp : MonoBehaviour
     public int numHatsCollected;
     public CatchUpControls catchupcontrols;
 
+    CapySoundTrigger soundTrigger;
+
     public GameObject sandParticles;
     public GameObject regularHat;
 
@@ -24,6 +26,8 @@ public class CatchUp : MonoBehaviour
         Physics.IgnoreCollision(GetComponent<MeshCollider>(), GameObject.Find("Sand").GetComponent<MeshCollider>());
 
         order.Add(this.gameObject);
+
+        soundTrigger = GetComponent<CapySoundTrigger>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -42,6 +46,7 @@ public class CatchUp : MonoBehaviour
                 Destroy(collision.gameObject);
                 numHatsCollected += 1;
 
+                soundTrigger.PlayChirp();
                 playerParent.GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
 
                 GameObject currentHat = Instantiate(regularHat, transform.GetChild(3).transform, true);

@@ -12,6 +12,8 @@ public class SledGame : MonoBehaviour
 
     public ParticleSystem splashParticles;
 
+    CapySoundTrigger soundTrigger;
+
     public bool inWater;
     public bool offBerg;
     bool removeCam;
@@ -36,6 +38,8 @@ public class SledGame : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
+
+        soundTrigger = GetComponent<CapySoundTrigger>();
 
     }
 
@@ -94,6 +98,7 @@ public class SledGame : MonoBehaviour
                 _trailRender.emitting = false;
                 _rigidbody.drag = 4;
                 _rigidbody.velocity = Vector3.zero;
+                soundTrigger.PlayChirp();
                 Vector3 particlePos = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z);
                 Instantiate(splashParticles, particlePos, Quaternion.identity, transform);
                 playerParent.GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
@@ -121,6 +126,11 @@ public class SledGame : MonoBehaviour
             if (collision.gameObject.tag == "Iceberg")
             {
                 addCam = true;
+            }
+
+            if(collision.transform.parent.CompareTag("Player"))
+            {
+                soundTrigger.PlayHit();
             }
         }
         

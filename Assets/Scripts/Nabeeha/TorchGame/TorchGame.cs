@@ -6,9 +6,12 @@ public class TorchGame : MonoBehaviour
 {
     public GameObject[] firePrefabs;
     public TorchControls torchcontrols;
- 
+
+    CapySoundTrigger soundTrigger;
+
     void Start()
     {
+        soundTrigger = GetComponent<CapySoundTrigger>();
         torchcontrols = transform.parent.gameObject.GetComponent<TorchControls>();
     }
 
@@ -27,6 +30,7 @@ public class TorchGame : MonoBehaviour
                 if (collision.gameObject.transform.childCount < 1)
                 {
                     Instantiate(firePrefabs[0], collision.gameObject.transform);
+                    soundTrigger.PlayChirp();
                 }
             }
             else if (this.gameObject.tag == "Player 2")
@@ -34,6 +38,7 @@ public class TorchGame : MonoBehaviour
                 if (collision.gameObject.transform.childCount < 1)
                 {
                     Instantiate(firePrefabs[1], collision.gameObject.transform);
+                    soundTrigger.PlayChirp();
                 }
             }
             else if (this.gameObject.tag == "Player 3")
@@ -41,6 +46,7 @@ public class TorchGame : MonoBehaviour
                 if (collision.gameObject.transform.childCount < 1)
                 {
                     Instantiate(firePrefabs[2], collision.gameObject.transform);
+                    soundTrigger.PlayChirp();
                 }
             }
             else if (this.gameObject.tag == "Player 4")
@@ -48,6 +54,7 @@ public class TorchGame : MonoBehaviour
                 if (collision.gameObject.transform.childCount < 1)
                 {
                     Instantiate(firePrefabs[3], collision.gameObject.transform);
+                    soundTrigger.PlayChirp();
                 }
             }
         }
@@ -62,6 +69,7 @@ public class TorchGame : MonoBehaviour
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
                         Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        soundTrigger.PlayChirp();
 
                     }
                 }
@@ -74,6 +82,7 @@ public class TorchGame : MonoBehaviour
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
                         Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        soundTrigger.PlayChirp();
                     }
                 }
 
@@ -85,6 +94,7 @@ public class TorchGame : MonoBehaviour
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
                         Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        soundTrigger.PlayChirp();
                     }
                 }
 
@@ -96,6 +106,7 @@ public class TorchGame : MonoBehaviour
                     for (int i = 0; i < collision.gameObject.transform.childCount; i++)
                     {
                         Destroy(collision.gameObject.transform.GetChild(i).gameObject);
+                        soundTrigger.PlayChirp();
                     }
                 }
 

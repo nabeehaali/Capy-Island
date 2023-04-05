@@ -11,6 +11,8 @@ public class FinalShowdown : MonoBehaviour
     float dist1, dist2, dist3;
     public float proximity;
 
+    CapySoundTrigger soundTrigger;
+
     //FinalsShowdownPlayerSettings finalshowdownplayersettings;
     FinalShowdownControls finalshowdowncontrols;
     public int magnitude;
@@ -21,6 +23,7 @@ public class FinalShowdown : MonoBehaviour
     //int listIndexP1 = 0, listIndexP2 = 0, listIndexP3 = 0, listIndexP4 = 0;
     void Start()
     {
+        soundTrigger = GetComponent<CapySoundTrigger>();
         finalshowdowncontrols = transform.parent.gameObject.GetComponent<FinalShowdownControls>();
         //finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
 
@@ -150,6 +153,7 @@ public class FinalShowdown : MonoBehaviour
 
     public IEnumerator playerHit(GameObject player, Material originalMat)
     {
+        soundTrigger.PlayHit();
         //Debug.Log(player.transform.GetChild(0));
         var renderer = player.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
