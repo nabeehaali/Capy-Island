@@ -11,7 +11,7 @@ public class CapySoundTrigger : MonoBehaviour
     public AudioClip[] groundSteps = new AudioClip[4];
 
     public AudioClip waterMove;
-    public AudioClip[] waterStops = new AudioClip[4];
+    public AudioClip[] waterStops = new AudioClip[3];
 
     public AudioClip iceMove;
     public AudioClip[] iceStops = new AudioClip[4];

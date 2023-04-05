@@ -2638,12 +2638,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 502e0e17a7f98044692b37a344a021c1, type: 3}
   - {fileID: 8300000, guid: fe946cc6cd04c7e4baedbdc8cfce8e7f, type: 3}
   - {fileID: 8300000, guid: 55b931fbf5fdeed4c9a9907bfc611c04, type: 3}
-  waterMove: {fileID: 0}
+  waterMove: {fileID: 8300000, guid: 770b29456aa97174898bf85923058b6b, type: 3}
   waterStops:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bb1f4fb1bb3c20e4f99e066ddfae5d47, type: 3}
+  - {fileID: 8300000, guid: e7a361411b155f84ead9f0684f114e79, type: 3}
+  - {fileID: 8300000, guid: 36eeb1b1cc5ce3543a973fff11aa64bf, type: 3}
   iceMove: {fileID: 8300000, guid: d4995ee835296e642b871802cf127c40, type: 3}
   iceStops:
   - {fileID: 8300000, guid: d4986728e2ca3fd45883eb04536a532c, type: 3}
