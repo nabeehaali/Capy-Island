@@ -175,6 +175,7 @@ public class PlayerInstantiation : MonoBehaviour
             //change angle of cream hat
             for (int i = 0; i < GameObject.FindGameObjectsWithTag("Cream").Length; i++)
             {
+                GameObject.FindGameObjectsWithTag("Cream")[i].transform.localPosition = new Vector3(0.3f, GameObject.FindGameObjectsWithTag("Cream")[i].transform.localPosition.y, 0);
                 GameObject.FindGameObjectsWithTag("Cream")[i].transform.localRotation = Quaternion.Euler(0, 0, -20);
             }
 
@@ -468,7 +469,14 @@ public class PlayerInstantiation : MonoBehaviour
                 //winner special hat
                 theSpecialHat = Instantiate(specialHat[randHat], GameObject.Find(activeList[z].playerID).transform.GetChild(3).GetChild(0).transform, true);
                 theSpecialHat.transform.localPosition = new Vector3(0, 10f + inc, 0.035f);
-                theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                if(theSpecialHat.tag != "Hockey")
+                {
+                    theSpecialHat.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+                else
+                {
+                    theSpecialHat.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
             }
         }
 

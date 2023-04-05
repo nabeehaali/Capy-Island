@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class SledGame : MonoBehaviour
 {
+    private GameObject playerParent;
     private Rigidbody _rigidbody;
     private TrailRenderer _trailRender;
+
+    public ParticleSystem splashParticles;
 
     public bool inWater;
     public bool offBerg;
@@ -23,7 +26,7 @@ public class SledGame : MonoBehaviour
 
     void Start()
     {
-        //change to get parent
+        playerParent = transform.parent.gameObject;
         _rigidbody = transform.GetComponent<Rigidbody>();
         _trailRender = transform.GetComponent<TrailRenderer>();
         ranking = 4;
@@ -52,8 +55,8 @@ public class SledGame : MonoBehaviour
         {
 
             //Destroy(gameObject.transform.parent.GetComponent<SledControls>()); //.enabled = false;
-            //gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
-            gameObject.GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePosition;
+            playerParent.GetComponent<PlayerMovement>().speed = 0;
+            _rigidbody.constraints = ~RigidbodyConstraints.FreezePosition;
             _rigidbody.drag = 0f;
             //change the -0.2 to something else for feel
             //direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
@@ -91,6 +94,9 @@ public class SledGame : MonoBehaviour
                 _trailRender.emitting = false;
                 _rigidbody.drag = 4;
                 _rigidbody.velocity = Vector3.zero;
+                Vector3 particlePos = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z);
+                Instantiate(splashParticles, particlePos, Quaternion.identity, transform);
+                playerParent.GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
                 SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
                 ranking--;
             }

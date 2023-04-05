@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Camera))]
 public class MultipleTargetCam : MonoBehaviour
@@ -16,13 +17,24 @@ public class MultipleTargetCam : MonoBehaviour
 
     private Camera cam;
 
+    Scene currentScene;
+    string sceneName;
+
     private void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
         cam = GetComponent<Camera>();
 
         for(int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             targets.Add(GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).transform);
+        }
+
+        if(sceneName == "05-HideSmash")
+        {
+            targets.Add(GameObject.Find("hideandsmash_idolgrp").transform);
         }
     }
     private void LateUpdate()

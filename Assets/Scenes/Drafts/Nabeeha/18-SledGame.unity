@@ -816,6 +816,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1992156289}
     m_Modifications:
+    - target: {fileID: -2911901960096046018, guid: b246722607752d14db4efe932b9cee49,
+        type: 3}
+      propertyPath: splashParticles
+      value: 
+      objectReference: {fileID: 2920308176588117530, guid: 0cc4a6394ccf81347ad64fbb18880d37,
+        type: 3}
     - target: {fileID: 3764974995125932039, guid: b246722607752d14db4efe932b9cee49,
         type: 3}
       propertyPath: m_Name
@@ -1555,6 +1561,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 634481766}
     m_Modifications:
+    - target: {fileID: 1494917867342941993, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
+        type: 3}
+      propertyPath: splashParticles
+      value: 
+      objectReference: {fileID: 2920308176588117530, guid: 0cc4a6394ccf81347ad64fbb18880d37,
+        type: 3}
     - target: {fileID: 8239014475958362521, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
         type: 3}
       propertyPath: m_Name
@@ -3135,7 +3147,7 @@ Transform:
   m_GameObject: {fileID: 957697081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -266.0628, y: 139.7, z: 786.71625}
-  m_LocalScale: {x: 23.113, y: 1, z: 10.55}
+  m_LocalScale: {x: 114.63817, y: 4.9599, z: 52.326946}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3419,6 +3431,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6458809294954743489, guid: 467924957127e4341840bf8829996299, type: 3}
+--- !u!1 &1056881351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056881353}
+  - component: {fileID: 1056881352}
+  m_Layer: 0
+  m_Name: RumbleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1056881352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056881351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1d6be7b4b83f64084be5fb870a5cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1056881353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056881351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9179512, y: 11.094673, z: 2.024231}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1067635357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4701,6 +4757,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 133672069}
     m_Modifications:
+    - target: {fileID: -530827135834520123, guid: dd11c8090249ed14aa4c6aacc5258620,
+        type: 3}
+      propertyPath: splashParticles
+      value: 
+      objectReference: {fileID: 2920308176588117530, guid: 0cc4a6394ccf81347ad64fbb18880d37,
+        type: 3}
     - target: {fileID: 1196846442678922680, guid: dd11c8090249ed14aa4c6aacc5258620,
         type: 3}
       propertyPath: m_RootOrder
@@ -6469,6 +6531,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2039241847}
     m_Modifications:
+    - target: {fileID: -7732085652968252798, guid: 7a1ed9a9c60752e4f9480df49584ccb6,
+        type: 3}
+      propertyPath: splashParticles
+      value: 
+      objectReference: {fileID: 2920308176588117530, guid: 0cc4a6394ccf81347ad64fbb18880d37,
+        type: 3}
     - target: {fileID: 444811041393182724, guid: 7a1ed9a9c60752e4f9480df49584ccb6,
         type: 3}
       propertyPath: m_RootOrder

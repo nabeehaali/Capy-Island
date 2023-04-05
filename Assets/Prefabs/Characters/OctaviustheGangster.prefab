@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: -8239641701750502548}
   - component: {fileID: -2253299647517331811}
   - component: {fileID: 3072189386509592424}
-  - component: {fileID: 463142461458394371}
+  - component: {fileID: 269597059598891186}
   - component: {fileID: 1049829192762707325}
   - component: {fileID: 7451553804658484977}
   - component: {fileID: -4721272817705273301}
@@ -1218,6 +1218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2bfa636fcac024191cbb9e89f7e847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashParticles: {fileID: 2920308176588117530, guid: 0cc4a6394ccf81347ad64fbb18880d37,
+    type: 3}
   inWater: 0
   offBerg: 0
   colCount: 0
@@ -1382,7 +1384,7 @@ MonoBehaviour:
   originalMaterialP4: {fileID: 0}
   proximity: 10
   magnitude: 50
---- !u!114 &463142461458394371
+--- !u!114 &269597059598891186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1391,7 +1393,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2006316057326876418}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b6a98819bd9874cb6992e1ec8aa004, type: 3}
+  m_Script: {fileID: 11500000, guid: 73cf9f6cb9f774b4db598a8ac52c5d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
@@ -5157,6 +5159,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2103912957569628705, guid: 66842c78c9c0ba74c8ed57e326254021,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103912957569628705, guid: 66842c78c9c0ba74c8ed57e326254021,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.031999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103912957569628705, guid: 66842c78c9c0ba74c8ed57e326254021,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103912957569628705, guid: 66842c78c9c0ba74c8ed57e326254021,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5215,6 +5232,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8195766383022877653, guid: 66842c78c9c0ba74c8ed57e326254021,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7cafb7f86ff6f2843a564d22ab9dda53, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66842c78c9c0ba74c8ed57e326254021, type: 3}
 --- !u!4 &5744585548668075643 stripped

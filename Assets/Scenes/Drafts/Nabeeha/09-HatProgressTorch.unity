@@ -2179,7 +2179,7 @@ MonoBehaviour:
   specialHat:
   - {fileID: 3883263500666222123, guid: 1405de182e5589e478838c4f08c8fe7d, type: 3}
   - {fileID: 1775868734875249667, guid: 06456118fd870f14896206519fc2e2b0, type: 3}
-  - {fileID: 3883263500666222123, guid: cb1cde28caf538e4e84d40d05bb61400, type: 3}
+  - {fileID: 6278941798796566283, guid: 3e89c7b155a892c43908dd5ee31eb488, type: 3}
   - {fileID: 2988067154157530007, guid: c4be30581fb0d32438175c11b541b701, type: 3}
   skip: {fileID: 748590802}
   skipUI: {fileID: 64873798}

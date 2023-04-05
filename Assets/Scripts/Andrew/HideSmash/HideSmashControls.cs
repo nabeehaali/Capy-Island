@@ -4,47 +4,29 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-//public class HideSmashControls2 : MonoBehaviour
-//{
-//    public bool smashed;
-
-//    public void Smash(InputAction.CallbackContext context)
-//    {
-//        if (context.performed)
-//        {
-//            StartCoroutine(SmashHit());
-//            //smashed = true;
-//        }
-//        else if (context.canceled)
-//        {
-//           //smashed = false;
-//        }
-//    }
-
-//    IEnumerator SmashHit()
-//    {
-//        smashed = true;
-//        yield return new WaitForSeconds(0.5f);
-//        smashed = false;
-//    }
-//}
-public class HideSmashControls2 : MonoBehaviour
+public class HideSmashControls : MonoBehaviour
 {
 
-    public bool isPush;
+    public bool isPush, rumbleOn;
+    int gamepadId;
 
     [SerializeField] public Animator animator;
 
     // Start is called before the first frame update
     private void Start()
     {
+        rumbleOn = false;
         isPush = false;
         animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+
+        
     }
 
     private void Update()
     {
-
+       
+            
+           
     }
 
     public void Push(InputAction.CallbackContext context)
@@ -65,7 +47,7 @@ public class HideSmashControls2 : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
             animator.SetTrigger("isHittingWalk");
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.7f);
             animator.ResetTrigger("isHittingWalk");
             transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
         }
@@ -75,5 +57,6 @@ public class HideSmashControls2 : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         isPush = false;
     }
+    
 
 }
