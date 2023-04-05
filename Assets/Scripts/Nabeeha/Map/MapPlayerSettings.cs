@@ -32,6 +32,9 @@ public class MapPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().useGravity = false;
 
+        //setting movement sound set
+        player.GetComponent<CapySoundTrigger>().moveType = "GROUND";
+
         player.transform.GetChild(0).GetChild(0).GetComponent<BoxCollider>().enabled = false;
 
         //player.GetComponent<Animator>().enabled = false;

@@ -52,6 +52,9 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
+        //setting movement sound set
+        player.GetComponent<CapySoundTrigger>().moveType = "GROUND";
+
         hatsOrder.Add(player);
         
         //enable hats

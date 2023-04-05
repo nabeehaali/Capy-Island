@@ -38,6 +38,9 @@ public class TorchPlayerSettings : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = false;
         player.GetComponent<Rigidbody>().isKinematic = false;
 
+        //setting movement sound set
+        player.GetComponent<CapySoundTrigger>().moveType = "GROUND";
+
         Instantiate(spotLight, player.gameObject.transform);
 
         //disable hats

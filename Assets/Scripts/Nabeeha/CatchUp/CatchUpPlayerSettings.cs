@@ -43,6 +43,7 @@ public class CatchUpPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        player.GetComponent<CapySoundTrigger>().moveType = "GROUND";
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)

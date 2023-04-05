@@ -38,6 +38,7 @@ public class AlligatorPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<AlligatorGame>().enabled = true;
+        player.GetComponent<CapySoundTrigger>().moveType = "WATER";
 
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         player.GetComponent<Rigidbody>().drag = 1.7f;
