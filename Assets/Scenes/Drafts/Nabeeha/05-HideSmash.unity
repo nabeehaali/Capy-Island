@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18383692, g: 0.22855675, b: 0.30065536, a: 1}
+  m_IndirectSpecularColor: {r: 0.18383732, g: 0.22855939, b: 0.30066478, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8071,8 +8071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.4
-  redMat: {fileID: 2100000, guid: a50ab59d89e0ac74582a65b5a5a759ab, type: 2}
-  originalMat: {fileID: 2100000, guid: 7999f10420fea4b44b06d440b54f408d, type: 2}
+  redMat: {fileID: 2100000, guid: 7cafb7f86ff6f2843a564d22ab9dda53, type: 2}
+  originalMat: {fileID: 2100000, guid: 7cafb7f86ff6f2843a564d22ab9dda53, type: 2}
   idolStart: {fileID: 1065106261}
   mainCam: {fileID: 957618030}
   idolRotateInterval: 1.5
