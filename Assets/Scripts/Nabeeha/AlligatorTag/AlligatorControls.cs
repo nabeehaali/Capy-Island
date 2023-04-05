@@ -80,6 +80,7 @@ public class AlligatorControls : MonoBehaviour
             isLeader = false;
         }
         isBit = true;
+        gameObject.GetComponent<PlayerMovement>().animator.SetBool("isWalking", false); // a lil ugly lol
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         playerObj.transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1.96f, playerObj.transform.position.z);

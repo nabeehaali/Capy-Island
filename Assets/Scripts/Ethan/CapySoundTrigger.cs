@@ -1,19 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 public class CapySoundTrigger : MonoBehaviour
 {
     public AudioClip[] chirps = new AudioClip[11];
     public AudioClip[] hits = new AudioClip[3];
 
-    public AudioClip[] groundSteps = new AudioClip[3];
-    public AudioClip[] waterMoves = new AudioClip[3];
-    public AudioClip[] iceMoves = new AudioClip[3];
+    public AudioClip[] groundSteps = new AudioClip[4];
+
+    public AudioClip waterMove;
+    public AudioClip[] waterStops = new AudioClip[4];
+
+    public AudioClip iceMove;
+    public AudioClip[] iceStops = new AudioClip[4];
 
     public AudioSource capyAudio;
     public AudioSource movementAudio;
     public string moveType;
+
+    public PlayerMovement playerMove;
+
+    public void Start()
+    {
+        playerMove = gameObject.GetComponentInParent<PlayerMovement>();
+    }
+
+    public void FixedUpdate()
+    {
+        float mag = playerMove.playermovement.magnitude;
+
+    }
 
     public void PlayChirp()
     {
@@ -34,29 +52,32 @@ public class CapySoundTrigger : MonoBehaviour
         capyAudio.Play();
     }
 
-    public void PlayMove(float moveMag)
+    public void PlayMove()
     {
         if(!movementAudio.isPlaying)
         {
-            float randomPitch = Random.Range(0.90f, 1.10f);
-            movementAudio.pitch = randomPitch;
+            
             if (moveType == "water")
             {
-                int water = Random.Range(0, waterMoves.Length - 1);
+                //int water = Random.Range(0, waterMoves.Length - 1);
 
 
             }
             else if (moveType == "ice")
             {
-                int ice = Random.Range(0, iceMoves.Length - 1);
-            }
-            else
-            {
-                // default to ground
-                int ground = Random.Range(0, groundSteps.Length - 1);
-
+                //int ice = Random.Range(0, iceMoves.Length - 1);
             }
         } 
+    }
+
+    public void PlayStep()
+    {
+        float mag = playerMove.playermovement.magnitude;
+        float randomPitch = Random.Range(0.90f, 1.10f);
+        int ground = Random.Range(0, groundSteps.Length - 1);
+        movementAudio.clip = groundSteps[ground];
+        movementAudio.pitch = randomPitch;
+        movementAudio.Play();
     }
 
 
