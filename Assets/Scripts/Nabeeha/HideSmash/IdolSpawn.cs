@@ -61,10 +61,10 @@ public class IdolSpawn : MonoBehaviour
             if(isUpdate)
             {
                 isUpdate = false;
-                if (vecMinZ < 30)
-                {
-                    vecMinZ += 2;
-                }
+                //if (vecMinZ < 30)
+                //{
+                //    vecMinZ += 2;
+                //}
                 StartCoroutine(spawnVase());
             }
         }

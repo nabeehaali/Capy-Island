@@ -49,20 +49,32 @@ public class StatueRotation2 : MonoBehaviour
 
         if (timer > idolRotateInterval) 
         {
-            rand = Random.Range(1, 4);
-            //Debug.Log(rand);
+            rand = Random.Range(1, 2);
+            Debug.Log(rand);
             timer = 0;
         }
 
         total += speed;
 
-        if (total > 90 || rand == 1)
+        if (transform.eulerAngles.y > 0 || rand == 1)
         {
             speed = -0.1f;
         }
-        else if (total < -90 || rand == 2)
+        else if (transform.eulerAngles.y < 180 || rand == 2)
         {
             speed = 0.1f;
+        }
+        else if (transform.eulerAngles.y < 0)
+        {
+            Debug.Log("Do something!");
+            if (rand == 1)
+            {
+                speed = -0.1f;
+            }
+            else if (rand == 2)
+            {
+                speed = 0.1f;
+            }
         }
  
     }

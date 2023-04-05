@@ -47,7 +47,7 @@ public class HideSmashControls : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
             animator.SetTrigger("isHittingWalk");
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.7f);
             animator.ResetTrigger("isHittingWalk");
             transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18383692, g: 0.22855675, b: 0.30065536, a: 1}
+  m_IndirectSpecularColor: {r: 0.18383732, g: 0.22855939, b: 0.30066478, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3862,7 +3862,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -5758,7 +5758,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -6726,7 +6726,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
@@ -8907,6 +8907,26 @@ MonoBehaviour:
   mainCam: {fileID: 957618030}
   idolRotateInterval: 1.5
   minDistanceToDIE: 52
+--- !u!95 &1971970141
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971970137}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48795730876fa9a409c1b6dee9617c0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1975659205
 GameObject:
   m_ObjectHideFlags: 0
@@ -9754,7 +9774,7 @@ PrefabInstance:
     - target: {fileID: 6570967013377015227, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048018798763391526, guid: ac89f794ed75e0846a84df9a4961aa3e,
         type: 3}

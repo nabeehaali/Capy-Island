@@ -18,6 +18,7 @@ public class StatueRotation : MonoBehaviour
     private float timer;
     int rand;
 
+    float animSpeed = 1;
 
     void Start()
     {
@@ -28,19 +29,21 @@ public class StatueRotation : MonoBehaviour
         total = 0f;
         timer = 0.0f;
         rand = 0;
-        
 
         player1 = GameObject.FindGameObjectWithTag("Player 1");
         player2 = GameObject.FindGameObjectWithTag("Player 2");
         player3 = GameObject.FindGameObjectWithTag("Player 3");
         player4 = GameObject.FindGameObjectWithTag("Player 4");
 
+        StartCoroutine(beginRotation());
+        //StartCoroutine(turnLightOn());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotation();
+        //rotation();
 
     }
 
@@ -50,20 +53,20 @@ public class StatueRotation : MonoBehaviour
 
         timer += Time.deltaTime;
 
-
         if (timer > idolRotateInterval) 
         {
-            rand = Random.Range(1, 4);
-            if (rand == 3 || rand == 4)
-            {
-                lightOn = !lightOn;
-                gameObject.transform.Find("Light").gameObject.SetActive(lightOn);
-            }
+            rand = Random.Range(1, 2);
+            //if (rand == 3 || rand == 4)
+            //{
+            //    lightOn = !lightOn;
+            //    gameObject.transform.Find("Light").gameObject.SetActive(lightOn);
+            //}
             //Debug.Log(rand);
             timer = 0;
         }
 
         total += speed;
+        //Debug.Log(transform.eulerAngles.y - 90);
 
         if (total > 90 || rand == 1)
         {
@@ -174,4 +177,32 @@ public class StatueRotation : MonoBehaviour
 
     }
 
+    IEnumerator changeAnimSpeed()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10);
+            animSpeed += 0.5f;
+            GetComponent<Animator>().SetFloat("Speed", animSpeed);
+        }
+        
+    }
+    IEnumerator turnLightOn()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(4f);
+            gameObject.transform.Find("Light").gameObject.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            gameObject.transform.Find("Light").gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator beginRotation()
+    {
+        yield return new WaitForSeconds(6);
+        GetComponent<Animator>().enabled = true;
+        StartCoroutine(turnLightOn());
+        StartCoroutine(changeAnimSpeed());
+    }
 }
