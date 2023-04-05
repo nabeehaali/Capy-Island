@@ -675,7 +675,7 @@ PrefabInstance:
     - target: {fileID: -3349581438292677772, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
         type: 3}
       propertyPath: moveType
-      value: ice
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8239014475958362521, guid: 05c6ed8149af53b4b8ae1da0cdfb4cdc,
         type: 3}

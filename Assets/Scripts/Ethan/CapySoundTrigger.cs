@@ -32,7 +32,7 @@ public class CapySoundTrigger : MonoBehaviour
     {
         float mag = playerMove.playermovement.magnitude;
 
-        if (moveType == "water")
+        if (moveType == "WATER")
         {
             if (mag > 0 && playerStopped)
             {
@@ -53,7 +53,7 @@ public class CapySoundTrigger : MonoBehaviour
                 movementAudio.Play();
             }
         }
-        else if (moveType == "ice")
+        else if (moveType == "ICE")
         {
             // ice SFX
             if (mag > 0 && playerStopped)
@@ -98,7 +98,7 @@ public class CapySoundTrigger : MonoBehaviour
 
     public void PlayStep()
     {
-        if (moveType != "ice" && moveType != "water")
+        if (moveType != "ICE" && moveType != "WATER")
         {
             float mag = playerMove.playermovement.magnitude;
             float randomPitch = Random.Range(0.90f, 1.10f);

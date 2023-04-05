@@ -15,6 +15,7 @@ public class AlligatorControls : MonoBehaviour
     //public TextMeshProUGUI display;
     public GameObject crownObj;
     public GameObject playerObj;
+    CapySoundTrigger soundTrigger;
 
     float lastUpdate = 0;
     public bool isBit = false;
@@ -36,6 +37,7 @@ public class AlligatorControls : MonoBehaviour
     {
         playerID = gameObject.transform.GetChild(0).tag;
         playerObj = gameObject.transform.GetChild(0).gameObject;
+        soundTrigger = playerObj.GetComponent<CapySoundTrigger>();
         Regex rgx = new Regex(@"([^A-Z0-9 -]|\s|)"); // remove spaces, numbers and non-capitals
         playerShortDisplay = rgx.Replace(playerID, "");
 
@@ -84,7 +86,7 @@ public class AlligatorControls : MonoBehaviour
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         playerObj.transform.rotation = Quaternion.Euler(180, gameObject.transform.GetChild(0).transform.rotation.eulerAngles.y, 0);
         playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1.96f, playerObj.transform.position.z);
-        playerObj.GetComponent<CapySoundTrigger>().PlayHit();
+        soundTrigger.PlayHit();
         StartCoroutine(BiteReset());
     }
 
@@ -96,7 +98,6 @@ public class AlligatorControls : MonoBehaviour
             {
                 if (crownObj.transform.parent != null)
                 {
-                    Debug.Log("Reached!");
                     // basically just a catch statement before actually stealing the crown
                     if (crownObj.GetComponentInParent<AlligatorControls>().isLeader
                         && !crownObj.GetComponentInParent<AlligatorControls>().isImmune)
@@ -107,7 +108,7 @@ public class AlligatorControls : MonoBehaviour
                         crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                         isLeader = true;
                         isImmune = true;
-                        playerObj.GetComponent<CapySoundTrigger>().PlayChirp();
+                        soundTrigger.PlayChirp();
                         StealParticles();
                         StartCoroutine(ImmuneTimeout());
                     }
@@ -118,7 +119,7 @@ public class AlligatorControls : MonoBehaviour
                     crownObj.transform.parent = playerObj.transform;
                     crownObj.transform.position = new Vector3(playerObj.transform.position.x, crownObj.transform.position.y, playerObj.transform.position.z);
                     isLeader = true;
-                    playerObj.GetComponent<CapySoundTrigger>().PlayChirp();
+                    soundTrigger.PlayChirp();
                     StealParticles();
                 }
             }

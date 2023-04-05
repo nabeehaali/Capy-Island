@@ -45,6 +45,7 @@ public class AlligatorSceneSetup : MonoBehaviour
         
         players = GameObject.FindGameObjectsWithTag("Player");
         firstGator = GameObject.FindGameObjectWithTag("Alligator");
+        firstGator.GetComponent<AlligatorBrain>().enabled = false;
         gatorSpawnPos = firstGator.transform.position;
         gatorSpawnRot = firstGator.transform.rotation;
 
@@ -154,6 +155,8 @@ public class AlligatorSceneSetup : MonoBehaviour
         gameover.SetText("Start!");
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(false);
+
+        firstGator.GetComponent<AlligatorBrain>().enabled = true;
 
         GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
