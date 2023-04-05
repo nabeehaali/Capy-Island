@@ -16,6 +16,8 @@ public class PlayerSpawnManager : MonoBehaviour
     {
         playerInput.gameObject.GetComponent<PlayerDetails>().playerID = playerInput.playerIndex + 1;
         playerInput.gameObject.GetComponent<PlayerDetails>().startPos = spawnLocations[playerInput.playerIndex].position;
+        // doesn't work, possibly loop back later
+        //playerInput.gameObject.GetComponentInChildren<CapySoundTrigger>().PlayChirp();
 
         //playerInput.gameObject.GetComponent<PlayerMovement>().enabled = true;
 

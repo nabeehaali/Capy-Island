@@ -44,7 +44,10 @@ public class SledPlayerSettings : MonoBehaviour
         player.GetComponent<MeshCollider>().enabled = false;
         player.GetComponent<BoxCollider>().enabled = true;
 
-        
+        //setting movement sound set
+        player.GetComponent<CapySoundTrigger>().moveType = "ICE";
+
+
 
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)

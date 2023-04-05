@@ -41,6 +41,9 @@ public class InstructionsPlayerSettings : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
 
+        //setting movement sound set
+        player.GetComponent<CapySoundTrigger>().moveType = "GROUND";
+
         //disable hats
         for (int i = 0; i < player.transform.childCount; i++)
         {

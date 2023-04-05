@@ -33,6 +33,7 @@ public class DisasterPlayerSettings : MonoBehaviour
         player.GetComponent<AlligatorGame>().enabled = false;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().useGravity = false;
+        player.GetComponent<CapySoundTrigger>().moveType = "GROUND";
 
         ////disable hats
         //for (int i = 0; i < player.transform.childCount; i++)
