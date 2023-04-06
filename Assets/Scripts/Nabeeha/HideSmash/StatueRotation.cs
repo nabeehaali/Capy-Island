@@ -187,7 +187,7 @@ public class StatueRotation : MonoBehaviour
         }
         
     }
-    IEnumerator turnLightOn()
+    public IEnumerator turnLightOn()
     {
         while(true)
         {

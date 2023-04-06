@@ -184,7 +184,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
             hatsOrder[p].GetComponent<ConfigurableJoint>().xMotion = ConfigurableJointMotion.Locked;
             hatsOrder[p].GetComponent<ConfigurableJoint>().yMotion = ConfigurableJointMotion.Locked;
             hatsOrder[p].GetComponent<ConfigurableJoint>().zMotion = ConfigurableJointMotion.Locked;
-            hatsOrder[p].GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Limited;
             hatsOrder[p].GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Locked;
             hatsOrder[p].GetComponent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Locked;
 

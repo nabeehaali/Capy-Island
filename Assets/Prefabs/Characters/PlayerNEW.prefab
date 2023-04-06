@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPush: 0
+  rumbleOn: 0
   animator: {fileID: 0}
 --- !u!114 &-793117647168687137
 MonoBehaviour:
@@ -548,4 +549,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   cake: {fileID: 2086314084963142222, guid: cf65e81392c315c408fae15ad81ae02e, type: 3}
-  hats: []
+  cakeList: []
+  cakeCooldown: 1

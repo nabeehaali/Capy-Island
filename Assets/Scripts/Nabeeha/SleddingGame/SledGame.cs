@@ -128,7 +128,7 @@ public class SledGame : MonoBehaviour
                 addCam = true;
             }
 
-            if(collision.transform.parent.CompareTag("Player"))
+            if(collision.transform.root.CompareTag("Player"))
             {
                 soundTrigger.PlayHit();
             }

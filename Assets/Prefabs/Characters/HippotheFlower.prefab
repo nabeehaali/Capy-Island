@@ -2493,7 +2493,7 @@ MonoBehaviour:
   originalMaterialP3: {fileID: 0}
   originalMaterialP4: {fileID: 0}
   proximity: 10
-  magnitude: 50
+  magnitude: 25
 --- !u!114 &1494917867342941993
 MonoBehaviour:
   m_ObjectHideFlags: 0

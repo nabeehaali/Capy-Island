@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HideSmash : MonoBehaviour
 {
     public int playerScore;
     CapySoundTrigger soundTrigger;
+
+    Scene currentScene;
+    string sceneName;
     // Start is called before the first frame update
     void Start()
     {
         soundTrigger = GetComponent<CapySoundTrigger>();
         playerScore = 0;
+
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
 
     // Update is called once per frame
@@ -21,19 +28,26 @@ public class HideSmash : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true)
+        if (sceneName == "05-HideSmash")
         {
-            soundTrigger.PlayHit();
-            Destroy(other.gameObject);
-            playerScore++;
+            if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true)
+            {
+                soundTrigger.PlayHit();
+                Destroy(other.gameObject);
+                playerScore++;
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.root.CompareTag("Player"))
+        if(sceneName == "05-HideSmash")
         {
-            soundTrigger.PlayChirp();
+            if (collision.transform.root.CompareTag("Player"))
+            {
+                soundTrigger.PlayChirp();
+            }
         }
+        
     }
 }

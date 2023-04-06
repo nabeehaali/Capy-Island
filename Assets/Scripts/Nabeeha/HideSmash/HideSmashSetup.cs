@@ -75,6 +75,9 @@ public class HideSmashSetup : MonoBehaviour
             //set animation bool to false?????
         }
 
+        //removing light at the end of the game
+         GameObject.Find("hideandsmash_idolgrp").GetComponent<StatueRotation>().enabled = false;
+        
 
         StartCoroutine(finishGame());
 
