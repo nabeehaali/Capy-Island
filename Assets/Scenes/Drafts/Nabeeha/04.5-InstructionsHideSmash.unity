@@ -148,7 +148,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27740613}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 179583996aef0784aad969cbf28d0e81, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 11d8a01f0b48f54488accf7def42be88, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -869,9 +869,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Destroy as many vases as you can,
 
-    but beware...the capy idol is watching
+    but beware...the capy idol is watching.
 
-    you...'
+    Get
+    caught in the light and you''ll freeze!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
   m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
@@ -1115,7 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.30701655, b: 0.1324314, a: 1}
+  m_Color: {r: 0.8207547, g: 0.3183444, b: 0.16002129, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1723,7 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509804, g: 0.20784315, b: 0, a: 1}
+  m_Color: {r: 0.909804, g: 0.43137258, b: 0.16470589, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2156,7 +2157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 34847f8e3244047418c76bcf75731237, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 023a891d5ac9f1a43bb329841e9617a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2459,7 +2460,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0.754717, g: 0.4313456, b: 0.13290608, a: 1}
+  m_Color: {r: 0.85490197, g: 0.4465755, b: 0.21960782, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2728,7 +2729,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2b923e8ee6467ea489ff8b96594120b8, type: 3}
-  m_Color: {r: 0.9150943, g: 0.7599656, b: 0.14388269, a: 1}
+  m_Color: {r: 0.8584906, g: 0.60894066, b: 0.11878477, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3712,7 +3713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760010460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8923,9 +8924,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Left joystick to move
 
-    To light up
-
-    To blow out'
+    To destroy vases'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1264282fc3edb24badb4a697521cf32, type: 2}
   m_sharedMaterial: {fileID: 6986192629861215886, guid: a1264282fc3edb24badb4a697521cf32,
