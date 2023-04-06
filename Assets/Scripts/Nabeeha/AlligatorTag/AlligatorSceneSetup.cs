@@ -152,7 +152,7 @@ public class AlligatorSceneSetup : MonoBehaviour
             yield return new WaitForSeconds(1);
             count--;
         }
-        gameover.SetText("Start!");
+        gameover.SetText("START!");
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(false);
 
@@ -208,7 +208,7 @@ public class AlligatorSceneSetup : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
-        gameover.SetText("Game Over!");
+        gameover.SetText("GAME OVER!");
         yield return new WaitForSeconds(2);
 
         Destroy(GameObject.FindGameObjectWithTag("Alligator Crown"));

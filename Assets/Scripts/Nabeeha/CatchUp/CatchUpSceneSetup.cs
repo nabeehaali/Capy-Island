@@ -59,7 +59,7 @@ public class CatchUpSceneSetup : MonoBehaviour
 
         hatsCollected = GameObject.FindGameObjectWithTag("Player 1").GetComponent<CatchUp>().numHatsCollected + GameObject.FindGameObjectWithTag("Player 2").GetComponent<CatchUp>().numHatsCollected + GameObject.FindGameObjectWithTag("Player 3").GetComponent<CatchUp>().numHatsCollected + GameObject.FindGameObjectWithTag("Player 4").GetComponent<CatchUp>().numHatsCollected;
 
-        hatsText.SetText("Hats Collected: " + hatsCollected + " / " + totalHats);
+        hatsText.SetText("TOTAL HATS: " + hatsCollected + " / " + totalHats);
 
         if (hatsCollected == totalHats && !gameDone)
         {
@@ -183,7 +183,7 @@ public class CatchUpSceneSetup : MonoBehaviour
         distinct = catchuppoints.Distinct(new ItemEqualityComparer()).ToList();
 
         yield return new WaitForSeconds(1);
-        gameover.SetText("Game Over!");
+        gameover.SetText("GAME OVER!");
         gameover.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
 

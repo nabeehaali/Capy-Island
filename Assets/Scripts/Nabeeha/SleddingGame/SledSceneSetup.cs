@@ -139,7 +139,7 @@ public class SledSceneSetup : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
-        gameover.SetText("Game Over!");
+        gameover.SetText("GAME OVER!");
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -156,7 +156,7 @@ public class SledSceneSetup : MonoBehaviour
             yield return new WaitForSeconds(1);
             count--;
         }
-        gameover.SetText("Start!");
+        gameover.SetText("START!");
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(false);
 
