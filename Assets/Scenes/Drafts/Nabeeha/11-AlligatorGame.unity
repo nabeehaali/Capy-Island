@@ -4339,7 +4339,7 @@ MonoBehaviour:
     type: 3}
   waterBoundPlane: {fileID: 1905474672}
   countdown: {fileID: 2023857284}
-  gameLength: 30
+  gameLength: 20
   p1State: {fileID: 288232553}
   p2State: {fileID: 769736870}
   p3State: {fileID: 1516399336}

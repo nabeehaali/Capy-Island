@@ -12012,7 +12012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routes:
   - {fileID: 2014814390}
-  speedModifier: 0.25
+  speedModifier: 0.75
   delayTime: 0
   skip: {fileID: 960895415}
   skipUI: {fileID: 2012257603}

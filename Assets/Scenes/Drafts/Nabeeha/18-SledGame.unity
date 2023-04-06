@@ -5090,7 +5090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameover: {fileID: 687415255}
   countdown: {fileID: 1915056853}
-  gameLength: 30
+  gameLength: 10
   p1State: {fileID: 2053871038}
   p2State: {fileID: 127809067}
   p3State: {fileID: 1941018124}

@@ -66,7 +66,7 @@ public class FollowPath : MonoBehaviour
         {
             //routeToGo = 0;
             //yield break;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.3f);
             skipUI.SetActive(true);
             skip.SetActive(true);
             yield break;

@@ -47,7 +47,7 @@ public class PlayerInstantiation : MonoBehaviour
     string sceneName;
     void Start()
     {
-        skip.SetActive(false);
+        //skip.SetActive(false);
         skipUI.SetActive(false);
         allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
@@ -460,7 +460,7 @@ public class PlayerInstantiation : MonoBehaviour
             //fourth place (gets none)
         }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         for (int z = 0; z < placements.Length; z++)
         {
