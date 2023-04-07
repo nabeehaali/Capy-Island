@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void rumbleFunction(float lowFreq, float highFreq, float duration)
     {
-        Debug.Log(InputSystem.GetDevice<Gamepad>().deviceId);
+        //Debug.Log(InputSystem.GetDevice<Gamepad>().deviceId);
         PlayerInput input = this.GetComponent<PlayerInput>();
         RumbleManager.instance.RumblePulse(lowFreq, highFreq, duration, input.GetDevice<Gamepad>());
 

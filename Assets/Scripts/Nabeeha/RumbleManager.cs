@@ -24,7 +24,7 @@ public class RumbleManager : MonoBehaviour
         //pad = InputSystem.GetDevice<Gamepad>();
         if (pad != null)
         {
-            Debug.Log(pad.device.deviceId);
+            //Debug.Log(pad.device.deviceId);
             pad.SetMotorSpeeds(lowFreq, highFreq);
             stopRumbleAfterCoroutine = StartCoroutine(stopRumble(duration, pad));
         }

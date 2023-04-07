@@ -61,7 +61,7 @@ public class CatchUpSceneSetup : MonoBehaviour
 
         hatsText.SetText("TOTAL HATS: " + hatsCollected + " / " + totalHats);
 
-        if (hatsCollected == totalHats && !gameDone)
+        if (hatsCollected >= totalHats && !gameDone)
         {
             EndGame();
             gameDone = true;
