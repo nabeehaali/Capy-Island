@@ -74,4 +74,14 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("8.1-InstructionsSledMini");
     }
+
+    public void AdventureMode()
+    {
+        SceneManager.LoadScene("02-IntroStory");
+    }
+
+    public void MinigameMode()
+    {
+        SceneManager.LoadScene("03-CharacterSelectMini");
+    }
 }

@@ -102,7 +102,7 @@ public class SledGame : MonoBehaviour
                 Vector3 particlePos = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z);
                 Instantiate(splashParticles, particlePos, Quaternion.identity, transform);
                 playerParent.GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
-                if(sceneName == "18 - SledGame")
+                if(sceneName == "18-SledGame")
                 {
                     SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
                 }
