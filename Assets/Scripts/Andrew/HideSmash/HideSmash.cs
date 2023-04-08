@@ -28,7 +28,7 @@ public class HideSmash : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (sceneName == "05-HideSmash")
+        if (sceneName == "05-HideSmash" || sceneName == "5.2-HideSmash")
         {
             if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true)
             {
@@ -41,7 +41,7 @@ public class HideSmash : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(sceneName == "05-HideSmash")
+        if(sceneName == "05-HideSmash" || sceneName == "5.2-HideSmash")
         {
             if (collision.transform.root.CompareTag("Player"))
             {

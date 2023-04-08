@@ -102,8 +102,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Nabeeha/22.1-P4End.unity
     guid: f4cb36f987413e74fb0dcc206272f00d
   - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/22.5-SpecialEnd.unity
+    guid: 3384ef3a278b1734dbe1affedbac26e6
+  - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/23-Credits.unity
     guid: 78b16c7f772f3654eb00fbc56f9c03ea
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/03-CharacterSelectMini.unity
+    guid: d56af517de296474b82a3800c17733d2
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/04-MinigameSelection.unity
+    guid: 1c01d70e1d06b9641997b3ab7b56f842
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/5.1-InstructionsHideSmashMini.unity
+    guid: a3df75509a00b40448627725e87c30e5
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/5.2-HideSmash.unity
+    guid: 51ba1c1ac45f4d54c9c0ebd3bfdb0d58
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c7ad1d5407e777e4da0bb4b518c1605b,
       type: 2}

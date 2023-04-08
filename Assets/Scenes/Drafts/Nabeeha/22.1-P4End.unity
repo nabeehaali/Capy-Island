@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   video: {fileID: 565335588}
-  transition: {fileID: 0}
+  transition: {fileID: 1016349356}
 --- !u!4 &1264638931
 Transform:
   m_ObjectHideFlags: 0
