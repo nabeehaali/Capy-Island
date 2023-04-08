@@ -22,9 +22,11 @@ public class HideSmashSetupMini : MonoBehaviour
 
     string playerName1 = "", playerName2 = "", playerName3 = "", playerName4 = "";
 
+    public Animator transition;
+
     void Start()
     {
-        //transition.SetTrigger("FadeOut");
+        transition.SetTrigger("FadeOut");
 
         if (GameObject.FindGameObjectWithTag("Player 1") != null)
         {
@@ -64,6 +66,10 @@ public class HideSmashSetupMini : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<PlayerMovement>().speed = 20;
         player.transform.parent.gameObject.GetComponent<HideSmashControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = false;
+        player.transform.localPosition = Vector3.zero;
+        player.transform.localRotation = Quaternion.identity;
+        player.transform.GetChild(0).transform.localPosition = Vector3.zero;
+        player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
         player.GetComponent<TrailRenderer>().enabled = false;
         player.GetComponent<HideSmash>().enabled = true;
 
@@ -107,6 +113,7 @@ public class HideSmashSetupMini : MonoBehaviour
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerInput>().defaultActionMap = "UI";
         }
 
         //removing light at the end of the game
@@ -170,6 +177,8 @@ public class HideSmashSetupMini : MonoBehaviour
         gameover.SetText("The winner is:\n" + playerName1 + " " + playerName2 + " " + playerName3 + " " + playerName4);
 
         yield return new WaitForSeconds(3);
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("04-MinigameSelection");
     }
 

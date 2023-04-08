@@ -119,6 +119,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/5.2-HideSmash.unity
     guid: 51ba1c1ac45f4d54c9c0ebd3bfdb0d58
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/6.1-InstructionsTorchMini.unity
+    guid: 9d18dde5850358843a8ff206cf8cee34
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/6.2-TorchGameMini.unity
+    guid: 3bd8734b635feb643adbf9989843a6d2
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/7.1-InstructionsAlligatorMini.unity
+    guid: def0be273d37c3242aa2416509173c81
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/7.2-AlligatorGameMini.unity
+    guid: 131ab3fd7b2e25a468c9ef6a13acf505
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/8.1-InstructionsSledMini.unity
+    guid: eade5251550096f4d92cabff81c1135f
+  - enabled: 1
+    path: Assets/Scenes/Drafts/Nabeeha/Minigame Mode/8.2-SledGameMini.unity
+    guid: 81c3475d69b358d43abdae2afbcb9efd
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c7ad1d5407e777e4da0bb4b518c1605b,
       type: 2}

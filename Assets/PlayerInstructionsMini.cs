@@ -35,6 +35,7 @@ public class PlayerInstructionsMini : MonoBehaviour
     private void BeginGame(GameObject player, Vector3 startPos, float yAngle)
     {
         player.transform.parent.gameObject.transform.position = startPos;
+        player.transform.parent.gameObject.transform.rotation = Quaternion.identity;
         player.transform.parent.gameObject.transform.Rotate(0, yAngle, 0, Space.Self);
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
         player.transform.parent.gameObject.GetComponent<PlayerInput>().actions.FindActionMap("Player").Enable();
@@ -52,6 +53,14 @@ public class PlayerInstructionsMini : MonoBehaviour
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<AlligatorGame>().enabled = false;
         player.GetComponent<SledGame>().enabled = false;
+
+        //switching geometry
+        player.transform.GetChild(0).gameObject.SetActive(true);
+        player.transform.GetChild(4).gameObject.SetActive(false);
+
+        //switching colliders
+        player.GetComponent<MeshCollider>().enabled = true;
+        player.GetComponent<BoxCollider>().enabled = false;
 
         player.GetComponent<Rigidbody>().mass = 1;
         player.GetComponent<Rigidbody>().drag = 0;

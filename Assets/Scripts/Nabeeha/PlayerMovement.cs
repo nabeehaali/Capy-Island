@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (sceneName == "08-TorchGame" || sceneName == "Hats" || sceneName == "05-HideSmash" 
             || sceneName == "14-CatchUp" || sceneName == "22-FinalShowdown" || sceneName == "MovementTest" 
-            || sceneName == "AmyAnimtest" || sceneName == "TestUI" || sceneName == "MoveSoundDev" || sceneName == "5.2-HideSmash")
+            || sceneName == "AmyAnimtest" || sceneName == "TestUI" || sceneName == "MoveSoundDev" || sceneName == "5.2-HideSmash" || sceneName == "6.2-TorchGameMini")
         {
             //Debug.Log("I am using velocity movement");
             playerRigidbody.velocity = movement;
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("isRunning", false);
             }
         }
-        else if (sceneName == "18-SledGame" || sceneName == "11-AlligatorGame" || sceneName == "AlligatorGameDev")
+        else if (sceneName == "18-SledGame" || sceneName == "11-AlligatorGame" || sceneName == "AlligatorGameDev" || sceneName == "7.2-AlligatorGameMini" || sceneName == "8.2-SledGameMini")
         {
             //Debug.Log("I am using force movement");
             playerRigidbody.AddForce(movement * Time.deltaTime, ForceMode.Impulse);
