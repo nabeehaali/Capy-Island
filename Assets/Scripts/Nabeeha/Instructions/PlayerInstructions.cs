@@ -11,9 +11,13 @@ public class PlayerInstructions : MonoBehaviour
     static int p1Ready, p2Ready, p3Ready, p4Ready;
     public Animator transition;
     bool isReady = false;
+
+    Scene currentScene;
+    string sceneName;
     void Start()
     {
-        //transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
     public void Ready(InputAction.CallbackContext context)
     {
@@ -54,16 +58,31 @@ public class PlayerInstructions : MonoBehaviour
     {
         UI.transform.GetChild(0).GetComponent<TMP_Text>().SetText("Ready");
 
-        if(p1Ready + p2Ready + p3Ready + p4Ready == 4 && !isReady)
+        if (sceneName == "5.1-InstructionsHideSmashMini" || sceneName == "6.1-InstructionsTorchMini" || sceneName == "7.1-InstructionsAlligatorMini" || sceneName == "8.1-InstructionsSledMini")
         {
-            p1Ready = 0;
-            p2Ready = 0;
-            p3Ready = 0;
-            p4Ready = 0;
+            if (p1Ready + p2Ready + p3Ready + p4Ready == 2 && !isReady)
+            {
+                p1Ready = 0;
+                p2Ready = 0;
+                p3Ready = 0;
+                p4Ready = 0;
 
-            transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
-            StartCoroutine(sceneTransition());
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
+                StartCoroutine(sceneTransition());
+            }
+        }
+        else
+        {
+            if (p1Ready + p2Ready + p3Ready + p4Ready == 4 && !isReady)
+            {
+                p1Ready = 0;
+                p2Ready = 0;
+                p3Ready = 0;
+                p4Ready = 0;
+
+                transition = GameObject.Find("TransitionCanvas").GetComponent<Animator>();
+                StartCoroutine(sceneTransition());
+            }
         }
     }
 

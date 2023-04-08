@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class HideSmashControls : MonoBehaviour
 {
+    Scene currentScene;
+    string sceneName;
 
     public bool isPush, rumbleOn;
     int gamepadId;
@@ -19,7 +21,8 @@ public class HideSmashControls : MonoBehaviour
         isPush = false;
         animator = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
 
-        
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
 
     private void Update()
@@ -31,7 +34,11 @@ public class HideSmashControls : MonoBehaviour
 
     public void Push(InputAction.CallbackContext context)
     {
-        StartCoroutine(pushMotion());
+        if(sceneName == "5.2-HideSmash" || sceneName == "05-HideSmash")
+        {
+            StartCoroutine(pushMotion());
+        }
+        
     }
 
     IEnumerator pushMotion()

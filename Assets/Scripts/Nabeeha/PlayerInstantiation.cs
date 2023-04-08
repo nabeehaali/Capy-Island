@@ -259,6 +259,8 @@ public class PlayerInstantiation : MonoBehaviour
 
         HatsDown = false;
 
+        StartCoroutine(backupCase());
+
     }
 
     private void Update()
@@ -537,6 +539,16 @@ public class PlayerInstantiation : MonoBehaviour
             }
         }
 
+    }
+
+    IEnumerator backupCase()
+    {
+        yield return new WaitForSeconds(10);
+        if(theSpecialHat == null)
+        {
+            skip.SetActive(true);
+            skipUI.SetActive(true);
+        }
     }
 
 }

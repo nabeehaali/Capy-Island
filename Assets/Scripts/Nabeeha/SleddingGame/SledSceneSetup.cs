@@ -124,18 +124,7 @@ public class SledSceneSetup : MonoBehaviour
     {
         sledpoints.Sort();
 
-        for (int i = 0; i < sledpoints.Count; i++)
-        {
-            Debug.Log("Before hat screen: " + sledpoints[i].playerID);
-            Debug.Log("Before hat screen: " + sledpoints[i].playerPoints);
-        }
-
         sleddistinct = sledpoints.Distinct(new ItemEqualityComparer()).ToList();
-        for (int i = 0; i < sleddistinct.Count; i++)
-        {
-            Debug.Log("Before hat screen DISTINCT: " + sleddistinct[i].playerID);
-            Debug.Log("Before hat screen DISTINCT: " + sleddistinct[i].playerPoints);
-        }
 
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);

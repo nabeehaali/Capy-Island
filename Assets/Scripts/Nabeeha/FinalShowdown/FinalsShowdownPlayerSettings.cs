@@ -35,6 +35,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         //player.transform.parent.gameObject.GetComponent<TorchControls>().enabled = false;
         //player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<FinalShowdownControls>().enabled = true;
+        //player.transform.parent.gameObject.GetComponent<WizardHat>().enabled = true;
 
         player.transform.localPosition = Vector3.zero;
         player.transform.localRotation = Quaternion.identity;
@@ -46,7 +47,8 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
         player.GetComponent<TorchGame>().enabled = false;
         //player.GetComponent<SledGame>().enabled = false;
         player.GetComponent<FinalShowdown>().enabled = true;
-        
+
+        player.GetComponent<Rigidbody>().mass = 1;
         player.GetComponent<Rigidbody>().drag = 0;
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().isKinematic = false;
@@ -183,7 +185,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
             hatsOrder[p].GetComponent<ConfigurableJoint>().xMotion = ConfigurableJointMotion.Locked;
             hatsOrder[p].GetComponent<ConfigurableJoint>().yMotion = ConfigurableJointMotion.Locked;
             hatsOrder[p].GetComponent<ConfigurableJoint>().zMotion = ConfigurableJointMotion.Locked;
-            hatsOrder[p].GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Limited;
+            hatsOrder[p].GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
             hatsOrder[p].GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Locked;
             hatsOrder[p].GetComponent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Locked;
 

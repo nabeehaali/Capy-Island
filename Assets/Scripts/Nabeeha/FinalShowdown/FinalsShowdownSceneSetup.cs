@@ -65,18 +65,34 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         if(!isDeadP1)
         {
             p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
+            if(GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount == 0)
+            {
+                p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
+            }
         }
         if(!isDeadP2)
         {
             p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
+            if (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount == 0)
+            {
+                p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
+            }
         }
         if(!isDeadP3)
         {
             p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
+            if (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount == 0)
+            {
+                p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
+            }
         }
         if(!isDeadP4)
         {
             p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
+            if (GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount == 0)
+            {
+                p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
+            }
         }
 
         //special hats (selection based)
@@ -107,7 +123,17 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 gameDone = true;
             }
         }
-        
+        //if no one wins the game
+        else if (activePlayers.Count == 0)
+        {
+            if (!gameDone)
+            {
+                Debug.Log("Game Over");
+                StartCoroutine(finishGameSpecial());
+                gameDone = true;
+            }
+        }
+
     }
 
     public void SpecialHatUI(GameObject player, List<GameObject> HatUI)
@@ -192,7 +218,11 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
             else
             {
-                HatUI[i].GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+                if(HatUI[i].gameObject != null)
+                {
+                    HatUI[i].GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+                }
+                
             }
         }
     }
@@ -227,7 +257,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 //Destroy(finalshowdownplayersettings.hatsOrderP1[listIndexP1].GetComponent<HingeJoint>());
                 Destroy(finalshowdownplayersettings.hatsOrderP1[listIndexP1].GetComponent<ConfigurableJoint>());
 
-                HatCheck(finalshowdownplayersettings.hatsOrderP1, listIndexP1, p1State);
+                HatCheck(finalshowdownplayersettings.hatsOrderP1, listIndexP1, p1State, p1HatList, GameObject.FindGameObjectWithTag("Player 1"));
                 listIndexP1++;
 
                 
@@ -265,7 +295,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 //Destroy(finalshowdownplayersettings.hatsOrderP2[listIndexP2].GetComponent<HingeJoint>());
                 Destroy(finalshowdownplayersettings.hatsOrderP2[listIndexP2].GetComponent<ConfigurableJoint>());
 
-                HatCheck(finalshowdownplayersettings.hatsOrderP2, listIndexP2, p2State);
+                HatCheck(finalshowdownplayersettings.hatsOrderP2, listIndexP2, p2State, p2HatList, GameObject.FindGameObjectWithTag("Player 2"));
                 listIndexP2++;
             }
         }
@@ -301,7 +331,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 //Destroy(finalshowdownplayersettings.hatsOrderP3[listIndexP3].GetComponent<HingeJoint>());
                 Destroy(finalshowdownplayersettings.hatsOrderP3[listIndexP3].GetComponent<ConfigurableJoint>());
 
-                HatCheck(finalshowdownplayersettings.hatsOrderP3, listIndexP3, p3State);
+                HatCheck(finalshowdownplayersettings.hatsOrderP3, listIndexP3, p3State, p3HatList, GameObject.FindGameObjectWithTag("Player 3"));
                 listIndexP3++;
             }
         }
@@ -337,7 +367,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 //Destroy(finalshowdownplayersettings.hatsOrderP4[listIndexP4].GetComponent<HingeJoint>());
                 Destroy(finalshowdownplayersettings.hatsOrderP4[listIndexP4].GetComponent<ConfigurableJoint>());
 
-                HatCheck(finalshowdownplayersettings.hatsOrderP4, listIndexP4, p4State);
+                HatCheck(finalshowdownplayersettings.hatsOrderP4, listIndexP4, p4State, p4HatList, GameObject.FindGameObjectWithTag("Player 4"));
                 listIndexP4++;
             }
         }
@@ -402,7 +432,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             }
         }
 
-        //organizing hat UI
+        //organizing hat UI (make into it's own function, call into hatcheck function
         int hatsActive = 0;
         for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
@@ -423,7 +453,45 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         }
     }
 
-    void HatCheck(List<GameObject> hatsOrder, int listIndex, GameObject state)
+    void removeSpecialHatUI(List<GameObject> hatsUI, string uiTag)
+    {
+        //removes special hat from list of options to activeate abilities from
+
+        for(int i = 0; i < hatsUI.Count; i++)
+        {
+            if (hatsUI[i] == null || hatsUI[i].tag == uiTag)
+            {
+                hatsUI.RemoveAt(i);
+            }
+        }
+    }
+
+    void fixHatSpacing(GameObject ui)
+    {
+        //adjusting the spacing of ui if a special hat gets taken off
+
+        int hatsActive = 0;
+        for (int i = 0; i < ui.transform.GetChild(2).childCount; i++)
+        {
+            hatsActive++;
+        }
+
+        if (hatsActive == 1 || hatsActive == 2)
+        {
+            ui.transform.GetChild(2).GetComponent<HorizontalLayoutGroup>().spacing = -154;
+        }
+        else if (hatsActive == 3)
+        {
+            ui.transform.GetChild(2).GetComponent<HorizontalLayoutGroup>().spacing = -74;
+        }
+        else if (hatsActive == 4)
+        {
+            ui.transform.GetChild(2).GetComponent<HorizontalLayoutGroup>().spacing = 0;
+        }
+    }
+
+    //remove from player hat list, improve spacing
+    void HatCheck(List<GameObject> hatsOrder, int listIndex, GameObject state, List<GameObject> hatsUI, GameObject player)
     {
         StartCoroutine(redUI(state));
 
@@ -433,7 +501,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             {
                 if (state.transform.GetChild(2).GetChild(i).tag == "WizardUI")
                 {
-                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                    Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
+                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    fixHatSpacing(state);
+                    removeSpecialHatUI(hatsUI, "WizardUI");
+                    player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+                    //state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
                 }
             }
         }
@@ -443,7 +516,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             {
                 if (state.transform.GetChild(2).GetChild(i).tag == "ChefUI")
                 {
-                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                    Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
+                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    fixHatSpacing(state);
+                    removeSpecialHatUI(hatsUI, "ChefUI");
+                    player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+                    //state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
                 }
             }
         }
@@ -453,7 +531,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             {
                 if (state.transform.GetChild(2).GetChild(i).tag == "HockeyUI")
                 {
-                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                    Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
+                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    fixHatSpacing(state);
+                    removeSpecialHatUI(hatsUI, "HockeyUI");
+                    player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+                    //state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
                 }
             }
         }
@@ -463,7 +546,12 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
             {
                 if (state.transform.GetChild(2).GetChild(i).tag == "CreamUI")
                 {
-                    state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
+                    Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
+                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    fixHatSpacing(state);
+                    removeSpecialHatUI(hatsUI, "CreamUI");
+                    player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
+                    //state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
                 }
             }
         }
@@ -526,6 +614,25 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
 
+    }
+
+    IEnumerator finishGameSpecial()
+    {
+        yield return new WaitForSeconds(1);
+        gameover.gameObject.SetActive(true);
+        gameover.SetText("GAME OVER!");
+        yield return new WaitForSeconds(2);
+
+        //disable movement
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().speed = 0;
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetChild(0).GetComponent<Animator>().SetBool("isRunning", false);
+        }
+
+        StartCoroutine(sceneTransition("22.5-SpecialEnd"));
     }
 
     IEnumerator finishGame()

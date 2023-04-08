@@ -90,7 +90,7 @@ public class SledGame : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(sceneName == "18-SledGame")
+        if(sceneName == "18-SledGame" || sceneName == "8.2-SledGameMini")
         {
             if (collision.gameObject.tag == "Water")
             {
@@ -102,7 +102,15 @@ public class SledGame : MonoBehaviour
                 Vector3 particlePos = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z);
                 Instantiate(splashParticles, particlePos, Quaternion.identity, transform);
                 playerParent.GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
-                SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
+                if(sceneName == "18 - SledGame")
+                {
+                    SledSceneSetup.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
+                }
+                else if (sceneName == "8.2-SledGameMini")
+                {
+                    SledSceneSetupMini.sledpoints.Add(new MinigamePoints(this.gameObject.name, ranking));
+                }
+
                 ranking--;
             }
 
@@ -139,7 +147,7 @@ public class SledGame : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (sceneName == "18-SledGame")
+        if (sceneName == "18-SledGame" || sceneName == "8.2-SledGameMini")
         {
             colCount--;
             if (colCount == 0)

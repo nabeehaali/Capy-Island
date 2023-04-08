@@ -50,12 +50,28 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    //IEnumerator canvasSwitch()
-    //{
-    //    startCanvas.SetActive(false);
-    //    // will need to change this value depending on how long the animation runs for
-    //    yield return new WaitForSeconds(2);
-    //    characterSelectCanvas.SetActive(true);
-    //    PlayerManager.SetActive(true);
-    //}
+    public void mingameSelect()
+    {
+        SceneManager.LoadScene("04-MinigameSelection");
+    }
+
+    public void HideSmashGame()
+    {
+        SceneManager.LoadScene("5.1-InstructionsHideSmashMini");
+    }
+
+    public void TorchTakeOverGame()
+    {
+        SceneManager.LoadScene("6.1-InstructionsTorchMini");
+    }
+
+    public void GatorTagGame()
+    {
+        SceneManager.LoadScene("7.1-InstructionsAlligatorMini");
+    }
+
+    public void SlipSledGame()
+    {
+        SceneManager.LoadScene("8.1-InstructionsSledMini");
+    }
 }
