@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  shieldLength: 2
   shield: {fileID: 0}
 --- !u!114 &860575802041803969
 MonoBehaviour:
@@ -550,4 +551,4 @@ MonoBehaviour:
   isActive: 0
   cake: {fileID: 2086314084963142222, guid: cf65e81392c315c408fae15ad81ae02e, type: 3}
   cakeList: []
-  cakeCooldown: 1
+  cakeCooldown: 0.7

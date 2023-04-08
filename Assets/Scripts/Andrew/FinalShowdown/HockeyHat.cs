@@ -8,6 +8,7 @@ public class HockeyHat : Hat
 {
     float timer = 0;
     float ability;
+    public float shieldLength;
     bool flag;
     private PlayerInputActions playerControls;
     public GameObject shield;
@@ -65,16 +66,17 @@ public class HockeyHat : Hat
     {
 
         timer += Time.deltaTime;
-        if (timer < 1f)//
+        if (timer < shieldLength)//
         {
             shield.SetActive(true);
         }
-        else if (timer > 1 && timer < 3)
+        else if (timer > shieldLength && timer < shieldLength * 1.4f)
         {
             shield.SetActive(false);
             
         }
-        else if (timer > 3) {
+        else if (timer > shieldLength * 1.4f) 
+        {
             timer = 0;
             flag = false;
             yield return null;

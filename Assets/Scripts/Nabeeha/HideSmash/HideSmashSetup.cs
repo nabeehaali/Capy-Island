@@ -90,10 +90,17 @@ public class HideSmashSetup : MonoBehaviour
         idolPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 3").name, GameObject.FindGameObjectWithTag("Player 3").GetComponent<HideSmash>().playerScore));
         idolPoints.Add(new MinigamePoints(GameObject.FindGameObjectWithTag("Player 4").name, GameObject.FindGameObjectWithTag("Player 4").GetComponent<HideSmash>().playerScore));
 
+        GameObject.FindGameObjectWithTag("Player 1").GetComponent<PlayerMovement>().rumbleFunction(0f, 0f, 0f);
+        GameObject.FindGameObjectWithTag("Player 2").GetComponent<PlayerMovement>().rumbleFunction(0f, 0f, 0f);
+        GameObject.FindGameObjectWithTag("Player 3").GetComponent<PlayerMovement>().rumbleFunction(0f, 0f, 0f);
+        GameObject.FindGameObjectWithTag("Player 4").GetComponent<PlayerMovement>().rumbleFunction(0f, 0f, 0f);
+
         idolPoints.Sort();
         idolPoints.Reverse();
 
         distinct = idolPoints.Distinct(new ItemEqualityComparer()).ToList();
+
+        
 
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(true);
