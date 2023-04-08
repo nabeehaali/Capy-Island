@@ -48,12 +48,6 @@ public class ChefHat : Hat
                 timer = 0;
 
             }
-
-            
-
-
-
-
         }
 
     }

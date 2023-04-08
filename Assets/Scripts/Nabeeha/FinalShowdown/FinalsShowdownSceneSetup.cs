@@ -29,7 +29,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         StartCoroutine(startGame());
 
         finalshowdownplayersettings = GameObject.Find("PlayerSettings").GetComponent<FinalsShowdownPlayerSettings>();
-        transition.SetTrigger("FadeOut"); 
+        transition.SetTrigger("FadeOut");
 
         //assign special hat ui to each player
         ActivateHats(GameObject.FindGameObjectWithTag("Player 1"), p1State);
@@ -37,11 +37,14 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         ActivateHats(GameObject.FindGameObjectWithTag("Player 3"), p3State);
         ActivateHats(GameObject.FindGameObjectWithTag("Player 4"), p4State);
 
+       
         //value of hats starting off
         p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount));
         p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount));
         p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount));
         p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount));
+
+
 
         //list of active players
         activePlayers.Add(GameObject.FindGameObjectWithTag("Player 1"));
@@ -203,6 +206,14 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                         //player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
                         player.transform.parent.GetComponent<ConeHat>().enabled = true;
                     }
+                }
+                else if (HatUI.Count <= 1) 
+                {
+                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                    //player.transform.parent.GetComponent<HockeyHat>().setShieldNormal();
+                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
                 }
             }
             else
@@ -372,22 +383,25 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         //enabling hat UI that based on what hats they have in 3D
         for (int i = 0; i < player.transform.GetChild(3).GetChild(0).childCount; i++)
         {
-            if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Wizard")
-            {
-                ui.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            }
-            if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Chef")
-            {
-                ui.transform.GetChild(2).GetChild(1).gameObject.SetActive(true);
-            }
-            if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Hockey")
-            {
-                ui.transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
-            }
-            if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Cream")
-            {
-                ui.transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
-            }
+            
+                if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Wizard")
+                {
+                    ui.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+                }
+                if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Chef")
+                {
+                    ui.transform.GetChild(2).GetChild(1).gameObject.SetActive(true);
+                }
+                if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Hockey")
+                {
+                    ui.transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+                }
+                if (player.transform.GetChild(3).GetChild(0).GetChild(i).tag == "Cream")
+                {
+                    ui.transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
+                }
+            
+            
         }
 
         //destroy hat UI that is not used, if it's being used, add that hat to a list (per player)
@@ -573,25 +587,33 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
     }
     public IEnumerator startGame()
     {
+        
+
         yield return new WaitForSeconds(3);
         gameover.gameObject.SetActive(true);
         int count = 3;
 
         while (count > 0)
         {
+            
             gameover.SetText("" + count);
             yield return new WaitForSeconds(1);
             count--;
         }
+
+        
+
         gameover.SetText("START!");
         yield return new WaitForSeconds(1);
         gameover.gameObject.SetActive(false);
+
+        abilitiesEnabled = true;
 
         GameObject.FindGameObjectWithTag("Player 1").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 2").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 3").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("Player 4").transform.parent.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        abilitiesEnabled = true;
+
     }
 
     IEnumerator finishGameSpecial()
