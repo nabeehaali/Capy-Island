@@ -32,7 +32,7 @@ public class InstructionsPlayerSettings : MonoBehaviour
         player.transform.GetChild(0).gameObject.SetActive(true);
         //player.GetComponent<BoxCollider>().enabled = false;
         player.GetComponent<MeshCollider>().enabled = true;
-        player.GetComponent<TrailRenderer>().enabled = true;
+        //player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         //player.GetComponent<SledGame>().enabled = false;

@@ -31,13 +31,13 @@ public class PlayerDetails : MonoBehaviour
                 {
                     Instantiate(playerOptions[0], gameObject.transform);
                     GameObject.Find("P1Banner").transform.GetChild(0).GetComponent<Image>().sprite = GameObject.Find("UIManager").GetComponent<CharacterUIManager>().characters[0];
-                    GameObject.Find("P1Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("P1 - STEVE");
+                    GameObject.Find("P1Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("STEVE");
                 }
                 else if (randCharacter == 2)
                 {
                     Instantiate(playerOptions[1], gameObject.transform);
                     GameObject.Find("P1Banner").transform.GetChild(0).GetComponent<Image>().sprite = GameObject.Find("UIManager").GetComponent<CharacterUIManager>().characters[1];
-                    GameObject.Find("P1Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("P2 - HIPPO");
+                    GameObject.Find("P1Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("HIPPO");
                 }
             }
             else if (playerID == 2)
@@ -47,13 +47,13 @@ public class PlayerDetails : MonoBehaviour
                 {
                     Instantiate(playerOptions[2], gameObject.transform);
                     GameObject.Find("P2Banner").transform.GetChild(0).GetComponent<Image>().sprite = GameObject.Find("UIManager").GetComponent<CharacterUIManager>().characters[2];
-                    GameObject.Find("P2Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("P3 - SCOOBERT");
+                    GameObject.Find("P2Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("SCOOBERT");
                 }
                 else if (randCharacter == 2)
                 {
                     Instantiate(playerOptions[3], gameObject.transform);
                     GameObject.Find("P2Banner").transform.GetChild(0).GetComponent<Image>().sprite = GameObject.Find("UIManager").GetComponent<CharacterUIManager>().characters[3];
-                    GameObject.Find("P2Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("P4 - OCTAVIUS");
+                    GameObject.Find("P2Banner").transform.GetChild(1).GetComponent<TMP_Text>().SetText("OCTAVIUS");
                 }
             }
         }

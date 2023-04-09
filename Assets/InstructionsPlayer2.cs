@@ -29,7 +29,7 @@ public class InstructionsPlayer2 : MonoBehaviour
         //player.transform.parent.gameObject.GetComponent<CatchUpControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<PlayerInstructions>().enabled = true;
         player.transform.localPosition = Vector3.zero;
-        player.GetComponent<TrailRenderer>().enabled = true;
+        //player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<CatchUp>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         //player.GetComponent<SledGame>().enabled = false;

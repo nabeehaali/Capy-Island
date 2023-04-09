@@ -7,6 +7,7 @@ public class HideSmash : MonoBehaviour
 {
     public int playerScore;
     CapySoundTrigger soundTrigger;
+    public ParticleSystem poofCloud;
 
     Scene currentScene;
     string sceneName;
@@ -33,6 +34,7 @@ public class HideSmash : MonoBehaviour
             if (other.gameObject.tag == "Vase" && gameObject.GetComponentInParent<HideSmashControls>().isPush == true)
             {
                 soundTrigger.PlayHit();
+                Instantiate(poofCloud, other.gameObject.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
                 playerScore++;
             }

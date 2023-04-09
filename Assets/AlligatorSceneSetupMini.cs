@@ -47,22 +47,22 @@ public class AlligatorSceneSetupMini : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("Player 1") != null)
         {
-            BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(46, -250, 604), -125);
+            BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(57, -250, 582), -90);
             GameObject.Find("PlayerPanel").transform.GetChild(0).gameObject.SetActive(true);
         }
         if (GameObject.FindGameObjectWithTag("Player 2") != null)
         {
-            BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(46, -250, 604), -125);
+            BeginGame(GameObject.FindGameObjectWithTag("Player 2"), new Vector3(57, -250, 582), -90);
             GameObject.Find("PlayerPanel").transform.GetChild(1).gameObject.SetActive(true);
         }
         if (GameObject.FindGameObjectWithTag("Player 3") != null)
         {
-            BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(0, -250, 573), 35);
+            BeginGame(GameObject.FindGameObjectWithTag("Player 3"), new Vector3(-6.5f, -250, 584), 90);
             GameObject.Find("PlayerPanel").transform.GetChild(2).gameObject.SetActive(true);
         }
         if (GameObject.FindGameObjectWithTag("Player 4") != null)
         {
-            BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(0, -250, 573), 35);
+            BeginGame(GameObject.FindGameObjectWithTag("Player 4"), new Vector3(-6.5f, -250, 584), 90);
             GameObject.Find("PlayerPanel").transform.GetChild(3).gameObject.SetActive(true);
         }
 
@@ -160,7 +160,7 @@ public class AlligatorSceneSetupMini : MonoBehaviour
         player.transform.localRotation = Quaternion.identity;
         player.transform.GetChild(0).transform.localPosition = Vector3.zero;
         player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
-        player.GetComponent<TrailRenderer>().enabled = true;
+        //player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<AlligatorGame>().enabled = true;
 
         player.GetComponent<CapySoundTrigger>().moveType = "WATER";

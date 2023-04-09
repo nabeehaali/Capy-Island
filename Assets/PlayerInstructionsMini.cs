@@ -47,8 +47,8 @@ public class PlayerInstructionsMini : MonoBehaviour
         player.transform.parent.gameObject.GetComponent<AlligatorControls>().enabled = false;
         player.transform.parent.gameObject.GetComponent<SledControls>().enabled = false;
         player.transform.localPosition = Vector3.zero;
-        
-        player.GetComponent<TrailRenderer>().enabled = true;
+
+        player.GetComponent<TrailRenderer>().enabled = false;
         player.GetComponent<HideSmash>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<AlligatorGame>().enabled = false;

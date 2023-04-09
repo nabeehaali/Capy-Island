@@ -10,6 +10,8 @@ public class ConeHat : Hat
     float timer = 0;
     bool flag;
     private PlayerInputActions playerControls;
+    public ParticleSystem speedParticles;
+    bool stars = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,12 @@ public class ConeHat : Hat
         if (timer < 1f)//
         {
             gameObject.GetComponent<PlayerMovement>().speed = 55;
+            if(!stars)
+            {
+                Instantiate(speedParticles, gameObject.transform.GetChild(0));
+                stars = true;
+            }
+            
             gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = true;
 
         }
@@ -69,6 +77,7 @@ public class ConeHat : Hat
         {
             timer = 0;
             flag = false;
+            stars = false;
             yield return null;
         }
     }

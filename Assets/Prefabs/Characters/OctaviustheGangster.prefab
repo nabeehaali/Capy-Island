@@ -1397,6 +1397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  poofCloud: {fileID: 1204584097061288443, guid: ce1c6fff31e87b24984bffe1e2a60d2a,
+    type: 3}
 --- !u!82 &1049829192762707325
 AudioSource:
   m_ObjectHideFlags: 0
