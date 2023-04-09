@@ -31,7 +31,7 @@ public class AlligatorPlayerSettings : MonoBehaviour
         player.transform.localRotation = Quaternion.identity;
         player.transform.GetChild(0).transform.localPosition = Vector3.zero;
         player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
-        player.GetComponent<TrailRenderer>().enabled = true;
+        //player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<SledGame>().enabled = false;
         player.GetComponent<TorchGame>().enabled = false;
         player.GetComponent<CatchUp>().enabled = false;

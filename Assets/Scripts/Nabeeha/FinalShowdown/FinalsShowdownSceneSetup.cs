@@ -65,7 +65,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         if(!isDeadP1)
         {
             p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
-            if(GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount == 0)
+            if((GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 1").transform.GetChild(3).GetChild(0).childCount == 0)
             {
                 p1State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
             }
@@ -73,7 +73,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         if(!isDeadP2)
         {
             p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
-            if (GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount == 0)
+            if ((GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 2").transform.GetChild(3).GetChild(0).childCount == 0)
             {
                 p2State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
             }
@@ -81,7 +81,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         if(!isDeadP3)
         {
             p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
-            if (GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount == 0)
+            if ((GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 3").transform.GetChild(3).GetChild(0).childCount == 0)
             {
                 p3State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
             }
@@ -89,7 +89,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
         if(!isDeadP4)
         {
             p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("" + ((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount + " Hats Left!"));
-            if (GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount == 0)
+            if ((GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).childCount - 1) + GameObject.FindGameObjectWithTag("Player 4").transform.GetChild(3).GetChild(0).childCount == 0)
             {
                 p4State.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().SetText("Last Chance!");
             }

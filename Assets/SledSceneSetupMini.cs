@@ -140,6 +140,11 @@ public class SledSceneSetupMini : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = true;
         player.GetComponent<SledGame>().enabled = true;
 
+        player.transform.localPosition = Vector3.zero;
+        player.transform.localRotation = Quaternion.identity;
+        player.transform.GetChild(0).transform.localPosition = Vector3.zero;
+        player.transform.GetChild(0).transform.localRotation = Quaternion.identity;
+
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.GetComponent<Rigidbody>().useGravity = true;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
