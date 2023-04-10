@@ -24,13 +24,18 @@ public class CakeBehaviour : MonoBehaviour
         timer2 += Time.deltaTime;
         if (timer2 > destroyTime && triggerBool == false)
         {
-            Destroy(this.gameObject);
+            if (enemyPlayer) 
+            {
+                enemyPlayer.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            Destroy(gameObject);
         }
 
 
         if (triggerBool == true) 
         {
             triggeredSlow();
+            timer += Time.deltaTime;
         }
         
         
@@ -57,7 +62,7 @@ public class CakeBehaviour : MonoBehaviour
 
     void triggeredSlow()
     {
-        timer += Time.deltaTime;
+        
         if (timer < coolDown)
         {
 
@@ -76,7 +81,7 @@ public class CakeBehaviour : MonoBehaviour
             
 
         }
-        else if (timer > coolDown && timer < destroyTime)
+        else if (timer > coolDown)
         {
             //enemyPlayer.transform.parent.GetComponent<PlayerMovement>().speed = 30f;
             enemyPlayer.GetComponent<Rigidbody>().isKinematic = false;
@@ -86,7 +91,7 @@ public class CakeBehaviour : MonoBehaviour
             enemyPlayer.transform.GetChild(0).GetComponent<Animator>().ResetTrigger("isEatingRun");
 
 
-            triggerBool = false;
+            //triggerBool = false;
             // Destroys THIS gameObject
             Destroy(gameObject);
 
