@@ -32,7 +32,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""004b0c0e-94fe-48e1-8024-d94976a40358"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""StickDeadzone,NormalizeVector2"",
+                    ""processors"": ""StickDeadzone(min=0.4),NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -247,7 +247,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""03103d69-fb1a-47e0-a0e7-dd1ac2c46d48"",
                     ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone,StickDeadzone"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
