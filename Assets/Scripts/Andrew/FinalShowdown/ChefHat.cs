@@ -11,7 +11,7 @@ public class ChefHat : Hat
 
     public List<GameObject> cakeList;
 
-
+    GameObject shield;
     int index;
 
     float timer, ability;
@@ -26,6 +26,11 @@ public class ChefHat : Hat
         List<GameObject> cakeList = new List<GameObject>();
     }
 
+    private void OnEnable()
+    {
+        shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
+        setShieldNormal();
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,6 +44,7 @@ public class ChefHat : Hat
 
         if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
+            shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
             if (ability > 0.5f && timer > cakeCooldown)
             {
                 GameObject cakeInstance = Instantiate(cake, transform.GetChild(0).transform.position, Quaternion.identity);
@@ -58,5 +64,10 @@ public class ChefHat : Hat
         ability = context.ReadValue<float>();
 
         
+    }
+
+    public void setShieldNormal()
+    {
+        shield.SetActive(false);
     }
 }

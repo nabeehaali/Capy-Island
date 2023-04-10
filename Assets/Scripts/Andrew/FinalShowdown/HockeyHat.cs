@@ -11,7 +11,7 @@ public class HockeyHat : Hat
     public float shieldLength;
     bool flag;
     private PlayerInputActions playerControls;
-    public GameObject shield;
+    GameObject shield;
     // Start is called before the first frame update
 
     private void Awake()
@@ -26,6 +26,7 @@ public class HockeyHat : Hat
     private void OnEnable()
     {
         shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
+        setShieldNormal();
     }
 
     // Update is called once per frame

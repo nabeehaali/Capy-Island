@@ -12,11 +12,18 @@ public class ConeHat : Hat
     private PlayerInputActions playerControls;
     public ParticleSystem speedParticles;
     bool stars = false;
+    GameObject shield;
     // Start is called before the first frame update
     void Start()
     {
         setSpeedNormal();
         flag = false;
+    }
+
+    private void OnEnable()
+    {
+        shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
+        setShieldNormal();
     }
 
     // Update is called once per frame
@@ -30,7 +37,7 @@ public class ConeHat : Hat
 
         if (sceneName == "22-FinalShowdown" || sceneName == "Hats")
         {
-
+            shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
             if (ability > 0.5f)//
             {
                 flag = true;
@@ -85,5 +92,10 @@ public class ConeHat : Hat
     {
         gameObject.GetComponent<PlayerMovement>().speed = 30;
         gameObject.transform.GetChild(0).GetComponent<TrailRenderer>().enabled = false;
+    }
+
+    public void setShieldNormal()
+    {
+        shield.SetActive(false);
     }
 }

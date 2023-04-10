@@ -520,6 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  speedParticles: {fileID: 4680024039261010178, guid: 7191e10f8ed4f9d4f823706fb863afff,
+    type: 3}
 --- !u!114 &1152690600456968048
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -85,8 +85,8 @@ public class CatchUpSceneSetup : MonoBehaviour
 
                 if (rankings.Count > 1)
                 {
-                    //if (rankings[0].playerPoints == rankings[1].playerPoints)
-                    //{
+                    if (rankings[0].playerPoints == rankings[1].playerPoints)
+                    {
                         //compare if first element is the same as other elements
                         for (int i = 0; i < rankings.Count - 1; i++)
                         {
@@ -100,7 +100,7 @@ public class CatchUpSceneSetup : MonoBehaviour
                                 
                             }
                         }
-                    //}
+                    }
                 }
                 
                 //change spacing of panel depending on how many players get put on the field
@@ -155,6 +155,11 @@ public class CatchUpSceneSetup : MonoBehaviour
                 }
 
                 listCount = 0;
+
+                for (int i = 0; i < rankings.Count; i++)
+                {
+                    Debug.Log(rankings[i].playerID + " has " + rankings[i].playerPoints + " points");
+                }
             }
         }
     }
