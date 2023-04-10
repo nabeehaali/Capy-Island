@@ -4410,7 +4410,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 0.10000000149011612,
+    "m_Value": 0.05000000074505806,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -4927,10 +4927,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 491.33331298828127,
-            "y": -1810.6666259765625,
-            "width": 127.33331298828125,
-            "height": 78.6666259765625
+            "x": 465.0000305175781,
+            "y": -1817.0001220703125,
+            "width": 125.99996948242188,
+            "height": 77.0
         }
     },
     "m_Slots": [
