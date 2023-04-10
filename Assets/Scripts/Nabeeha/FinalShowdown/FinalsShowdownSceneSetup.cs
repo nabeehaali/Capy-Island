@@ -496,7 +496,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 if (state.transform.GetChild(2).GetChild(i).tag == "WizardUI")
                 {
                     Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
-                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    state.transform.GetChild(2).GetChild(i).SetParent(null);
                     fixHatSpacing(state);
                     removeSpecialHatUI(hatsUI, "WizardUI");
                     player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
@@ -511,7 +511,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 if (state.transform.GetChild(2).GetChild(i).tag == "ChefUI")
                 {
                     Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
-                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    state.transform.GetChild(2).GetChild(i).SetParent(null);
                     fixHatSpacing(state);
                     removeSpecialHatUI(hatsUI, "ChefUI");
                     player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
@@ -526,7 +526,7 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 if (state.transform.GetChild(2).GetChild(i).tag == "HockeyUI")
                 {
                     Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
-                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    state.transform.GetChild(2).GetChild(i).SetParent(null);
                     fixHatSpacing(state);
                     removeSpecialHatUI(hatsUI, "HockeyUI");
                     player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
@@ -541,9 +541,11 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                 if (state.transform.GetChild(2).GetChild(i).tag == "CreamUI")
                 {
                     Destroy(state.transform.GetChild(2).GetChild(i).gameObject);
-                    state.transform.GetChild(2).GetChild(i).parent = null;
+                    state.transform.GetChild(2).GetChild(i).SetParent(null);
                     fixHatSpacing(state);
                     removeSpecialHatUI(hatsUI, "CreamUI");
+
+                    player.transform.parent.GetComponent<PlayerMovement>().speed = 30;
                     player.transform.parent.GetComponent<FinalShowdownControls>().index = 0;
                     //state.transform.GetChild(2).GetChild(i).GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, true);
                 }

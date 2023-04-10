@@ -19,12 +19,14 @@ public class HockeyHat : Hat
     }
     void Start()
     {
+        GetComponent<PlayerMovement>().speed = 30;
         setShieldNormal();
         flag = false;
     }
 
     private void OnEnable()
     {
+        GetComponent<PlayerMovement>().speed = 30;
         shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
         setShieldNormal();
     }

@@ -28,6 +28,7 @@ public class ChefHat : Hat
 
     private void OnEnable()
     {
+        GetComponent<PlayerMovement>().speed = 30;
         shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
         setShieldNormal();
     }

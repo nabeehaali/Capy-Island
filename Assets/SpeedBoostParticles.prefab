@@ -26,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4680024039261010176}
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.015, z: -0.017}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4680024039261010176}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 125
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 2000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1306,7 +1306,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.9528302, g: 0.03146139, b: 0.03146139, a: 1}
-        key1: {r: 1, g: 0.08018869, b: 0.42533812, a: 0}
+        key1: {r: 1, g: 0.08018869, b: 0.42533812, a: 1}
         key2: {r: 0.9622642, g: 0.44406998, b: 0.09531862, a: 1}
         key3: {r: 0.9622642, g: 0.85119885, b: 0.11347453, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4061,7 +4061,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2

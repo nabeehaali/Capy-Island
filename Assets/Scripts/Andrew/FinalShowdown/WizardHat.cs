@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class WizardHat : Hat
 {
@@ -14,6 +15,8 @@ public class WizardHat : Hat
     public Transform shootTransform;
     float timer, ability;
     public float coolDown;
+
+    GameObject shield;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -25,7 +28,15 @@ public class WizardHat : Hat
 
     private void Start()
     {
+        GetComponent<PlayerMovement>().speed = 30;
         shootTransform = transform.GetChild(0).GetChild(6).transform;
+    }
+
+    private void OnEnable()
+    {
+        GetComponent<PlayerMovement>().speed = 30;
+        shield = gameObject.transform.GetChild(0).Find("Shield").gameObject;
+        setShieldNormal();
     }
 
     // Update is called once per frame
@@ -56,5 +67,10 @@ public class WizardHat : Hat
     {
         ability = context.ReadValue<float>();
 
+    }
+
+    public void setShieldNormal()
+    {
+        shield.SetActive(false);
     }
 }

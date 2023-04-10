@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6114533031430554746}
   m_Layer: 0
   m_Name: Cake 1
-  m_TagString: Untagged
+  m_TagString: Cake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 1.5
   destroyTime: 5
+  destroy: 0
   enemyPlayer: {fileID: 0}
   player: {fileID: 0}
 --- !u!135 &5139407300783589759
