@@ -140,6 +140,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
     {
         //Debug.Log(player.tag + " index: " + player.transform.parent.GetComponent<FinalShowdownControls>().index);
         //Debug.Log(player.tag + " Num hats: " + HatUI.Count);
+        if (HatUI.Count <= 0)
+        {
+            player.transform.parent.GetComponent<WizardHat>().enabled = false;
+            player.transform.parent.GetComponent<ChefHat>().enabled = false;
+            player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+            player.transform.parent.GetComponent<ConeHat>().enabled = false;
+        }
 
         for (int i = 0; i < HatUI.Count; i++)
         {
@@ -201,13 +208,13 @@ public class FinalsShowdownSceneSetup : MonoBehaviour
                         player.transform.parent.GetComponent<ConeHat>().enabled = true;
                     }
                 }
-                else if (HatUI.Count <= 0) 
-                {
-                    player.transform.parent.GetComponent<WizardHat>().enabled = false;
-                    player.transform.parent.GetComponent<ChefHat>().enabled = false;
-                    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
-                    player.transform.parent.GetComponent<ConeHat>().enabled = false;
-                }
+                //else if (HatUI.Count <= 0) 
+                //{
+                //    player.transform.parent.GetComponent<WizardHat>().enabled = false;
+                //    player.transform.parent.GetComponent<ChefHat>().enabled = false;
+                //    player.transform.parent.GetComponent<HockeyHat>().enabled = false;
+                //    player.transform.parent.GetComponent<ConeHat>().enabled = false;
+                //}
             }
             else
             {
