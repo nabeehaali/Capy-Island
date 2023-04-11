@@ -223,6 +223,7 @@ public class AlligatorSceneSetupMini : MonoBehaviour
 
     void EndGame()
     {
+        StopAllCoroutines();
         StartCoroutine(FinishGame());
     }
 
