@@ -2346,6 +2346,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 381514780}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &334644372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!1001 &335941360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6695,6 +6764,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &851352859
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!1001 &860989514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7705,6 +7843,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5523c7ccebe196a4eb8cbef667af30e3, type: 3}
+--- !u!1001 &997266950
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!4 &1020695600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3793333713033635696, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
@@ -13124,6 +13331,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
+--- !u!1001 &1077789638
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!1 &1083101089
 GameObject:
   m_ObjectHideFlags: 0
@@ -19769,6 +20045,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 450517579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1440898422
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!4 &1444763164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3793333713033635696, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,
@@ -20371,6 +20716,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9d4c156a43bca4c8b6eda2bfff1740, type: 3}
+--- !u!1001 &1519464885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!4 &1521454698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2552540341924876423, guid: 5523c7ccebe196a4eb8cbef667af30e3,
@@ -22663,6 +23077,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac89f794ed75e0846a84df9a4961aa3e, type: 3}
+--- !u!1001 &1897635223
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!4 &1898755021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6570967013377015206, guid: ac89f794ed75e0846a84df9a4961aa3e,
@@ -23183,6 +23666,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1405475127}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2025361619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!1 &2031433028
 GameObject:
   m_ObjectHideFlags: 0
@@ -23541,6 +24093,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083954500}
   m_CullTransparentMesh: 1
+--- !u!1001 &2084564250
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 607106670}
+    m_Modifications:
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145873420579064654, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521273814726283764, guid: b54d0db46ceec534e9f4b78eeef351e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseballCapColoured (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b54d0db46ceec534e9f4b78eeef351e4, type: 3}
 --- !u!4 &2085218533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3793333713033635696, guid: 2a9d4c156a43bca4c8b6eda2bfff1740,

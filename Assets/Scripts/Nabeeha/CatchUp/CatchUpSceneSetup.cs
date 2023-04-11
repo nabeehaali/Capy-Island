@@ -74,7 +74,7 @@ public class CatchUpSceneSetup : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
             if (rankings.Count != 0)
             {
                 //show first element by deafult
@@ -237,7 +237,7 @@ public class CatchUpSceneSetup : MonoBehaviour
     IEnumerator startGame()
     {
         gameover.gameObject.SetActive(true);
-        int count = 5;
+        int count = 3;
 
         while (count > 0)
         {

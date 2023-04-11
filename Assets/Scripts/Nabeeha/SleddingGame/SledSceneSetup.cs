@@ -115,7 +115,7 @@ public class SledSceneSetup : MonoBehaviour
 
         }
 
-
+        StopAllCoroutines();
         GameObject.Find("icePlatformPieces").GetComponent<SledIceberg>().StopCoroutine("dropPiece");
         StartCoroutine(finishGame());
     }

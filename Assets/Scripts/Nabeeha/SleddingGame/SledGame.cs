@@ -26,12 +26,18 @@ public class SledGame : MonoBehaviour
     Scene currentScene;
     string sceneName;
 
-    void Start()
+    //private void OnEnable()
+    //{
+    //    inWater = false;
+    //}
+
+    void OnEnable()
     {
         playerParent = transform.parent.gameObject;
         _rigidbody = transform.GetComponent<Rigidbody>();
         _trailRender = transform.GetComponent<TrailRenderer>();
         ranking = 4;
+        colCount = 0;
         inWater = false;
         offBerg = false;
         addCam = false;

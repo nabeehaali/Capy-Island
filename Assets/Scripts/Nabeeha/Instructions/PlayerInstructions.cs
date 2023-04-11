@@ -14,17 +14,21 @@ public class PlayerInstructions : MonoBehaviour
 
     Scene currentScene;
     string sceneName;
-    void Start()
+    void OnEnable()
     {
-        currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
+        p1Ready = 0;
+        p2Ready = 0;
+        p3Ready = 0;
+        p4Ready = 0;
     }
     public void Ready(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            //RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
-            if(sceneName == "04.5-InstructionsHideSmash" || sceneName == "07-InstructionsTorch 1" || sceneName == "10-InstructionsAlligator 1" || sceneName == "13.5-InstructionsCatchUp"
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+        //if (context.performed)
+        //{
+        //RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
+        if (sceneName == "04.5-InstructionsHideSmash" || sceneName == "07-InstructionsTorch 1" || sceneName == "10-InstructionsAlligator 1" || sceneName == "13.5-InstructionsCatchUp"
                 || sceneName == "17-InstructionsSled" || sceneName == "21-HatInfo" || sceneName == "21.5-InstructionsShowdown" || sceneName == "5.1-InstructionsHideSmashMini"
                 || sceneName == "6.1-InstructionsTorchMini" || sceneName == "7.1-InstructionsAlligatorMini" || sceneName == "8.1-InstructionsSledMini")
             {
@@ -57,7 +61,7 @@ public class PlayerInstructions : MonoBehaviour
             }
             
 
-        }
+        //}
     }
 
     void updateUI(GameObject UI)

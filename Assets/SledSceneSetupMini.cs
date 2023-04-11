@@ -33,6 +33,8 @@ public class SledSceneSetupMini : MonoBehaviour
     {
         transition.SetTrigger("FadeOut");
 
+        sledpoints.Clear();
+
         if (GameObject.FindGameObjectWithTag("Player 1") != null)
         {
             BeginGame(GameObject.FindGameObjectWithTag("Player 1"), new Vector3(-267, 165, 769), 0);
@@ -214,7 +216,7 @@ public class SledSceneSetupMini : MonoBehaviour
             GameObject.FindGameObjectsWithTag("Player")[i].transform.GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         }
 
-
+        StopAllCoroutines();
         GameObject.Find("icePlatformPieces").GetComponent<SledIceberg>().StopCoroutine("dropPiece");
         StartCoroutine(finishGame());
     }

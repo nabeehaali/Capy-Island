@@ -104,12 +104,14 @@ public class DisasterSceneSetup : MonoBehaviour
     IEnumerator countDown(int seconds, GameObject slot, int hatsOff)
     {
         int count = seconds;
-
+        Color32 tempCol = slot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
         while (count >= (seconds - hatsOff))
         {
+            slot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color32(222, 35, 35, 255);
             slot.transform.GetChild(0).GetComponent<TMP_Text>().SetText("" + count);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             count--;
         }
+        slot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = tempCol;
     }
 }
