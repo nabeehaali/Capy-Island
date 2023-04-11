@@ -11,6 +11,8 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
 
     float inc = 0.6f;
     bool hatsConnected = false;
+
+    bool isready = false;
     void Start()
     {
         Debug.Log("Start");
@@ -114,6 +116,13 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     //    connectAllHats(hatsOrderP2, GameObject.FindGameObjectWithTag("Player 2"));
     //    connectAllHats(hatsOrderP3, GameObject.FindGameObjectWithTag("Player 3"));
     //    connectAllHats(hatsOrderP4, GameObject.FindGameObjectWithTag("Player 4"));
+
+    //    if (hatsOrderP1[0].GetComponent<Rigidbody>().velocity.y >= -0.001f && hatsOrderP2[0].GetComponent<Rigidbody>().velocity.y >= -0.001f && hatsOrderP3[0].GetComponent<Rigidbody>().velocity.y >= -0.001f
+    //        && hatsOrderP4[0].GetComponent<Rigidbody>().velocity.y >= -0.001f && !isready)
+    //    {
+    //        StartCoroutine(GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().startGame());
+    //        isready = true;
+    //    }
     //}
 
     void connectAllHats(List<GameObject> hatsOrder, GameObject player)
@@ -153,7 +162,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
                 player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             }
             //call countdown
-            StartCoroutine(GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().startGame());
+            //StartCoroutine(GameObject.Find("SceneSetup").GetComponent<FinalsShowdownSceneSetup>().startGame());
             hatsConnected = true;
         }
     }
@@ -161,7 +170,7 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
     
     IEnumerator connectHats(List<GameObject> hatsOrder, GameObject player)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
 
         //hinge joints
         for (int p = 0; p < hatsOrder.Count - 1; p++)

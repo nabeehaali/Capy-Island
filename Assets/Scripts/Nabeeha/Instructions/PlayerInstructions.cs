@@ -24,32 +24,38 @@ public class PlayerInstructions : MonoBehaviour
         if (context.performed)
         {
             //RumbleManager.instance.RumblePulse(0.25f, 1f, 0.25f);
-            GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
-            if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 1")
+            if(sceneName == "04.5-InstructionsHideSmash" || sceneName == "07-InstructionsTorch 1" || sceneName == "10-InstructionsAlligator 1" || sceneName == "13.5-InstructionsCatchUp"
+                || sceneName == "17-InstructionsSled" || sceneName == "21-HatInfo" || sceneName == "21.5-InstructionsShowdown" || sceneName == "5.1-InstructionsHideSmashMini"
+                || sceneName == "6.1-InstructionsTorchMini" || sceneName == "7.1-InstructionsAlligatorMini" || sceneName == "8.1-InstructionsSledMini")
             {
-                UI = GameObject.Find("P1");
-                p1Ready = 1;
-                updateUI(UI);
-                
+                GetComponent<PlayerMovement>().rumbleFunction(0.25f, 1f, 0.25f);
+                if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 1")
+                {
+                    UI = GameObject.Find("P1");
+                    p1Ready = 1;
+                    updateUI(UI);
+
+                }
+                if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 2")
+                {
+                    UI = GameObject.Find("P2");
+                    p2Ready = 1;
+                    updateUI(UI);
+                }
+                if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 3")
+                {
+                    UI = GameObject.Find("P3");
+                    p3Ready = 1;
+                    updateUI(UI);
+                }
+                if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 4")
+                {
+                    UI = GameObject.Find("P4");
+                    p4Ready = 1;
+                    updateUI(UI);
+                }
             }
-            if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 2")
-            {
-                UI = GameObject.Find("P2");
-                p2Ready = 1;
-                updateUI(UI);
-            }
-            if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 3")
-            {
-                UI = GameObject.Find("P3");
-                p3Ready = 1;
-                updateUI(UI);
-            }
-            if (this.gameObject.transform.GetChild(0).gameObject.tag == "Player 4")
-            {
-                UI = GameObject.Find("P4");
-                p4Ready = 1;
-                updateUI(UI);
-            }
+            
 
         }
     }
