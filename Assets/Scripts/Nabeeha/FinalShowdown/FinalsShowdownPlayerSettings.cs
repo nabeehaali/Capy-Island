@@ -206,5 +206,10 @@ public class FinalsShowdownPlayerSettings : MonoBehaviour
 
             player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         }
+
+        if(hatsOrder.Count == 1 && hatsOrder[0] == player)
+        {
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        }
     }
 }
