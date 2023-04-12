@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3386,6 +3386,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3ec81568f20beba41802495ce635b34b, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 62a197ed9e844e243b198b913989aa4f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4489298868882783121, guid: 22e90802c7291f3489f1cc50f0f107ee,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: 62a197ed9e844e243b198b913989aa4f,
         type: 3}
       propertyPath: m_Name
@@ -3423,7 +3429,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7730291033169824647, guid: 62a197ed9e844e243b198b913989aa4f, type: 3}
+  m_Mesh: {fileID: -4489298868882783121, guid: 22e90802c7291f3489f1cc50f0f107ee, type: 3}
 --- !u!1001 &1100668305
 PrefabInstance:
   m_ObjectHideFlags: 0
