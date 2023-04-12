@@ -275,6 +275,7 @@ public class PlayerInstantiation : MonoBehaviour
                 skip.SetActive(true);
                 skipUI.SetActive(true);
 
+                GetComponent<AudioSource>().Play();
                 //addJoints(GameObject.FindGameObjectWithTag("Player 1"), hatsOrderP1);
                 //addJoints(GameObject.FindGameObjectWithTag("Player 2"), hatsOrderP2);
                 //addJoints(GameObject.FindGameObjectWithTag("Player 3"), hatsOrderP3);
