@@ -153,6 +153,7 @@ public class StatueRotation : MonoBehaviour
 
     IEnumerator stunPlayer(GameObject player)
     {
+        gameObject.transform.Find("Light").GetComponent<AudioSource>().Play();
         //Stunned
         player.gameObject.transform.parent.GetComponent<PlayerMovement>().speed = 0;
         player.transform.parent.GetComponent<PlayerMovement>().rumbleFunction(0.2f, 0.2f, 0.3f);

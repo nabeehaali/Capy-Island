@@ -51,6 +51,7 @@ public class SledIceberg : MonoBehaviour
             }
             else
             {
+                
                 Move();
             }
         }
@@ -77,6 +78,7 @@ public class SledIceberg : MonoBehaviour
     }
     IEnumerator shake()
     {
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
         isActivate = true;
     }
