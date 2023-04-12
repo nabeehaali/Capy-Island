@@ -59,7 +59,7 @@ public class AlligatorBrain : MonoBehaviour
                 PlayChomp();
 
                 // accounting for the weird offset
-                Vector3 particlePos = new Vector3(transform.position.x - 4, -249, transform.position.z);
+                Vector3 particlePos = new Vector3(transform.position.x + 2, -249, transform.position.z);
                 Instantiate(splashParticles, particlePos, Quaternion.identity);
                 StartCoroutine(resetMoveTarget());
             }
@@ -69,7 +69,7 @@ public class AlligatorBrain : MonoBehaviour
             targetPosition = randomPoint(b);
 
             // ugly but a way to correct for the model offset for now - meaning forever
-            targetPosition = new Vector3(targetPosition.x - 4, targetPosition.y, targetPosition.z);
+            targetPosition = new Vector3(targetPosition.x + 2, targetPosition.y, targetPosition.z);
             moving = true;
         }
     }
