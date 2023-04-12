@@ -51,7 +51,7 @@ public class SledSceneSetup : MonoBehaviour
         }
 
         //checking if there is one player standing on ice
-        if (sledpoints.Count == 3 && !gameDone)
+        if (sledpoints.Count >= 3 && !gameDone)
         {
             wonbyLastMan = true;
             for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
