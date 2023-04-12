@@ -59,7 +59,7 @@ public class AlligatorBrain : MonoBehaviour
                 PlayChomp();
 
                 // accounting for the weird offset
-                Vector3 particlePos = new Vector3(transform.position.x + 2, -249, transform.position.z);
+                Vector3 particlePos = new Vector3(transform.position.x - 5, -249, transform.position.z);
                 Instantiate(splashParticles, particlePos, Quaternion.identity);
                 StartCoroutine(resetMoveTarget());
             }
